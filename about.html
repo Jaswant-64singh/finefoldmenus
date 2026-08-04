@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Delici - Restaurants HTML Template - About Us</title>
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+<style>
+        /* Small header logo placed between the service notice and contact number. */
+        .header-small-logo {
+            position: absolute;
+            top: 50%;
+            left: 75%;
+            display: flex;
+            align-items: center;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .header-small-logo img {
+            display: block;
+            width: 134px;
+            max-width: 100%;
+            height: auto;
+            margin-left: 270px;
+        }
+
+        @media (max-width: 767px) {
+            .header-small-logo {
+                display: none;
+            }
+        }
+
+        /* ============================================================
+     STICKY THUMBNAIL (small floating video card)
+     ============================================================ */
+        .sticky-video-widget {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 130px;
+            /* thumbnail width - adjust as needed */
+            aspect-ratio: 9 / 16;
+            /* keeps it portrait like a reel */
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            z-index: 9999;
+            cursor: pointer;
+            background: #000;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .sticky-video-widget:hover {
+            transform: scale(1.04);
+            /* slight pop on hover */
+        }
+
+        /* Hide the widget completely once user closes it */
+        .sticky-video-widget.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.8);
+        }
+
+        .sticky-video-widget video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Small close (X) button on the sticky thumbnail */
+        .sticky-close-btn {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.55);
+            color: #fff;
+            border: none;
+            font-size: 14px;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        /* Small "play" hint icon overlay (optional visual cue) */
+        .sticky-play-icon {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            width: 26px;
+            height: 26px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .sticky-play-icon::after {
+            content: "";
+            border-style: solid;
+            border-width: 6px 0 6px 10px;
+            border-color: transparent transparent transparent #111;
+            margin-left: 2px;
+        }
+
+        /* ============================================================
+     FULLSCREEN / EXPANDED POPUP (shown on click)
+     ============================================================ */
+        .video-popup-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s ease;
+        }
+
+        .video-popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .video-popup-box {
+            position: relative;
+            width: 80%;
+            max-width: 320px;
+            /* smaller, more premium reel-sized box */
+            aspect-ratio: 9 / 16;
+            border-radius: 24px;
+            /* softer, more premium rounded corners */
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            /* premium floating shadow */
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            /* subtle premium edge */
+            transform: scale(0.85);
+            opacity: 0;
+            transition: transform 0.35s ease, opacity 0.35s ease;
+        }
+
+        .video-popup-overlay.active .video-popup-box {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .video-popup-box video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Close button for the big popup video */
+        .popup-close-btn {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        /* ============================================================
+     RESPONSIVENESS
+     ============================================================ */
+        @media (max-width: 768px) {
+            .sticky-video-widget {
+                width: 100px;
+                bottom: 16px;
+                right: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sticky-video-widget {
+                width: 90px;
+                bottom: 12px;
+                right: 12px;
+            }
+
+            .video-popup-box {
+                width: 78%;
+                max-width: 260px;
+            }
+
+            .popup-close-btn {
+                top: -36px;
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper">
+
+        <!-- Preloader -->
+        <div class="loader-wrap">
+            <div class="preloader">
+                <div class="preloader-close">x</div>
+                <div id="handle-preloader" class="handle-preloader">
+                    <div class="animation-preloader">
+                        <div class="spinner"></div>
+                        <div class="txt-loading">
+                            <span data-text-preloader="F" class="letters-loading">
+                                F
+                            </span>
+                            <span data-text-preloader="I" class="letters-loading">
+                                I
+                            </span>
+                            <span data-text-preloader="N" class="letters-loading">
+                                N
+                            </span>
+                            <span data-text-preloader="E" class="letters-loading">
+                                E
+                            </span>
+                            <span data-text-preloader="F" class="letters-loading">
+                                F
+                            </span>
+                            <span data-text-preloader="O" class="letters-loading">
+                                O
+                            </span>
+                            <span data-text-preloader="L" class="letters-loading">
+                                L
+                            </span>
+                            <span data-text-preloader="D" class="letters-loading">
+                                D
+                            </span>
+                            <span data-text-preloader="M" class="letters-loading">
+                                M
+                            </span>
+                            <span data-text-preloader="E" class="letters-loading">
+                                E
+                            </span>
+                            <span data-text-preloader="N" class="letters-loading">
+                                N
+                            </span>
+                            <span data-text-preloader="U" class="letters-loading">
+                                U
+                            </span>
+                            <span data-text-preloader="S" class="letters-loading">
+                                S
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Preloader End -->
+
+        <!-- Main Header-->
+       <header class="main-header header-down">
+            <div class="header-top">
+                <div class="auto-container">
+                    <div class="inner clearfix">
+                        <div class="top-left clearfix">
+                            <ul class="top-info clearfix">
+                                <li><i class="icon far fa-map-marker-alt"></i> C-111, 3rd Floor, Naraina Industrial
+                                    Area, Delhi - 110034
+                                </li>
+                                <li class="design-services-link"><a href="design-services.html"
+                                        aria-label="Design services also available"><span>Design Services Also
+                                            Available</span></a></li>
+                            </ul>
+                        </div>
+                        <a class="header-small-logo" href="index.html" aria-label="Fine Fold Menus home">
+                            <img src="images/small-pnglogo.png" alt="Fine Fold Menus">
+                        </a>
+                        <div class="top-right clearfix">
+                            <ul class="top-info clearfix">
+                                <li><a href="tel:+919818095822"><i class="icon far fa-phone"></i> +91 98180 95822</a>
+                                </li>
+                                <!-- <li><a href="mailto:info@finefoldmenus.com"><i class="icon far fa-envelope"></i>
+                                        info@finefoldmenus.com</a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header Upper -->
+            <div class="header-upper">
+                <div class="auto-container">
+                    <!-- Main Box -->
+                    <div class="main-box clearfix">
+                        <!--Logo-->
+                        <div class="logo-box">
+                            <div class="logo"><a href="index.html"><img src="images/logo.png" alt="Fine Fold Menus"></a>
+                            </div>
+                        </div>
+
+                        <div class="nav-box clearfix">
+                            <!--Nav Outer-->
+                            <div class="nav-outer clearfix">
+                                <nav class="main-menu">
+                                    <ul class="navigation clearfix">
+                                        <li class="current"><a href="index.html">Home</a></li>
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li class="dropdown has-mega-menu"><a href="#">Industries We Serve</a>
+                                            <ul>
+                                                <li>
+                                                    <div class="mega-menu">
+                                                        <div class="menu-inner">
+                                                            <div class="auto-container">
+                                                                <div class="row clearfix">
+                                                                    <div class="menu-block col-lg-3 col-md-6 col-sm-6">
+                                                                        <div class="image"><a href="Restaurant.html"><img
+                                                                                    src="images/restaurant-groups.jpg"
+                                                                                    alt="Restaurant Groups"></a></div>
+                                                                        <div class="title"><a href="Restaurant.html">Restaurant</a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="menu-block col-lg-3 col-md-6 col-sm-6">
+                                                                        <div class="image"><a href="#"><img
+                                                                                    src="images/hotels-and-resorts.jpg"
+                                                                                    alt="Hotels & Resorts"></a></div>
+                                                                        <div class="title"><a href="#">Hotels &
+                                                                                Resorts</a></div>
+                                                                    </div>
+                                                                    <div class="menu-block col-lg-3 col-md-6 col-sm-6">
+                                                                        <div class="image"><a href="#"><img
+                                                                                    src="images/food-court.jpg"
+                                                                                    alt="Food Court"></a></div>
+                                                                        <div class="title"><a href="#">Food Court</a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="menu-block col-lg-3 col-md-6 col-sm-6">
+                                                                        <div class="image"><a href="#"><img
+                                                                                    src="images/bars-and-lounges.jpg"
+                                                                                    alt="Bars & Lounges"></a></div>
+                                                                        <div class="title"><a href="#">Bars &
+                                                                                Lounges</a></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="dropdown"><a href="#">Our Services</a>
+                                            <ul>
+                                                <li><a href="#">Fully Customized Menu</a></li>
+                                                <li><a href="#">Luxury Dine-in Menu</a></li>
+                                                <li><a href="#">MDF Series Menu</a></li>
+                                                <li><a href="#"> Waterproof Menu (NTR)</a></li>
+                                                <li><a href="#"> Acrylic Menu</a></li>
+                                                <li><a href="#">Pool Side Menu</a></li>
+                                                <li><a href="#">Premium Wiro Menu</a></li>
+                                                <li><a href="#">Changeable Menu</a></li>
+                                                <li><a href="#">Bar & Drink Menu</a></li>
+                                                <li><a href="#">Food Court Menus</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li><a href="how-its-work.html">How it works</a></li>
+                                        <li class="dropdown"><a href="#"> Contact Us</a>
+                                            <ul>
+                                                <li><a href="Make-a-Payment.html">Make a Payment</a></li>
+                                                <li><a href="Speak-With-Us.html">Speak With Us</a></li>
+
+                                            </ul>
+                                        </li>
+
+                                    </ul>
+                                </nav>
+                                <!-- Main Menu End-->
+                            </div>
+                            <!--Nav Outer End-->
+
+                            <div class="links-box clearfix">
+                                <div class="link link-btn">
+                                    <a href="reservation-opentable.html" class="theme-btn btn-style-one clearfix">
+                                        <span class="btn-wrap">
+                                            <span class="text-one">Get A Quote</span>
+                                            <span class="text-two">Get A Quote</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="link info-toggler">
+                                    <button class="info-btn">
+                                        <span class="hamburger">
+                                            <span class="top-bun"></span>
+                                            <span class="meat"></span>
+                                            <span class="bottom-bun"></span>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Hidden Nav Toggler -->
+                            <div class="nav-toggler">
+                                <button class="hidden-bar-opener">
+                                    <span class="hamburger">
+                                        <span class="top-bun"></span>
+                                        <span class="meat"></span>
+                                        <span class="bottom-bun"></span>
+                                    </span>
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--End Main Header -->
+
+
+        <!--Menu Backdrop-->
+        <div class="menu-backdrop"></div>
+
+        <!-- Hidden Navigation Bar -->
+        <section class="hidden-bar">
+            <!-- Hidden Bar Wrapper -->
+            <div class="inner-box">
+                <div class="cross-icon hidden-bar-closer"><span class="far fa-close"></span></div>
+                <div class="logo-box"><a href="index.html"><img src="images/logo-footer-m.png"
+                            alt="Find Fold Menus"></a></div>
+
+                <!-- .Side-menu ----------------------------------------------------->
+                <div class="side-menu">
+                    <ul class="navigation clearfix">
+                        <li class="current"><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+
+                        <li class="dropdown"><a href="#">Industries We Serve</a>
+                            <ul>
+                                <li><a href="Restaurant.html">Restaurant</a></li>
+                                <li><a href="#">Hotels & Resorts</a></li>
+                                <li><a href="#">Food Court</a></li>
+                                <li><a href="#">Bars & Lounges</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown"><a href="#">Our Services</a>
+                            <ul>
+                                <li><a href="#">Fully Customized Menu</a></li>
+                                <li><a href="#">Luxury Dine-in Menu</a></li>
+                                <li><a href="#">MDF Series Menu</a></li>
+                                <li><a href="#"> Waterproof Menu (NTR)</a></li>
+                                <li><a href="#"> Acrylic Menu</a></li>
+                                <li><a href="#">Pool Side Menu</a></li>
+                                <li><a href="#">Premium Wiro Menu</a></li>
+                                <li><a href="#">Changeable Menu</a></li>
+                                <li><a href="#">Bar & Drink Menu</a></li>
+                                <li><a href="#">Food Court Menus</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="how-its-work.html">How it works</a></li>
+
+                        <li class="dropdown"><a href="#">Contact Us</a>
+                            <ul>
+                                <li><a href="Make-a-Payment.html">Make a Payment</a></li>
+                                <li><a href="Speak-With-Us.html">Speak With Us</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.Side-menu -------------------------------------------------->
+
+                <h2>Visit Us</h2>
+                <ul class="info">
+                    <li> C-111, 3rd Floor, Naraina Industrial Area, Delhi - 110034
+                    </li>
+                    <li>Open: 10.00 am - 6.30pm</li>
+                    <li><a href="mailto:info@finefoldmenus.com">info@finefoldmenus.com</a></li>
+                </ul>
+                <div class="separator"><span></span></div>
+                <div class="booking-info">
+                    <div class="bk-title">Get Started</div>
+                    <div class="bk-no"><a href="tel:+919818095822">+91 98180 95822</a></div>
+                </div>
+
+            </div><!-- / Hidden Bar Wrapper -->
+        </section>
+        <!-- / Hidden Bar -->
+
+        <!--Info Back Drop-->
+        <div class="info-back-drop"></div>
+
+        <!-- Hidden Bar -->
+        <section class="info-bar">
+            <div class="inner-box">
+                <div class="cross-icon"><span class="far fa-close"></span></div>
+                <div class="logo-box"><a href="index.html"><img src="images/logo-footer-m.png"
+                            alt="Find Fold Menus"></a></div>
+
+                <h2>Visit Us</h2>
+                <ul class="info">
+                    <li> C-111, 3rd Floor, Naraina Industrial Area, Delhi - 110034
+                    </li>
+                    <li>Open: 10.00 am - 6.30pm</li>
+                    <li><a href="mailto:info@finefoldmenus.com">info@finefoldmenus.com</a></li>
+                </ul>
+                <div class="separator"><span></span></div>
+                <div class="booking-info">
+                    <div class="bk-title">Get Started</div>
+                    <div class="bk-no"><a href="tel:+919818095822">+91 98180 95822</a></div>
+                </div>
+            </div>
+        </section>
+        <!--End Banner Section -->
+<section class="inner-banner">
+            <div class="image-layer" style="background-image: url(images/background/about-us.png);"></div>
+            <div class="auto-container">
+                <div class="inner">
+                    <div class="subtitle"><span>our story</span></div>
+                    <div class="pattern-image"><img src="images/icons/separator.svg" alt="" title=""></div>
+                    <h1><span>Crafting Premium Menu Presentations for Exceptional Hospitality Brands</span></h1>
+                </div>
+            </div>
+        </section>
+        <!--About Section-->
+        <section class="about-section">
+            <!-- <div class="left-bg"><img src="images/sticky-img.png" alt="" title=""></div>
+            <div class="right-bg"><img src="images/background/bg-11.png" alt="" title=""></div> -->
+            <div class="auto-container">
+                <div class="title-box centered">
+                    <div class="subtitle"><span>who we are</span></div>
+                    <div class="pattern-image"><img src="images/icons/separator.svg" alt="" title=""></div>
+                    <h3>
+                        Crafting Premium Menu Presentation Solutions Backed by 20+ Years of Excellence
+
+                    </h3>
+                </div>
+                <div class="row clearfix">
+                    <!--Block-->
+                    <div class="about-block content-block col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="0ms">
+                            <div class="eyebrow">Our Commitment</div>
+                            <div class="text">At Fine Fold Menus, we combine over 20 years of manufacturing and printing
+                                expertise with a passion for premium hospitality branding. As the specialized
+                                hospitality division of Shree Ji Softech, we create bespoke menu covers, bill
+                                presenters, menu folders, and luxury branding solutions that reflect the identity of
+                                every restaurant, hotel, cafÃ©, and resort.
+
+                                Every product is thoughtfully designed using premium materials, precision craftsmanship,
+                                and advanced manufacturing techniques to deliver exceptional quality and lasting
+                                durability. From concept and customization to production and finishing, we are committed
+                                to helping hospitality brands create unforgettable first impressions while carrying
+                                forward the trusted legacy, innovation, and customer-focused values established by Shree
+                                Ji Softech since 2008.</div>
+
+
+                            <!-- <div class="signature"><img src="images/resource/signature-1.png" alt="" title=""></div> -->
+                            <!-- <div class="author">Crafted for memorable service</div> -->
+                            <!-- <div class="video-box">
+                                <div class="image"><a href="https://www.youtube.com/watch?v=ZETY_l3GVQg"
+                                        class="lightbox-image"><img src="images/resource/about-image-1.jpg" alt=""></a>
+                                    <a href="https://www.youtube.com/watch?v=ZETY_l3GVQg"
+                                        class="lightbox-image play-btn"><span class="icon fal fa-play"><i
+                                                class="ripple"></i></span></a>
+                                </div>
+                            </div> -->
+
+                        </div>
+                    </div>
+
+                    <!--Block-->
+                    <div class="about-block image-block col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner-box wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="300ms">
+                            <div class="image"><img src="images/resource/about-img.png" alt=""></div>
+                        </div>
+                    </div>
+
+                    <!--Block-->
+                    <div class="about-block info-block col-xl-4 col-lg-4 col-md-12 col-sm-12">
+                        <div class="inner-box about-feature-card wow fadeInUp" data-wow-duration="1500ms"
+                            data-wow-delay="600ms">
+                            <div class="feature-card-top">
+                                <span class="feature-kicker">THE FINE FOLD LEGACY</span>
+                                <span class="feature-mark" aria-hidden="true">âœ¦</span>
+                            </div>
+                            <h4>Built on Two Decades of Manufacturing Excellence</h4>
+                            <p>Premium hospitality solutions backed by the trusted expertise of Shree Ji Softech since
+                                2008.</p>
+                            <ul class="feature-list">
+                                <li><span class="feature-number">01</span><span><strong>20+ Years of
+                                            Expertise</strong>Trusted experience in premium printing, manufacturing, and
+                                        branding.</span>
+                                </li>
+                                <li><span class="feature-number">02</span><span><strong>Crafted for
+                                            Hospitality</strong>Luxury menu solutions designed to elevate guest
+                                        experiences.</span>
+                                </li>
+                                <li><span class="feature-number">03</span><span><strong>Trusted Quality</strong>Premium
+                                        materials, expert craftsmanship, and lasting quality.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="fact-counter premium-fact-counter wow fadeInUp" data-wow-duration="1500ms"
+                    data-wow-delay="150ms">
+                    <div class="row clearfix">
+                        <div class="fact-block col-lg-3 col-md-6 col-sm-12">
+                            <div class="inner clearfix">
+                                <div class="fact-count">
+                                    <div class="count-box"><span class="count-text" data-stop="500"
+                                            data-speed="2000">0</span><i>+</i></div>
+                                </div>
+                                <div class="fact-title">Hospitality Brands<br>Served</div>
+                            </div>
+                        </div>
+                        <div class="fact-block col-lg-3 col-md-6 col-sm-12">
+                            <div class="inner clearfix">
+                                <div class="fact-count">
+                                    <div class="count-box"><span class="count-text" data-stop="2000"
+                                            data-speed="2000">0</span><i>+</i></div>
+                                </div>
+                                <div class="fact-title">Custom Menu Designs<br>Delivered</div>
+                            </div>
+                        </div>
+                        <div class="fact-block col-lg-3 col-md-6 col-sm-12">
+                            <div class="inner clearfix">
+                                <div class="fact-count">
+                                    <div class="count-box"><span class="count-text" data-stop="100"
+                                            data-speed="2000">0</span><i>%</i></div>
+                                </div>
+                                <div class="fact-title">Custom<br>Manufacturing</div>
+                            </div>
+                        </div>
+                        <div class="fact-block col-lg-3 col-md-6 col-sm-12">
+                            <div class="inner clearfix">
+                                <div class="fact-count">
+                                    <div class="count-box"><span class="count-text" data-stop="250"
+                                            data-speed="2000">0</span><i>+</i></div>
+                                </div>
+                                <div class="fact-title">Premium Material<br>Options</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!--Fluid Section-->
+        <section class="fluid-section">
+            <div class="outer-container">
+                <div class="row clearfix">
+                    <!--Col-->
+                    <div class="image-col col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                        <div class="inner wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="0ms">
+                            <div class="image-layer" style="background-image: url(images/background/image-5.jpg);">
+                            </div>
+                            <div class="image"><img src="images/background/image-5.jpg" alt=""></div>
+                        </div>
+                    </div>
+                    <!--Col-->
+
+
+                </div>
+            </div>
+        </section>
+
+        <!--Fluid Section-->
+
+
+        <!--Services Section-->
+        <section class="services-section">
+            <!-- <div class="left-bg"><img src="images/background/bg-14.png" alt="" title=""></div>
+            <div class="right-bg"><img src="images/background/bg-15.png" alt="" title=""></div> -->
+            <div class="auto-container">
+                <div class="title-box centered">
+                    <div class="subtitle"><span>OUR EXPERTISE</span></div>
+                    <div class="pattern-image"><img src="images/icons/separator.svg" alt="" title=""></div>
+                    <h2>Crafting Excellence Through Design, Innovation & Precision</h2>
+                </div>
+                <div class="row clearfix">
+                    <div class="s-col col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="0ms">
+                            <div class="s-block">
+                                <div class="inner">
+                                    <div class="icon-box"><img src="images/resource/Premium-Craftsmanship.png" alt=""
+                                            title=""></div>
+                                    <h4>Premium Craftsmanship</h4>
+                                    <div class="text">Every product is meticulously handcrafted using premium materials,
+                                        refined techniques, and exceptional attention to detail, ensuring a perfect
+                                        balance of elegance, durability, and lasting quality.</div>
+                                </div>
+                            </div>
+                            <div class="s-block alternate">
+                                <div class="inner">
+                                    <div class="icon-box"><img src="images/resource/Complete-Customization.png" alt=""
+                                            title=""></div>
+                                    <h4>Complete Customization</h4>
+                                    <div class="text">From materials, textures, and colors to logo embossing, foiling,
+                                        stitching, and finishing, every detail is customized to create menu presentation
+                                        solutions that truly represent your brand.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="s-col last col-lg-4 col-md-6 col-sm-12">
+                        <div class="inner wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="0ms">
+                            <div class="s-block alternate">
+                                <div class="inner">
+                                    <div class="icon-box"><img src="images/resource/Precision-Manufacturing.png" alt=""
+                                            title=""></div>
+                                    <h4>Precision Manufacturing</h4>
+                                    <div class="text">Our advanced manufacturing process and rigorous quality control
+                                        ensure every menu cover and hospitality product meets the highest standards of
+                                        craftsmanship, consistency, and performance.</div>
+                                </div>
+                            </div>
+                            <div class="s-block">
+                                <div class="inner">
+                                    <div class="icon-box"><img src="images/resource/Trusted-Hospitality-Partner.png"
+                                            alt="" title=""></div>
+                                    <h4>Trusted Hospitality Partner</h4>
+                                    <div class="text">We proudly collaborate with restaurants, hotels, cafÃ©s, resorts,
+                                        bars, and luxury hospitality brands, delivering premium solutions that enhance
+                                        brand identity and create memorable first impressions.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="image-col col-lg-4 col-md-12 col-sm-12">
+                        <div class="inner wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="0ms">
+                            <div class="image-box"><img src="images/about-center-image.png" alt="" title=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Testimonials Section-->
+        <section class="testimonials-two">
+            <div class="image-layer" style="background-image: url(images/background/image-7.jpg);"></div>
+            <div class="auto-container">
+
+                <div class="title-box centered">
+                    <div class="subtitle"><span>testimonials</span></div>
+                    <div class="pattern-image"><img src="images/icons/separator.svg" alt="" title=""></div>
+                    <h2>What People Are Saying</h2>
+                </div>
+                <div class="carousel-box">
+                    <div class="testimonial-slider owl-theme owl-carousel">
+                        <!--Slide Item-->
+                        <div class="testi-block">
+                            <div class="inner-box">
+                                <div class="quote-icon"><img src="images/icons/quotes-1.png" alt="" title=""></div>
+                                <div class="rating"><span class="fa fa-star"></span><span
+                                        class="fa fa-star"></span><span class="fa fa-star"></span><span
+                                        class="fa fa-star"></span><span class="fa fa-star"></span></div>
+                                <div class="text">The taste of food was really amazing, Wow ! outstanding dinner made by
+                                    Mater chef John Rute, I never forget this delicious food experience.</div>
+                                <div class="auth-info">
+                                    <div class="image"><img src="images/resource/author-thumb-4.jpg" alt=""></div>
+                                    <div class="auth-title">willium joe</div>
+                                    <div class="location">New York</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Slide Item-->
+                        <div class="testi-block">
+                            <div class="inner-box">
+                                <div class="quote-icon"><img src="images/icons/quotes-1.png" alt="" title=""></div>
+                                <div class="rating"><span class="fa fa-star"></span><span
+                                        class="fa fa-star"></span><span class="fa fa-star"></span><span
+                                        class="fa fa-star"></span><span class="fa fa-star"></span></div>
+                                <div class="text">Hygienic food & fresh enviroment, everyone had a wonderful delite
+                                    experience. It was FABULOUS! great experience at The Italian gourmet.</div>
+                                <div class="auth-info">
+                                    <div class="image"><img src="images/resource/author-thumb-5.jpg" alt=""></div>
+                                    <div class="auth-title">Theresa Tin</div>
+                                    <div class="location">Chicago</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Slide Item-->
+                        <div class="testi-block">
+                            <div class="inner-box">
+                                <div class="quote-icon"><img src="images/icons/quotes-1.png" alt="" title=""></div>
+                                <div class="rating"><span class="fa fa-star"></span><span
+                                        class="fa fa-star"></span><span class="fa fa-star"></span><span
+                                        class="fa fa-star"></span><span class="fa fa-star"></span></div>
+                                <div class="text">Special treat to dine, It was wow experience food was really
+                                    delicious! outstanding dinner made by Mater chef, food experience was unfogetable!
+                                </div>
+                                <div class="auth-info">
+                                    <div class="image"><img src="images/resource/author-thumb-6.jpg" alt=""></div>
+                                    <div class="auth-title">Michel Byrd</div>
+                                    <div class="location">Denmark</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Slide Item-->
+                        <div class="testi-block">
+                            <div class="inner-box">
+                                <div class="quote-icon"><img src="images/icons/quotes-1.png" alt="" title=""></div>
+                                <div class="rating"><span class="fa fa-star"></span><span
+                                        class="fa fa-star"></span><span class="fa fa-star"></span><span
+                                        class="fa fa-star"></span><span class="fa fa-star"></span></div>
+                                <div class="text">The taste of food was really amazing, Wow ! outstanding dinner made by
+                                    Mater chef John Rute, I never forget this delicious food experience.</div>
+                                <div class="auth-info">
+                                    <div class="image"><img src="images/resource/author-thumb-4.jpg" alt=""></div>
+                                    <div class="auth-title">willium joe</div>
+                                    <div class="location">New York</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Slide Item-->
+                        <div class="testi-block">
+                            <div class="inner-box">
+                                <div class="quote-icon"><img src="images/icons/quotes-1.png" alt="" title=""></div>
+                                <div class="rating"><span class="fa fa-star"></span><span
+                                        class="fa fa-star"></span><span class="fa fa-star"></span><span
+                                        class="fa fa-star"></span><span class="fa fa-star"></span></div>
+                                <div class="text">Hygienic food & fresh enviroment, everyone had a wonderful delite
+                                    experience. It was FABULOUS! great experience at The Italian gourmet.</div>
+                                <div class="auth-info">
+                                    <div class="image"><img src="images/resource/author-thumb-5.jpg" alt=""></div>
+                                    <div class="auth-title">Theresa Tin</div>
+                                    <div class="location">Chicago</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!--Slide Item-->
+                        <div class="testi-block">
+                            <div class="inner-box">
+                                <div class="quote-icon"><img src="images/icons/quotes-1.png" alt="" title=""></div>
+                                <div class="rating"><span class="fa fa-star"></span><span
+                                        class="fa fa-star"></span><span class="fa fa-star"></span><span
+                                        class="fa fa-star"></span><span class="fa fa-star"></span></div>
+                                <div class="text">Special treat to dine, It was wow experience food was really
+                                    delicious! outstanding dinner made by Mater chef, food experience was unfogetable!
+                                </div>
+                                <div class="auth-info">
+                                    <div class="image"><img src="images/resource/author-thumb-6.jpg" alt=""></div>
+                                    <div class="auth-title">Michel Byrd</div>
+                                    <div class="location">Denmark</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Why Us Section-->
+
+        <!--Gallery Section-->
+        <section class="image-gallery">
+            <div class="carousel-box">
+                <div class="auto-container">
+                    <div class="image-gallery-slider owl-theme owl-carousel">
+                        <!--Slide Item-->
+                        <div class="gallery-block">
+                            <div class="image"><a href="images/main-slider/slider-1.jpg" class="lightbox-image"
+                                    data-fancybox="gallery"><img src="images/main-slider/slider-1.jpg" alt=""></a></div>
+                        </div>
+
+                        <!--Slide Item-->
+                        <div class="gallery-block">
+                            <div class="image"><a href="images/main-slider/slider-2.jpg" class="lightbox-image"
+                                    data-fancybox="gallery"><img src="images/main-slider/slider-2.jpg" alt=""></a></div>
+                        </div>
+
+                        <!--Slide Item-->
+                        <div class="gallery-block">
+                            <div class="image"><a href="images/main-slider/slider-3.jpg" class="lightbox-image"
+                                    data-fancybox="gallery"><img src="images/main-slider/slider-3.jpg" alt=""></a></div>
+                        </div>
+
+                        <!--Slide Item-->
+                        <div class="gallery-block">
+                            <div class="image"><a href="images/main-slider/slider-4.jpg" class="lightbox-image"
+                                    data-fancybox="gallery"><img src="images/main-slider/slider-4.jpg" alt=""></a></div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Main Footer-->
+        <footer class="main-footer">
+            <div class="image-layer" style="background-image: url(images/background/image-4.jpg);"></div>
+            <div class="upper-section">
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <!--Footer Col-->
+                        <div class="footer-col info-col col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                <div class="content">
+                                    <div class="logo"><a href="index.html"
+                                            title="Delici - Restaurants HTML Template"><img src="images/logo-footer.png"
+                                                alt="" title="Delici - Restaurants HTML Template"></a></div>
+                                    <div class="info">
+                                        <ul>
+                                            <li>Office No. 210, IInd Floor, PP Trade Centre, PLOT NO P-1, Netaji Subhash
+                                                Place, Pitampura, New Delhi 110034</li>
+                                            <li><a href="mailto:info@finefoldmenus.com">info@finefoldmenus.com</a></li>
+                                            <li><a href="tel:+919560195822">Booking Request : +91-95601 95822</a></li>
+                                            <li>Time : 10.00 am - 6.30pm</li>
+                                        </ul>
+                                    </div>
+                                    <div class="separator"><span></span><span></span><span></span></div>
+                                    <!-- <div class="newsletter">
+                                    <h3>Get News & Offers</h3>
+                                    <div class="text">Subscribe us & Get <span>25% Off.</span></div>
+                                    <div class="newsletter-form">
+                                        <form method="post" action="index.html">
+                                            <div class="form-group">
+                                                <span class="alt-icon far fa-envelope"></span>
+                                                <input type="email" name="email" value="" placeholder="Your email" required>
+                                                <button type="submit" class="theme-btn btn-style-one clearfix">
+                                                    <span class="btn-wrap">
+                                                        <span class="text-one">subscribe</span>
+                                                        <span class="text-two">subscribe</span>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <!--Footer Col-->
+                        <div class="footer-col links-col col-lg-3 col-md-6 col-sm-12">
+                            <div class="inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                <ul class="links">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Who We Serve</a></li>
+                                    <li><a href="#">Our Services</a></li>
+                                    <li><a href="#">Get In Touch </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--Footer Col-->
+                        <div class="footer-col links-col last col-lg-3 col-md-6 col-sm-12">
+                            <div class="inner wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                <ul class="links">
+                                    <li><a href="https://www.facebook.com/profile.php?id=61565289525469">facebook</a>
+                                    </li>
+                                    <li><a href="https://www.instagram.com/finefoldmenus/">instagram</a></li>
+                                    <li><a href="https://x.com/finefoldmenus">Twitter</a></li>
+                                    <li><a href="https://www.youtube.com/channel/UC666SYK-yWuOSna8JVsXwAQ">Youtube</a>
+                                    </li>
+                                    <li><a
+                                            href="https://www.linkedin.com/in/fine-fold-menus-powered-by-shreeji-softech-57b615405/">LinkedIn</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="auto-container">
+                    <div class="copyright">&copy; 2026 Fine Fold Menus Powered by <a href="https://shreejisoftech.com/"
+                            target="blank">SHREEJI SOFTECH</a>. All Rights Reserved. </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!--End pagewrapper-->
+ <!--Popup code below -->
+
+    <!-- ============================================================
+     STICKY VIDEO WIDGET MARKUP
+     Paste this block just before </body> on your site
+     ============================================================ -->
+    <div class="sticky-video-widget" id="stickyWidget">
+        <!-- Small close button to dismiss the sticky widget entirely -->
+        <button class="sticky-close-btn" id="stickyCloseBtn" aria-label="Close video">&times;</button>
+
+        <!-- Autoplaying muted looping thumbnail video -->
+        <video id="thumbnailVideo" src="https://finefoldmenus.com/video/fine-fold-menus.mp4"
+            poster="YOUR-POSTER-IMAGE.jpg" autoplay muted loop playsinline></video>
+
+        <!-- Small play icon hint -->
+        <div class="sticky-play-icon"></div>
+    </div>
+
+    <!-- ============================================================
+     EXPANDED / BIG VIDEO POPUP MARKUP
+     ============================================================ -->
+    <div class="video-popup-overlay" id="videoPopupOverlay">
+        <div class="video-popup-box">
+            <button class="popup-close-btn" id="popupCloseBtn" aria-label="Close">&times;</button>
+            <video id="popupVideo" src="https://finefoldmenus.com/video/fine-fold-menus.mp4" controls
+                playsinline></video>
+        </div>
+    </div>
+    <!--Scroll to top-->
+    <div class="scroll-to-top scroll-to-target" data-target="html"><span class="icon fa fa-angle-up"></span></div>
+
+
+    <script src="js/jquery.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.fancybox.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/owl.js"></script>
+    <script src="js/appear.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/custom-script.js"></script>
+</body>
+
+</html>

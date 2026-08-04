@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Make a Payment | Fine Fold Menus</title>
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="css/responsive.css" rel="stylesheet">
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+<style>
+        /* Small header logo placed between the service notice and contact number. */
+        .header-small-logo {
+            position: absolute;
+            top: 50%;
+            left: 75%;
+            display: flex;
+            align-items: center;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .header-small-logo img {
+            display: block;
+            width: 134px;
+            max-width: 100%;
+            height: auto;
+            margin-left: 270px;
+        }
+
+        @media (max-width: 767px) {
+            .header-small-logo {
+                display: none;
+            }
+        }
+
+        /* ============================================================
+     STICKY THUMBNAIL (small floating video card)
+     ============================================================ */
+        .sticky-video-widget {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 130px;
+            /* thumbnail width - adjust as needed */
+            aspect-ratio: 9 / 16;
+            /* keeps it portrait like a reel */
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            z-index: 9999;
+            cursor: pointer;
+            background: #000;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .sticky-video-widget:hover {
+            transform: scale(1.04);
+            /* slight pop on hover */
+        }
+
+        /* Hide the widget completely once user closes it */
+        .sticky-video-widget.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.8);
+        }
+
+        .sticky-video-widget video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Small close (X) button on the sticky thumbnail */
+        .sticky-close-btn {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.55);
+            color: #fff;
+            border: none;
+            font-size: 14px;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        /* Small "play" hint icon overlay (optional visual cue) */
+        .sticky-play-icon {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            width: 26px;
+            height: 26px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .sticky-play-icon::after {
+            content: "";
+            border-style: solid;
+            border-width: 6px 0 6px 10px;
+            border-color: transparent transparent transparent #111;
+            margin-left: 2px;
+        }
+
+        /* ============================================================
+     FULLSCREEN / EXPANDED POPUP (shown on click)
+     ============================================================ */
+        .video-popup-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s ease;
+        }
+
+        .video-popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .video-popup-box {
+            position: relative;
+            width: 80%;
+            max-width: 320px;
+            /* smaller, more premium reel-sized box */
+            aspect-ratio: 9 / 16;
+            border-radius: 24px;
+            /* softer, more premium rounded corners */
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            /* premium floating shadow */
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            /* subtle premium edge */
+            transform: scale(0.85);
+            opacity: 0;
+            transition: transform 0.35s ease, opacity 0.35s ease;
+        }
+
+        .video-popup-overlay.active .video-popup-box {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .video-popup-box video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Close button for the big popup video */
+        .popup-close-btn {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        /* ============================================================
+     RESPONSIVENESS
+     ============================================================ */
+        @media (max-width: 768px) {
+            .sticky-video-widget {
+                width: 100px;
+                bottom: 16px;
+                right: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sticky-video-widget {
+                width: 90px;
+                bottom: 12px;
+                right: 12px;
+            }
+
+            .video-popup-box {
+                width: 78%;
+                max-width: 260px;
+            }
+
+            .popup-close-btn {
+                top: -36px;
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+    <link href="css/make-a-payment.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="page-wrapper">
+
+        <!-- Preloader -->
+        <div class="loader-wrap">
+            <div class="preloader">
+                <div class="preloader-close">x</div>
+                <div id="handle-preloader" class="handle-preloader">
+                    <div class="animation-preloader">
+                        <div class="spinner"></div>
+                        <div class="txt-loading">
+                            <span data-text-preloader="F" class="letters-loading">
+                                F
+                            </span>
+                            <span data-text-preloader="I" class="letters-loading">
+                                I
+                            </span>
+                            <span data-text-preloader="N" class="letters-loading">
+                                N
+                            </span>
+                            <span data-text-preloader="E" class="letters-loading">
+                                E
+                            </span>
+                            <span data-text-preloader="F" class="letters-loading">
+                                F
+                            </span>
+                            <span data-text-preloader="O" class="letters-loading">
+                                O
+                            </span>
+                            <span data-text-preloader="L" class="letters-loading">
+                                L
+                            </span>
+                            <span data-text-preloader="D" class="letters-loading">
+                                D
+                            </span>
+                            <span data-text-preloader="M" class="letters-loading">
+                                M
+                            </span>
+                            <span data-text-preloader="E" class="letters-loading">
+                                E
+                            </span>
+                            <span data-text-preloader="N" class="letters-loading">
+                                N
+                            </span>
+                            <span data-text-preloader="U" class="letters-loading">
+                                U
+                            </span>
+                            <span data-text-preloader="S" class="letters-loading">
+                                S
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Preloader End -->
+
+        <!-- Main Header-->
+       <header class="main-header header-down">
+            <div class="header-top">
+                <div class="auto-container">
+                    <div class="inner clearfix">
+                        <div class="top-left clearfix">
+                            <ul class="top-info clearfix">
+                                <li><i class="icon far fa-map-marker-alt"></i> C-111, 3rd Floor, Naraina Industrial
+                                    Area, Delhi - 110034
+                                </li>
+                                <li class="design-services-link"><a href="design-services.html"
+                                        aria-label="Design services also available"><span>Design Services Also
+                                            Available</span></a></li>
+                            </ul>
+                        </div>
+                        <a class="header-small-logo" href="index.html" aria-label="Fine Fold Menus home">
+                            <img src="images/small-pnglogo.png" alt="Fine Fold Menus">
+                        </a>
+                        <div class="top-right clearfix">
+                            <ul class="top-info clearfix">
+                                <li><a href="tel:+919818095822"><i class="icon far fa-phone"></i> +91 98180 95822</a>
+                                </li>
+                                <!-- <li><a href="mailto:info@finefoldmenus.com"><i class="icon far fa-envelope"></i>
+                                        info@finefoldmenus.com</a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header Upper -->
+            <div class="header-upper">
+                <div class="auto-container">
+                    <!-- Main Box -->
+                    <div class="main-box clearfix">
+                        <!--Logo-->
+                        <div class="logo-box">
+                            <div class="logo"><a href="index.html"><img src="images/logo.png" alt="Fine Fold Menus"></a>
+                            </div>
+                        </div>
+
+                        <div class="nav-box clearfix">
+                            <!--Nav Outer-->
+                            <div class="nav-outer clearfix">
+                                <nav class="main-menu">
+                                    <ul class="navigation clearfix">
+                                        <li class="current"><a href="index.html">Home</a></li>
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li class="dropdown has-mega-menu"><a href="#">Industries We Serve</a>
+                                            <ul>
+                                                <li>
+                                                    <div class="mega-menu">
+                                                        <div class="menu-inner">
+                                                            <div class="auto-container">
+                                                                <div class="row clearfix">
+                                                                    <div class="menu-block col-lg-3 col-md-6 col-sm-6">
+                                                                        <div class="image"><a href="Restaurant.html"><img
+                                                                                    src="images/restaurant-groups.jpg"
+                                                                                    alt="Restaurant Groups"></a></div>
+                                                                        <div class="title"><a href="Restaurant.html">Restaurant</a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="menu-block col-lg-3 col-md-6 col-sm-6">
+                                                                        <div class="image"><a href="#"><img
+                                                                                    src="images/hotels-and-resorts.jpg"
+                                                                                    alt="Hotels & Resorts"></a></div>
+                                                                        <div class="title"><a href="#">Hotels &
+                                                                                Resorts</a></div>
+                                                                    </div>
+                                                                    <div class="menu-block col-lg-3 col-md-6 col-sm-6">
+                                                                        <div class="image"><a href="#"><img
+                                                                                    src="images/food-court.jpg"
+                                                                                    alt="Food Court"></a></div>
+                                                                        <div class="title"><a href="#">Food Court</a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="menu-block col-lg-3 col-md-6 col-sm-6">
+                                                                        <div class="image"><a href="#"><img
+                                                                                    src="images/bars-and-lounges.jpg"
+                                                                                    alt="Bars & Lounges"></a></div>
+                                                                        <div class="title"><a href="#">Bars &
+                                                                                Lounges</a></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="dropdown"><a href="#">Our Services</a>
+                                            <ul>
+                                                <li><a href="#">Fully Customized Menu</a></li>
+                                                <li><a href="#">Luxury Dine-in Menu</a></li>
+                                                <li><a href="#">MDF Series Menu</a></li>
+                                                <li><a href="#"> Waterproof Menu (NTR)</a></li>
+                                                <li><a href="#"> Acrylic Menu</a></li>
+                                                <li><a href="#">Pool Side Menu</a></li>
+                                                <li><a href="#">Premium Wiro Menu</a></li>
+                                                <li><a href="#">Changeable Menu</a></li>
+                                                <li><a href="#">Bar & Drink Menu</a></li>
+                                                <li><a href="#">Food Court Menus</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li><a href="how-its-work.html">How it works</a></li>
+                                        <li class="dropdown"><a href="#"> Contact Us</a>
+                                            <ul>
+                                                <li><a href="Make-a-Payment.html">Make a Payment</a></li>
+                                                <li><a href="Speak-With-Us.html">Speak With Us</a></li>
+
+                                            </ul>
+                                        </li>
+
+                                    </ul>
+                                </nav>
+                                <!-- Main Menu End-->
+                            </div>
+                            <!--Nav Outer End-->
+
+                            <div class="links-box clearfix">
+                                <div class="link link-btn">
+                                    <a href="reservation-opentable.html" class="theme-btn btn-style-one clearfix">
+                                        <span class="btn-wrap">
+                                            <span class="text-one">Get A Quote</span>
+                                            <span class="text-two">Get A Quote</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="link info-toggler">
+                                    <button class="info-btn">
+                                        <span class="hamburger">
+                                            <span class="top-bun"></span>
+                                            <span class="meat"></span>
+                                            <span class="bottom-bun"></span>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Hidden Nav Toggler -->
+                            <div class="nav-toggler">
+                                <button class="hidden-bar-opener">
+                                    <span class="hamburger">
+                                        <span class="top-bun"></span>
+                                        <span class="meat"></span>
+                                        <span class="bottom-bun"></span>
+                                    </span>
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--End Main Header -->
+
+
+        <!--Menu Backdrop-->
+        <div class="menu-backdrop"></div>
+
+        <!-- Hidden Navigation Bar -->
+        <section class="hidden-bar">
+            <!-- Hidden Bar Wrapper -->
+            <div class="inner-box">
+                <div class="cross-icon hidden-bar-closer"><span class="far fa-close"></span></div>
+                <div class="logo-box"><a href="index.html"><img src="images/logo-footer-m.png"
+                            alt="Find Fold Menus"></a></div>
+
+                <!-- .Side-menu ----------------------------------------------------->
+                <div class="side-menu">
+                    <ul class="navigation clearfix">
+                        <li class="current"><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+
+                        <li class="dropdown"><a href="#">Industries We Serve</a>
+                            <ul>
+                                <li><a href="Restaurant.html">Restaurant</a></li>
+                                <li><a href="#">Hotels & Resorts</a></li>
+                                <li><a href="#">Food Court</a></li>
+                                <li><a href="#">Bars & Lounges</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown"><a href="#">Our Services</a>
+                            <ul>
+                                <li><a href="#">Fully Customized Menu</a></li>
+                                <li><a href="#">Luxury Dine-in Menu</a></li>
+                                <li><a href="#">MDF Series Menu</a></li>
+                                <li><a href="#"> Waterproof Menu (NTR)</a></li>
+                                <li><a href="#"> Acrylic Menu</a></li>
+                                <li><a href="#">Pool Side Menu</a></li>
+                                <li><a href="#">Premium Wiro Menu</a></li>
+                                <li><a href="#">Changeable Menu</a></li>
+                                <li><a href="#">Bar & Drink Menu</a></li>
+                                <li><a href="#">Food Court Menus</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="how-its-work.html">How it works</a></li>
+
+                        <li class="dropdown"><a href="#">Contact Us</a>
+                            <ul>
+                                <li><a href="Make-a-Payment.html">Make a Payment</a></li>
+                                <li><a href="Speak-With-Us.html">Speak With Us</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.Side-menu -------------------------------------------------->
+
+                <h2>Visit Us</h2>
+                <ul class="info">
+                    <li> C-111, 3rd Floor, Naraina Industrial Area, Delhi - 110034
+                    </li>
+                    <li>Open: 10.00 am - 6.30pm</li>
+                    <li><a href="mailto:info@finefoldmenus.com">info@finefoldmenus.com</a></li>
+                </ul>
+                <div class="separator"><span></span></div>
+                <div class="booking-info">
+                    <div class="bk-title">Get Started</div>
+                    <div class="bk-no"><a href="tel:+919818095822">+91 98180 95822</a></div>
+                </div>
+
+            </div><!-- / Hidden Bar Wrapper -->
+        </section>
+        <!-- / Hidden Bar -->
+
+        <!--Info Back Drop-->
+        <div class="info-back-drop"></div>
+
+        <!-- Hidden Bar -->
+        <section class="info-bar">
+            <div class="inner-box">
+                <div class="cross-icon"><span class="far fa-close"></span></div>
+                <div class="logo-box"><a href="index.html"><img src="images/logo-footer-m.png"
+                            alt="Find Fold Menus"></a></div>
+
+                <h2>Visit Us</h2>
+                <ul class="info">
+                    <li> C-111, 3rd Floor, Naraina Industrial Area, Delhi - 110034
+                    </li>
+                    <li>Open: 10.00 am - 6.30pm</li>
+                    <li><a href="mailto:info@finefoldmenus.com">info@finefoldmenus.com</a></li>
+                </ul>
+                <div class="separator"><span></span></div>
+                <div class="booking-info">
+                    <div class="bk-title">Get Started</div>
+                    <div class="bk-no"><a href="tel:+919818095822">+91 98180 95822</a></div>
+                </div>
+            </div>
+        </section>
+        <!--End Banner Section -->
+
+        <!-- Make a Payment page content -->
+        <svg style="display: none" xmlns="http://www.w3.org/2000/svg">
+      <symbol id="i-qr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+        <rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" /><path d="M14 14h3v3h-3zM20 14v3M14 20h3M20 20h1" />
+      </symbol>
+      <symbol id="i-bank" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+        <path d="M3 21h18M3 10h18M5 6l7-3 7 3M5 10v11M9 10v11M15 10v11M19 10v11" />
+      </symbol>
+      <symbol id="i-help" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3">
+        <circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="4" /><path d="M4.9 4.9l3.2 3.2M15.9 15.9l3.2 3.2M19.1 4.9l-3.2 3.2M8.1 15.9l-3.2 3.2" />
+      </symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <rect x="9" y="9" width="12" height="12" rx="2" /><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+      </symbol>
+      <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5" /></symbol>
+      <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 9l6 6 6-6" /></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="4" y="11" width="16" height="10" rx="2" /><path d="M8 11V7a4 4 0 1 1 8 0v4" /></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 3l7 3v6c0 5-3 8-7 9-4-1-7-4-7-9V6z" /><path d="M9 12l2 2 4-4" /></symbol>
+      <symbol id="i-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2l2.4 1.8 3-.2.9 2.9 2.5 1.7-1.2 2.8 1.2 2.8-2.5 1.7-.9 2.9-3-.2L12 20l-2.4-1.8-3 .2-.9-2.9L3.2 13.8 4.4 11 3.2 8.2l2.5-1.7.9-2.9 3 .2z" /><path d="M9 12l2 2 4-4" /></symbol>
+      <symbol id="i-upload" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 16V4m0 0L8 8m4-4l4 4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" /></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z" /></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="4" width="20" height="16" rx="2" /><path d="M2 7l10 6 10-6" /></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.9 8.9 0 0 1-4-.9L3 21l1.9-5a8.4 8.4 0 0 1 3.6-11.4 8.9 8.9 0 0 1 12.5 6.9z" /></symbol>
+      <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="4" y="3" width="10" height="18" /><path d="M14 8h6v13H4M8 7h2M8 11h2M8 15h2M17 12h1M17 16h1" /></symbol>
+      <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 8h3l2-2h8l2 2h3v12H3z" /><circle cx="12" cy="13" r="4" /></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M14 2H6v20h12V6z" /><path d="M14 2v4h4M8 12h8M8 16h6" /></symbol>
+    </svg>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <img class="bg" src="images/hero-restaurant.jpg" alt="Dark cinematic fine dining restaurant interior" />
+        <div class="veil"></div>
+        <div class="veil2"></div>
+        <div class="particles" aria-hidden="true">
+          <b style="top: 12%; left: 6%; width: 90px; height: 90px"></b>
+          <b style="top: 62%; left: 3%; width: 54px; height: 54px; animation-delay: 2.5s"></b>
+          <b style="top: 28%; right: 8%; width: 120px; height: 120px; animation-delay: 1.2s"></b>
+          <b style="top: 78%; right: 5%; width: 70px; height: 70px; animation-delay: 3.4s"></b>
+          <span class="glow"></span>
+        </div>
+
+        <div class="hero-inner">
+          <p class="label-caps reveal">Secure Payment Portal</p>
+          <h1 class="reveal" style="transition-delay: 120ms">
+            Complete Your <span class="gold-text">Payment</span> Securely
+          </h1>
+          <div class="divider reveal" style="transition-delay: 200ms" aria-hidden="true">
+            <span></span><i></i><i class="big"></i><i></i><span></span>
+          </div>
+          <div class="muted reveal" style="transition-delay: 280ms">
+            <p>Thank you for choosing Fine Fold Menus.</p>
+            <p>
+              We make the payment process simple, transparent, and secure. Whether you prefer UPI,
+              bank transfer, or direct deposit, all available payment options are provided below for
+              your convenience.
+            </p>
+            <p>Every payment is processed manually and verified to ensure complete accuracy and security.</p>
+          </div>
+          <div class="btn-row reveal" style="transition-delay: 360ms">
+            <a class="btn btn-gold" href="#upi">Pay Using UPI</a>
+            <a class="btn btn-ghost" href="#bank">View Bank Details</a>
+          </div>
+          <div class="scroll-dot" aria-hidden="true"><i></i></div>
+        </div>
+      </section>
+
+      <!-- OPTIONS -->
+      <section class="section">
+        <div class="wrap">
+          <div class="heading reveal">
+            <span class="label-caps">Payment Options</span>
+            <h2>Choose Your Preferred Payment Method</h2>
+            <div class="divider" aria-hidden="true"><span></span><i></i><i class="big"></i><i></i><span></span></div>
+          </div>
+          <div class="grid grid-3">
+            <div class="reveal">
+              <div class="luxe-card corner-accents option-card">
+                <div class="icon-circle"><svg width="26" height="26"><use href="#i-qr" /></svg></div>
+                <h3>UPI QR Payment</h3>
+                <p class="muted">Scan and pay instantly using any UPI application.</p>
+              </div>
+            </div>
+            <div class="reveal" style="transition-delay: 120ms">
+              <div class="luxe-card corner-accents option-card">
+                <div class="icon-circle"><svg width="26" height="26"><use href="#i-bank" /></svg></div>
+                <h3>Bank Transfer</h3>
+                <p class="muted">Transfer directly using account information.</p>
+              </div>
+            </div>
+            <div class="reveal" style="transition-delay: 240ms">
+              <div class="luxe-card corner-accents option-card">
+                <div class="icon-circle"><svg width="26" height="26"><use href="#i-help" /></svg></div>
+                <h3>Need Assistance?</h3>
+                <p class="muted">Contact our team before making payment.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- UPI -->
+      <section class="section" id="upi">
+        <div class="wrap-md reveal">
+          <div class="luxe-card corner-accents leather upi-card">
+            <div class="icon-circle lg"><svg width="34" height="34"><use href="#i-qr" /></svg></div>
+            <p class="label-caps">Unified Payments Interface</p>
+            <h2>Pay Instantly Using UPI</h2>
+            <div class="divider" aria-hidden="true"><span></span><i></i><i class="big"></i><i></i><span></span></div>
+            <p class="muted" style="max-width: 540px; margin: 0 auto">
+              Scan our secure UPI QR Code using any supported application including Google Pay,
+              PhonePe, Paytm, BHIM, Amazon Pay, or any UPI-enabled banking app.
+            </p>
+
+            <button class="btn btn-gold" id="qrToggle" style="margin-top: 30px" aria-expanded="false" aria-controls="qrPanel">
+              <svg width="16" height="16"><use href="#i-qr" /></svg>
+              <span id="qrToggleText">Scan &amp; Make Payment</span>
+              <svg class="chev" id="qrChev" width="16" height="16"><use href="#i-chevron" /></svg>
+            </button>
+
+            <div class="qr-panel" id="qrPanel">
+              <div>
+                <div class="qr-inner">
+                  <div class="qr-frame">
+                    <img src="images/upi-qr.jpg" alt="Fine Fold Menus UPI QR code" loading="lazy" />
+                  </div>
+                  <p class="qr-note">Scan Using Any UPI App</p>
+                  <ul class="app-list">
+                    <li>Google Pay</li>
+                    <li>PhonePe</li>
+                    <li>Paytm</li>
+                    <li>BHIM</li>
+                    <li>Amazon Pay</li>
+                    <li>Any UPI Banking App</li>
+                  </ul>
+                  <div class="secure-pill"><svg width="14" height="14"><use href="#i-lock" /></svg> Secure UPI Payment</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BANK -->
+      <section class="section" id="bank">
+        <div class="wrap">
+          <div class="heading reveal">
+            <span class="label-caps">Direct Deposit</span>
+            <h2>Bank Transfer Details</h2>
+            <div class="divider" aria-hidden="true"><span></span><i></i><i class="big"></i><i></i><span></span></div>
+            <p class="muted">Use either of our verified accounts below. Tap any field to copy it instantly.</p>
+          </div>
+
+          <div class="grid grid-2">
+            <div class="reveal">
+              <article class="luxe-card corner-accents leather bank-card">
+                <header>
+                  <p class="label-caps">Beneficiary Account</p>
+                  <h3>Canara Bank</h3>
+                </header>
+                <dl class="bank-rows">
+                  <div class="bank-row"><div><dt>Bank Name</dt><dd>CANARA BANK</dd></div><button class="copy-btn" data-copy="CANARA BANK" data-label="Bank Name" aria-label="Copy Bank Name"><svg width="16" height="16"><use href="#i-copy" /></svg></button></div>
+                  <div class="bank-row"><div><dt>Branch</dt><dd>LAWRENCE ROAD</dd></div><button class="copy-btn" data-copy="LAWRENCE ROAD" data-label="Branch" aria-label="Copy Branch"><svg width="16" height="16"><use href="#i-copy" /></svg></button></div>
+                  <div class="bank-row"><div><dt>Account Name</dt><dd>SHREE JI SOFTECH</dd></div><button class="copy-btn" data-copy="SHREE JI SOFTECH" data-label="Account Name" aria-label="Copy Account Name"><svg width="16" height="16"><use href="#i-copy" /></svg></button></div>
+                  <div class="bank-row"><div><dt>Account Number</dt><dd>2016201002670</dd></div><button class="copy-btn" data-copy="2016201002670" data-label="Account Number" aria-label="Copy Account Number"><svg width="16" height="16"><use href="#i-copy" /></svg></button></div>
+                  <div class="bank-row"><div><dt>IFSC</dt><dd>CNRB0002016</dd></div><button class="copy-btn" data-copy="CNRB0002016" data-label="IFSC" aria-label="Copy IFSC"><svg width="16" height="16"><use href="#i-copy" /></svg></button></div>
+                  <div class="bank-row"><div><dt>SWIFT</dt><dd>CNRBINBBBFD</dd></div><button class="copy-btn" data-copy="CNRBINBBBFD" data-label="SWIFT" aria-label="Copy SWIFT"><svg width="16" height="16"><use href="#i-copy" /></svg></button></div>
+                </dl>
+                <div class="logo-slot"><img src="images/canarabank.jpg" alt="Canara Bank Logo"></div>
+              </article>
+            </div>
+
+            <div class="reveal" style="transition-delay: 140ms">
+              <article class="luxe-card corner-accents leather bank-card">
+                <header>
+                  <p class="label-caps">Beneficiary Account</p>
+                  <h3>ICICI Bank</h3>
+                </header>
+                <dl class="bank-rows">
+                  <div class="bank-row"><div><dt>Bank Name</dt><dd>ICICI</dd></div><button class="copy-btn" data-copy="ICICI" data-label="Bank Name" aria-label="Copy Bank Name"><svg width="16" height="16"><use href="#i-copy" /></svg></button></div>
+                  <div class="bank-row"><div><dt>Branch</dt><dd>LAWRENCE ROAD</dd></div><button class="copy-btn" data-copy="LAWRENCE ROAD" data-label="Branch" aria-label="Copy Branch"><svg width="16" height="16"><use href="#i-copy" /></svg></button></div>
+                  <div class="bank-row"><div><dt>Account Name</dt><dd>EKANSH SINGHAL</dd></div><button class="copy-btn" data-copy="EKANSH SINGHAL" data-label="Account Name" aria-label="Copy Account Name"><svg width="16" height="16"><use href="#i-copy" /></svg></button></div>
+                  <div class="bank-row"><div><dt>Account Number</dt><dd>083001504069</dd></div><button class="copy-btn" data-copy="083001504069" data-label="Account Number" aria-label="Copy Account Number"><svg width="16" height="16"><use href="#i-copy" /></svg></button></div>
+                  <div class="bank-row"><div><dt>IFSC</dt><dd>ICIC0000830</dd></div><button class="copy-btn" data-copy="ICIC0000830" data-label="IFSC" aria-label="Copy IFSC"><svg width="16" height="16"><use href="#i-copy" /></svg></button></div>
+                </dl>
+                
+                <div class="logo-slot"><img src="images/icici-bank.jpg" alt="ICICI Bank Logo"></div>
+              </article>
+            </div>
+          </div>
+
+          <div class="tips">
+            <div class="reveal"><div class="luxe-card tip"><span class="icon-circle"><svg width="18" height="18"><use href="#i-building" /></svg></span><p>Mention your Company Name</p></div></div>
+            <div class="reveal" style="transition-delay: 90ms"><div class="luxe-card tip"><span class="icon-circle"><svg width="18" height="18"><use href="#i-camera" /></svg></span><p>Share payment screenshot</p></div></div>
+            <div class="reveal" style="transition-delay: 180ms"><div class="luxe-card tip"><span class="icon-circle"><svg width="18" height="18"><use href="#i-chat" /></svg></span><p>Contact us after payment</p></div></div>
+            <div class="reveal" style="transition-delay: 270ms"><div class="luxe-card tip"><span class="icon-circle"><svg width="18" height="18"><use href="#i-file" /></svg></span><p>GST Invoice available upon request</p></div></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONFIRMATION -->
+      <section class="section">
+        <div class="wrap-sm reveal">
+          <div class="luxe-card corner-accents leather confirm">
+            <span class="icon-circle success"><svg width="26" height="26"><use href="#i-badge" /></svg></span>
+            <h2>Already Made the Payment?</h2>
+            <div class="divider" aria-hidden="true"><span></span><i></i><i class="big"></i><i></i><span></span></div>
+            <p class="muted" style="max-width: 540px; margin: 0 auto">
+              Once your payment is completed, kindly share your payment confirmation so our team can
+              verify the transaction and begin processing your order without delay.
+            </p>
+            <button class="btn btn-ghost" id="proofBtn" style="margin-top: 28px">
+              <svg width="16" height="16"><use href="#i-upload" /></svg> Submit Payment Proof
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SUPPORT -->
+      <section class="section">
+        <div class="wrap support">
+          <div class="reveal">
+            <div class="support-img">
+              <img src="images/support-illustration.jpg" alt="Fine Fold Menus customer support" loading="lazy" />
+            </div>
+          </div>
+          <div class="reveal" style="transition-delay: 140ms">
+            <p class="label-caps">Client Care</p>
+            <h2>Need Assistance With Your Payment?</h2>
+            <div class="divider left" aria-hidden="true"><span></span><i></i><i class="big"></i><i></i><span></span></div>
+            <p class="muted">
+              If you have any questions regarding payment methods, invoices, bank details, or
+              transaction verification, our support team is ready to assist you.
+            </p>
+            <div class="chip-row">
+              <a class="chip" href="tel:+910000000000"><svg width="15" height="15"><use href="#i-phone" /></svg> Call Us</a>
+              <a class="chip" href="mailto:hello@finefoldmenus.com"><svg width="15" height="15"><use href="#i-mail" /></svg> Email Us</a>
+              <a class="chip" href="https://wa.me/910000000000"><svg width="15" height="15"><use href="#i-chat" /></svg> WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NOTICE -->
+      <section class="section" style="padding-top: 0">
+        <div class="wrap reveal">
+          <div class="notice">
+            <span class="icon-circle" style="width: 48px; height: 48px"><svg width="22" height="22"><use href="#i-shield" /></svg></span>
+            <p>
+              All payment details provided on this page are official Fine Fold Menus payment
+              accounts. Always verify account details before making a payment. For any
+              clarification, please contact our team directly.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FINAL -->
+      <section class="section final" style="overflow: hidden">
+        <div class="particles" aria-hidden="true">
+          <b style="top: 14%; left: 7%; width: 80px; height: 80px"></b>
+          <b style="top: 60%; right: 8%; width: 110px; height: 110px; animation-delay: 2s"></b>
+          <span class="glow"></span>
+        </div>
+        <div class="wrap-sm center reveal" style="position: relative">
+          <svg width="24" height="24" style="color: var(--gold)"><use href="#i-lock" /></svg>
+          <h2>Thank You for Choosing <span class="gold-text">Fine Fold Menus</span></h2>
+          <div class="divider" aria-hidden="true"><span></span><i></i><i class="big"></i><i></i><span></span></div>
+          <p class="muted">
+            We appreciate your trust in our craftsmanship. Once your payment is confirmed, our team
+            will begin transforming your ideas into premium menu presentation solutions designed to
+            impress.
+          </p>
+          <div class="btn-row">
+            <a class="btn btn-gold" href="/">Return to Home</a>
+            <a class="btn btn-ghost" href="mailto:hello@finefoldmenus.com">Contact Support</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="toast" aria-live="polite"></div>
+
+    <script>
+      // scroll reveal
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("is-visible");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+
+      // toast
+      function toast(title, msg) {
+        const box = document.getElementById("toast");
+        const el = document.createElement("div");
+        el.className = "toast";
+        el.innerHTML = "<strong></strong><span></span>";
+        el.querySelector("strong").textContent = title;
+        el.querySelector("span").textContent = msg;
+        box.appendChild(el);
+        setTimeout(() => el.remove(), 2600);
+      }
+
+      // QR toggle
+      const toggle = document.getElementById("qrToggle");
+      const panel = document.getElementById("qrPanel");
+      toggle.addEventListener("click", () => {
+        const open = panel.classList.toggle("open");
+        toggle.setAttribute("aria-expanded", String(open));
+        document.getElementById("qrToggleText").textContent = open ? "Hide QR Code" : "Scan & Make Payment";
+        document.getElementById("qrChev").classList.toggle("up", open);
+      });
+
+      // copy to clipboard
+      document.querySelectorAll(".copy-btn").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const value = btn.dataset.copy;
+          const label = btn.dataset.label;
+          try {
+            await navigator.clipboard.writeText(value);
+            btn.classList.add("copied");
+            btn.innerHTML = '<svg width="16" height="16"><use href="#i-check" /></svg>';
+            toast("Copied", label + " copied to clipboard");
+            setTimeout(() => {
+              btn.classList.remove("copied");
+              btn.innerHTML = '<svg width="16" height="16"><use href="#i-copy" /></svg>';
+            }, 1800);
+          } catch {
+            toast("Unable to copy", "Please copy the value manually.");
+          }
+        });
+      });
+
+      document.getElementById("proofBtn").addEventListener("click", () => {
+        toast("Share your payment proof", "Email or WhatsApp your receipt and our team will verify it.");
+      });
+    </script>
+  
+        <!-- End Make a Payment page content -->
+
+        <!--Main Footer-->
+        <footer class="main-footer">
+            <div class="image-layer" style="background-image: url(images/background/image-4.jpg);"></div>
+            <div class="upper-section">
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <!--Footer Col-->
+                        <div class="footer-col info-col col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                <div class="content">
+                                    <div class="logo"><a href="index.html"
+                                            title="Delici - Restaurants HTML Template"><img src="images/logo-footer.png"
+                                                alt="" title="Delici - Restaurants HTML Template"></a></div>
+                                    <div class="info">
+                                        <ul>
+                                            <li>Office No. 210, IInd Floor, PP Trade Centre, PLOT NO P-1, Netaji Subhash
+                                                Place, Pitampura, New Delhi 110034</li>
+                                            <li><a href="mailto:info@finefoldmenus.com">info@finefoldmenus.com</a></li>
+                                            <li><a href="tel:+919560195822">Booking Request : +91-95601 95822</a></li>
+                                            <li>Time : 10.00 am - 6.30pm</li>
+                                        </ul>
+                                    </div>
+                                    <div class="separator"><span></span><span></span><span></span></div>
+                                    <!-- <div class="newsletter">
+                                    <h3>Get News & Offers</h3>
+                                    <div class="text">Subscribe us & Get <span>25% Off.</span></div>
+                                    <div class="newsletter-form">
+                                        <form method="post" action="index.html">
+                                            <div class="form-group">
+                                                <span class="alt-icon far fa-envelope"></span>
+                                                <input type="email" name="email" value="" placeholder="Your email" required>
+                                                <button type="submit" class="theme-btn btn-style-one clearfix">
+                                                    <span class="btn-wrap">
+                                                        <span class="text-one">subscribe</span>
+                                                        <span class="text-two">subscribe</span>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <!--Footer Col-->
+                        <div class="footer-col links-col col-lg-3 col-md-6 col-sm-12">
+                            <div class="inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                <ul class="links">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Who We Serve</a></li>
+                                    <li><a href="#">Our Services</a></li>
+                                    <li><a href="#">Get In Touch </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--Footer Col-->
+                        <div class="footer-col links-col last col-lg-3 col-md-6 col-sm-12">
+                            <div class="inner wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                <ul class="links">
+                                    <li><a href="https://www.facebook.com/profile.php?id=61565289525469">facebook</a>
+                                    </li>
+                                    <li><a href="https://www.instagram.com/finefoldmenus/">instagram</a></li>
+                                    <li><a href="https://x.com/finefoldmenus">Twitter</a></li>
+                                    <li><a href="https://www.youtube.com/channel/UC666SYK-yWuOSna8JVsXwAQ">Youtube</a>
+                                    </li>
+                                    <li><a
+                                            href="https://www.linkedin.com/in/fine-fold-menus-powered-by-shreeji-softech-57b615405/">LinkedIn</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="auto-container">
+                    <div class="copyright">&copy; 2026 Fine Fold Menus Powered by <a href="https://shreejisoftech.com/"
+                            target="blank">SHREEJI SOFTECH</a>. All Rights Reserved. </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!--End pagewrapper-->
+ <!--Popup code below -->
+
+    <!-- ============================================================
+     STICKY VIDEO WIDGET MARKUP
+     Paste this block just before </body> on your site
+     ============================================================ -->
+    <div class="sticky-video-widget" id="stickyWidget">
+        <!-- Small close button to dismiss the sticky widget entirely -->
+        <button class="sticky-close-btn" id="stickyCloseBtn" aria-label="Close video">&times;</button>
+
+        <!-- Autoplaying muted looping thumbnail video -->
+        <video id="thumbnailVideo" src="https://finefoldmenus.com/video/fine-fold-menus.mp4"
+            poster="YOUR-POSTER-IMAGE.jpg" autoplay muted loop playsinline></video>
+
+        <!-- Small play icon hint -->
+        <div class="sticky-play-icon"></div>
+    </div>
+
+    <!-- ============================================================
+     EXPANDED / BIG VIDEO POPUP MARKUP
+     ============================================================ -->
+    <div class="video-popup-overlay" id="videoPopupOverlay">
+        <div class="video-popup-box">
+            <button class="popup-close-btn" id="popupCloseBtn" aria-label="Close">&times;</button>
+            <video id="popupVideo" src="https://finefoldmenus.com/video/fine-fold-menus.mp4" controls
+                playsinline></video>
+        </div>
+    </div>
+    <!--Scroll to top-->
+    <div class="scroll-to-top scroll-to-target" data-target="html"><span class="icon fa fa-angle-up"></span></div>
+
+
+    <script src="js/jquery.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.fancybox.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/owl.js"></script>
+    <script src="js/appear.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/custom-script.js"></script>
+</body>
+
+</html>
