@@ -202,7 +202,7 @@ textarea {
 
 .btn--ghost:hover {
   border-color: var(--gold);
-  background: rgba(216, 179, 106, 0.1);
+  background: rgba(230, 230, 230, 0.959);
 }
 
 .icon {
@@ -465,6 +465,7 @@ textarea {
   font-size: 0.55rem;
   font-weight: 400;
   letter-spacing: 0.4em;
+  padding:25px;
   text-transform: uppercase;
   color: rgba(216, 179, 106, 0.7);
 }
@@ -611,7 +612,7 @@ textarea {
 
 .rail__labels span {
   font-size: 0.55rem;
-  letter-spacing: 0.22em;
+  /* letter-spacing: 0.22em; */
   text-transform: uppercase;
   color: rgba(179, 174, 166, 0.6);
   transition: color 0.5s var(--ease-luxe);
@@ -704,8 +705,8 @@ form {
 .field.is-lifted .field__label {
   top: 0.5rem;
   transform: none;
-  font-size: 0.62rem;
-  letter-spacing: 0.3em;
+  font-size: 0.68rem;
+  /* letter-spacing: 0.3em; */
   text-transform: uppercase;
   color: var(--gold);
 }
@@ -776,6 +777,7 @@ form {
   letter-spacing: 0.06em;
   color: var(--gold);
   outline: none;
+  margin-top: 14px;
 }
 
 .phone-row input {
@@ -831,9 +833,9 @@ form {
 
 .select__text b {
   display: block;
-  font-size: 0.62rem;
+  font-size: 0.68rem;
   font-weight: 400;
-  letter-spacing: 0.3em;
+  /* letter-spacing: 0.3em; */
   text-transform: uppercase;
   color: var(--gold);
 }
@@ -952,8 +954,8 @@ form {
 
 .chips legend {
   padding: 0 0.25rem;
-  font-size: 0.62rem;
-  letter-spacing: 0.3em;
+  font-size: 0.68rem;
+  /* letter-spacing: 0.3em; */
   text-transform: uppercase;
   color: var(--gold);
 }
@@ -1526,7 +1528,7 @@ form {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .rail__labels span {
-    font-size: 0.62rem;
+    font-size: 0.68rem;
   }
 }
 
