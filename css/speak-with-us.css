@@ -21,8 +21,8 @@
   --shadow-lift: 0 24px 50px -28px rgba(0, 0, 0, 0.92), 0 0 26px -12px rgba(216, 179, 106, 0.3);
   --ease-luxe: cubic-bezier(0.16, 1, 0.3, 1);
 
-  --font-display: "Cormorant Garamond", Georgia, serif;
-  --font-sans: "Jost", system-ui, -apple-system, sans-serif;
+  --font-display: var(--font-family-Forum);
+  --font-sans: var(--font-family-DMsans);
 }
 
 *,
