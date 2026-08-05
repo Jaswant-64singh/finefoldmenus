@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Fully Customized Menu | Fine Fold Menus</title>
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link href="css/Luxury-Dine-in-Menu.css" rel="stylesheet">
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <style>
+        /* Small header logo placed between the service notice and contact number. */
+        .header-small-logo {
+            position: absolute;
+            top: 50%;
+            left: 75%;
+            display: flex;
+            align-items: center;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .header-small-logo img {
+            display: block;
+            width: 134px;
+            max-width: 100%;
+            height: auto;
+            margin-left: 270px;
+        }
+
+        @media (max-width: 767px) {
+            .header-small-logo {
+                display: none;
+            }
+        }
+
+        /* ============================================================
+     STICKY THUMBNAIL (small floating video card)
+     ============================================================ */
+        .sticky-video-widget {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 130px;
+            /* thumbnail width - adjust as needed */
+            aspect-ratio: 9 / 16;
+            /* keeps it portrait like a reel */
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            z-index: 9999;
+            cursor: pointer;
+            background: #000;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .sticky-video-widget:hover {
+            transform: scale(1.04);
+            /* slight pop on hover */
+        }
+
+        /* Hide the widget completely once user closes it */
+        .sticky-video-widget.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.8);
+        }
+
+        .sticky-video-widget video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Small close (X) button on the sticky thumbnail */
+        .sticky-close-btn {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.55);
+            color: #fff;
+            border: none;
+            font-size: 14px;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        /* Small "play" hint icon overlay (optional visual cue) */
+        .sticky-play-icon {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            width: 26px;
+            height: 26px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .sticky-play-icon::after {
+            content: "";
+            border-style: solid;
+            border-width: 6px 0 6px 10px;
+            border-color: transparent transparent transparent #111;
+            margin-left: 2px;
+        }
+
+        /* ============================================================
+     FULLSCREEN / EXPANDED POPUP (shown on click)
+     ============================================================ */
+        .video-popup-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s ease;
+        }
+
+        .video-popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .video-popup-box {
+            position: relative;
+            width: 80%;
+            max-width: 320px;
+            /* smaller, more premium reel-sized box */
+            aspect-ratio: 9 / 16;
+            border-radius: 24px;
+            /* softer, more premium rounded corners */
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            /* premium floating shadow */
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            /* subtle premium edge */
+            transform: scale(0.85);
+            opacity: 0;
+            transition: transform 0.35s ease, opacity 0.35s ease;
+        }
+
+        .video-popup-overlay.active .video-popup-box {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .video-popup-box video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Close button for the big popup video */
+        .popup-close-btn {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        /* ============================================================
+     RESPONSIVENESS
+     ============================================================ */
+        @media (max-width: 768px) {
+            .sticky-video-widget {
+                width: 100px;
+                bottom: 16px;
+                right: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sticky-video-widget {
+                width: 90px;
+                bottom: 12px;
+                right: 12px;
+            }
+
+            .video-popup-box {
+                width: 78%;
+                max-width: 260px;
+            }
+
+            .popup-close-btn {
+                top: -36px;
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper">
+
+        <!-- Preloader -->
+        <div class="loader-wrap">
+            <div class="preloader">
+                <div class="preloader-close">x</div>
+                <div id="handle-preloader" class="handle-preloader">
+                    <div class="animation-preloader">
+                        <div class="spinner"></div>
+                        <div class="txt-loading">
+                            <span data-text-preloader="F" class="letters-loading">
+                                F
+                            </span>
+                            <span data-text-preloader="I" class="letters-loading">
+                                I
+                            </span>
+                            <span data-text-preloader="N" class="letters-loading">
+                                N
+                            </span>
+                            <span data-text-preloader="E" class="letters-loading">
+                                E
+                            </span>
+                            <span data-text-preloader="F" class="letters-loading">
+                                F
+                            </span>
+                            <span data-text-preloader="O" class="letters-loading">
+                                O
+                            </span>
+                            <span data-text-preloader="L" class="letters-loading">
+                                L
+                            </span>
+                            <span data-text-preloader="D" class="letters-loading">
+                                D
+                            </span>
+                            <span data-text-preloader="M" class="letters-loading">
+                                M
+                            </span>
+                            <span data-text-preloader="E" class="letters-loading">
+                                E
+                            </span>
+                            <span data-text-preloader="N" class="letters-loading">
+                                N
+                            </span>
+                            <span data-text-preloader="U" class="letters-loading">
+                                U
+                            </span>
+                            <span data-text-preloader="S" class="letters-loading">
+                                S
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Preloader End -->
+
+        <!-- Main Header-->
+        <header class="main-header header-down">
+            <div class="header-top">
+                <div class="auto-container">
+                    <div class="inner clearfix">
+                        <div class="top-left clearfix">
+                            <ul class="top-info clearfix">
+                                <li><i class="icon far fa-map-marker-alt"></i> C-111, 3rd Floor, Naraina Industrial
+                                    Area, Delhi - 110034
+                                </li>
+                                <li class="design-services-link"><a href="design-services.html"
+                                        aria-label="Design services also available"><span>Design Services Also
+                                            Available</span></a></li>
+                            </ul>
+                        </div>
+                        <a class="header-small-logo" href="index.html" aria-label="Fine Fold Menus home">
+                            <img src="images/small-pnglogo.png" alt="Fine Fold Menus">
+                        </a>
+                        <div class="top-right clearfix">
+                            <ul class="top-info clearfix">
+                                <li><a href="tel:+919818095822"><i class="icon far fa-phone"></i> +91 98180 95822</a>
+                                </li>
+                                <!-- <li><a href="mailto:info@finefoldmenus.com"><i class="icon far fa-envelope"></i>
+                                        info@finefoldmenus.com</a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header Upper -->
+            <div class="header-upper">
+                <div class="auto-container">
+                    <!-- Main Box -->
+                    <div class="main-box clearfix">
+                        <!--Logo-->
+                        <div class="logo-box">
+                            <div class="logo"><a href="index.html"><img src="images/logo.png" alt="Fine Fold Menus"></a>
+                            </div>
+                        </div>
+
+                        <div class="nav-box clearfix">
+                            <!--Nav Outer-->
+                            <div class="nav-outer clearfix">
+                                <nav class="main-menu">
+                                    <ul class="navigation clearfix">
+                                        <li class="current"><a href="index.html">Home</a></li>
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li class="dropdown has-mega-menu"><a href="#">Industries We Serve</a>
+                                            <ul>
+                                                <li>
+                                                    <div class="mega-menu">
+                                                        <div class="menu-inner">
+                                                            <div class="auto-container">
+                                                                <div class="row clearfix">
+                                                                    <div class="menu-block col-lg-3 col-md-6 col-sm-6">
+                                                                        <div class="image"><a
+                                                                                href="Restaurant.html"><img
+                                                                                    src="images/restaurant-groups.jpg"
+                                                                                    alt="Restaurant Groups"></a></div>
+                                                                        <div class="title"><a
+                                                                                href="Restaurant.html">Restaurant</a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="menu-block col-lg-3 col-md-6 col-sm-6">
+                                                                        <div class="image"><a href="#"><img
+                                                                                    src="images/hotels-and-resorts.jpg"
+                                                                                    alt="Hotels & Resorts"></a></div>
+                                                                        <div class="title"><a href="#">Hotels &
+                                                                                Resorts</a></div>
+                                                                    </div>
+                                                                    <div class="menu-block col-lg-3 col-md-6 col-sm-6">
+                                                                        <div class="image"><a href="#"><img
+                                                                                    src="images/food-court.jpg"
+                                                                                    alt="Food Court"></a></div>
+                                                                        <div class="title"><a href="#">Food Court</a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="menu-block col-lg-3 col-md-6 col-sm-6">
+                                                                        <div class="image"><a href="#"><img
+                                                                                    src="images/bars-and-lounges.jpg"
+                                                                                    alt="Bars & Lounges"></a></div>
+                                                                        <div class="title"><a href="#">Bars &
+                                                                                Lounges</a></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="dropdown"><a href="#">Our Services</a>
+                                            <ul>
+                                                <li><a href="Fully-Customized-Menu.html">Fully Customized Menu</a></li>
+                                                <li><a href="Luxury-Dine-in-Menu.html">Luxury Dine-in Menu</a></li>
+                                                <li><a href="#">MDF Series Menu</a></li>
+                                                <li><a href="#"> Waterproof Menu (NTR)</a></li>
+                                                <li><a href="#"> Acrylic Menu</a></li>
+                                                <li><a href="#">Pool Side Menu</a></li>
+                                                <li><a href="#">Premium Wiro Menu</a></li>
+                                                <li><a href="#">Changeable Menu</a></li>
+                                                <li><a href="#">Bar & Drink Menu</a></li>
+                                                <li><a href="#">Food Court Menus</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li><a href="how-its-work.html">How it works</a></li>
+                                        <li class="dropdown"><a href="#"> Contact Us</a>
+                                            <ul>
+                                                <li><a href="Make-a-Payment.html">Make a Payment</a></li>
+                                                <li><a href="Speak-With-Us.html">Speak With Us</a></li>
+
+                                            </ul>
+                                        </li>
+
+                                    </ul>
+                                </nav>
+                                <!-- Main Menu End-->
+                            </div>
+                            <!--Nav Outer End-->
+
+                            <div class="links-box clearfix">
+                                <div class="link link-btn">
+                                    <a href="reservation-opentable.html" class="theme-btn btn-style-one clearfix">
+                                        <span class="btn-wrap">
+                                            <span class="text-one">Get A Quote</span>
+                                            <span class="text-two">Get A Quote</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="link info-toggler">
+                                    <button class="info-btn">
+                                        <span class="hamburger">
+                                            <span class="top-bun"></span>
+                                            <span class="meat"></span>
+                                            <span class="bottom-bun"></span>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Hidden Nav Toggler -->
+                            <div class="nav-toggler">
+                                <button class="hidden-bar-opener">
+                                    <span class="hamburger">
+                                        <span class="top-bun"></span>
+                                        <span class="meat"></span>
+                                        <span class="bottom-bun"></span>
+                                    </span>
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--End Main Header -->
+
+
+        <!--Menu Backdrop-->
+        <div class="menu-backdrop"></div>
+
+        <!-- Hidden Navigation Bar -->
+        <section class="hidden-bar">
+            <!-- Hidden Bar Wrapper -->
+            <div class="inner-box">
+                <div class="cross-icon hidden-bar-closer"><span class="far fa-close"></span></div>
+                <div class="logo-box"><a href="index.html"><img src="images/logo-footer-m.png"
+                            alt="Find Fold Menus"></a></div>
+
+                <!-- .Side-menu ----------------------------------------------------->
+                <div class="side-menu">
+                    <ul class="navigation clearfix">
+                        <li class="current"><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+
+                        <li class="dropdown"><a href="#">Industries We Serve</a>
+                            <ul>
+                                <li><a href="Restaurant.html">Restaurant</a></li>
+                                <li><a href="#">Hotels & Resorts</a></li>
+                                <li><a href="#">Food Court</a></li>
+                                <li><a href="#">Bars & Lounges</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown"><a href="#">Our Services</a>
+                            <ul>
+                                <li><a href="Fully-Customized-Menu.html">Fully Customized Menu</a></li>
+                                <li><a href="Luxury-Dine-in-Menu.html">Luxury Dine-in Menu</a></li>
+                                <li><a href="#">MDF Series Menu</a></li>
+                                <li><a href="#"> Waterproof Menu (NTR)</a></li>
+                                <li><a href="#"> Acrylic Menu</a></li>
+                                <li><a href="#">Pool Side Menu</a></li>
+                                <li><a href="#">Premium Wiro Menu</a></li>
+                                <li><a href="#">Changeable Menu</a></li>
+                                <li><a href="#">Bar & Drink Menu</a></li>
+                                <li><a href="#">Food Court Menus</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="how-its-work.html">How it works</a></li>
+
+                        <li class="dropdown"><a href="#">Contact Us</a>
+                            <ul>
+                                <li><a href="Make-a-Payment.html">Make a Payment</a></li>
+                                <li><a href="Speak-With-Us.html">Speak With Us</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.Side-menu -------------------------------------------------->
+
+                <h2>Visit Us</h2>
+                <ul class="info">
+                    <li> C-111, 3rd Floor, Naraina Industrial Area, Delhi - 110034
+                    </li>
+                    <li>Open: 10.00 am - 6.30pm</li>
+                    <li><a href="mailto:info@finefoldmenus.com">info@finefoldmenus.com</a></li>
+                </ul>
+                <div class="separator"><span></span></div>
+                <div class="booking-info">
+                    <div class="bk-title">Get Started</div>
+                    <div class="bk-no"><a href="tel:+919818095822">+91 98180 95822</a></div>
+                </div>
+
+            </div><!-- / Hidden Bar Wrapper -->
+        </section>
+        <!-- / Hidden Bar -->
+
+        <!--Info Back Drop-->
+        <div class="info-back-drop"></div>
+
+        <!-- Hidden Bar -->
+        <section class="info-bar">
+            <div class="inner-box">
+                <div class="cross-icon"><span class="far fa-close"></span></div>
+                <div class="logo-box"><a href="index.html"><img src="images/logo-footer-m.png"
+                            alt="Find Fold Menus"></a></div>
+
+                <h2>Visit Us</h2>
+                <ul class="info">
+                    <li> C-111, 3rd Floor, Naraina Industrial Area, Delhi - 110034
+                    </li>
+                    <li>Open: 10.00 am - 6.30pm</li>
+                    <li><a href="mailto:info@finefoldmenus.com">info@finefoldmenus.com</a></li>
+                </ul>
+                <div class="separator"><span></span></div>
+                <div class="booking-info">
+                    <div class="bk-title">Get Started</div>
+                    <div class="bk-no"><a href="tel:+919818095822">+91 98180 95822</a></div>
+                </div>
+            </div>
+        </section>
+        <div class="ff-shell">
+            <!-- ================= HERO ================= -->
+            <header class="ff-hero">
+                <div class="ff-hero__media">
+                    <!-- Reserved media area: replace <img> with a looping <video autoplay muted loop playsinline> -->
+                    <img src="images/hero-dining.jpg"
+                        alt="Luxury fine dining table setting with a premium leather menu cover in candlelight" />
+                </div>
+                <div class="ff-hero__overlay"></div>
+                <div class="ff-frame ff-hero__frame"></div>
+                <div class="ff-wrap">
+                    <div class="ff-hero__inner ff-reveal">
+                        <p class="ff-eyebrow">PREMIUM DINE-IN MENU COLLECTION</p>
+                        <div style="margin-top: 18px">
+                            <div class="ff-deco"><span></span><i></i><i class="solid"></i><i></i><span></span></div>
+                        </div>
+                        <h1>Luxury Dine-In Menu Covers <em>Crafted for Exceptional Dining Experiences</em></h1>
+                        <p>
+                            In fine dining, every detail contributes to the guest experience—and your menu is no
+                            exception. At Fine
+                            Fold Menus, we design and manufacture luxury dine-in menu covers that combine timeless
+                            elegance, premium
+                            craftsmanship, and complete customization. Created for restaurants, luxury hotels, resorts,
+                            and upscale
+                            cafés, our bespoke menu presentation solutions enhance your brand identity while leaving a
+                            lasting
+                            impression from the moment your guests take their seats.
+                        </p>
+                        <div class="ff-hero__cta">
+                            <a href="#quote" class="ff-btn ff-btn--gold">Explore Collection</a>
+                            <a href="#quote" class="ff-btn ff-btn--ghost">Request a Custom Quote</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="ff-scroll"><span>Scroll to Explore</span><span class="ff-scroll__line"></span></div>
+            </header>
+
+            <!-- ================= ABOUT ================= -->
+            <section class="ff-section">
+                <div class="ff-wrap ff-split">
+                    <div class="ff-split__media ff-reveal">
+                        <div class="ff-outline ff-outline--tl"></div>
+                        <div class="ff-media ff-media--tall">
+                            <div class="ff-media__glow"></div>
+                            <img src="images/about-menu.jpg"
+                                alt="Waiter presenting a black leather menu cover with gold embossed logo"
+                                loading="lazy" />
+                        </div>
+                        <div class="ff-floatcard ff-floatcard--overlap">
+                            <ul>
+                                <li><span>✔</span>Premium Craftsmanship</li>
+                                <li><span>✔</span>Bespoke Designs</li>
+                                <li><span>✔</span>Hospitality Excellence</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="ff-split__body ff-reveal">
+                        <p class="ff-eyebrow">About the Collection</p>
+                        <h2 class="ff-h2" style="margin-top: 16px">Where Exceptional Cuisine Meets Exceptional
+                            Presentation</h2>
+                        <div class="ff-underline" style="margin: 18px 0 26px"></div>
+                        <p class="ff-body-copy">
+                            A dine-in menu is far more than a list of dishes. It is the first object your guest holds,
+                            the first
+                            texture they feel, and the first expression of the care that defines your restaurant. Our
+                            luxury menu
+                            covers are crafted to carry that responsibility beautifully—balancing weight, finish, and
+                            proportion so
+                            the presentation feels considered from the very first touch.
+                        </p>
+                        <p class="ff-body-copy">
+                            Every cover is produced by skilled artisans using carefully sourced materials and precision
+                            finishing
+                            techniques. From the choice of leather to the depth of an embossed logo, each decision is
+                            made to
+                            complement your interior, your service style, and the standard of hospitality your guests
+                            expect.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= WHY CHOOSE ================= -->
+            <section class="ff-section" style="background: var(--ff-black-2)">
+                <div class="ff-wrap">
+                    <div class="ff-reveal">
+                        <p class="ff-eyebrow">Why Choose Luxury Dine-In Menu Covers?</p>
+                        <h2 class="ff-h2" style="margin-top: 16px; max-width: 18ch">Designed to Enhance Every Guest
+                            Experience</h2>
+                        <div class="ff-underline" style="margin: 18px 0 26px"></div>
+                        <p class="ff-lead">
+                            Luxury dining is defined by consistency—in flavour, in service, and in presentation. A
+                            refined menu cover
+                            reinforces that consistency, elevating perceived value, strengthening brand recall, and
+                            making every table
+                            feel intentionally designed.
+                        </p>
+                    </div>
+                    <div class="ff-stagger">
+                        <article class="ff-card ff-reveal">
+                            <div class="ff-card__img"><img src="images/about-menu.jpg" alt="" loading="lazy" /></div>
+                            <span class="ff-num">01</span>
+                            <div class="ff-card__inner">
+                                <div class="ff-icon">
+                                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1">
+                                        <path d="M12 3l2.6 6.4L21 12l-6.4 2.6L12 21l-2.6-6.4L3 12l6.4-2.6L12 3z" />
+                                    </svg>
+                                </div>
+                                <h3>Elegant First Impressions</h3>
+                                <p>
+                                    A beautifully crafted menu cover sets the tone before the first course arrives. It
+                                    signals quality,
+                                    attention to detail, and hospitality standards that your guests immediately
+                                    recognise and remember.
+                                </p>
+                            </div>
+                        </article>
+                        <article class="ff-card ff-reveal">
+                            <div class="ff-card__img"><img src="images/customization.jpg" alt="" loading="lazy" /></div>
+                            <span class="ff-num">02</span>
+                            <div class="ff-card__inner">
+                                <div class="ff-icon">
+                                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1">
+                                        <path d="M4 4h16v16H4z M9 9h6v6H9z" />
+                                    </svg>
+                                </div>
+                                <h3>Reflect Your Brand Identity</h3>
+                                <p>
+                                    Every material, colour, finish, and branding detail is selected to echo your
+                                    restaurant's
+                                    personality—so your menu feels like a natural extension of your interior, your
+                                    service, and your story.
+                                </p>
+                            </div>
+                        </article>
+                        <article class="ff-card ff-reveal">
+                            <div class="ff-card__img"><img src="images/about-menu.jpg" alt="" loading="lazy" /></div>
+                            <span class="ff-num">03</span>
+                            <div class="ff-card__inner">
+                                <div class="ff-icon">
+                                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1">
+                                        <path d="M12 2l9 5v10l-9 5-9-5V7l9-5z" />
+                                    </svg>
+                                </div>
+                                <h3>Built for Everyday Hospitality</h3>
+                                <p>
+                                    Designed for the realities of a working dining room, our covers are durable, easy to
+                                    clean, and
+                                    engineered to look immaculate through service after service, season after season.
+                                </p>
+                            </div>
+                        </article>
+                        <article class="ff-card ff-reveal">
+                            <div class="ff-card__img"><img src="images/customization.jpg" alt="" loading="lazy" /></div>
+                            <span class="ff-num">04</span>
+                            <div class="ff-card__inner">
+                                <div class="ff-icon">
+                                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1">
+                                        <path d="M3 12h18 M12 3v18 M6 6l12 12 M18 6L6 18" />
+                                    </svg>
+                                </div>
+                                <h3>Tailored to Your Vision</h3>
+                                <p>
+                                    From size and layout to stitching, inserts, and finishing touches, every element is
+                                    made to order—so
+                                    your menu presentation is entirely yours and never off the shelf.
+                                </p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= MATERIALS ================= -->
+            <section class="ff-section">
+                <div class="ff-wrap ff-split ff-split--reverse">
+                    <div class="ff-split__media ff-reveal">
+                        <div class="ff-outline ff-outline--br"></div>
+                        <div class="ff-media ff-media--wide">
+                            <div class="ff-media__glow"></div>
+                            <img src="images/materials.jpg"
+                                alt="Luxury material swatches: leather, velvet, linen, wood, metal, acrylic, cork and canvas"
+                                loading="lazy" />
+                        </div>
+                        <div class="ff-floatcard" style="margin-top: 22px">
+                            <p class="ff-eyebrow">Material Library</p>
+                            <div class="ff-swatches">
+                                <div class="ff-swatch"><i
+                                        style="background: linear-gradient(135deg,#6b4a30,#3a2417)"></i>Leather</div>
+                                <div class="ff-swatch"><i
+                                        style="background: linear-gradient(135deg,#cfd6d8,#7d8a8f)"></i>Acrylic</div>
+                                <div class="ff-swatch"><i
+                                        style="background: linear-gradient(135deg,#a9773f,#5c3a1c)"></i>Wood</div>
+                                <div class="ff-swatch"><i
+                                        style="background: linear-gradient(135deg,#e3d3a6,#8d7a4c)"></i>Metal</div>
+                                <div class="ff-swatch"><i
+                                        style="background: linear-gradient(135deg,#e6ddcc,#b6a88f)"></i>Linen</div>
+                                <div class="ff-swatch"><i
+                                        style="background: linear-gradient(135deg,#4a1f2a,#20090f)"></i>Velvet</div>
+                                <div class="ff-swatch"><i
+                                        style="background: linear-gradient(135deg,#cdbfa5,#8b7c62)"></i>Canvas</div>
+                                <div class="ff-swatch"><i
+                                        style="background: linear-gradient(135deg,#c9a06a,#8a6337)"></i>Cork</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ff-split__body ff-reveal">
+                        <p class="ff-eyebrow">Premium Materials</p>
+                        <h2 class="ff-h2" style="margin-top: 16px">Luxury Materials That Complement Your Restaurant's
+                            Ambience</h2>
+                        <div class="ff-underline" style="margin: 18px 0 26px"></div>
+                        <p class="ff-body-copy">
+                            The material you choose sets the mood of the entire presentation. Soft full-grain leather
+                            speaks of
+                            heritage and warmth, brushed metal and acrylic feel contemporary and architectural, while
+                            linen, velvet,
+                            canvas, cork, and wood introduce texture that echoes your interior finishes.
+                        </p>
+                        <p class="ff-body-copy">
+                            Our team helps you select the material, weight, and finish that best suits your lighting,
+                            your table
+                            settings, and the pace of your service—so your menu covers feel like they were made for the
+                            room they live
+                            in, because they were.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= CUSTOMIZATION ================= -->
+            <section class="ff-section" style="background: var(--ff-black-2)">
+                <div class="ff-wrap ff-split">
+                    <div class="ff-split__body ff-reveal">
+                        <p class="ff-eyebrow">Complete Customization</p>
+                        <h2 class="ff-h2" style="margin-top: 16px">Designed Around Your Brand Identity</h2>
+                        <div class="ff-underline" style="margin: 18px 0 26px"></div>
+                        <p class="ff-body-copy">
+                            Every luxury dine-in menu cover we produce is customised from the ground up. Branding,
+                            finishing,
+                            detailing, and binding are all selected by you, guided by our design team, to create a
+                            presentation piece
+                            that belongs to your restaurant alone.
+                        </p>
+                        <div class="ff-panels" data-panels>
+                            <div class="ff-panel is-open">
+                                <div class="ff-panel__head">Logo Branding<span>+</span></div>
+                                <div class="ff-panel__body">
+                                    <div>
+                                        <p>Your logo, precisely reproduced and positioned to sit in perfect balance with
+                                            the cover's proportions.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ff-panel">
+                                <div class="ff-panel__head">Embossing<span>+</span></div>
+                                <div class="ff-panel__body">
+                                    <div>
+                                        <p>Deep, tactile blind embossing that gives your identity a refined, sculptural
+                                            presence on the surface.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ff-panel">
+                                <div class="ff-panel__head">Foil Stamping<span>+</span></div>
+                                <div class="ff-panel__body">
+                                    <div>
+                                        <p>Gold, silver, copper, or matte foils applied with heat and pressure for a
+                                            luminous, luxurious finish.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ff-panel">
+                                <div class="ff-panel__head">Laser Engraving<span>+</span></div>
+                                <div class="ff-panel__body">
+                                    <div>
+                                        <p>Crisp, permanent detailing on wood, acrylic, leather, and metal for
+                                            contemporary precision.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ff-panel">
+                                <div class="ff-panel__head">Decorative Stitching<span>+</span></div>
+                                <div class="ff-panel__body">
+                                    <div>
+                                        <p>Contrast or tonal stitching in your chosen thread colour, adding artisanal
+                                            character to every edge.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ff-panel">
+                                <div class="ff-panel__head">Premium Bindings<span>+</span></div>
+                                <div class="ff-panel__body">
+                                    <div>
+                                        <p>Screw posts, elastic cords, ribbons, corners, and rings—selected to suit how
+                                            your menu changes.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ff-panel">
+                                <div class="ff-panel__head">Protective Finishes<span>+</span></div>
+                                <div class="ff-panel__body">
+                                    <div>
+                                        <p>Water-resistant, scratch-resistant, and easy-clean coatings that protect the
+                                            cover through daily service.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ff-split__media ff-reveal">
+                        <div class="ff-outline ff-outline--tl"></div>
+                        <div class="ff-media ff-media--tall">
+                            <div class="ff-media__glow"></div>
+                            <img src="images/customization.jpg"
+                                alt="Artisan gold foil stamping a logo onto a leather menu cover" loading="lazy" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= INDUSTRIES ================= -->
+            <section class="ff-section">
+                <div class="ff-wrap">
+                    <div class="ff-center ff-reveal">
+                        <p class="ff-eyebrow">Perfect for Premium Hospitality</p>
+                        <div class="ff-deco ff-deco--center"><span></span><i></i><i
+                                class="solid"></i><i></i><span></span></div>
+                        <h2 class="ff-h2" style="max-width: 20ch">Designed for Restaurants That Value Excellence</h2>
+                        <p class="ff-lead">Our luxury dine-in menu covers are trusted across the finest hospitality
+                            venues:</p>
+                    </div>
+                    <div class="ff-grid" data-industries></div>
+                </div>
+            </section>
+
+            <!-- ================= FEATURES & BENEFITS ================= -->
+            <section class="ff-section" style="background: var(--ff-black-2)">
+                <div class="ff-wrap">
+                    <div class="ff-reveal">
+                        <p class="ff-eyebrow">Features &amp; Benefits</p>
+                        <h2 class="ff-h2" style="margin-top: 16px; max-width: 18ch">Crafted for Style, Performance &amp;
+                            Durability</h2>
+                        <div class="ff-underline" style="margin: 18px 0 26px"></div>
+                        <p class="ff-lead">
+                            Beauty alone is not enough in a working dining room. Each cover is engineered to look
+                            exceptional and
+                            perform reliably, service after service.
+                        </p>
+                    </div>
+                    <div class="ff-benefits" data-benefits></div>
+                </div>
+            </section>
+
+            <!-- ================= FAQ ================= -->
+            <section class="ff-section">
+                <div class="ff-wrap">
+                    <div class="ff-reveal">
+                        <p class="ff-eyebrow">Frequently Asked Questions</p>
+                        <div class="ff-underline" style="margin: 18px 0 0"></div>
+                    </div>
+                    <div class="ff-faq" data-faq>
+                        <div class="ff-faq__item ff-reveal is-open">
+                            <button class="ff-faq__btn" aria-expanded="true">Can luxury dine-in menu covers be fully
+                                customized?<i>+</i></button>
+                            <div class="ff-faq__panel">
+                                <div>
+                                    <p>Yes. Every menu cover is made to order. You can choose the material, size,
+                                        colour, branding method, stitching, binding, insert system, and finish so the
+                                        final piece matches your restaurant exactly.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ff-faq__item ff-reveal">
+                            <button class="ff-faq__btn" aria-expanded="false">Which materials are best suited for luxury
+                                restaurants?<i>+</i></button>
+                            <div class="ff-faq__panel">
+                                <div>
+                                    <p>Premium leather and leatherette remain the most popular choices for fine dining,
+                                        while wood, metal, acrylic, linen, velvet, canvas, and cork are ideal for venues
+                                        seeking a distinctive material story.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ff-faq__item ff-reveal">
+                            <button class="ff-faq__btn" aria-expanded="false">Can you match our restaurant's interior
+                                design?<i>+</i></button>
+                            <div class="ff-faq__panel">
+                                <div>
+                                    <p>Absolutely. Share your interior palette, brand guidelines, or material references
+                                        and our design team will develop menu covers that complement your space,
+                                        lighting, and overall ambience.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ff-faq__item ff-reveal">
+                            <button class="ff-faq__btn" aria-expanded="false">Are these menu covers suitable for daily
+                                use?<i>+</i></button>
+                            <div class="ff-faq__panel">
+                                <div>
+                                    <p>Yes. Every cover is constructed for the demands of daily hospitality service,
+                                        with durable materials, reinforced detailing, and protective finishes that stay
+                                        presentable over long-term use.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ff-faq__item ff-reveal">
+                            <button class="ff-faq__btn" aria-expanded="false">Do you handle bulk hospitality
+                                orders?<i>+</i></button>
+                            <div class="ff-faq__panel">
+                                <div>
+                                    <p>We regularly produce bulk orders for restaurant groups, hotels, and resorts, with
+                                        consistent quality across every unit and scheduled production timelines to suit
+                                        your opening or rollout.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= FINAL CTA ================= -->
+            <section class="ff-final" id="quote">
+                <div class="ff-final__media">
+                    <!-- Reserved media area for a looping hero video -->
+                    <img src="images/cta-closing.jpg" alt="Rooftop fine dining terrace at dusk with candlelit tables"
+                        loading="lazy" />
+                </div>
+                <div class="ff-final__overlay"></div>
+                <div class="ff-wrap ff-reveal">
+                    <div class="ff-deco ff-deco--center"><span></span><i></i><i class="solid"></i><i></i><span></span>
+                    </div>
+                    <h2>Create a Dining Experience That Begins with Exceptional Presentation</h2>
+                    <p>
+                        From the first impression to the final course, every detail matters. Let our team craft luxury
+                        dine-in menu
+                        covers that reflect your brand, complement your interiors, and elevate the experience at every
+                        table.
+                    </p>
+                    <div class="ff-final__cta">
+                        <a href="#quote" class="ff-btn ff-btn--gold">Request a Free Quote</a>
+                        <a href="#quote" class="ff-btn ff-btn--ghost">Design Your Luxury Menu</a>
+                        <a href="#quote" class="ff-btn ff-btn--ghost">Speak with Our Experts</a>
+                    </div>
+                </div>
+            </section>
+
+
+            <!--Main Footer-->
+            <footer class="main-footer">
+                <div class="image-layer" style="background-image: url(images/background/image-4.jpg);"></div>
+                <div class="upper-section">
+                    <div class="auto-container">
+                        <div class="row clearfix">
+                            <!--Footer Col-->
+                            <div class="footer-col info-col col-lg-6 col-md-12 col-sm-12">
+                                <div class="inner wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                    <div class="content">
+                                        <div class="logo"><a href="index.html"
+                                                title="Delici - Restaurants HTML Template"><img
+                                                    src="images/logo-footer.png" alt=""
+                                                    title="Delici - Restaurants HTML Template"></a></div>
+                                        <div class="info">
+                                            <ul>
+                                                <li>Office No. 210, IInd Floor, PP Trade Centre, PLOT NO P-1, Netaji
+                                                    Subhash
+                                                    Place, Pitampura, New Delhi 110034</li>
+                                                <li><a href="mailto:info@finefoldmenus.com">info@finefoldmenus.com</a>
+                                                </li>
+                                                <li><a href="tel:+919560195822">Booking Request : +91-95601 95822</a>
+                                                </li>
+                                                <li>Time : 10.00 am - 6.30pm</li>
+                                            </ul>
+                                        </div>
+                                        <div class="separator"><span></span><span></span><span></span></div>
+                                        <!-- <div class="newsletter">
+                                    <h3>Get News & Offers</h3>
+                                    <div class="text">Subscribe us & Get <span>25% Off.</span></div>
+                                    <div class="newsletter-form">
+                                        <form method="post" action="index.html">
+                                            <div class="form-group">
+                                                <span class="alt-icon far fa-envelope"></span>
+                                                <input type="email" name="email" value="" placeholder="Your email" required>
+                                                <button type="submit" class="theme-btn btn-style-one clearfix">
+                                                    <span class="btn-wrap">
+                                                        <span class="text-one">subscribe</span>
+                                                        <span class="text-two">subscribe</span>
+                                                    </span>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Footer Col-->
+                            <div class="footer-col links-col col-lg-3 col-md-6 col-sm-12">
+                                <div class="inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                    <ul class="links">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="#">About Us</a></li>
+                                        <li><a href="#">Who We Serve</a></li>
+                                        <li><a href="#">Our Services</a></li>
+                                        <li><a href="#">Get In Touch </a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!--Footer Col-->
+                            <div class="footer-col links-col last col-lg-3 col-md-6 col-sm-12">
+                                <div class="inner wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                    <ul class="links">
+                                        <li><a
+                                                href="https://www.facebook.com/profile.php?id=61565289525469">facebook</a>
+                                        </li>
+                                        <li><a href="https://www.instagram.com/finefoldmenus/">instagram</a></li>
+                                        <li><a href="https://x.com/finefoldmenus">Twitter</a></li>
+                                        <li><a
+                                                href="https://www.youtube.com/channel/UC666SYK-yWuOSna8JVsXwAQ">Youtube</a>
+                                        </li>
+                                        <li><a
+                                                href="https://www.linkedin.com/in/fine-fold-menus-powered-by-shreeji-softech-57b615405/">LinkedIn</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="auto-container">
+                        <div class="copyright">&copy; 2026 Fine Fold Menus Powered by <a
+                                href="https://shreejisoftech.com/" target="blank">SHREEJI SOFTECH</a>. All Rights
+                            Reserved. </div>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+        <!--End pagewrapper-->
+        <!--Popup code below -->
+
+
+        <div class="sticky-video-widget" id="stickyWidget">
+            <!-- Small close button to dismiss the sticky widget entirely -->
+            <button class="sticky-close-btn" id="stickyCloseBtn" aria-label="Close video">&times;</button>
+
+            <!-- Autoplaying muted looping thumbnail video -->
+            <video id="thumbnailVideo" src="https://finefoldmenus.com/video/fine-fold-menus.mp4"
+                poster="YOUR-POSTER-IMAGE.jpg" autoplay muted loop playsinline></video>
+
+            <!-- Small play icon hint -->
+            <div class="sticky-play-icon"></div>
+        </div>
+
+
+        <div class="video-popup-overlay" id="videoPopupOverlay">
+            <div class="video-popup-box">
+                <button class="popup-close-btn" id="popupCloseBtn" aria-label="Close">&times;</button>
+                <video id="popupVideo" src="https://finefoldmenus.com/video/fine-fold-menus.mp4" controls
+                    playsinline></video>
+            </div>
+        </div>
+        <!--Scroll to top-->
+        <div class="scroll-to-top scroll-to-target" data-target="html"><span class="icon fa fa-angle-up"></span></div>
+
+
+        <script src="js/jquery.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/jquery.fancybox.js"></script>
+        <script src="js/swiper.js"></script>
+        <script src="js/owl.js"></script>
+        <script src="js/appear.js"></script>
+        <script src="js/wow.js"></script>
+        <script src="js/custom-script.js"></script>
+        <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+        <script src="js/Luxury-Dine-in-Menu.js"></script>
+</body>
+
+</html>
