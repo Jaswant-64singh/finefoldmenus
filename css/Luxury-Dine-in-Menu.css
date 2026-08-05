@@ -88,7 +88,7 @@ body {
 
 @media (min-width: 1024px) {
     .ff-section {
-        padding: 150px 0;
+        padding: 80px 0;
     }
 }
 
@@ -108,7 +108,7 @@ body {
 .ff-lead {
     color: var(--ff-muted);
     font-size: 1.02rem;
-    max-width: 62ch;
+    max-width: 10 0ch;
 }
 
 .ff-underline {
@@ -281,7 +281,8 @@ body {
 }
 
 .ff-hero h1 {
-    font-size: clamp(2.6rem, 6.6vw, 5.2rem);
+    /* font-size: clamp(2.6rem, 6.6vw, 5.2rem); */
+    font-size: 50px;
     margin: 8px 0 28px;
 }
 
@@ -292,7 +293,7 @@ body {
 
 .ff-hero p {
     color: rgba(243, 236, 225, 0.78);
-    max-width: 68ch;
+    max-width: 100ch;
     font-size: 1.03rem;
     margin-top: 50px;
 }
@@ -331,7 +332,7 @@ body {
 .ff-scroll {
     position: absolute;
     left: 50%;
-    bottom: 34px;
+    bottom: -10px;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
@@ -491,6 +492,7 @@ body {
 
 .ff-split__body h2 {
     margin-bottom: 20px;
+    font-size: 48px;
 }
 
 .ff-split__body p+p {
