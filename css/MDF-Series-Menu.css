@@ -573,7 +573,7 @@ p {
     width: 48px;
     height: 48px;
     flex: 0 0 48px;
-    /* border: 1px solid var(--gold-soft); */
+    border: 1px solid var(--gold-soft);
     border-radius: 50%;
     color: var(--gold);
     transition: box-shadow .5s, transform .5s
