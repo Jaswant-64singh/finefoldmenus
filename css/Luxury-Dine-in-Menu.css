@@ -13,8 +13,8 @@
     --ff-cream: #f3ece1;
     --ff-muted: rgba(243, 236, 225, 0.62);
     --ff-radius: 22px;
-    --ff-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
-    --ff-sans: "Jost", "Inter", system-ui, -apple-system, sans-serif;
+    --ff-serif: "Forum", Georgia, serif;
+    --ff-sans: "DM Sans", system-ui, -apple-system, sans-serif;
     --ff-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
@@ -88,7 +88,7 @@ body {
 
 @media (min-width: 1024px) {
     .ff-section {
-        padding: 80px 0;
+        padding: 55px 0;
     }
 }
 
@@ -470,7 +470,6 @@ body {
 
 .ff-floatcard li {
     font-size: 0.86rem;
-    letter-spacing: 0.08em;
     color: var(--ff-cream);
     white-space: nowrap;
 }
@@ -888,13 +887,13 @@ body {
 
 .ff-final h2 {
     font-size: clamp(2.1rem, 5vw, 4rem);
-    max-width: 20ch;
+    max-width: 40ch;
     margin: 26px auto 24px;
 }
 
 .ff-final p {
     color: rgba(243, 236, 225, 0.8);
-    max-width: 66ch;
+    max-width: 103ch;
     margin: 0 auto;
 }
 
