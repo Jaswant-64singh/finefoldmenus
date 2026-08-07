@@ -37,25 +37,25 @@ window.addEventListener('scroll', () => {
   });
 }, { passive: true });
 
-/* Accordion */
-document.querySelectorAll('.acc__q').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    const item = btn.parentElement;
-    const open = item.classList.contains('open');
-    item.parentElement.querySelectorAll('.acc__item.open').forEach((i) => {
-      i.classList.remove('open');
-      i.querySelector('.acc__a').style.maxHeight = null;
+/* Accordion — MDF-style (ntr-faq) */
+document.querySelectorAll('.ntr-faq-item').forEach(function (item) {
+  var q = item.querySelector('.ntr-faq-q');
+  var a = item.querySelector('.ntr-faq-a');
+  q.addEventListener('click', function () {
+    var open = item.classList.contains('open');
+    document.querySelectorAll('.ntr-faq-item.open').forEach(function (o) {
+      o.classList.remove('open');
+      o.querySelector('.ntr-faq-a').style.maxHeight = null;
     });
     if (!open) {
       item.classList.add('open');
-      const a = item.querySelector('.acc__a');
       a.style.maxHeight = a.scrollHeight + 'px';
     }
   });
 });
 
-window.addEventListener('resize', () => {
-  document.querySelectorAll('.acc__item.open .acc__a').forEach((a) => {
+window.addEventListener('resize', function () {
+  document.querySelectorAll('.ntr-faq-item.open .ntr-faq-a').forEach(function (a) {
     a.style.maxHeight = a.scrollHeight + 'px';
   });
 });
