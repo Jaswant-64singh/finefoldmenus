@@ -146,7 +146,6 @@ p {
     color: var(--gold);
     font-weight: 400;
     margin: 0 0 18px;
-    margin-top: 80px;
 }
 
 .eyebrow--sm {
@@ -1101,14 +1100,6 @@ body {
    RESPONSIVE
    ========================================================= */
 
-@media (max-width: 480px) {
-  .eyebrow {
-    font-size: .62rem;
-    letter-spacing: .18em;
-    margin: 20px 0 12px;
-  }
-}
-
 
 @media (max-width:1100px) {
     .why__grid {
@@ -1215,11 +1206,11 @@ body {
         --sec: 32px;
         --gap-about-top:   36px;
         --gap-about-bot:   36px;
-        --gap-why-top:     2px;
+        --gap-why-top:     36px;
         --gap-why-bot:     36px;
-        --gap-materials-top: 5px;
+        --gap-materials-top: 36px;
         --gap-materials-bot: 36px;
-        --gap-custom-top:  5px;
+        --gap-custom-top:  36px;
         --gap-custom-bot:  36px;
         --gap-apps-top:    36px;
         --gap-apps-bot:    36px;
@@ -1229,6 +1220,12 @@ body {
         --gap-faq-bot:     32px;
     }
 
+    /* --- eyebrow: kill the huge top margin on mobile --- */
+    .eyebrow {
+        margin-top: 19px;
+    }
+
+    /* --- Section 3: WHY --- */
     .why__grid {
         grid-template-columns: 1fr
     }
@@ -1237,74 +1234,93 @@ body {
         grid-column: auto
     }
 
+    /* --- Section 4: SWATCHES --- */
     .swatches {
-        grid-template-columns: 1fr
+        grid-template-columns: 1fr;
+        gap: 14px;
     }
 
-    /* MOBILE (≤680px): image fills full width, slightly shorter */
+    /* MOBILE (≤680px): image fills full width */
     .swatch__mob-img {
         height: 180px;
     }
 
-    /* Mobile: 1-col — cover-crop each tile from its region of the sprite */
-    .swatch__tex {
-        height: 200px;
-        background-size: cover;
+    /* --- Section 5: CUSTOMIZATION --- */
+    /* Stack the two columns into one on mobile */
+    .custom__grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
     }
 
-    /* Each tile gets a background-position that points to its region.
-       cover + position centres the crop on the correct quadrant. */
-    .t1 { background-position: 12%  25% }
-    .t2 { background-position: 37%  25% }
-    .t3 { background-position: 62%  25% }
-    .t4 { background-position: 88%  25% }
-    .t5 { background-position: 12%  75% }
-    .t6 { background-position: 37%  75% }
-    .t7 { background-position: 62%  75% }
-    .t8 { background-position: 88%  75% }
+    /* Chips: allow natural wrapping, smaller padding */
+    .chips {
+        gap: 10px;
+    }
 
+    .chip {
+        padding: 10px 16px 10px 36px;
+        font-size: .8rem;
+    }
+
+    /* --- Section 6: APPLICATION PANELS --- */
     .panels {
-        gap: 12px
+        gap: 10px;
     }
 
     .panel {
         flex: 1 1 100%;
         text-align: center;
-        transform: none !important
+        padding: 18px 20px;
+        transform: none !important;
+        font-size: 1.1rem;
     }
 
+    /* --- Section 2: ABOUT --- */
     .badge-float {
         left: 50%;
         translate: -50% 0;
         bottom: -24px;
         width: max-content;
-        animation: none
+        animation: none;
     }
 
     .about__media img {
-        height: 52vh
+        height: 52vh;
     }
 
     .about__cards {
-        margin-top: 52px
+        margin-top: 52px;
+        margin-left: 0;
     }
 
-    .radial__ring {
-        grid-template-columns: 1fr
-    }
-
+    /* --- FINAL CTA --- */
     .hero__cta .btn,
     .final__cta .btn {
         width: 100%
+    }
+
+    .final__content {
+        padding: 36px 24px;
     }
 
     .btn {
         padding: 16px 24px
     }
 
-    .chip {
-        padding: 12px 18px 12px 38px;
-        font-size: .8rem
+    /* --- RADIAL --- */
+    .radial__ring {
+        grid-template-columns: 1fr
+    }
+
+    /* --- FAQ --- */
+    .ntr-faq-q {
+        font-size: 1rem;
+        padding: 18px 20px;
+    }
+
+    .ntr-faq-a p {
+        padding: 0 20px 22px;
+        font-size: .9rem;
     }
 }
 
