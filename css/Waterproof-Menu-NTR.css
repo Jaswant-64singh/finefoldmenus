@@ -564,6 +564,7 @@ body {
 .sec-head--center {
     text-align: center;
     margin-inline: auto
+    
 }
 
 .why__grid {
@@ -1099,6 +1100,16 @@ body {
 /* =========================================================
    RESPONSIVE
    ========================================================= */
+
+@media (max-width: 480px) {
+  .eyebrow {
+    font-size: .62rem;
+    letter-spacing: .18em;
+    margin: 20px 0 12px;
+  }
+}
+
+
 @media (max-width:1100px) {
     .why__grid {
         grid-template-columns: 1fr 1fr
@@ -1204,11 +1215,11 @@ body {
         --sec: 32px;
         --gap-about-top:   36px;
         --gap-about-bot:   36px;
-        --gap-why-top:     36px;
+        --gap-why-top:     2px;
         --gap-why-bot:     36px;
-        --gap-materials-top: 36px;
+        --gap-materials-top: 5px;
         --gap-materials-bot: 36px;
-        --gap-custom-top:  36px;
+        --gap-custom-top:  5px;
         --gap-custom-bot:  36px;
         --gap-apps-top:    36px;
         --gap-apps-bot:    36px;
