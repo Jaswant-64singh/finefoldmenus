@@ -693,15 +693,9 @@
         function placeholder(step) {
             return `
     <div class="placeholder">
-      <div class="bg"></div>
-      <div class="tex leather-texture"></div>
-      <div class="vignette"></div>
-      <div class="frame"></div>
-      <div class="caption">
-        <p class="kicker">Chapter ${step.n}</p>
-        <p class="title">${step.title.split("&")[0].trim()}</p>
-      </div>
-      <div class="inset"></div>
+      <video class="step-video" autoplay muted loop playsinline preload="metadata" aria-label="Step ${step.n}: ${step.title}">
+        <source src="video/step${Number(step.n)}.mp4" type="video/mp4">
+      </video>
     </div>`;
         }
 
