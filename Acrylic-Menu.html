@@ -3,7 +3,14 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Fully Customized Menu | Fine Fold Menus</title>
+    <title>Acrylic Menu Manufacturer | Custom Acrylic Menus</title>
+    <meta name="description"
+        content="Discover premium custom acrylic menus for restaurants, cafés, hotels and bars. Choose custom sizes, finishes, printing and branding for your menu." />
+    <meta name="keywords"
+        content="Acrylic Menu, Custom Acrylic Menu, Acrylic Menu for Restaurants, Acrylic Restaurant Menu, Premium Acrylic Menu, Acrylic Menu Manufacturer, Custom Restaurant Menu, Acrylic Menu Covers, Modern Restaurant Menus, Custom Hospitality Menus, Acrylic Menu Printing" />
+    <meta property="og:title" content="Custom Acrylic Menus for Modern Hospitality" />
+    <meta property="og:description"
+        content="Premium acrylic menus customized with your brand, colors, printing, finishes, and dimensions for a distinctive restaurant presentation." />
     <!-- Stylesheets -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -13,10 +20,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link href="css/responsive.css" rel="stylesheet">
-    <link href="css/fully-customized-menu.css" rel="stylesheet">
+    <link href="css/acrylic-menu.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
     <style>
-        /* Small header logo placed between the service notice and contact number. */
         .header-small-logo {
             position: absolute;
             top: 50%;
@@ -26,7 +35,6 @@
             transform: translate(-50%, -50%);
             z-index: 1;
         }
-
         .header-small-logo img {
             display: block;
             width: 134px;
@@ -34,24 +42,15 @@
             height: auto;
             margin-left: 270px;
         }
-
         @media (max-width: 767px) {
-            .header-small-logo {
-                display: none;
-            }
+            .header-small-logo { display: none; }
         }
-
-        /* ============================================================
-     STICKY THUMBNAIL (small floating video card)
-     ============================================================ */
         .sticky-video-widget {
             position: fixed;
             bottom: 24px;
             right: 24px;
             width: 130px;
-            /* thumbnail width - adjust as needed */
             aspect-ratio: 9 / 16;
-            /* keeps it portrait like a reel */
             border-radius: 14px;
             overflow: hidden;
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
@@ -60,27 +59,9 @@
             background: #000;
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
-
-        .sticky-video-widget:hover {
-            transform: scale(1.04);
-            /* slight pop on hover */
-        }
-
-        /* Hide the widget completely once user closes it */
-        .sticky-video-widget.hidden {
-            opacity: 0;
-            pointer-events: none;
-            transform: scale(0.8);
-        }
-
-        .sticky-video-widget video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* Small close (X) button on the sticky thumbnail */
+        .sticky-video-widget:hover { transform: scale(1.04); }
+        .sticky-video-widget.hidden { opacity: 0; pointer-events: none; transform: scale(0.8); }
+        .sticky-video-widget video { width: 100%; height: 100%; object-fit: cover; display: block; }
         .sticky-close-btn {
             position: absolute;
             top: 6px;
@@ -99,8 +80,6 @@
             cursor: pointer;
             z-index: 2;
         }
-
-        /* Small "play" hint icon overlay (optional visual cue) */
         .sticky-play-icon {
             position: absolute;
             bottom: 8px;
@@ -114,7 +93,6 @@
             justify-content: center;
             pointer-events: none;
         }
-
         .sticky-play-icon::after {
             content: "";
             border-style: solid;
@@ -122,10 +100,6 @@
             border-color: transparent transparent transparent #111;
             margin-left: 2px;
         }
-
-        /* ============================================================
-     FULLSCREEN / EXPANDED POPUP (shown on click)
-     ============================================================ */
         .video-popup-overlay {
             position: fixed;
             inset: 0;
@@ -138,44 +112,23 @@
             visibility: hidden;
             transition: opacity 0.35s ease;
         }
-
-        .video-popup-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
+        .video-popup-overlay.active { opacity: 1; visibility: visible; }
         .video-popup-box {
             position: relative;
             width: 80%;
             max-width: 320px;
-            /* smaller, more premium reel-sized box */
             aspect-ratio: 9 / 16;
             border-radius: 24px;
-            /* softer, more premium rounded corners */
             overflow: hidden;
             background: #000;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            /* premium floating shadow */
             border: 1px solid rgba(255, 255, 255, 0.08);
-            /* subtle premium edge */
             transform: scale(0.85);
             opacity: 0;
             transition: transform 0.35s ease, opacity 0.35s ease;
         }
-
-        .video-popup-overlay.active .video-popup-box {
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        .video-popup-box video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* Close button for the big popup video */
+        .video-popup-overlay.active .video-popup-box { transform: scale(1); opacity: 1; }
+        .video-popup-box video { width: 100%; height: 100%; object-fit: cover; display: block; }
         .popup-close-btn {
             position: absolute;
             top: -40px;
@@ -189,37 +142,91 @@
             cursor: pointer;
             z-index: 2;
         }
-
-        /* ============================================================
-     RESPONSIVENESS
-     ============================================================ */
         @media (max-width: 768px) {
-            .sticky-video-widget {
-                width: 100px;
-                bottom: 16px;
-                right: 16px;
-            }
+            .sticky-video-widget { width: 100px; bottom: 16px; right: 16px; }
         }
-
         @media (max-width: 480px) {
-            .sticky-video-widget {
-                width: 90px;
-                bottom: 12px;
-                right: 12px;
-            }
-
-            .video-popup-box {
-                width: 78%;
-                max-width: 260px;
-            }
-
-            .popup-close-btn {
-                top: -36px;
-                width: 30px;
-                height: 30px;
-            }
+            .sticky-video-widget { width: 90px; bottom: 12px; right: 12px; }
+            .video-popup-box { width: 78%; max-width: 260px; }
+            .popup-close-btn { top: -36px; width: 30px; height: 30px; }
         }
+
+        <!-- JSON-LD Schema -->
     </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Product",
+                "name": "Custom Acrylic Menus",
+                "description": "Premium custom acrylic menus for restaurants, cafés, hotels and bars with custom sizes, finishes, printing and branding.",
+                "brand": { "@type": "Brand", "name": "Fine Fold Menus" },
+                "manufacturer": { "@type": "Organization", "name": "Fine Fold Menus" }
+            },
+            {
+                "@type": "Service",
+                "name": "Acrylic Menu Manufacturing",
+                "description": "Custom acrylic menu manufacturing for restaurants, cafés, hotels and bars.",
+                "provider": { "@type": "Organization", "name": "Fine Fold Menus" }
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "What are acrylic menus?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "Acrylic menus are modern menu presentation products made from acrylic sheets and customized with printing, branding, colors, finishes, and other design elements to create a distinctive restaurant menu." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can acrylic menus be customized with our restaurant logo?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Your restaurant logo can be incorporated using suitable branding techniques such as UV printing, digital printing, or engraving, depending on the desired appearance." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What types of acrylic finishes are available?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "We can create transparent, frosted, colored, matte, glossy, printed, and other customized acrylic finishes based on your design requirements." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Are acrylic menus suitable for restaurants?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Acrylic menus are well suited to restaurants, cafés, hotels, bars, lounges, resorts, and other hospitality environments that prefer a modern and sophisticated presentation." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can I choose a custom size and shape?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Acrylic menus can be manufactured in customized dimensions and shapes to suit your table setup, menu format, and overall restaurant branding." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Are acrylic menus easy to clean?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "The smooth acrylic surface makes them practical to clean and maintain during regular restaurant service. Specific cleaning recommendations can vary depending on the finish and printing method." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can acrylic be combined with other materials?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Acrylic can be incorporated into a broader menu presentation design with materials such as wood, metal, leather, or other decorative elements, depending on the required design." }
+                    }
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://finefoldmenus.com/" },
+                    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://finefoldmenus.com/services/" },
+                    { "@type": "ListItem", "position": 3, "name": "Acrylic Menu", "item": "https://finefoldmenus.com/services/acrylic-menu" }
+                ]
+            },
+            {
+                "@type": "WebPage",
+                "name": "Acrylic Menu Manufacturer | Custom Acrylic Menus",
+                "description": "Discover premium custom acrylic menus for restaurants, cafés, hotels and bars. Choose custom sizes, finishes, printing and branding for your menu.",
+                "url": "https://finefoldmenus.com/services/acrylic-menu"
+            }
+        ]
+    }
+    </script>
 </head>
 
 <body>
@@ -233,45 +240,19 @@
                     <div class="animation-preloader">
                         <div class="spinner"></div>
                         <div class="txt-loading">
-                            <span data-text-preloader="F" class="letters-loading">
-                                F
-                            </span>
-                            <span data-text-preloader="I" class="letters-loading">
-                                I
-                            </span>
-                            <span data-text-preloader="N" class="letters-loading">
-                                N
-                            </span>
-                            <span data-text-preloader="E" class="letters-loading">
-                                E
-                            </span>
-                            <span data-text-preloader="F" class="letters-loading">
-                                F
-                            </span>
-                            <span data-text-preloader="O" class="letters-loading">
-                                O
-                            </span>
-                            <span data-text-preloader="L" class="letters-loading">
-                                L
-                            </span>
-                            <span data-text-preloader="D" class="letters-loading">
-                                D
-                            </span>
-                            <span data-text-preloader="M" class="letters-loading">
-                                M
-                            </span>
-                            <span data-text-preloader="E" class="letters-loading">
-                                E
-                            </span>
-                            <span data-text-preloader="N" class="letters-loading">
-                                N
-                            </span>
-                            <span data-text-preloader="U" class="letters-loading">
-                                U
-                            </span>
-                            <span data-text-preloader="S" class="letters-loading">
-                                S
-                            </span>
+                            <span data-text-preloader="F" class="letters-loading">F</span>
+                            <span data-text-preloader="I" class="letters-loading">I</span>
+                            <span data-text-preloader="N" class="letters-loading">N</span>
+                            <span data-text-preloader="E" class="letters-loading">E</span>
+                            <span data-text-preloader="F" class="letters-loading">F</span>
+                            <span data-text-preloader="O" class="letters-loading">O</span>
+                            <span data-text-preloader="L" class="letters-loading">L</span>
+                            <span data-text-preloader="D" class="letters-loading">D</span>
+                            <span data-text-preloader="M" class="letters-loading">M</span>
+                            <span data-text-preloader="E" class="letters-loading">E</span>
+                            <span data-text-preloader="N" class="letters-loading">N</span>
+                            <span data-text-preloader="U" class="letters-loading">U</span>
+                            <span data-text-preloader="S" class="letters-loading">S</span>
                         </div>
                     </div>
                 </div>
@@ -301,8 +282,6 @@
                             <ul class="top-info clearfix">
                                 <li><a href="tel:+919818095822"><i class="icon far fa-phone"></i> +91 98180 95822</a>
                                 </li>
-                                <!-- <li><a href="mailto:info@finefoldmenus.com"><i class="icon far fa-envelope"></i>
-                                        info@finefoldmenus.com</a></li> -->
                             </ul>
                         </div>
                     </div>
@@ -311,20 +290,16 @@
             <!-- Header Upper -->
             <div class="header-upper">
                 <div class="auto-container">
-                    <!-- Main Box -->
                     <div class="main-box clearfix">
-                        <!--Logo-->
                         <div class="logo-box">
                             <div class="logo"><a href="index.html"><img src="images/logo.png" alt="Fine Fold Menus"></a>
                             </div>
                         </div>
-
                         <div class="nav-box clearfix">
-                            <!--Nav Outer-->
                             <div class="nav-outer clearfix">
                                 <nav class="main-menu">
                                     <ul class="navigation clearfix">
-                                        <li class="current"><a href="index.html">Home</a></li>
+                                        <li><a href="index.html">Home</a></li>
                                         <li><a href="about.html">About Us</a></li>
                                         <li class="dropdown has-mega-menu"><a href="#">Industries We Serve</a>
                                             <ul>
@@ -370,7 +345,6 @@
                                                 </li>
                                             </ul>
                                         </li>
-
                                         <li class="dropdown"><a href="#">Our Services</a>
                                             <ul>
                                                 <li><a href="Fully-Customized-Menu.html">Fully Customized Menu</a></li>
@@ -385,22 +359,16 @@
                                                 <li><a href="#">Food Court Menus</a></li>
                                             </ul>
                                         </li>
-
                                         <li><a href="how-its-work.html">How it works</a></li>
                                         <li class="dropdown"><a href="#"> Contact Us</a>
                                             <ul>
                                                 <li><a href="Make-a-Payment.html">Make a Payment</a></li>
                                                 <li><a href="Speak-With-Us.html">Speak With Us</a></li>
-
                                             </ul>
                                         </li>
-
                                     </ul>
                                 </nav>
-                                <!-- Main Menu End-->
                             </div>
-                            <!--Nav Outer End-->
-
                             <div class="links-box clearfix">
                                 <div class="link link-btn">
                                     <a href="reservation-opentable.html" class="theme-btn btn-style-one clearfix">
@@ -420,8 +388,6 @@
                                     </button>
                                 </div>
                             </div>
-
-                            <!-- Hidden Nav Toggler -->
                             <div class="nav-toggler">
                                 <button class="hidden-bar-opener">
                                     <span class="hamburger">
@@ -431,33 +397,26 @@
                                     </span>
                                 </button>
                             </div>
-
                         </div>
-
                     </div>
                 </div>
             </div>
         </header>
         <!--End Main Header -->
 
-
         <!--Menu Backdrop-->
         <div class="menu-backdrop"></div>
 
         <!-- Hidden Navigation Bar -->
         <section class="hidden-bar">
-            <!-- Hidden Bar Wrapper -->
             <div class="inner-box">
                 <div class="cross-icon hidden-bar-closer"><span class="far fa-close"></span></div>
                 <div class="logo-box"><a href="index.html"><img src="images/logo-footer-m.png"
                             alt="Find Fold Menus"></a></div>
-
-                <!-- .Side-menu ----------------------------------------------------->
                 <div class="side-menu">
                     <ul class="navigation clearfix">
-                        <li class="current"><a href="index.html">Home</a></li>
+                        <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
-
                         <li class="dropdown"><a href="#">Industries We Serve</a>
                             <ul>
                                 <li><a href="Restaurant.html">Restaurant</a></li>
@@ -466,7 +425,6 @@
                                 <li><a href="#">Bars & Lounges</a></li>
                             </ul>
                         </li>
-
                         <li class="dropdown"><a href="#">Our Services</a>
                             <ul>
                                 <li><a href="Fully-Customized-Menu.html">Fully Customized Menu</a></li>
@@ -481,9 +439,7 @@
                                 <li><a href="#">Food Court Menus</a></li>
                             </ul>
                         </li>
-
                         <li><a href="how-its-work.html">How it works</a></li>
-
                         <li class="dropdown"><a href="#">Contact Us</a>
                             <ul>
                                 <li><a href="Make-a-Payment.html">Make a Payment</a></li>
@@ -491,35 +447,7 @@
                             </ul>
                         </li>
                     </ul>
-                </div><!-- /.Side-menu -------------------------------------------------->
-
-                <h2>Visit Us</h2>
-                <ul class="info">
-                    <li> C-111, 3rd Floor, Naraina Industrial Area, Delhi - 110034
-                    </li>
-                    <li>Open: 10.00 am - 6.30pm</li>
-                    <li><a href="mailto:info@finefoldmenus.com">info@finefoldmenus.com</a></li>
-                </ul>
-                <div class="separator"><span></span></div>
-                <div class="booking-info">
-                    <div class="bk-title">Get Started</div>
-                    <div class="bk-no"><a href="tel:+919818095822">+91 98180 95822</a></div>
                 </div>
-
-            </div><!-- / Hidden Bar Wrapper -->
-        </section>
-        <!-- / Hidden Bar -->
-
-        <!--Info Back Drop-->
-        <div class="info-back-drop"></div>
-
-        <!-- Hidden Bar -->
-        <section class="info-bar">
-            <div class="inner-box">
-                <div class="cross-icon"><span class="far fa-close"></span></div>
-                <div class="logo-box"><a href="index.html"><img src="images/logo-footer-m.png"
-                            alt="Find Fold Menus"></a></div>
-
                 <h2>Visit Us</h2>
                 <ul class="info">
                     <li> C-111, 3rd Floor, Naraina Industrial Area, Delhi - 110034
@@ -534,314 +462,255 @@
                 </div>
             </div>
         </section>
-        <main class="fully-customized-content">
+        <!-- / Hidden Bar -->
 
-            <!-- HERO -->
-            <section class="hero">
-                <div class="hero__media">
-                    <img src="images/hero-menu.jpg"
-                        alt="Premium leather menu cover with gold foil logo on a candlelit fine dining table"
-                        width="1920" height="1280" />
-                    <div class="scrim-1"></div>
-                    <div class="scrim-2"></div>
-                    <div class="scrim-3"></div>
+        <!--Info Back Drop-->
+        <div class="info-back-drop"></div>
+
+        <!-- Hidden Bar -->
+        <section class="info-bar">
+            <div class="inner-box">
+                <div class="cross-icon"><span class="far fa-close"></span></div>
+                <div class="logo-box"><a href="index.html"><img src="images/logo-footer-m.png"
+                            alt="Find Fold Menus"></a></div>
+                <h2>Visit Us</h2>
+                <ul class="info">
+                    <li> C-111, 3rd Floor, Naraina Industrial Area, Delhi - 110034
+                    </li>
+                    <li>Open: 10.00 am - 6.30pm</li>
+                    <li><a href="mailto:info@finefoldmenus.com">info@finefoldmenus.com</a></li>
+                </ul>
+                <div class="separator"><span></span></div>
+                <div class="booking-info">
+                    <div class="bk-title">Get Started</div>
+                    <div class="bk-no"><a href="tel:+919818095822">+91 98180 95822</a></div>
                 </div>
+            </div>
+        </section>
 
-                <span class="deco-diamond float-slow" style="left:32px;top:96px;height:120px;width:120px;"></span>
-                <span class="deco-diamond float-slow" style="right:40px;bottom:128px;height:96px;width:96px;"></span>
+        <main class="acrylic-menu-content">
 
-                <div class="hero__inner">
-                    <div class="reveal">
-                        <p class="hero__kicker">PREMIUM CUSTOM MENU SOLUTIONS</p>
-                        <div class="deco-rule"><span class="diamond"></span></div>
+            <!-- ===== HERO ===== -->
+            <section class="am-hero">
+                <div class="am-hero__bg">
+                    <img src="images/hardcover-menus.jpg" alt="Custom premium acrylic menu for restaurants and hospitality brands" width="1920" height="1080" />
+                    <div class="am-hero__overlay"></div>
+                </div>
+                <div class="am-hero__frames">
+                    <span class="am-hero__frame am-hero__frame--1"></span>
+                    <span class="am-hero__frame am-hero__frame--2"></span>
+                    <span class="am-hero__frame am-hero__frame--3"></span>
+                </div>
+                <div class="am-hero__inner">
+                    <div class="am-reveal">
+                        <p class="am-eyebrow">PREMIUM ACRYLIC MENU COLLECTION</p>
+                        <div class="am-deco-rule"><span class="am-diamond"></span></div>
                     </div>
-
-                    <h1 class="reveal" data-delay="120">
-                        Fully Customized Menu Covers <em class="gold-text">Designed Around Your Brand</em>
+                    <h1 class="am-reveal" data-delay="120">
+                        Modern Acrylic Menus Designed to Elevate Your Restaurant's Presentation
                     </h1>
-
-                    <p class="hero__copy reveal" data-delay="240">
-                        Every hospitality brand has its own story, style, and personality—and your menu should
-                        reflect exactly that. At Fine Fold Menus, we specialize in designing and manufacturing
-                        fully customized menu covers tailored to your unique brand identity. From premium
-                        materials and bespoke finishes to personalized branding and functional layouts, every
-                        detail is crafted to create a menu presentation that leaves a lasting impression while
-                        enhancing your guests' overall dining experience.
+                    <p class="am-hero__copy am-reveal" data-delay="240">
+                        Create a contemporary dining experience with <strong>premium acrylic menus</strong> designed for restaurants, cafés, hotels, bars, and modern hospitality spaces. At <strong>Fine Fold Menus</strong>, we create customized acrylic menu solutions that combine clean aesthetics, durability, and sophisticated branding. From transparent and frosted finishes to bold colors, printed graphics, and personalized logos, every acrylic menu is designed to complement your brand and create a refined first impression at the table.
                     </p>
-
-                    <div class="btn-row reveal" data-delay="360">
-                        <button class="btn btn--solid"><span>Request a Custom Quote</span><i
-                                data-lucide="arrow-right"></i></button>
-                        <button class="btn btn--outline"><span>Start Your Custom Design</span><i
-                                data-lucide="arrow-right"></i></button>
+                    <div class="am-btn-row am-reveal" data-delay="360">
+                        <a href="#explore" class="am-btn am-btn--solid"><span>Explore Acrylic Menu Collection</span></a>
+                        <a href="#cta-final" class="am-btn am-btn--outline"><span>Request a Custom Quote</span></a>
                     </div>
                 </div>
-
-                <div class="hero__scroll">
+                <div class="am-hero__scroll">
                     <span>Scroll to Explore</span>
-                    <i></i>
+                    <i class="am-scroll-arrow"></i>
                 </div>
             </section>
 
-            <!-- ABOUT -->
-            <section class="section">
-                <div class="container split">
-                    <div class="media-frame reveal">
-                        <div class="frame-outline"></div>
-                        <div class="media-frame__img">
-                            <img src="images/craft.jpg"
-                                alt="Artisan applying gold foil branding to a bespoke leather menu cover" loading="lazy"
-                                width="1200" height="1504" />
+            <!-- ===== ABOUT ===== -->
+            <section class="am-section" id="explore">
+                <div class="am-container">
+                    <div class="am-about-grid">
+                        <div class="am-about-img am-reveal">
+                            <div class="am-about-img__frame"></div>
+                            <img src="images/hero-dining.jpg" alt="Custom premium acrylic menu for restaurants and hospitality brands" loading="lazy" width="1200" height="900" />
                         </div>
-                        <div class="lux-card badge-card">
-                            <ul>
-                                <li><i data-lucide="badge-check"></i><span>100% Custom Made</span></li>
-                                <li><i data-lucide="badge-check"></i><span>Premium Materials</span></li>
-                                <li><i data-lucide="badge-check"></i><span>Built for Hospitality</span></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div>
-                        <span class="eyebrow reveal">About Fully Customized Menu Covers</span>
-                        <h2 class="section-title reveal">Designed Exclusively for Your Hospitality Brand</h2>
-                        <span class="rule-line reveal"></span>
-                        <div class="body-copy">
-                            <p class="reveal" data-delay="80">At Fine Fold Menus, a fully customized menu cover begins
-                                with your brand — not with a catalogue. We study your identity, your interiors, your
-                                service style and your guests, then design a menu presentation that belongs to you
-                                alone.</p>
-                            <p class="reveal" data-delay="160">Every cover is developed as a bespoke product: the
-                                material, the size, the branding technique, the stitching, the corners, the closure and
-                                the binding are all selected and engineered around the way your team actually serves.
-                            </p>
-                            <p class="reveal" data-delay="240">The result is a piece of craftsmanship that feels
-                                considered in the hand, photographs beautifully on the table, and holds its finish
-                                through the demands of daily hospitality service.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- WHY CHOOSE -->
-            <section class="section">
-                <div class="container">
-                    <div class="text-center">
-                        <span class="eyebrow reveal">Why Choose a Fully Customized Menu?</span>
-                        <div class="deco-rule reveal"></div>
-                        <h2 class="section-title reveal">Your Brand Deserves More Than a Standard Menu</h2>
-                        <span class="rule-line reveal"></span>
-                    </div>
-                    <p class="lede reveal" data-delay="100">A customized menu cover does far more than hold your pages
-                        together—it communicates the quality, character and confidence of your brand.</p>
-
-                    <div class="feature-grid" id="feature-grid"></div>
-                </div>
-            </section>
-
-            <!-- CUSTOMIZATION -->
-            <section class="section">
-                <div class="container">
-                    <div class="text-center">
-                        <span class="eyebrow reveal">Endless Customization Options</span>
-                        <div class="deco-rule reveal"></div>
-                        <h2 class="section-title reveal">Every Detail, Customized Your Way</h2>
-                        <span class="rule-line reveal"></span>
-                    </div>
-                    <p class="lede reveal" data-delay="100">From the material in your guest's hands to the way your
-                        pages are bound, every element of your menu cover can be tailored to your specification.</p>
-
-                    <div class="options">
-                        <div class="option-tabs" id="option-tabs"></div>
-                        <div class="reveal" data-delay="120">
-                            <div class="lux-card option-panel">
-                                <span class="deco-diamond"
-                                    style="right:-40px;top:-40px;height:160px;width:160px;transform:rotate(45deg);"></span>
-                                <h3 id="option-title"></h3>
-                                <div class="deco-rule"></div>
-                                <ul class="option-list" id="option-list"></ul>
+                        <div class="am-about-panel am-reveal" data-delay="100">
+                            <span class="am-about-panel__corner am-about-panel__corner--tl"></span>
+                            <span class="am-about-panel__corner am-about-panel__corner--tr"></span>
+                            <span class="am-about-panel__corner am-about-panel__corner--bl"></span>
+                            <span class="am-about-panel__corner am-about-panel__corner--br"></span>
+                            <p class="am-eyebrow">About Acrylic Menus</p>
+                            <h2 class="am-section-title">Contemporary Design with Premium Functionality</h2>
+                            <div class="am-body-copy">
+                                <p>Acrylic menus offer a modern alternative to traditional menu covers, bringing clarity, elegance, and a distinctive visual presence to the dining table. Their clean surface and versatile appearance make them particularly suitable for contemporary restaurants, cafés, lounges, bars, hotels, and premium hospitality environments.</p>
+                                <p>At <strong>Fine Fold Menus</strong>, we create acrylic menus tailored to your brand's aesthetic and functional requirements. From the overall size and shape to colors, printing, branding, thickness, and finishing, every element can be customized. Whether you prefer a minimalist transparent design, a sophisticated frosted appearance, or a bold branded finish, our acrylic menu solutions are designed to complement your space while providing a practical and polished presentation.</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- MATERIALS -->
-            <section class="section">
-                <div class="container split">
-                    <div class="order-2">
-                        <span class="eyebrow reveal">Premium Materials</span>
-                        <h2 class="section-title reveal">Crafted from Carefully Selected Premium Materials</h2>
-                        <span class="rule-line reveal"></span>
-                        <div class="body-copy">
-                            <p class="reveal" data-delay="80">We source materials that are chosen as much for how they
-                                age as for how they look — full-grain leathers, refined PU finishes, natural woods,
-                                brushed metals and textile surfaces that feel substantial in the hand.</p>
-                            <p class="reveal" data-delay="160">Each material is tested for durability, colour stability
-                                and resistance to daily handling, so your menus continue to look immaculate long after
-                                the first service.</p>
-                        </div>
+            <!-- ===== WHY CHOOSE ===== -->
+            <section class="am-section">
+                <div class="am-container">
+                    <div class="am-text-center">
+                        <p class="am-eyebrow am-reveal">Why Choose Acrylic Menus?</p>
+                        <div class="am-deco-rule am-reveal"></div>
+                        <h2 class="am-section-title am-reveal">Clean Aesthetics. Modern Branding. Lasting Presentation.</h2>
+                        <div class="am-rule-line am-reveal"></div>
                     </div>
+                    <p class="am-lede am-reveal" data-delay="100">Acrylic provides the flexibility to create menu designs that look distinctive while remaining practical for everyday hospitality use.</p>
+                    <div class="am-arch-grid" id="am-arch-grid"></div>
+                </div>
+            </section>
 
-                    <div class="media-frame right order-1 reveal">
-                        <div class="frame-outline"></div>
-                        <div class="media-frame__img">
-                            <img src="images/materials.jpg"
-                                alt="Premium material swatches including leather, wood, metal, linen, cork and velvet"
-                                loading="lazy" width="1408" height="1008" />
+            <!-- ===== STYLES & FINISHES ===== -->
+            <section class="am-section">
+                <div class="am-container">
+                    <div class="am-text-center">
+                        <p class="am-eyebrow am-reveal">Acrylic Styles &amp; Finishes</p>
+                        <div class="am-deco-rule am-reveal"></div>
+                        <h2 class="am-section-title am-reveal">Choose a Look That Complements Your Brand</h2>
+                        <div class="am-rule-line am-reveal"></div>
+                    </div>
+                    <p class="am-lede am-reveal" data-delay="100">Acrylic offers extensive design possibilities, allowing you to create anything from subtle minimalist menus to bold statement pieces.</p>
+                    <div class="am-finish-showcase" id="am-finish-showcase"></div>
+                </div>
+            </section>
+
+            <!-- ===== COMPLETE CUSTOMIZATION ===== -->
+            <section class="am-section">
+                <div class="am-container">
+                    <div class="am-text-center">
+                        <p class="am-eyebrow am-reveal">Complete Customization</p>
+                        <div class="am-deco-rule am-reveal"></div>
+                        <h2 class="am-section-title am-reveal">Every Acrylic Menu, Designed Around Your Brand</h2>
+                        <div class="am-rule-line am-reveal"></div>
+                    </div>
+                    <p class="am-lede am-reveal" data-delay="100">Your menu should look like a natural extension of your restaurant. That's why our acrylic menus can be customized across every important design detail.</p>
+                    <div class="am-design-matrix" id="am-design-matrix"></div>
+                </div>
+            </section>
+
+            <!-- ===== PERFECT FOR MODERN HOSPITALITY ===== -->
+            <section class="am-section">
+                <div class="am-container">
+                    <div class="am-text-center">
+                        <p class="am-eyebrow am-reveal">Perfect for Modern Hospitality</p>
+                        <div class="am-deco-rule am-reveal"></div>
+                        <h2 class="am-section-title am-reveal">Designed for Spaces That Value Contemporary Presentation</h2>
+                        <div class="am-rule-line am-reveal"></div>
+                    </div>
+                    <div class="am-hospitality-grid" id="am-hospitality-grid"></div>
+                </div>
+            </section>
+
+            <!-- ===== APPLICATIONS ===== -->
+            <section class="am-section">
+                <div class="am-container">
+                    <div class="am-text-center">
+                        <p class="am-eyebrow am-reveal">Acrylic Menu Applications</p>
+                        <div class="am-deco-rule am-reveal"></div>
+                        <h2 class="am-section-title am-reveal">More Than Just a Menu</h2>
+                        <div class="am-rule-line am-reveal"></div>
+                    </div>
+                    <p class="am-lede am-reveal" data-delay="100">Acrylic can be used to create a range of branded tabletop presentation products, allowing your restaurant to maintain a consistent visual identity across the guest experience.</p>
+                    <div class="am-applications" id="am-applications">
+                        <div class="am-app-track" id="am-app-track"></div>
+                        <div class="am-app-progress"><div class="am-app-progress__bar" id="am-app-progress"></div></div>
+                        <div class="am-app-nav">
+                            <button class="am-app-nav__btn" id="am-app-prev" aria-label="Previous">&#8592;</button>
+                            <button class="am-app-nav__btn" id="am-app-next" aria-label="Next">&#8594;</button>
                         </div>
-                        <span class="lux-card material-chip"><i data-lucide="gem"></i>Premium Material Collection</span>
                     </div>
                 </div>
             </section>
 
-            <!-- INDUSTRIES -->
-            <section class="section">
-                <div class="container">
-                    <div class="text-center">
-                        <span class="eyebrow reveal">Perfect For</span>
-                        <div class="deco-rule reveal"></div>
-                        <h2 class="section-title reveal">Ideal for Every Hospitality Business</h2>
-                        <span class="rule-line reveal"></span>
+            <!-- ===== FEATURES & BENEFITS ===== -->
+            <section class="am-section">
+                <div class="am-container">
+                    <div class="am-text-center">
+                        <p class="am-eyebrow am-reveal">Features &amp; Benefits</p>
+                        <div class="am-deco-rule am-reveal"></div>
+                        <h2 class="am-section-title am-reveal">Designed to Look Exceptional Throughout Service</h2>
+                        <div class="am-rule-line am-reveal"></div>
                     </div>
-                    <p class="lede reveal" data-delay="100">Our fully customized menu covers are trusted across every
-                        corner of the hospitality industry.</p>
-
-                    <div class="industry-grid" id="industry-grid"></div>
+                    <p class="am-lede am-reveal" data-delay="100">Our acrylic menu solutions combine contemporary aesthetics with practical functionality, making them suitable for everyday restaurant and hospitality environments.</p>
+                    <div class="am-blueprint" id="am-blueprint"></div>
                 </div>
             </section>
 
-            <!-- INVESTMENT -->
-            <section class="section">
-                <div class="container split">
-                    <div class="media-frame reveal">
-                        <div class="media-frame__img">
-                            <img src="images/experience.jpg"
-                                alt="Guest holding an embossed luxury menu cover in a hotel restaurant" loading="lazy"
-                                width="1408" height="1008" />
+            <!-- ===== FAQ ===== -->
+            <section class="am-section">
+                <div class="am-container--narrow">
+                    <div class="am-text-center">
+                        <p class="am-eyebrow am-reveal">Frequently Asked Questions</p>
+                        <div class="am-deco-rule am-reveal"></div>
+                        <h2 class="am-section-title am-reveal">Frequently Asked Questions</h2>
+                        <div class="am-rule-line am-reveal"></div>
+                    </div>
+                    <div class="am-faq-list" id="am-faq-list"></div>
+                </div>
+            </section>
+
+            <!-- ===== FINAL CTA ===== -->
+            <section class="am-section am-section--cta" id="cta-final">
+                <div class="am-cta-bg">
+                    <img src="images/experience.jpg" alt="" aria-hidden="true" loading="lazy" />
+                    <div class="am-cta-overlay"></div>
+                </div>
+                <div class="am-cta-grid">
+                    <div class="am-cta-img am-reveal">
+                        <img src="images/craft.jpg" alt="Custom premium acrylic menu for restaurants and hospitality brands" loading="lazy" width="900" height="1200" />
+                    </div>
+                    <div class="am-cta-content">
+                        <div class="am-reveal"><div class="am-deco-rule"><span class="am-diamond"></span></div></div>
+                        <h2 class="am-reveal" data-delay="80">Give Your Menu a Distinctly Modern Identity</h2>
+                        <p class="am-reveal" data-delay="160">Make your restaurant's presentation as memorable as the experience itself with a <strong>custom acrylic menu from Fine Fold Menus</strong>. From transparent minimalist designs to bold branded creations, we combine premium materials, precise finishing, and thoughtful customization to create menus that complement your space and strengthen your brand identity.</p>
+                        <div class="am-btn-row am-reveal" data-delay="260">
+                            <a href="Speak-With-Us.html" class="am-btn am-btn--solid"><span>Request a Free Quote</span></a>
+                            <a href="Speak-With-Us.html" class="am-btn am-btn--outline"><span>Customize Your Acrylic Menu</span></a>
+                            <a href="Speak-With-Us.html" class="am-btn am-btn--outline"><span>Talk to Our Experts</span></a>
                         </div>
-                    </div>
-
-                    <div>
-                        <span class="eyebrow reveal">Why Invest in a Fully Customized Menu?</span>
-                        <h2 class="section-title reveal">An Investment in Your Brand Experience</h2>
-                        <span class="rule-line reveal"></span>
-                        <div class="body-copy">
-                            <p class="reveal" data-delay="80">A customized menu cover is one of the few brand assets
-                                every single guest touches. It quietly signals the standard of everything that follows —
-                                the service, the plating, the hospitality.</p>
-                            <p class="reveal" data-delay="160">Because it is built to last, a bespoke cover also
-                                protects your investment: fewer replacements, consistent presentation across every
-                                table, and a brand impression that stays sharp season after season.</p>
-                        </div>
-                        <blockquote class="pull-quote reveal" data-delay="240">
-                            <i data-lucide="quote"></i>
-                            First impressions are made long before the first course arrives — they begin the moment your
-                            menu is placed in a guest's hands.
-                        </blockquote>
-                    </div>
-                </div>
-            </section>
-
-            <!-- FAQ -->
-            <section class="section">
-                <div class="container--narrow">
-                    <div class="text-center">
-                        <span class="eyebrow reveal">Frequently Asked Questions</span>
-                        <div class="deco-rule reveal"></div>
-                        <h2 class="section-title reveal">Frequently Asked Questions</h2>
-                        <span class="rule-line reveal"></span>
-                    </div>
-                    <div class="faq-list" id="faq-list"></div>
-                </div>
-            </section>
-
-            <!-- FINAL CTA -->
-            <section class="section section--cta cta">
-                <img src="images/hero-menu.jpg" alt="" aria-hidden="true" loading="lazy" />
-                <div class="scrim-1"></div>
-                <div class="scrim-2"></div>
-                <span class="deco-diamond float-slow" style="left:40px;top:64px;height:112px;width:112px;"></span>
-                <span class="deco-diamond float-slow" style="right:48px;bottom:64px;height:96px;width:96px;"></span>
-
-                <div class="cta__inner">
-                    <div class="reveal">
-                        <div class="deco-rule"><span class="diamond"></span></div>
-                    </div>
-                    <h2 class="reveal" data-delay="80">Bring Your Vision to Life with a <em class="gold-text">Fully
-                            Customized Menu</em></h2>
-                    <p class="reveal" data-delay="160">Whether you are opening a new restaurant, refreshing an
-                        established brand or rolling out a consistent presentation across multiple venues, our design
-                        team will craft a menu cover that is unmistakably yours — from first sketch to final stitch.</p>
-                    <div class="btn-row reveal" data-delay="260">
-                        <button class="btn btn--solid"><span>Get a Free Quote</span><i
-                                data-lucide="arrow-right"></i></button>
-                        <button class="btn btn--outline"><span>Customize Your Menu Today</span><i
-                                data-lucide="arrow-right"></i></button>
-                        <button class="btn btn--outline"><span>Talk to Our Design Experts</span><i
-                                data-lucide="arrow-right"></i></button>
                     </div>
                 </div>
             </section>
 
         </main>
+
         <!--Main Footer-->
         <footer class="main-footer">
             <div class="image-layer" style="background-image: url(images/background/image-4.jpg);"></div>
             <div class="upper-section">
                 <div class="auto-container">
                     <div class="row clearfix">
-                        <!--Footer Col-->
                         <div class="footer-col info-col col-lg-6 col-md-12 col-sm-12">
                             <div class="inner wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
                                 <div class="content">
                                     <div class="logo"><a href="index.html"
-                                            title="Delici - Restaurants HTML Template"><img src="images/logo-footer.png"
-                                                alt="" title="Delici - Restaurants HTML Template"></a></div>
+                                            title="Fine Fold Menus"><img src="images/logo-footer.png"
+                                                alt="Fine Fold Menus"></a></div>
                                     <div class="info">
                                         <ul>
-                                            <li>Office No. 210, IInd Floor, PP Trade Centre, PLOT NO P-1, Netaji Subhash
-                                                Place, Pitampura, New Delhi 110034</li>
+                                            <li> C-111, 3rd Floor, Naraina Industrial Area, Delhi - 110034
+                                            </li>
                                             <li><a href="mailto:info@finefoldmenus.com">info@finefoldmenus.com</a></li>
-                                            <li><a href="tel:+919560195822">Booking Request : +91-95601 95822</a></li>
+                                            <li><a href="tel:+919818095822">Booking Request : +91-98180 95822</a></li>
                                             <li>Time : 10.00 am - 6.30pm</li>
                                         </ul>
                                     </div>
                                     <div class="separator"><span></span><span></span><span></span></div>
-                                    <!-- <div class="newsletter">
-                                    <h3>Get News & Offers</h3>
-                                    <div class="text">Subscribe us & Get <span>25% Off.</span></div>
-                                    <div class="newsletter-form">
-                                        <form method="post" action="index.html">
-                                            <div class="form-group">
-                                                <span class="alt-icon far fa-envelope"></span>
-                                                <input type="email" name="email" value="" placeholder="Your email" required>
-                                                <button type="submit" class="theme-btn btn-style-one clearfix">
-                                                    <span class="btn-wrap">
-                                                        <span class="text-one">subscribe</span>
-                                                        <span class="text-two">subscribe</span>
-                                                    </span>
-                                                </button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div> -->
                                 </div>
                             </div>
                         </div>
-                        <!--Footer Col-->
                         <div class="footer-col links-col col-lg-3 col-md-6 col-sm-12">
                             <div class="inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                                 <ul class="links">
                                     <li><a href="index.html">Home</a></li>
-                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="about.html">About Us</a></li>
                                     <li><a href="#">Who We Serve</a></li>
                                     <li><a href="#">Our Services</a></li>
                                     <li><a href="#">Get In Touch </a></li>
                                 </ul>
                             </div>
                         </div>
-                        <!--Footer Col-->
                         <div class="footer-col links-col last col-lg-3 col-md-6 col-sm-12">
                             <div class="inner wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
                                 <ul class="links">
@@ -869,22 +738,13 @@
         </footer>
 
     </div>
-    <!--End pagewrapper-->
-    <!--Popup code below -->
-
 
     <div class="sticky-video-widget" id="stickyWidget">
-        <!-- Small close button to dismiss the sticky widget entirely -->
         <button class="sticky-close-btn" id="stickyCloseBtn" aria-label="Close video">&times;</button>
-
-        <!-- Autoplaying muted looping thumbnail video -->
         <video id="thumbnailVideo" src="https://finefoldmenus.com/video/fine-fold-menus.mp4"
             poster="YOUR-POSTER-IMAGE.jpg" autoplay muted loop playsinline></video>
-
-        <!-- Small play icon hint -->
         <div class="sticky-play-icon"></div>
     </div>
-
 
     <div class="video-popup-overlay" id="videoPopupOverlay">
         <div class="video-popup-box">
@@ -893,9 +753,52 @@
                 playsinline></video>
         </div>
     </div>
+
+    <script>
+        const stickyWidget = document.getElementById('stickyWidget');
+        const stickyCloseBtn = document.getElementById('stickyCloseBtn');
+        const thumbnailVideo = document.getElementById('thumbnailVideo');
+        const popupOverlay = document.getElementById('videoPopupOverlay');
+        const popupVideo = document.getElementById('popupVideo');
+        const popupCloseBtn = document.getElementById('popupCloseBtn');
+
+        function playThumb() {
+            thumbnailVideo.muted = true;
+            thumbnailVideo.play().catch(() => {
+                thumbnailVideo.addEventListener('loadedmetadata', () => thumbnailVideo.play().catch(() => { }), { once: true });
+            });
+        }
+        playThumb();
+
+        stickyWidget.addEventListener('click', () => {
+            popupOverlay.classList.add('active');
+            popupVideo.currentTime = thumbnailVideo.currentTime;
+            popupVideo.muted = false;
+            popupVideo.volume = 1;
+            popupVideo.play().catch(() => {
+                popupVideo.muted = true;
+                popupVideo.play();
+                popupVideo.muted = false;
+            });
+            thumbnailVideo.pause();
+        });
+
+        function closePopup() {
+            popupOverlay.classList.remove('active');
+            popupVideo.pause();
+            playThumb();
+        }
+        popupCloseBtn.addEventListener('click', e => { e.stopPropagation(); closePopup(); });
+        popupOverlay.addEventListener('click', e => { if (e.target === popupOverlay) closePopup(); });
+        stickyCloseBtn.addEventListener('click', e => {
+            e.stopPropagation();
+            stickyWidget.classList.add('hidden');
+            thumbnailVideo.pause();
+        });
+    </script>
+
     <!--Scroll to top-->
     <div class="scroll-to-top scroll-to-target" data-target="html"><span class="icon fa fa-angle-up"></span></div>
-
 
     <script src="js/jquery.js"></script>
     <script src="js/popper.min.js"></script>
@@ -907,8 +810,7 @@
     <script src="js/appear.js"></script>
     <script src="js/wow.js"></script>
     <script src="js/custom-script.js"></script>
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    <script src="js/fully-customized-menu.js"></script>
+    <script src="js/acrylic-menu.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,1095 @@
+/* Fine Fold Menus — Premium Acrylic Menu Collection
+   Contemporary Transparent Luxury */
+
+.acrylic-menu-content {
+  --am-bg: #0E0D0D;
+  --am-surface: #151515;
+  --am-gold: #D8B36A;
+  --am-gold-soft: #ecd6a6;
+  --am-white: #FFFFFF;
+  --am-muted: #C7C7C7;
+  --am-border: rgba(216,179,106,0.35);
+  --am-border-bright: rgba(216,179,106,0.6);
+  --am-gradient-gold: linear-gradient(120deg, #c39c56, #f0dcae, #cfa964);
+  --am-glow: 0 24px 60px -24px rgba(216, 179, 106, 0.45);
+  --am-transition: 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  --am-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --am-sans: "Inter", "Poppins", system-ui, sans-serif;
+  --am-radius: 22px;
+}
+
+.acrylic-menu-content,
+.acrylic-menu-content * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.acrylic-menu-content {
+  background-color: var(--am-bg);
+  color: var(--am-white);
+  font-family: var(--am-sans);
+  font-weight: 300;
+  line-height: 1.65;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(1400px 700px at 50% -10%, rgba(216,179,106,0.06), transparent 70%),
+    radial-gradient(900px 500px at 100% 40%, rgba(216,179,106,0.04), transparent 70%);
+  background-attachment: fixed;
+}
+
+.acrylic-menu-content h1, .acrylic-menu-content h2, .acrylic-menu-content h3, .acrylic-menu-content h4 {
+  font-family: var(--am-serif);
+  font-weight: 400;
+}
+
+.acrylic-menu-content img { display: block; max-width: 100%; }
+.acrylic-menu-content ul { list-style: none; }
+.acrylic-menu-content button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+
+/* =========== LAYOUT =========== */
+.am-section { padding: 80px 20px; position: relative; }
+.am-section--cta { padding: 88px 20px; overflow: hidden; }
+.am-container { max-width: 1280px; margin: 0 auto; }
+.am-container--narrow { max-width: 900px; margin: 0 auto; }
+
+/* =========== UTILITIES =========== */
+.am-eyebrow {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--am-gold);
+  font-family: var(--am-sans);
+  font-weight: 500;
+}
+
+.am-deco-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+.am-deco-rule::before, .am-deco-rule::after {
+  content: "";
+  height: 1px;
+  width: 3.5rem;
+  background: linear-gradient(90deg, transparent, var(--am-gold));
+}
+.am-deco-rule::after {
+  background: linear-gradient(90deg, var(--am-gold), transparent);
+}
+.am-diamond {
+  height: 8px;
+  width: 8px;
+  transform: rotate(45deg);
+  border: 1px solid var(--am-gold);
+  display: inline-block;
+}
+
+.am-rule-line {
+  display: block;
+  height: 2px;
+  width: 80px;
+  margin: 24px auto 0;
+  background-image: var(--am-gradient-gold);
+}
+
+.am-section-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  line-height: 1.2;
+  color: var(--am-white);
+  margin-top: 1rem;
+}
+
+.am-text-center { text-align: center; }
+
+.am-lede {
+  text-align: center;
+  max-width: 720px;
+  margin: 24px auto 48px;
+  color: var(--am-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.am-body-copy p {
+  color: var(--am-muted);
+  margin-bottom: 1.25rem;
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+.am-body-copy strong { color: var(--am-white); font-weight: 500; }
+
+.am-gold-text {
+  background: var(--am-gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* =========== REVEAL ANIMATION =========== */
+.am-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.am-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .am-reveal { opacity: 1; transform: none; transition: none; }
+  .am-hero__frame { animation: none !important; }
+  .am-hero__scroll i { animation: none !important; }
+  .am-app-track { transition: none !important; }
+}
+
+/* ==========================================================
+   1. HERO — Transparent Luxury
+   ========================================================== */
+.am-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.am-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.am-hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.3);
+}
+.am-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(14,13,13,0.5) 0%, rgba(14,13,13,0.3) 40%, rgba(14,13,13,0.7) 100%),
+    radial-gradient(ellipse at 60% 40%, rgba(216,179,106,0.08) 0%, transparent 60%);
+}
+
+.am-hero__frames {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.am-hero__frame {
+  position: absolute;
+  border: 1px solid var(--am-border);
+  border-radius: 8px;
+}
+.am-hero__frame--1 {
+  top: 12%;
+  right: 8%;
+  width: 320px;
+  height: 420px;
+  opacity: 0.25;
+  animation: am-float-slow 8s ease-in-out infinite;
+}
+.am-hero__frame--2 {
+  bottom: 15%;
+  right: 14%;
+  width: 220px;
+  height: 300px;
+  opacity: 0.15;
+  animation: am-float-slow 10s ease-in-out infinite 1s;
+}
+.am-hero__frame--3 {
+  top: 20%;
+  left: 5%;
+  width: 180px;
+  height: 240px;
+  opacity: 0.12;
+  animation: am-float-slow 12s ease-in-out infinite 2s;
+  border-style: dashed;
+}
+
+@keyframes am-float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-18px); }
+}
+
+.am-hero__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 820px;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.am-hero__inner h1 {
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  line-height: 1.15;
+  color: var(--am-white);
+  margin-top: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.am-hero__copy {
+  color: var(--am-muted);
+  font-size: 1.02rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+.am-hero__copy strong { color: var(--am-white); font-weight: 500; }
+
+.am-btn-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.am-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  font-family: var(--am-sans);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: var(--am-transition);
+  cursor: pointer;
+}
+.am-btn--solid {
+  background: var(--am-gradient-gold);
+  color: var(--am-bg);
+  border: 1px solid var(--am-gold);
+}
+.am-btn--solid:hover {
+  box-shadow: var(--am-glow);
+  transform: translateY(-2px);
+}
+.am-btn--outline {
+  background: transparent;
+  color: var(--am-gold);
+  border: 1px solid var(--am-border-bright);
+}
+.am-btn--outline:hover {
+  background: rgba(216,179,106,0.1);
+  border-color: var(--am-gold);
+  transform: translateY(-2px);
+}
+
+.am-hero__scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  text-align: center;
+  color: var(--am-gold);
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-family: var(--am-sans);
+}
+.am-hero__scroll i {
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: var(--am-gold);
+  margin: 12px auto 0;
+  position: relative;
+  animation: am-scroll-line 2s ease-in-out infinite;
+}
+.am-hero__scroll i::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -3px;
+  width: 7px;
+  height: 7px;
+  border-right: 1px solid var(--am-gold);
+  border-bottom: 1px solid var(--am-gold);
+  transform: rotate(45deg);
+}
+@keyframes am-scroll-line {
+  0% { opacity: 0; transform: scaleY(0); transform-origin: top; }
+  50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+  100% { opacity: 0; transform: scaleY(1); transform-origin: bottom; }
+}
+
+/* ==========================================================
+   2. ABOUT — Layered Editorial Composition
+   ========================================================== */
+.am-about-grid {
+  display: grid;
+  grid-template-columns: 65fr 35fr;
+  gap: 0;
+  align-items: stretch;
+  min-height: 520px;
+}
+
+.am-about-img {
+  position: relative;
+  border-radius: var(--am-radius);
+  overflow: hidden;
+}
+.am-about-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--am-radius);
+  transition: transform 0.6s ease;
+}
+.am-about-img:hover img {
+  transform: scale(1.03);
+}
+.am-about-img__frame {
+  position: absolute;
+  inset: 12px;
+  border: 1px solid var(--am-border);
+  border-radius: calc(var(--am-radius) - 6px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.am-about-panel {
+  position: relative;
+  background: rgba(21,21,21,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--am-border);
+  border-radius: var(--am-radius);
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: -40px;
+  z-index: 2;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.am-about-panel .am-section-title {
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  margin-top: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.am-about-panel__corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: var(--am-gold);
+  border-style: solid;
+  z-index: 3;
+}
+.am-about-panel__corner--tl { top: 10px; left: 10px; border-width: 1px 0 0 1px; }
+.am-about-panel__corner--tr { top: 10px; right: 10px; border-width: 1px 1px 0 0; }
+.am-about-panel__corner--bl { bottom: 10px; left: 10px; border-width: 0 0 1px 1px; }
+.am-about-panel__corner--br { bottom: 10px; right: 10px; border-width: 0 1px 1px 0; }
+
+/* ==========================================================
+   3. WHY CHOOSE — Architectural Feature Grid
+   ========================================================== */
+.am-arch-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.am-arch-panel {
+  position: relative;
+  background: var(--am-surface);
+  border: 1px solid var(--am-border);
+  border-radius: var(--am-radius);
+  padding: 36px 32px;
+  overflow: hidden;
+  transition: var(--am-transition);
+}
+.am-arch-panel::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -1px;
+  width: 40px;
+  height: 2px;
+  background: var(--am-gold);
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.am-arch-panel:hover {
+  transform: translateY(-4px);
+  border-color: var(--am-border-bright);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+}
+.am-arch-panel:hover::before {
+  transform: translateY(-50%) scaleX(1);
+}
+
+.am-arch-panel:nth-child(1) { grid-column: 1; }
+.am-arch-panel:nth-child(2) { grid-column: 2; margin-top: 32px; }
+.am-arch-panel:nth-child(3) { grid-column: 1; }
+.am-arch-panel:nth-child(4) { grid-column: 2; margin-top: -16px; }
+
+.am-arch-panel__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--am-border);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  color: var(--am-gold);
+  transition: var(--am-transition);
+}
+.am-arch-panel:hover .am-arch-panel__icon {
+  transform: scale(1.1);
+  border-color: var(--am-gold);
+  box-shadow: 0 0 20px rgba(216,179,106,0.2);
+}
+.am-arch-panel__icon svg { width: 24px; height: 24px; }
+
+.am-arch-panel h3 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: var(--am-white);
+}
+.am-arch-panel p {
+  color: var(--am-muted);
+  font-size: 0.92rem;
+  line-height: 1.7;
+}
+
+/* ==========================================================
+   4. STYLES & FINISHES — Interactive Showcase
+   ========================================================== */
+.am-finish-showcase {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 48px;
+  align-items: start;
+  margin-top: 16px;
+}
+
+.am-finish-visual {
+  position: relative;
+  border-radius: var(--am-radius);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--am-surface);
+  border: 1px solid var(--am-border);
+}
+.am-finish-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.5s ease;
+}
+
+.am-finish-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.am-finish-btn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: var(--am-surface);
+  border: 1px solid var(--am-border);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: var(--am-transition);
+  text-align: left;
+}
+.am-finish-btn:hover {
+  border-color: var(--am-border-bright);
+  background: rgba(216,179,106,0.04);
+}
+.am-finish-btn.is-active {
+  border-color: var(--am-gold);
+  background: rgba(216,179,106,0.08);
+  box-shadow: 0 0 30px rgba(216,179,106,0.1);
+}
+
+.am-finish-btn__swatch {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  border: 1px solid var(--am-border);
+  transition: var(--am-transition);
+}
+.am-finish-btn.is-active .am-finish-btn__swatch {
+  border-color: var(--am-gold);
+}
+
+.am-finish-btn__text h4 {
+  font-size: 1.05rem;
+  color: var(--am-white);
+  margin-bottom: 4px;
+  transition: color 0.3s ease;
+}
+.am-finish-btn.is-active .am-finish-btn__text h4 {
+  color: var(--am-gold);
+}
+.am-finish-btn__text p {
+  font-size: 0.82rem;
+  color: var(--am-muted);
+  line-height: 1.5;
+}
+
+/* ==========================================================
+   5. COMPLETE CUSTOMIZATION — Interactive Design Matrix
+   ========================================================== */
+.am-design-matrix {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.am-matrix-item {
+  background: var(--am-surface);
+  border: 1px solid var(--am-border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: var(--am-transition);
+}
+.am-matrix-item.is-open {
+  border-color: var(--am-border-bright);
+}
+
+.am-matrix-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 28px;
+  cursor: pointer;
+  transition: var(--am-transition);
+}
+.am-matrix-header:hover { background: rgba(216,179,106,0.03); }
+
+.am-matrix-accent {
+  width: 3px;
+  height: 32px;
+  background: var(--am-gradient-gold);
+  border-radius: 2px;
+  flex-shrink: 0;
+  transition: height 0.3s ease;
+}
+.am-matrix-item.is-open .am-matrix-accent { height: 48px; }
+
+.am-matrix-header h3 {
+  font-size: 1.15rem;
+  color: var(--am-white);
+  flex: 1;
+}
+.am-matrix-item.is-open .am-matrix-header h3 { color: var(--am-gold); }
+
+.am-matrix-icon {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--am-border);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--am-gold);
+  flex-shrink: 0;
+}
+.am-matrix-icon svg { width: 20px; height: 20px; }
+
+.am-matrix-toggle {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid var(--am-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--am-gold);
+  transition: var(--am-transition);
+  flex-shrink: 0;
+}
+.am-matrix-item.is-open .am-matrix-toggle {
+  transform: rotate(45deg);
+}
+
+.am-matrix-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.am-matrix-item.is-open .am-matrix-body {
+  max-height: 300px;
+}
+
+.am-matrix-content {
+  padding: 0 28px 24px 48px;
+  color: var(--am-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* ==========================================================
+   6. HOSPITALITY — Floating Typography Grid
+   ========================================================== */
+.am-hospitality-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px 24px;
+  max-width: 960px;
+  margin: 40px auto 0;
+}
+
+.am-hospitality-item {
+  position: relative;
+  padding: 16px 28px;
+  background: var(--am-surface);
+  border: 1px solid var(--am-border);
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: var(--am-muted);
+  cursor: default;
+  transition: var(--am-transition);
+  overflow: hidden;
+}
+.am-hospitality-item::after {
+  content: "";
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: var(--am-gold);
+  transition: width 0.4s ease, left 0.4s ease;
+}
+.am-hospitality-item:hover {
+  color: var(--am-gold);
+  border-color: var(--am-border-bright);
+  background: rgba(216,179,106,0.05);
+}
+.am-hospitality-item:hover::after {
+  width: 60%;
+  left: 20%;
+}
+
+/* ==========================================================
+   7. APPLICATIONS — Horizontal Showcase
+   ========================================================== */
+.am-applications {
+  position: relative;
+  margin-top: 40px;
+  overflow: hidden;
+  padding: 0 0 60px;
+}
+
+.am-app-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: grab;
+  padding: 8px 0;
+}
+.am-app-track:active { cursor: grabbing; }
+
+.am-app-card {
+  flex: 0 0 280px;
+  min-height: 200px;
+  background: var(--am-surface);
+  border: 1px solid var(--am-border);
+  border-radius: 16px;
+  padding: 28px 24px;
+  display: flex;
+  align-items: flex-end;
+  transition: var(--am-transition);
+  position: relative;
+  overflow: hidden;
+}
+.am-app-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--am-gradient-gold);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.am-app-card:hover {
+  border-color: var(--am-border-bright);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+.am-app-card:hover::before { opacity: 1; }
+
+.am-app-card__number {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 2.4rem;
+  font-family: var(--am-serif);
+  color: rgba(216,179,106,0.12);
+  font-weight: 600;
+}
+
+.am-app-card h4 {
+  font-size: 1.05rem;
+  color: var(--am-white);
+  position: relative;
+  z-index: 1;
+}
+
+.am-app-progress {
+  width: 100%;
+  height: 2px;
+  background: rgba(216,179,106,0.15);
+  border-radius: 2px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+.am-app-progress__bar {
+  height: 100%;
+  background: var(--am-gold);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+  width: 20%;
+}
+
+.am-app-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+.am-app-nav__btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--am-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--am-gold);
+  font-size: 1.1rem;
+  transition: var(--am-transition);
+}
+.am-app-nav__btn:hover {
+  background: var(--am-gold);
+  color: var(--am-bg);
+}
+
+/* ==========================================================
+   8. FEATURES & BENEFITS — Product Blueprint
+   ========================================================== */
+.am-blueprint {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  margin-top: 48px;
+}
+
+.am-blueprint__product {
+  position: relative;
+  width: 280px;
+  height: 360px;
+  border: 1px solid var(--am-border);
+  border-radius: var(--am-radius);
+  background: var(--am-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  overflow: hidden;
+}
+.am-blueprint__product img {
+  width: 85%;
+  height: 85%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.am-blueprint__product::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: var(--am-radius);
+  border: 1px solid var(--am-border);
+  pointer-events: none;
+}
+
+.am-blueprint__features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.am-blueprint-feature {
+  position: relative;
+  padding: 24px 20px;
+  background: var(--am-surface);
+  border: 1px solid var(--am-border);
+  border-radius: 14px;
+  text-align: center;
+  transition: var(--am-transition);
+}
+.am-blueprint-feature::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 12px;
+  background: var(--am-gold);
+  opacity: 0.4;
+}
+.am-blueprint-feature:hover {
+  border-color: var(--am-border-bright);
+  transform: translateY(-3px);
+}
+.am-blueprint-feature h4 {
+  font-size: 0.9rem;
+  color: var(--am-gold);
+  font-family: var(--am-sans);
+  font-weight: 500;
+}
+
+/* ==========================================================
+   9. FAQ — Luxury Accordion
+   ========================================================== */
+.am-faq-list {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.am-faq-item {
+  background: var(--am-surface);
+  border: 1px solid var(--am-border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: var(--am-transition);
+}
+.am-faq-item.is-open {
+  border-color: var(--am-border-bright);
+}
+
+.am-faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  padding: 24px 28px;
+  text-align: left;
+  cursor: pointer;
+  transition: var(--am-transition);
+}
+.am-faq-q:hover { background: rgba(216,179,106,0.03); }
+
+.am-faq-q h3 {
+  font-size: 1.15rem;
+  color: var(--am-white);
+  flex: 1;
+  font-family: var(--am-serif);
+  font-weight: 500;
+}
+.am-faq-item.is-open .am-faq-q h3 { color: var(--am-gold); }
+
+.am-faq-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--am-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--am-gold);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  transition: var(--am-transition);
+  position: relative;
+}
+.am-faq-icon::before, .am-faq-icon::after {
+  content: "";
+  position: absolute;
+  background: var(--am-gold);
+  transition: transform 0.3s ease;
+}
+.am-faq-icon::before {
+  width: 10px;
+  height: 1px;
+}
+.am-faq-icon::after {
+  width: 1px;
+  height: 10px;
+}
+.am-faq-item.is-open .am-faq-icon::after {
+  transform: rotate(90deg);
+  opacity: 0;
+}
+
+.am-faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.am-faq-item.is-open .am-faq-a { max-height: 200px; }
+
+.am-faq-a > div {
+  padding: 0 28px 24px;
+  color: var(--am-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* ==========================================================
+   10. FINAL CTA — Modern Editorial Statement
+   ========================================================== */
+.am-cta-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.am-cta-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.15);
+}
+.am-cta-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(14,13,13,0.85), rgba(14,13,13,0.7));
+}
+
+.am-cta-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 35fr 65fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.am-cta-img {
+  border-radius: var(--am-radius);
+  overflow: hidden;
+  border: 1px solid var(--am-border);
+}
+.am-cta-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--am-radius);
+  transition: transform 0.6s ease;
+}
+.am-cta-img:hover img { transform: scale(1.03); }
+
+.am-cta-content {
+  padding: 20px 0;
+}
+.am-cta-content h2 {
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  line-height: 1.2;
+  color: var(--am-white);
+  margin: 1.2rem 0 1.5rem;
+}
+.am-cta-content p {
+  color: var(--am-muted);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+.am-cta-content strong { color: var(--am-white); font-weight: 500; }
+
+.am-cta-content .am-btn-row {
+  justify-content: flex-start;
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+@media (max-width: 1024px) {
+  .am-about-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .am-about-panel {
+    margin-left: 0;
+  }
+  .am-finish-showcase {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .am-cta-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .am-cta-img {
+    max-height: 400px;
+  }
+  .am-cta-content .am-btn-row {
+    justify-content: flex-start;
+  }
+  .am-arch-panel:nth-child(2) { margin-top: 0; }
+  .am-arch-panel:nth-child(4) { margin-top: 0; }
+  .am-blueprint__features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .am-section { padding: 60px 16px; }
+  .am-hero__frames { display: none; }
+  .am-hero__scroll { bottom: 24px; }
+  .am-arch-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .am-arch-panel { padding: 28px 24px; }
+  .am-hospitality-grid { gap: 10px 12px; }
+  .am-hospitality-item { padding: 12px 20px; font-size: 0.85rem; }
+  .am-app-card { flex: 0 0 240px; min-height: 160px; padding: 20px; }
+  .am-blueprint__features {
+    grid-template-columns: 1fr;
+  }
+  .am-faq-q { padding: 20px 22px; }
+  .am-faq-q h3 { font-size: 1rem; }
+  .am-about-panel { padding: 32px 24px; }
+  .am-cta-content h2 { font-size: 1.6rem; }
+}
+
+@media (max-width: 480px) {
+  .am-hero__inner h1 { font-size: 1.6rem; }
+  .am-hero__copy { font-size: 0.9rem; }
+  .am-btn-row { flex-direction: column; align-items: stretch; }
+  .am-btn { justify-content: center; }
+  .am-btn--solid, .am-btn--outline { width: 100%; }
+  .am-section-title { font-size: 1.5rem; }
+  .am-section { padding: 48px 14px; }
+  .am-finish-btn { padding: 16px; gap: 12px; }
+  .am-finish-btn__swatch { width: 36px; height: 36px; }
+  .am-matrix-header { padding: 18px 20px; gap: 12px; }
+  .am-matrix-content { padding: 0 20px 20px 40px; }
+  .am-app-card { flex: 0 0 220px; }
+}
