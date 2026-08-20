@@ -1,0 +1,1320 @@
+/* Fine Fold Menus — Premium Poolside Menu Collection
+   Relaxed Luxury / Resort Editorial */
+
+.poolside-menu-content {
+  --pm-bg: #0E0D0D;
+  --pm-surface: #151515;
+  --pm-gold: #D8B36A;
+  --pm-gold-soft: #ecd6a6;
+  --pm-white: #FFFFFF;
+  --pm-muted: #C7C7C7;
+  --pm-border: rgba(216,179,106,0.35);
+  --pm-border-bright: rgba(216,179,106,0.6);
+  --pm-gradient-gold: linear-gradient(120deg, #c39c56, #f0dcae, #cfa964);
+  --pm-gradient-warm: linear-gradient(135deg, #D8B36A 0%, #c39c56 50%, #f0dcae 100%);
+  --pm-glow: 0 24px 60px -24px rgba(216, 179, 106, 0.45);
+  --pm-glow-soft: 0 0 40px rgba(216,179,106,0.15);
+  --pm-transition: 420ms cubic-bezier(0.22, 1, 0.36, 1);
+  --pm-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  --pm-sans: "Inter", "Poppins", system-ui, sans-serif;
+  --pm-radius: 22px;
+  --pm-radius-sm: 14px;
+}
+
+.poolside-menu-content,
+.poolside-menu-content * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.poolside-menu-content {
+  background-color: var(--pm-bg);
+  color: var(--pm-white);
+  font-family: var(--pm-sans);
+  font-weight: 300;
+  line-height: 1.65;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(1600px 800px at 50% -5%, rgba(216,179,106,0.05), transparent 70%),
+    radial-gradient(1000px 600px at 80% 50%, rgba(216,179,106,0.03), transparent 70%),
+    radial-gradient(800px 400px at 20% 80%, rgba(216,179,106,0.02), transparent 70%);
+  background-attachment: fixed;
+}
+
+.poolside-menu-content h1, .poolside-menu-content h2, .poolside-menu-content h3, .poolside-menu-content h4 {
+  font-family: var(--pm-serif);
+  font-weight: 400;
+}
+
+.poolside-menu-content img { display: block; max-width: 100%; }
+.poolside-menu-content ul { list-style: none; }
+.poolside-menu-content button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+
+/* =========== LAYOUT =========== */
+.pm-section { padding: 120px 20px; position: relative; }
+.pm-section--cta { padding: 120px 20px; overflow: hidden; }
+.pm-section--alt { background: rgba(21,21,21,0.4); }
+.pm-section--materials { background: linear-gradient(180deg, var(--pm-bg) 0%, rgba(21,21,21,0.6) 50%, var(--pm-bg) 100%); }
+.pm-container { max-width: 1280px; margin: 0 auto; }
+.pm-container--narrow { max-width: 900px; margin: 0 auto; }
+
+/* =========== UTILITIES =========== */
+.pm-eyebrow {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--pm-gold);
+  font-family: var(--pm-sans);
+  font-weight: 500;
+}
+
+.pm-deco-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+.pm-deco-rule::before, .pm-deco-rule::after {
+  content: "";
+  height: 1px;
+  width: 3.5rem;
+  background: linear-gradient(90deg, transparent, var(--pm-gold));
+}
+.pm-deco-rule::after {
+  background: linear-gradient(90deg, var(--pm-gold), transparent);
+}
+.pm-diamond {
+  height: 8px;
+  width: 8px;
+  transform: rotate(45deg);
+  border: 1px solid var(--pm-gold);
+  display: inline-block;
+}
+
+.pm-rule-line {
+  display: block;
+  height: 2px;
+  width: 80px;
+  margin: 24px auto 0;
+  background-image: var(--pm-gradient-gold);
+}
+
+.pm-section-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  line-height: 1.2;
+  color: var(--pm-white);
+  margin-top: 1rem;
+}
+
+.pm-text-center { text-align: center; }
+
+.pm-lede {
+  text-align: center;
+  max-width: 720px;
+  margin: 24px auto 48px;
+  color: var(--pm-muted);
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.pm-body-copy p {
+  color: var(--pm-muted);
+  margin-bottom: 1.25rem;
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+.pm-body-copy strong { color: var(--pm-white); font-weight: 500; }
+
+/* =========== REVEAL ANIMATION =========== */
+.pm-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1), transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.pm-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pm-reveal { opacity: 1; transform: none; transition: none; }
+  .pm-hero__arch-line { animation: none !important; }
+  .pm-hero__menu-card { animation: none !important; }
+  .pm-hero__scroll i { animation: none !important; }
+  .pm-app-track { transition: none !important; }
+  .pm-about-visual__main img { transition: none !important; }
+}
+
+/* ==========================================================
+   1. HERO — Cinematic Resort Sunset
+   ========================================================== */
+.pm-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.pm-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.pm-hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.25) saturate(1.1);
+}
+.pm-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(14,13,13,0.6) 0%, rgba(14,13,13,0.2) 35%, rgba(14,13,13,0.3) 65%, rgba(14,13,13,0.8) 100%),
+    radial-gradient(ellipse at 65% 40%, rgba(216,179,106,0.1) 0%, transparent 55%),
+    radial-gradient(ellipse at 30% 70%, rgba(195,156,86,0.06) 0%, transparent 50%);
+}
+
+/* Resort architectural lines */
+.pm-hero__arch {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+.pm-hero__arch-line {
+  position: absolute;
+  background: var(--pm-border);
+}
+.pm-hero__arch-line--1 {
+  top: 0;
+  right: 12%;
+  width: 1px;
+  height: 35%;
+  opacity: 0.2;
+  animation: pm-arch-grow 2s ease-out forwards;
+}
+.pm-hero__arch-line--2 {
+  top: 35%;
+  right: 12%;
+  width: 20%;
+  height: 1px;
+  opacity: 0.2;
+  animation: pm-arch-grow-h 2s ease-out 0.3s forwards;
+  transform-origin: left;
+}
+.pm-hero__arch-line--3 {
+  bottom: 18%;
+  left: 8%;
+  width: 15%;
+  height: 1px;
+  opacity: 0.15;
+  animation: pm-arch-grow-h 2s ease-out 0.6s forwards;
+  transform-origin: right;
+}
+.pm-hero__arch-line--4 {
+  bottom: 18%;
+  left: 8%;
+  width: 1px;
+  height: 25%;
+  opacity: 0.15;
+  animation: pm-arch-grow 2s ease-out 0.9s forwards;
+  transform-origin: bottom;
+}
+
+@keyframes pm-arch-grow {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+@keyframes pm-arch-grow-h {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* Floating menu card */
+.pm-hero__menu-float {
+  position: absolute;
+  z-index: 2;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.pm-hero__menu-card {
+  width: 300px;
+  height: 400px;
+  border-radius: var(--pm-radius);
+  overflow: hidden;
+  border: 1px solid var(--pm-border);
+  box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 60px rgba(216,179,106,0.08);
+  animation: pm-float-gentle 6s ease-in-out infinite;
+  position: relative;
+}
+.pm-hero__menu-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pm-hero__menu-glow {
+  position: absolute;
+  inset: -1px;
+  border-radius: var(--pm-radius);
+  border: 1px solid var(--pm-gold);
+  opacity: 0.3;
+  pointer-events: none;
+}
+.pm-hero__menu-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(14,13,13,0.6), transparent);
+  pointer-events: none;
+}
+
+@keyframes pm-float-gentle {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-12px) rotate(0.5deg); }
+  75% { transform: translateY(8px) rotate(-0.3deg); }
+}
+
+.pm-hero__inner {
+  position: relative;
+  z-index: 3;
+  max-width: 750px;
+  text-align: center;
+  padding: 190px 24px;
+}
+
+.pm-hero__inner h1 {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1.15;
+  color: var(--pm-white);
+  margin-top: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.pm-hero__copy {
+  color: var(--pm-muted);
+  font-size: 1.02rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+.pm-hero__copy strong { color: var(--pm-white); font-weight: 500; }
+
+.pm-btn-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pm-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  font-family: var(--pm-sans);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: var(--pm-transition);
+  cursor: pointer;
+}
+.pm-btn--solid {
+  background: var(--pm-gradient-gold);
+  color: var(--pm-bg);
+  border: 1px solid var(--pm-gold);
+}
+.pm-btn--solid:hover {
+  box-shadow: var(--pm-glow);
+  transform: translateY(-2px);
+}
+.pm-btn--outline {
+  background: transparent;
+  color: var(--pm-gold);
+  border: 1px solid var(--pm-border-bright);
+}
+.pm-btn--outline:hover {
+  background: rgba(216,179,106,0.1);
+  border-color: var(--pm-gold);
+  transform: translateY(-2px);
+}
+
+.pm-hero__scroll {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  text-align: center;
+  color: var(--pm-gold);
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-family: var(--pm-sans);
+}
+.pm-hero__scroll i {
+  display: block;
+  width: 1px;
+  height: 40px;
+  background: var(--pm-gold);
+  margin: 12px auto 0;
+  position: relative;
+  animation: pm-scroll-line 2s ease-in-out infinite;
+}
+.pm-hero__scroll i::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -3px;
+  width: 7px;
+  height: 7px;
+  border-right: 1px solid var(--pm-gold);
+  border-bottom: 1px solid var(--pm-gold);
+  transform: rotate(45deg);
+}
+@keyframes pm-scroll-line {
+  0% { opacity: 0; transform: scaleY(0); transform-origin: top; }
+  50% { opacity: 1; transform: scaleY(1); transform-origin: top; }
+  100% { opacity: 0; transform: scaleY(1); transform-origin: bottom; }
+}
+
+/* ==========================================================
+   2. ABOUT — Resort Editorial Brochure Panel
+   ========================================================== */
+.pm-about-layout {
+  display: grid;
+  grid-template-columns: 60fr 40fr;
+  gap: 0;
+  align-items: stretch;
+  min-height: 560px;
+}
+
+.pm-about-visual {
+  position: relative;
+  border-radius: var(--pm-radius);
+  overflow: hidden;
+}
+.pm-about-visual__main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+}
+.pm-about-visual__main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--pm-radius);
+  transition: transform 0.8s ease;
+}
+.pm-about-visual:hover .pm-about-visual__main img {
+  transform: scale(1.03);
+}
+.pm-about-visual__frame {
+  position: absolute;
+  inset: 14px;
+  border: 1px solid var(--pm-border);
+  border-radius: calc(var(--pm-radius) - 8px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.pm-about-panel {
+  position: relative;
+  background: rgba(14,13,13,0.95);
+  border: 1px solid var(--pm-border);
+  border-radius: var(--pm-radius);
+  padding: 52px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: -48px;
+  z-index: 2;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+}
+.pm-about-panel .pm-section-title {
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  margin-top: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.pm-about-panel__corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: var(--pm-gold);
+  border-style: solid;
+  z-index: 3;
+}
+.pm-about-panel__corner--tl { top: 12px; left: 12px; border-width: 1px 0 0 1px; }
+.pm-about-panel__corner--tr { top: 12px; right: 12px; border-width: 1px 1px 0 0; }
+.pm-about-panel__corner--bl { bottom: 12px; left: 12px; border-width: 0 0 1px 1px; }
+.pm-about-panel__corner--br { bottom: 12px; right: 12px; border-width: 0 1px 1px 0; }
+
+/* ==========================================================
+   3. WHY CHOOSE — Asymmetrical Resort Feature Grid
+   ========================================================== */
+.pm-resort-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 24px;
+}
+
+.pm-resort-feature {
+  position: relative;
+  background: var(--pm-surface);
+  border: 1px solid var(--pm-border);
+  border-radius: var(--pm-radius);
+  padding: 40px 36px;
+  overflow: hidden;
+  transition: var(--pm-transition);
+}
+.pm-resort-feature::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--pm-gradient-gold);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.pm-resort-feature:hover {
+  transform: translateY(-4px);
+  border-color: var(--pm-border-bright);
+  box-shadow: 0 20px 56px rgba(0,0,0,0.4);
+}
+.pm-resort-feature:hover::before { opacity: 1; }
+
+/* Large feature - first item spans full width */
+.pm-resort-feature--large {
+  grid-column: 1 / -1;
+  padding: 52px 48px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.pm-resort-feature__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border: 1px solid var(--pm-border);
+  border-radius: 14px;
+  color: var(--pm-gold);
+  transition: var(--pm-transition);
+  flex-shrink: 0;
+}
+.pm-resort-feature:hover .pm-resort-feature__icon {
+  transform: scale(1.1);
+  border-color: var(--pm-gold);
+  box-shadow: 0 0 24px rgba(216,179,106,0.2);
+}
+.pm-resort-feature__icon svg { width: 28px; height: 28px; }
+
+.pm-resort-feature h3 {
+  font-size: 1.35rem;
+  margin-bottom: 10px;
+  color: var(--pm-white);
+}
+.pm-resort-feature p {
+  color: var(--pm-muted);
+  font-size: 0.94rem;
+  line-height: 1.75;
+}
+
+/* ==========================================================
+   4. MATERIALS — Vertical Editorial Panels
+   ========================================================== */
+.pm-material-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.pm-material-panel {
+  position: relative;
+  height: 420px;
+  border-radius: var(--pm-radius);
+  overflow: hidden;
+  border: 1px solid var(--pm-border);
+  cursor: pointer;
+  transition: var(--pm-transition);
+}
+.pm-material-panel:hover {
+  border-color: var(--pm-border-bright);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+.pm-material-panel__img {
+  position: absolute;
+  inset: 0;
+}
+.pm-material-panel__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease, filter 0.4s ease;
+}
+.pm-material-panel:hover .pm-material-panel__img img {
+  transform: scale(1.08);
+  filter: brightness(0.5);
+}
+
+.pm-material-panel__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(14,13,13,0.4) 40%, rgba(14,13,13,0.92) 100%);
+  transition: background 0.4s ease;
+}
+.pm-material-panel:hover .pm-material-panel__overlay {
+  background: linear-gradient(180deg, rgba(14,13,13,0.2) 0%, rgba(14,13,13,0.6) 40%, rgba(14,13,13,0.96) 100%);
+}
+
+.pm-material-panel__line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 1px;
+  height: 0;
+  background: var(--pm-gold);
+  transition: height 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translateX(-50%);
+}
+.pm-material-panel:hover .pm-material-panel__line {
+  height: 60%;
+}
+
+.pm-material-panel__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 28px 24px;
+  z-index: 2;
+  transform: translateY(20px);
+  transition: transform 0.4s ease;
+}
+.pm-material-panel:hover .pm-material-panel__content {
+  transform: translateY(0);
+}
+
+.pm-material-panel__content h4 {
+  font-size: 1.1rem;
+  color: var(--pm-gold);
+  margin-bottom: 8px;
+  transition: color 0.3s ease;
+}
+.pm-material-panel__content p {
+  font-size: 0.82rem;
+  color: var(--pm-muted);
+  line-height: 1.6;
+  opacity: 0;
+  transition: opacity 0.4s ease 0.1s;
+  max-height: 0;
+  overflow: hidden;
+}
+.pm-material-panel:hover .pm-material-panel__content p {
+  opacity: 1;
+  max-height: 120px;
+}
+
+/* Material texture overlay */
+.pm-material-panel__texture {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.pm-material-panel:hover .pm-material-panel__texture {
+  opacity: 0.15;
+}
+
+/* ==========================================================
+   5. COMPLETE CUSTOMIZATION — Design Studio Blueprint
+   ========================================================== */
+.pm-studio {
+  position: relative;
+  max-width: 1100px;
+  margin: 40px auto 0;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pm-studio__center {
+  position: relative;
+  z-index: 2;
+}
+
+.pm-studio__menu-display {
+  width: 260px;
+  height: 340px;
+  border-radius: var(--pm-radius);
+  overflow: hidden;
+  border: 1px solid var(--pm-border);
+  box-shadow: 0 32px 80px rgba(0,0,0,0.5), var(--pm-glow-soft);
+  position: relative;
+}
+.pm-studio__menu-display img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pm-studio__ring {
+  position: absolute;
+  inset: -16px;
+  border-radius: 50%;
+  border: 1px dashed var(--pm-border);
+  animation: pm-ring-spin 30s linear infinite;
+}
+@keyframes pm-ring-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.pm-studio__items {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.pm-studio-item {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--pm-surface);
+  border: 1px solid var(--pm-border);
+  border-radius: var(--pm-radius-sm);
+  padding: 16px 22px;
+  max-width: 280px;
+  transition: var(--pm-transition);
+  cursor: default;
+}
+.pm-studio-item:hover {
+  border-color: var(--pm-border-bright);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.3);
+}
+
+/* Positions around the center - desktop */
+.pm-studio-item:nth-child(1) { top: 10%; left: 0; }
+.pm-studio-item:nth-child(2) { top: 10%; right: 0; }
+.pm-studio-item:nth-child(3) { top: 45%; left: -2%; }
+.pm-studio-item:nth-child(4) { top: 45%; right: -2%; }
+.pm-studio-item:nth-child(5) { bottom: 6%; left: 50%; transform: translateX(-50%); }
+.pm-studio-item:nth-child(5):hover { transform: translateX(-50%) translateY(-3px); }
+
+/* Gold connecting lines */
+.pm-studio-item::after {
+  content: "";
+  position: absolute;
+  background: var(--pm-border);
+  transition: background 0.3s ease;
+}
+.pm-studio-item:hover::after {
+  background: var(--pm-gold);
+}
+
+.pm-studio-item:nth-child(1)::after { bottom: -24px; left: 50%; width: 1px; height: 24px; }
+.pm-studio-item:nth-child(2)::after { bottom: -24px; left: 50%; width: 1px; height: 24px; }
+.pm-studio-item:nth-child(3)::after { top: 50%; right: -20px; width: 20px; height: 1px; }
+.pm-studio-item:nth-child(4)::after { top: 50%; left: -20px; width: 20px; height: 1px; }
+.pm-studio-item:nth-child(5)::after { top: -20px; left: 50%; width: 1px; height: 20px; }
+
+.pm-studio-item__icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid var(--pm-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pm-gold);
+  flex-shrink: 0;
+  transition: var(--pm-transition);
+}
+.pm-studio-item:hover .pm-studio-item__icon {
+  border-color: var(--pm-gold);
+  box-shadow: var(--pm-glow-soft);
+}
+.pm-studio-item__icon svg { width: 20px; height: 20px; }
+
+.pm-studio-item__text h4 {
+  font-size: 0.95rem;
+  color: var(--pm-white);
+  transition: color 0.3s ease;
+}
+.pm-studio-item:hover .pm-studio-item__text h4 {
+  color: var(--pm-gold);
+}
+
+/* ==========================================================
+   6. HOSPITALITY — Typography-Led Destination Grid
+   ========================================================== */
+.pm-destinations {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  max-width: 1100px;
+  margin: 40px auto 0;
+}
+
+.pm-destination {
+  position: relative;
+  padding: 28px 24px;
+  background: var(--pm-surface);
+  border: 1px solid var(--pm-border);
+  border-radius: 14px;
+  font-size: 0.95rem;
+  color: var(--pm-muted);
+  cursor: default;
+  transition: var(--pm-transition);
+  overflow: hidden;
+  text-align: center;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pm-destination__bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.pm-destination__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.3);
+}
+
+.pm-destination__text {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.4s ease;
+}
+
+.pm-destination::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  width: 0;
+  height: 1px;
+  background: var(--pm-gold);
+  transition: width 0.4s ease, left 0.4s ease;
+  z-index: 2;
+}
+
+.pm-destination__icon {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--pm-gold);
+  margin-bottom: 6px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.pm-destination:hover {
+  color: var(--pm-white);
+  border-color: var(--pm-border-bright);
+}
+.pm-destination:hover .pm-destination__bg { opacity: 1; }
+.pm-destination:hover .pm-destination__text { transform: translateY(-4px); }
+.pm-destination:hover::after { width: 50%; left: 25%; }
+.pm-destination:hover .pm-destination__icon { opacity: 1; transform: translateY(0); }
+
+/* ==========================================================
+   7. APPLICATIONS — Horizontal Showcase
+   ========================================================== */
+.pm-applications {
+  position: relative;
+  margin-top: 40px;
+  overflow: hidden;
+  padding: 0 0 60px;
+}
+
+.pm-app-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: grab;
+  padding: 8px 0;
+}
+.pm-app-track:active { cursor: grabbing; }
+
+.pm-app-card {
+  flex: 0 0 280px;
+  min-height: 200px;
+  background: var(--pm-surface);
+  border: 1px solid var(--pm-border);
+  border-radius: 16px;
+  padding: 28px 24px;
+  display: flex;
+  align-items: flex-end;
+  transition: var(--pm-transition);
+  position: relative;
+  overflow: hidden;
+}
+.pm-app-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--pm-gradient-gold);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.pm-app-card:hover {
+  border-color: var(--pm-border-bright);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+.pm-app-card:hover::before { opacity: 1; }
+
+.pm-app-card__number {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 2.4rem;
+  font-family: var(--pm-serif);
+  color: rgba(216,179,106,0.12);
+  font-weight: 600;
+}
+
+.pm-app-card h4 {
+  font-size: 1.05rem;
+  color: var(--pm-white);
+  position: relative;
+  z-index: 1;
+}
+
+.pm-app-progress {
+  width: 100%;
+  height: 2px;
+  background: rgba(216,179,106,0.15);
+  border-radius: 2px;
+  margin-top: 20px;
+  overflow: hidden;
+}
+.pm-app-progress__bar {
+  height: 100%;
+  background: var(--pm-gold);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+  width: 20%;
+}
+
+.pm-app-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+.pm-app-nav__btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--pm-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pm-gold);
+  font-size: 1.1rem;
+  transition: var(--pm-transition);
+}
+.pm-app-nav__btn:hover {
+  background: var(--pm-gold);
+  color: var(--pm-bg);
+}
+
+/* ==========================================================
+   8. RELAXED LUXURY — Immersive Editorial
+   ========================================================== */
+.pm-section--immersive {
+  padding: 160px 20px;
+  overflow: hidden;
+}
+
+.pm-immersive-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.pm-immersive-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.2) saturate(1.1);
+}
+.pm-immersive-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(14,13,13,0.8) 0%, rgba(14,13,13,0.5) 50%, rgba(14,13,13,0.75) 100%),
+    radial-gradient(ellipse at 40% 50%, rgba(216,179,106,0.06) 0%, transparent 60%);
+}
+
+.pm-immersive-panel {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 64px 56px;
+  background: rgba(14,13,13,0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--pm-border);
+  border-radius: var(--pm-radius);
+  box-shadow: 0 40px 100px rgba(0,0,0,0.4);
+}
+
+.pm-immersive-panel .pm-section-title {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  margin-bottom: 0.5rem;
+}
+
+.pm-immersive-subtitle {
+  font-family: var(--pm-serif);
+  font-size: 1.15rem;
+  color: var(--pm-gold);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================================
+   9. FEATURES & BENEFITS — Product Specification Layout
+   ========================================================== */
+.pm-spec-layout {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  margin-top: 48px;
+}
+
+.pm-spec__product {
+  position: relative;
+  width: 280px;
+  height: 360px;
+  border: 1px solid var(--pm-border);
+  border-radius: var(--pm-radius);
+  background: var(--pm-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  overflow: hidden;
+}
+.pm-spec__product img {
+  width: 85%;
+  height: 85%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.pm-spec__product::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: var(--pm-radius);
+  border: 1px solid var(--pm-border);
+  pointer-events: none;
+}
+
+.pm-spec__features {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.pm-spec-feature {
+  position: relative;
+  padding: 24px 16px;
+  background: var(--pm-surface);
+  border: 1px solid var(--pm-border);
+  border-radius: var(--pm-radius-sm);
+  text-align: center;
+  transition: var(--pm-transition);
+}
+.pm-spec-feature::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 12px;
+  background: var(--pm-gold);
+  opacity: 0.4;
+}
+.pm-spec-feature:hover {
+  border-color: var(--pm-border-bright);
+  transform: translateY(-3px);
+}
+.pm-spec-feature h4 {
+  font-size: 0.85rem;
+  color: var(--pm-gold);
+  font-family: var(--pm-sans);
+  font-weight: 500;
+}
+
+/* ==========================================================
+   10. FAQ — Luxury Accordion
+   ========================================================== */
+.pm-faq-list {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pm-faq-item {
+  background: var(--pm-surface);
+  border: 1px solid var(--pm-border);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: var(--pm-transition);
+}
+.pm-faq-item.is-open {
+  border-color: var(--pm-border-bright);
+}
+
+.pm-faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  padding: 24px 28px;
+  text-align: left;
+  cursor: pointer;
+  transition: var(--pm-transition);
+}
+.pm-faq-q:hover { background: rgba(216,179,106,0.03); }
+
+.pm-faq-q h3 {
+  font-size: 1.15rem;
+  color: var(--pm-white);
+  flex: 1;
+  font-family: var(--pm-serif);
+  font-weight: 500;
+}
+.pm-faq-item.is-open .pm-faq-q h3 { color: var(--pm-gold); }
+
+.pm-faq-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--pm-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pm-gold);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  transition: var(--pm-transition);
+  position: relative;
+}
+.pm-faq-icon::before, .pm-faq-icon::after {
+  content: "";
+  position: absolute;
+  background: var(--pm-gold);
+  transition: transform 0.3s ease;
+}
+.pm-faq-icon::before {
+  width: 10px;
+  height: 1px;
+}
+.pm-faq-icon::after {
+  width: 1px;
+  height: 10px;
+}
+.pm-faq-item.is-open .pm-faq-icon::after {
+  transform: rotate(90deg);
+  opacity: 0;
+}
+
+.pm-faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.pm-faq-item.is-open .pm-faq-a { max-height: 240px; }
+
+.pm-faq-a > div {
+  padding: 0 28px 24px;
+  color: var(--pm-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+/* ==========================================================
+   11. FINAL CTA — Resort Sunset Composition
+   ========================================================== */
+.pm-cta-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.pm-cta-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.12) saturate(1.2);
+}
+.pm-cta-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(14,13,13,0.85) 0%, rgba(14,13,13,0.6) 50%, rgba(14,13,13,0.8) 100%),
+    radial-gradient(ellipse at 70% 30%, rgba(216,179,106,0.08) 0%, transparent 60%);
+}
+
+.pm-cta-panel {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 72px 64px;
+  background: rgba(14,13,13,0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--pm-border);
+  border-radius: var(--pm-radius);
+  box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+}
+
+.pm-cta-content h2 {
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  line-height: 1.2;
+  color: var(--pm-white);
+  margin: 1.2rem 0 1.5rem;
+}
+.pm-cta-content p {
+  color: var(--pm-muted);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+.pm-cta-content strong { color: var(--pm-white); font-weight: 500; }
+
+.pm-cta-content .pm-btn-row {
+  justify-content: flex-start;
+  margin-top: 2rem;
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+@media (max-width: 1024px) {
+  .pm-about-layout {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .pm-about-panel { margin-left: 0; }
+  .pm-about-visual__main { min-height: 360px; }
+  .pm-hero__menu-float { display: none; }
+  .pm-material-gallery {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .pm-material-panel { height: 340px; }
+  .pm-studio__items { display: none; }
+  .pm-studio { min-height: auto; }
+  .pm-destinations {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .pm-spec__features {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .pm-cta-panel {
+    padding: 52px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pm-section { padding: 80px 16px; }
+  .pm-section--immersive { padding: 100px 16px; }
+  .pm-hero__arch { display: none; }
+  .pm-hero__scroll { bottom: 24px; }
+  .pm-resort-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .pm-resort-feature--large {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    text-align: center;
+    padding: 36px 28px;
+  }
+  .pm-resort-feature { padding: 28px 24px; }
+  .pm-material-gallery {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .pm-material-panel { height: 200px; }
+  .pm-material-panel__content p { opacity: 1; max-height: 120px; }
+  .pm-destinations { gap: 10px; }
+  .pm-destination { padding: 20px 16px; font-size: 0.88rem; }
+  .pm-app-card { flex: 0 0 240px; min-height: 160px; padding: 20px; }
+  .pm-spec__features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pm-faq-q { padding: 20px 22px; }
+  .pm-faq-q h3 { font-size: 1rem; }
+  .pm-about-panel { padding: 36px 28px; }
+  .pm-immersive-panel { padding: 40px 32px; }
+  .pm-cta-panel { padding: 40px 28px; }
+  .pm-cta-content h2 { font-size: 1.6rem; }
+}
+
+@media (max-width: 480px) {
+  .pm-hero__inner h1 { font-size: 1.7rem; }
+  .pm-hero__copy { font-size: 0.9rem; }
+  .pm-btn-row { flex-direction: column; align-items: stretch; }
+  .pm-btn { justify-content: center; }
+  .pm-btn--solid, .pm-btn--outline { width: 100%; }
+  .pm-section-title { font-size: 1.5rem; }
+  .pm-section { padding: 60px 14px; }
+  .pm-destinations {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pm-spec__features {
+    grid-template-columns: 1fr;
+  }
+  .pm-app-card { flex: 0 0 220px; }
+  .pm-immersive-panel { padding: 32px 20px; }
+  .pm-cta-panel { padding: 32px 20px; }
+  .pm-cta-content .pm-btn-row { justify-content: center; }
+}
