@@ -23,7 +23,9 @@
     <link href="css/poolside-menu.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
     <style>
         .header-small-logo {
@@ -35,6 +37,7 @@
             transform: translate(-50%, -50%);
             z-index: 1;
         }
+
         .header-small-logo img {
             display: block;
             width: 134px;
@@ -42,9 +45,13 @@
             height: auto;
             margin-left: 270px;
         }
+
         @media (max-width: 767px) {
-            .header-small-logo { display: none; }
+            .header-small-logo {
+                display: none;
+            }
         }
+
         .sticky-video-widget {
             position: fixed;
             bottom: 24px;
@@ -59,9 +66,24 @@
             background: #000;
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
-        .sticky-video-widget:hover { transform: scale(1.04); }
-        .sticky-video-widget.hidden { opacity: 0; pointer-events: none; transform: scale(0.8); }
-        .sticky-video-widget video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .sticky-video-widget:hover {
+            transform: scale(1.04);
+        }
+
+        .sticky-video-widget.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.8);
+        }
+
+        .sticky-video-widget video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
         .sticky-close-btn {
             position: absolute;
             top: 6px;
@@ -80,6 +102,7 @@
             cursor: pointer;
             z-index: 2;
         }
+
         .sticky-play-icon {
             position: absolute;
             bottom: 8px;
@@ -93,6 +116,7 @@
             justify-content: center;
             pointer-events: none;
         }
+
         .sticky-play-icon::after {
             content: "";
             border-style: solid;
@@ -100,6 +124,7 @@
             border-color: transparent transparent transparent #111;
             margin-left: 2px;
         }
+
         .video-popup-overlay {
             position: fixed;
             inset: 0;
@@ -112,7 +137,12 @@
             visibility: hidden;
             transition: opacity 0.35s ease;
         }
-        .video-popup-overlay.active { opacity: 1; visibility: visible; }
+
+        .video-popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
         .video-popup-box {
             position: relative;
             width: 80%;
@@ -127,8 +157,19 @@
             opacity: 0;
             transition: transform 0.35s ease, opacity 0.35s ease;
         }
-        .video-popup-overlay.active .video-popup-box { transform: scale(1); opacity: 1; }
-        .video-popup-box video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .video-popup-overlay.active .video-popup-box {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .video-popup-box video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
         .popup-close-btn {
             position: absolute;
             top: -40px;
@@ -142,13 +183,32 @@
             cursor: pointer;
             z-index: 2;
         }
+
         @media (max-width: 768px) {
-            .sticky-video-widget { width: 100px; bottom: 16px; right: 16px; }
+            .sticky-video-widget {
+                width: 100px;
+                bottom: 16px;
+                right: 16px;
+            }
         }
+
         @media (max-width: 480px) {
-            .sticky-video-widget { width: 90px; bottom: 12px; right: 12px; }
-            .video-popup-box { width: 78%; max-width: 260px; }
-            .popup-close-btn { top: -36px; width: 30px; height: 30px; }
+            .sticky-video-widget {
+                width: 90px;
+                bottom: 12px;
+                right: 12px;
+            }
+
+            .video-popup-box {
+                width: 78%;
+                max-width: 260px;
+            }
+
+            .popup-close-btn {
+                top: -36px;
+                width: 30px;
+                height: 30px;
+            }
         }
     </style>
     <script type="application/ld+json">
@@ -496,7 +556,9 @@
             <!-- ===== HERO ===== -->
             <section class="pm-hero">
                 <div class="pm-hero__bg">
-                    <img src="images/experience.jpg" alt="Premium custom poolside menu for luxury hotels, resorts and outdoor dining" width="1920" height="1080" />
+                    <img src="images/experience.jpg"
+                        alt="Premium custom poolside menu for luxury hotels, resorts and outdoor dining" width="1920"
+                        height="1080" />
                     <div class="pm-hero__overlay"></div>
                 </div>
                 <div class="pm-hero__arch">
@@ -520,10 +582,16 @@
                         Premium Poolside Menus Designed for Leisure &amp; Luxury
                     </h1>
                     <p class="pm-hero__copy pm-reveal" data-delay="240">
-                        Create a refined poolside dining experience with <strong>custom poolside menus</strong> designed specifically for resorts, hotels, pool clubs, beach properties, and outdoor hospitality spaces. At <strong>Fine Fold Menus</strong>, we create stylish and durable poolside menu solutions that combine premium presentation with practical performance. From refreshing beverages and cocktails to snacks, light meals, and all-day dining, our poolside menus are designed to complement your outdoor ambience while representing your brand with sophistication.
+                        Create a refined poolside dining experience with <strong>custom poolside menus</strong> designed
+                        specifically for resorts, hotels, pool clubs, beach properties, and outdoor hospitality spaces.
+                        At <strong>Fine Fold Menus</strong>, we create stylish and durable poolside menu solutions that
+                        combine premium presentation with practical performance. From refreshing beverages and cocktails
+                        to snacks, light meals, and all-day dining, our poolside menus are designed to complement your
+                        outdoor ambience while representing your brand with sophistication.
                     </p>
                     <div class="pm-btn-row pm-reveal" data-delay="360">
-                        <a href="#explore" class="pm-btn pm-btn--outline"><span>Explore Poolside Menu Collection</span></a>
+                        <a href="#explore" class="pm-btn pm-btn--outline"><span>Explore Poolside Menu
+                                Collection</span></a>
                         <a href="#cta-final" class="pm-btn pm-btn--solid"><span>Request a Custom Quote</span></a>
                     </div>
                 </div>
@@ -539,7 +607,9 @@
                     <div class="pm-about-layout">
                         <div class="pm-about-visual pm-reveal">
                             <div class="pm-about-visual__main">
-                                <img src="images/craft.jpg" alt="Premium custom poolside menu for luxury hotels, resorts and outdoor dining" loading="lazy" width="1200" height="900" />
+                                <img src="images/craft.jpg"
+                                    alt="Premium custom poolside menu for luxury hotels, resorts and outdoor dining"
+                                    loading="lazy" width="1200" height="900" />
                                 <div class="pm-about-visual__frame"></div>
                             </div>
                         </div>
@@ -549,9 +619,19 @@
                             <p class="pm-eyebrow">About Poolside Menus</p>
                             <h2 class="pm-section-title">Designed for Relaxed Dining in Premium Outdoor Spaces</h2>
                             <div class="pm-body-copy">
-                                <p>Poolside dining has its own unique atmosphere. Guests expect a relaxed experience, but the presentation should still reflect the quality and personality of your hospitality brand. A thoughtfully designed poolside menu helps bring together your food, beverages, branding, and overall outdoor experience in one elegant presentation.</p>
-                                <p>At <strong>Fine Fold Menus</strong>, we create customized poolside menus for hotels, resorts, pool clubs, beach restaurants, and luxury hospitality venues. Our designs can be tailored to your preferred size, material, color, branding, finish, and menu format, helping you create a cohesive presentation that works beautifully alongside your poolside environment.</p>
-                                <p>From casual resort dining to sophisticated luxury pool clubs, our poolside menu solutions are designed to provide a balance of <strong>style, durability, easy maintenance, and practical everyday use</strong>.</p>
+                                <p>Poolside dining has its own unique atmosphere. Guests expect a relaxed experience,
+                                    but the presentation should still reflect the quality and personality of your
+                                    hospitality brand. A thoughtfully designed poolside menu helps bring together your
+                                    food, beverages, branding, and overall outdoor experience in one elegant
+                                    presentation.</p>
+                                <p>At <strong>Fine Fold Menus</strong>, we create customized poolside menus for hotels,
+                                    resorts, pool clubs, beach restaurants, and luxury hospitality venues. Our designs
+                                    can be tailored to your preferred size, material, color, branding, finish, and menu
+                                    format, helping you create a cohesive presentation that works beautifully alongside
+                                    your poolside environment.</p>
+                                <p>From casual resort dining to sophisticated luxury pool clubs, our poolside menu
+                                    solutions are designed to provide a balance of <strong>style, durability, easy
+                                        maintenance, and practical everyday use</strong>.</p>
                             </div>
                         </div>
                     </div>
@@ -567,7 +647,10 @@
                         <h2 class="pm-section-title pm-reveal">Made for Outdoor Hospitality Experiences</h2>
                         <div class="pm-rule-line pm-reveal"></div>
                     </div>
-                    <p class="pm-lede pm-reveal" data-delay="100">Poolside menus need to combine attractive presentation with practical performance. They are frequently handled and may be exposed to splashes, moisture, sunlight, food, and beverages. Our solutions are designed with these everyday hospitality requirements in mind.</p>
+                    <p class="pm-lede pm-reveal" data-delay="100">Poolside menus need to combine attractive presentation
+                        with practical performance. They are frequently handled and may be exposed to splashes,
+                        moisture, sunlight, food, and beverages. Our solutions are designed with these everyday
+                        hospitality requirements in mind.</p>
                     <div class="pm-resort-grid" id="pm-resort-grid"></div>
                 </div>
             </section>
@@ -581,7 +664,10 @@
                         <h2 class="pm-section-title pm-reveal">Choose Materials That Suit Your Outdoor Environment</h2>
                         <div class="pm-rule-line pm-reveal"></div>
                     </div>
-                    <p class="pm-lede pm-reveal" data-delay="100">The right material can make a significant difference to the appearance, functionality, and maintenance of a poolside menu. At Fine Fold Menus, we offer a variety of materials and finishes that can be selected according to your design preferences and usage requirements.</p>
+                    <p class="pm-lede pm-reveal" data-delay="100">The right material can make a significant difference
+                        to the appearance, functionality, and maintenance of a poolside menu. At Fine Fold Menus, we
+                        offer a variety of materials and finishes that can be selected according to your design
+                        preferences and usage requirements.</p>
                     <div class="pm-material-gallery" id="pm-material-gallery"></div>
                 </div>
             </section>
@@ -595,16 +681,20 @@
                         <h2 class="pm-section-title pm-reveal">Every Detail Designed Around Your Brand</h2>
                         <div class="pm-rule-line pm-reveal"></div>
                     </div>
-                    <p class="pm-lede pm-reveal" data-delay="100">Your poolside menu should feel like a natural extension of your hotel's, resort's, or restaurant's visual identity. That's why we offer extensive customization options to create a presentation that is uniquely yours.</p>
+                    <p class="pm-lede pm-reveal" data-delay="100">Your poolside menu should feel like a natural
+                        extension of your hotel's, resort's, or restaurant's visual identity. That's why we offer
+                        extensive customization options to create a presentation that is uniquely yours.</p>
                     <div class="pm-studio" id="pm-studio">
                         <div class="pm-studio__visual pm-reveal">
                             <div class="pm-studio__visual-glow"></div>
                             <div class="pm-studio__visual-main">
-                                <img src="images/hardcover-menus.jpg" alt="Premium poolside menu customization" loading="lazy" />
+                                <img src="images/hardcover-menus.jpg" alt="Premium poolside menu customization"
+                                    loading="lazy" />
                                 <div class="pm-studio__visual-frame"></div>
                             </div>
                             <div class="pm-studio__visual-accent">
-                                <img src="images/customization.jpg" alt="Custom menu branding and finishing details" loading="lazy" />
+                                <img src="images/customization.jpg" alt="Custom menu branding and finishing details"
+                                    loading="lazy" />
                             </div>
                             <div class="pm-studio__badge">
                                 <span class="pm-diamond"></span>
@@ -641,10 +731,14 @@
                         <h2 class="pm-section-title pm-reveal">More Than a Traditional Food Menu</h2>
                         <div class="pm-rule-line pm-reveal"></div>
                     </div>
-                    <p class="pm-lede pm-reveal" data-delay="100">A poolside menu can support several parts of the guest experience. Create dedicated presentations for different offerings while maintaining a consistent visual identity throughout your property.</p>
+                    <p class="pm-lede pm-reveal" data-delay="100">A poolside menu can support several parts of the guest
+                        experience. Create dedicated presentations for different offerings while maintaining a
+                        consistent visual identity throughout your property.</p>
                     <div class="pm-applications" id="pm-applications">
                         <div class="pm-app-track" id="pm-app-track"></div>
-                        <div class="pm-app-progress"><div class="pm-app-progress__bar" id="pm-app-progress"></div></div>
+                        <div class="pm-app-progress">
+                            <div class="pm-app-progress__bar" id="pm-app-progress"></div>
+                        </div>
                         <div class="pm-app-nav">
                             <button class="pm-app-nav__btn" id="pm-app-prev" aria-label="Previous">&#8592;</button>
                             <button class="pm-app-nav__btn" id="pm-app-next" aria-label="Next">&#8594;</button>
@@ -664,11 +758,16 @@
                         <span class="pm-about-panel__corner pm-about-panel__corner--tl"></span>
                         <span class="pm-about-panel__corner pm-about-panel__corner--br"></span>
                         <h2 class="pm-section-title">Designed for a Relaxed Luxury Experience</h2>
-                        <p class="pm-immersive-subtitle pm-reveal" data-delay="80">Presentation That Complements the Poolside Ambience</p>
+                        <p class="pm-immersive-subtitle pm-reveal" data-delay="80">Presentation That Complements the
+                            Poolside Ambience</p>
                         <div class="pm-body-copy">
-                            <p>A premium poolside menu should never feel out of place. Its design, material, and finish should complement the surroundings while remaining easy for guests and staff to use.</p>
-                            <p>Whether your property features a tropical resort atmosphere, contemporary rooftop pool, elegant hotel terrace, or exclusive beach club, we can create menu presentation solutions that blend naturally with your environment.</p>
-                            <p>Our focus is on creating a <strong>clean, sophisticated, practical, and brand-consistent presentation</strong> that enhances the guest journey from ordering to dining.</p>
+                            <p>A premium poolside menu should never feel out of place. Its design, material, and finish
+                                should complement the surroundings while remaining easy for guests and staff to use.</p>
+                            <p>Whether your property features a tropical resort atmosphere, contemporary rooftop pool,
+                                elegant hotel terrace, or exclusive beach club, we can create menu presentation
+                                solutions that blend naturally with your environment.</p>
+                            <p>Our focus is on creating a <strong>clean, sophisticated, practical, and brand-consistent
+                                    presentation</strong> that enhances the guest journey from ordering to dining.</p>
                         </div>
                     </div>
                 </div>
@@ -683,7 +782,8 @@
                         <h2 class="pm-section-title pm-reveal">Practical Performance with Premium Presentation</h2>
                         <div class="pm-rule-line pm-reveal"></div>
                     </div>
-                    <p class="pm-lede pm-reveal" data-delay="100">Our poolside menu solutions are designed to combine functionality with refined aesthetics for demanding hospitality environments.</p>
+                    <p class="pm-lede pm-reveal" data-delay="100">Our poolside menu solutions are designed to combine
+                        functionality with refined aesthetics for demanding hospitality environments.</p>
                     <div class="pm-spec-layout" id="pm-spec-layout"></div>
                 </div>
             </section>
@@ -713,14 +813,26 @@
                     <span class="pm-about-panel__corner pm-about-panel__corner--bl"></span>
                     <span class="pm-about-panel__corner pm-about-panel__corner--br"></span>
                     <div class="pm-cta-content">
-                        <div class="pm-reveal"><div class="pm-deco-rule"><span class="pm-diamond"></span></div></div>
+                        <div class="pm-reveal">
+                            <div class="pm-deco-rule"><span class="pm-diamond"></span></div>
+                        </div>
                         <h2 class="pm-reveal" data-delay="80">Elevate Your Poolside Dining Experience</h2>
-                        <p class="pm-reveal" data-delay="160">Your poolside experience deserves a menu presentation that feels just as refined as the surroundings. From <strong>premium materials and custom branding to practical outdoor-friendly finishes</strong>, Fine Fold Menus creates bespoke poolside menu solutions designed around your property, your guests, and your brand.</p>
-                        <p class="pm-reveal" data-delay="220">Whether you're upgrading an existing resort, launching a new poolside restaurant, or creating a complete hospitality branding package, our team can help you develop a menu that combines <strong>luxury, functionality, durability, and distinctive visual appeal</strong>.</p>
+                        <p class="pm-reveal" data-delay="160">Your poolside experience deserves a menu presentation that
+                            feels just as refined as the surroundings. From <strong>premium materials and custom
+                                branding to practical outdoor-friendly finishes</strong>, Fine Fold Menus creates
+                            bespoke poolside menu solutions designed around your property, your guests, and your brand.
+                        </p>
+                        <p class="pm-reveal" data-delay="220">Whether you're upgrading an existing resort, launching a
+                            new poolside restaurant, or creating a complete hospitality branding package, our team can
+                            help you develop a menu that combines <strong>luxury, functionality, durability, and
+                                distinctive visual appeal</strong>.</p>
                         <div class="pm-btn-row pm-reveal" data-delay="300">
-                            <a href="Speak-With-Us.html" class="pm-btn pm-btn--solid"><span>Request a Free Quote</span></a>
-                            <a href="Speak-With-Us.html" class="pm-btn pm-btn--outline"><span>Customize Your Poolside Menu</span></a>
-                            <a href="Speak-With-Us.html" class="pm-btn pm-btn--outline"><span>Talk to Our Experts</span></a>
+                            <a href="Speak-With-Us.html" class="pm-btn pm-btn--solid"><span>Request a Free
+                                    Quote</span></a>
+                            <a href="Speak-With-Us.html" class="pm-btn pm-btn--outline"><span>Customize Your Poolside
+                                    Menu</span></a>
+                            <a href="Speak-With-Us.html" class="pm-btn pm-btn--outline"><span>Talk to Our
+                                    Experts</span></a>
                         </div>
                     </div>
                 </div>
@@ -737,9 +849,8 @@
                         <div class="footer-col info-col col-lg-6 col-md-12 col-sm-12">
                             <div class="inner wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
                                 <div class="content">
-                                    <div class="logo"><a href="index.html"
-                                            title="Fine Fold Menus"><img src="images/logo-footer.png"
-                                                alt="Fine Fold Menus"></a></div>
+                                    <div class="logo"><a href="index.html" title="Fine Fold Menus"><img
+                                                src="images/logo-footer.png" alt="Fine Fold Menus"></a></div>
                                     <div class="info">
                                         <ul>
                                             <li> C-111, 3rd Floor, Naraina Industrial Area, Delhi - 110034
