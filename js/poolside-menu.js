@@ -156,14 +156,16 @@ if (materialGallery) {
   `).join("");
 }
 
-/* ---------- Render: Customization — Studio Blueprint ---------- */
+/* ---------- Render: Customization — Studio Showcase ---------- */
 const studioItems = document.getElementById("pm-studio-items");
 if (studioItems) {
   studioItems.innerHTML = customizationItems.map((item, i) => `
-    <div class="pm-studio-item pm-reveal" data-delay="${i * 100}">
+    <div class="pm-studio-item pm-reveal" data-delay="${i * 90}">
+      <span class="pm-studio-item__num">${String(i + 1).padStart(2, '0')}</span>
       <div class="pm-studio-item__icon">${svgIcon(item.icon, 20)}</div>
       <div class="pm-studio-item__text">
         <h4>${item.title}</h4>
+        <p>${item.desc}</p>
       </div>
     </div>
   `).join("");
