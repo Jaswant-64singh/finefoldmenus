@@ -1,0 +1,1427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Premium Wiro Menu Manufacturer | Custom Wiro Menus</title>
+    <meta name="description"
+        content="Get premium custom Wiro menus for restaurants, cafés, hotels and hospitality brands with flexible binding, custom covers, printing and branding." />
+    <meta name="keywords"
+        content="Premium Wiro Menu, Wiro Menu, Custom Wiro Menu, Wiro Menu for Restaurants, Wiro Bound Menu, Restaurant Wiro Menu, Wiro Menu Covers, Custom Restaurant Menu, Wiro Binding Menu, Premium Restaurant Menu, Custom Hospitality Menu, Menu Cover Manufacturer, Restaurant Menu Manufacturer, Custom Menu Printing" />
+    <link rel="canonical" href="https://finefoldmenus.com/services/premium-wiro-menu">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Premium Wiro Menus for Restaurants &amp; Hospitality" />
+    <meta property="og:description"
+        content="Custom Wiro menus designed with premium covers, flexible binding, professional printing, and personalized branding for modern hospitality businesses." />
+    <meta property="og:url" content="https://finefoldmenus.com/services/premium-wiro-menu" />
+    <meta property="og:image" content="https://finefoldmenus.com/images/menus/spiral-wire-o-menu.jpg" />
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link href="css/premium-wiro-menu.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <style>
+        .header-small-logo {
+            position: absolute;
+            top: 50%;
+            left: 75%;
+            display: flex;
+            align-items: center;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+        .header-small-logo img {
+            display: block;
+            width: 134px;
+            max-width: 100%;
+            height: auto;
+            margin-left: 270px;
+        }
+        @media (max-width: 767px) {
+            .header-small-logo { display: none; }
+        }
+        .sticky-video-widget {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 130px;
+            aspect-ratio: 9 / 16;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            z-index: 9999;
+            cursor: pointer;
+            background: #000;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        .sticky-video-widget:hover { transform: scale(1.04); }
+        .sticky-video-widget.hidden { opacity: 0; pointer-events: none; transform: scale(0.8); }
+        .sticky-video-widget video { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .sticky-close-btn {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.55);
+            color: #fff;
+            border: none;
+            font-size: 14px;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+        }
+        .sticky-play-icon {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            width: 26px;
+            height: 26px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+        .sticky-play-icon::after {
+            content: "";
+            border-style: solid;
+            border-width: 6px 0 6px 10px;
+            border-color: transparent transparent transparent #111;
+            margin-left: 2px;
+        }
+        .video-popup-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s ease;
+        }
+        .video-popup-overlay.active { opacity: 1; visibility: visible; }
+        .video-popup-box {
+            position: relative;
+            width: 80%;
+            max-width: 320px;
+            aspect-ratio: 9 / 16;
+            border-radius: 24px;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transform: scale(0.85);
+            opacity: 0;
+            transition: transform 0.35s ease, opacity 0.35s ease;
+        }
+        .video-popup-overlay.active .video-popup-box { transform: scale(1); opacity: 1; }
+        .video-popup-box video { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .popup-close-btn {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 2;
+        }
+        @media (max-width: 768px) {
+            .sticky-video-widget { width: 100px; bottom: 16px; right: 16px; }
+        }
+        @media (max-width: 480px) {
+            .sticky-video-widget { width: 90px; bottom: 12px; right: 12px; }
+            .video-popup-box { width: 78%; max-width: 260px; }
+            .popup-close-btn { top: -36px; width: 30px; height: 30px; }
+        }
+    </style>
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Product",
+                "name": "Premium Wiro Menu",
+                "image": "https://finefoldmenus.com/images/menus/spiral-wire-o-menu.jpg",
+                "description": "Premium custom Wiro menu covers for restaurants, cafés, hotels and hospitality brands with flexible Wiro binding, premium materials, custom covers, printing and branding.",
+                "brand": { "@type": "Brand", "name": "Fine Fold Menus" },
+                "manufacturer": { "@type": "Organization", "name": "Fine Fold Menus" },
+                "material": ["PU Leather", "Genuine Leather", "Wood", "MDF", "Acrylic", "Fabric"]
+            },
+            {
+                "@type": "Service",
+                "name": "Premium Wiro Menu Manufacturing",
+                "serviceType": "Custom Wiro Bound Menu Manufacturing & Printing",
+                "description": "Custom Wiro menus designed with premium covers, flexible binding, professional printing, and personalized branding for modern hospitality businesses.",
+                "provider": { "@type": "Organization", "name": "Fine Fold Menus" },
+                "areaServed": "Worldwide",
+                "url": "https://finefoldmenus.com/services/premium-wiro-menu"
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "What is a Wiro Menu?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "A Wiro Menu is a menu presentation format that uses a wire-loop binding system to hold pages together. It provides flexible page movement and is particularly suitable for restaurants, cafés, hotels, bakeries, and other hospitality businesses." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can Premium Wiro Menus be customized?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Wiro menus can be customized in terms of cover material, size, color, page count, printing, logo branding, Wiro binding, and finishing details." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can pages be replaced in a Wiro Menu?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "Depending on the construction and binding configuration, pages can be designed for replacement or updating, making Wiro menus useful for businesses with frequently changing menus or prices." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can I add my restaurant logo to the Wiro menu cover?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "Yes. We offer several branding options, including embossing, debossing, foil stamping, UV printing, digital printing, and other suitable techniques based on the selected cover material." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What materials can be used for Wiro menu covers?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "We offer a range of options including PU leather, genuine leather, wood, MDF, acrylic, fabric, canvas, and specialty finishes, subject to the desired design and construction." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Are Wiro menus suitable for restaurants with frequent menu changes?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Their flexible construction makes them a practical choice for restaurants and cafés that regularly update menu items, pricing, seasonal offerings, or promotional pages." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can Wiro menus be used for beverage and cocktail menus?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. Wiro-bound menus can be customized for food menus, beverage lists, cocktail menus, dessert menus, wine lists, bakery menus, and other hospitality presentations." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Do you manufacture Wiro menus in bulk?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can produce customized Wiro menus for individual restaurants as well as larger requirements for hotel groups, restaurant chains, cafés, resorts, and hospitality businesses." }
+                    }
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://finefoldmenus.com/" },
+                    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://finefoldmenus.com/services/" },
+                    { "@type": "ListItem", "position": 3, "name": "Premium Wiro Menu", "item": "https://finefoldmenus.com/services/premium-wiro-menu" }
+                ]
+            },
+            {
+                "@type": "WebPage",
+                "name": "Premium Wiro Menu Manufacturer | Custom Wiro Menus",
+                "description": "Get premium custom Wiro menus for restaurants, cafés, hotels and hospitality brands with flexible binding, custom covers, printing and branding.",
+                "url": "https://finefoldmenus.com/services/premium-wiro-menu"
+            }
+        ]
+    }
+    </script>
+</head>
+
+<body>
+    <div class="page-wrapper">
+
+        <!-- Preloader -->
+        <div class="loader-wrap">
+            <div class="preloader">
+                <div class="preloader-close">x</div>
+                <div id="handle-preloader" class="handle-preloader">
+                    <div class="animation-preloader">
+                        <div class="spinner"></div>
+                        <div class="txt-loading">
+                            <span data-text-preloader="F" class="letters-loading">F</span>
+                            <span data-text-preloader="I" class="letters-loading">I</span>
+                            <span data-text-preloader="N" class="letters-loading">N</span>
+                            <span data-text-preloader="E" class="letters-loading">E</span>
+                            <span data-text-preloader="F" class="letters-loading">F</span>
+                            <span data-text-preloader="O" class="letters-loading">O</span>
+                            <span data-text-preloader="L" class="letters-loading">L</span>
+                            <span data-text-preloader="D" class="letters-loading">D</span>
+                            <span data-text-preloader="M" class="letters-loading">M</span>
+                            <span data-text-preloader="E" class="letters-loading">E</span>
+                            <span data-text-preloader="N" class="letters-loading">N</span>
+                            <span data-text-preloader="U" class="letters-loading">U</span>
+                            <span data-text-preloader="S" class="letters-loading">S</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Preloader End -->
+
+        <!-- Main Header-->
+        <header class="main-header header-down">
+            <div class="header-top">
+                <div class="auto-container">
+                    <div class="inner clearfix">
+                        <div class="top-left clearfix">
+                            <ul class="top-info clearfix">
+                                <li><i class="icon far fa-map-marker-alt"></i> C-111, 3rd Floor, Naraina Industrial
+                                    Area, Delhi - 110034
+                                </li>
+                                <li class="design-services-link"><a href="design-services.html"
+                                        aria-label="Design services also available"><span>Design Services Also
+                                            Available</span></a></li>
+                            </ul>
+                        </div>
+                        <a class="header-small-logo" href="index.html" aria-label="Fine Fold Menus home">
+                            <img src="images/small-pnglogo.png" alt="Fine Fold Menus">
+                        </a>
+                        <div class="top-right clearfix">
+                            <ul class="top-info clearfix">
+                                <li><a href="tel:+919818095822"><i class="icon far fa-phone"></i> +91 98180 95822</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header Upper -->
+            <div class="header-upper">
+                <div class="auto-container">
+                    <!-- Main Box -->
+                    <div class="main-box clearfix">
+                        <!--Logo-->
+                        <div class="logo-box">
+                            <div class="logo"><a href="index.html"><img src="images/logo.png" alt="Fine Fold Menus"></a>
+                            </div>
+                        </div>
+
+                        <div class="nav-box clearfix">
+                            <!--Nav Outer-->
+                            <div class="nav-outer clearfix">
+                                <nav class="main-menu">
+                                    <ul class="navigation clearfix">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li class="dropdown has-mega-menu"><a href="#">Industries We Serve</a>
+                                            <ul>
+                                                <li>
+                                                    <div class="mega-menu">
+                                                        <div class="menu-inner">
+                                                            <div class="auto-container">
+                                                                <div class="row clearfix">
+                                                                    <div class="menu-block col-lg-3 col-md-6 col-sm-6">
+                                                                        <div class="image"><a
+                                                                                href="Restaurant.html"><img
+                                                                                    src="images/restaurant-groups.jpg"
+                                                                                    alt="Restaurant Groups"></a></div>
+                                                                        <div class="title"><a
+                                                                                href="Restaurant.html">Restaurant</a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="menu-block col-lg-3 col-md-6 col-sm-6">
+                                                                        <div class="image"><a href="#"><img
+                                                                                    src="images/hotels-and-resorts.jpg"
+                                                                                    alt="Hotels & Resorts"></a></div>
+                                                                        <div class="title"><a href="#">Hotels &
+                                                                                Resorts</a></div>
+                                                                    </div>
+                                                                    <div class="menu-block col-lg-3 col-md-6 col-sm-6">
+                                                                        <div class="image"><a href="#"><img
+                                                                                    src="images/food-court.jpg"
+                                                                                    alt="Food Court"></a></div>
+                                                                        <div class="title"><a href="#">Food Court</a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="menu-block col-lg-3 col-md-6 col-sm-6">
+                                                                        <div class="image"><a href="#"><img
+                                                                                    src="images/bars-and-lounges.jpg"
+                                                                                    alt="Bars & Lounges"></a></div>
+                                                                        <div class="title"><a href="#">Bars &
+                                                                                Lounges</a></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="dropdown"><a href="#">Our Services</a>
+                                            <ul>
+                                                <li><a href="Fully-Customized-Menu.html">Fully Customized Menu</a></li>
+                                                <li><a href="Luxury-Dine-in-Menu.html">Luxury Dine-in Menu</a></li>
+                                                <li><a href="MDF-Series-Menu.html">MDF Series Menu</a></li>
+                                                <li><a href="Waterproof-Menu-NTR.html"> Waterproof Menu (NTR)</a></li>
+                                                <li><a href="Acrylic-Menu.html"> Acrylic Menu</a></li>
+                                                <li><a href="Poolside-Menu.html">Pool Side Menu</a></li>
+                                                <li><a href="premium-wiro-menu.html">Premium Wiro Menu</a></li>
+                                                <li><a href="#">Changeable Menu</a></li>
+                                                <li><a href="#">Bar & Drink Menu</a></li>
+                                                <li><a href="#">Food Court Menus</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li><a href="how-its-work.html">How it works</a></li>
+                                        <li class="dropdown"><a href="#"> Contact Us</a>
+                                            <ul>
+                                                <li><a href="Make-a-Payment.html">Make a Payment</a></li>
+                                                <li><a href="Speak-With-Us.html">Speak With Us</a></li>
+
+                                            </ul>
+                                        </li>
+
+                                    </ul>
+                                </nav>
+                                <!-- Main Menu End-->
+                            </div>
+                            <!--Nav Outer End-->
+
+                            <div class="links-box clearfix">
+                                <div class="link link-btn">
+                                    <a href="reservation-opentable.html" class="theme-btn btn-style-one clearfix">
+                                        <span class="btn-wrap">
+                                            <span class="text-one">Get A Quote</span>
+                                            <span class="text-two">Get A Quote</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="link info-toggler">
+                                    <button class="info-btn">
+                                        <span class="hamburger">
+                                            <span class="top-bun"></span>
+                                            <span class="meat"></span>
+                                            <span class="bottom-bun"></span>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Hidden Nav Toggler -->
+                            <div class="nav-toggler">
+                                <button class="hidden-bar-opener">
+                                    <span class="hamburger">
+                                        <span class="top-bun"></span>
+                                        <span class="meat"></span>
+                                        <span class="bottom-bun"></span>
+                                    </span>
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--End Main Header -->
+
+        <!--Menu Backdrop-->
+        <div class="menu-backdrop"></div>
+
+        <!-- Hidden Navigation Bar -->
+        <section class="hidden-bar">
+            <!-- Hidden Bar Wrapper -->
+            <div class="inner-box">
+                <div class="cross-icon hidden-bar-closer"><span class="far fa-close"></span></div>
+                <div class="logo-box"><a href="index.html"><img src="images/logo-footer-m.png"
+                            alt="Find Fold Menus"></a></div>
+
+                <!-- .Side-menu ----------------------------------------------------->
+                <div class="side-menu">
+                    <ul class="navigation clearfix">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+
+                        <li class="dropdown"><a href="#">Industries We Serve</a>
+                            <ul>
+                                <li><a href="Restaurant.html">Restaurant</a></li>
+                                <li><a href="#">Hotels & Resorts</a></li>
+                                <li><a href="#">Food Court</a></li>
+                                <li><a href="#">Bars & Lounges</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown"><a href="#">Our Services</a>
+                            <ul>
+                                <li><a href="Fully-Customized-Menu.html">Fully Customized Menu</a></li>
+                                <li><a href="Luxury-Dine-in-Menu.html">Luxury Dine-in Menu</a></li>
+                                <li><a href="MDF-Series-Menu.html">MDF Series Menu</a></li>
+                                <li><a href="Waterproof-Menu-NTR.html"> Waterproof Menu (NTR)</a></li>
+                                <li><a href="Acrylic-Menu.html"> Acrylic Menu</a></li>
+                                <li><a href="Poolside-Menu.html">Pool Side Menu</a></li>
+                                <li><a href="premium-wiro-menu.html">Premium Wiro Menu</a></li>
+                                <li><a href="#">Changeable Menu</a></li>
+                                <li><a href="#">Bar & Drink Menu</a></li>
+                                <li><a href="#">Food Court Menus</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="how-its-work.html">How it works</a></li>
+
+                        <li class="dropdown"><a href="#">Contact Us</a>
+                            <ul>
+                                <li><a href="Make-a-Payment.html">Make a Payment</a></li>
+                                <li><a href="Speak-With-Us.html">Speak With Us</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.Side-menu -------------------------------------------------->
+
+                <h2>Visit Us</h2>
+                <ul class="info">
+                    <li> C-111, 3rd Floor, Naraina Industrial Area, Delhi - 110034
+                    </li>
+                    <li>Open: 10.00 am - 6.30pm</li>
+                    <li><a href="mailto:info@finefoldmenus.com">info@finefoldmenus.com</a></li>
+                </ul>
+                <div class="separator"><span></span></div>
+                <div class="booking-info">
+                    <div class="bk-title">Get Started</div>
+                    <div class="bk-no"><a href="tel:+919818095822">+91 98180 95822</a></div>
+                </div>
+
+            </div><!-- / Hidden Bar Wrapper -->
+        </section>
+        <!-- / Hidden Bar -->
+
+        <!--Info Back Drop-->
+        <div class="info-back-drop"></div>
+
+        <!-- Hidden Bar -->
+        <section class="info-bar">
+            <div class="inner-box">
+                <div class="cross-icon"><span class="far fa-close"></span></div>
+                <div class="logo-box"><a href="index.html"><img src="images/logo-footer-m.png"
+                            alt="Find Fold Menus"></a></div>
+
+                <h2>Visit Us</h2>
+                <ul class="info">
+                    <li> C-111, 3rd Floor, Naraina Industrial Area, Delhi - 110034
+                    </li>
+                    <li>Open: 10.00 am - 6.30pm</li>
+                    <li><a href="mailto:info@finefoldmenus.com">info@finefoldmenus.com</a></li>
+                </ul>
+                <div class="separator"><span></span></div>
+                <div class="booking-info">
+                    <div class="bk-title">Get Started</div>
+                    <div class="bk-no"><a href="tel:+919818095822">+91 98180 95822</a></div>
+                </div>
+            </div>
+        </section>
+        <!--End Hidden Bar -->
+
+        <main class="wiro-menu-content">
+
+            <!-- ============================================================
+                 HERO — "Open the Experience"
+                 ============================================================ -->
+            <section class="wm-hero" id="wm-hero">
+                <div class="wm-hero__bg" data-parallax="12">
+                    <img src="images/menus/spiral-wire-o-menu.jpg"
+                        alt="Premium custom Wiro menu cover for restaurants and hospitality brands" width="1920"
+                        height="1080">
+                    <div class="wm-hero__overlay"></div>
+                </div>
+                <div class="wm-hero__lines" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span><span></span>
+                </div>
+
+                <div class="wm-hero__inner">
+                    <div class="wm-hero__copy">
+                        <p class="wm-eyebrow wm-reveal">PREMIUM WIRO MENU COLLECTION</p>
+                        <h1 class="wm-reveal" data-delay="120">Premium Wiro Menu Covers Designed&nbsp;for Modern
+                            Hospitality</h1>
+                        <p class="wm-hero__lead wm-reveal" data-delay="240">Combine practical functionality with refined
+                            presentation through our Premium Wiro Menu Covers, designed for restaurants, cafés,
+                            hotels, bakeries, bars, resorts, and contemporary hospitality businesses. Featuring a
+                            flexible Wiro binding system, these menus allow pages to open smoothly, remain easy to
+                            handle, and be updated when required. At Fine Fold Menus, we customize every Wiro menu
+                            with premium materials, branding, colors, finishes, and formats to create a professional
+                            menu presentation that complements your hospitality brand.</p>
+                        <div class="wm-btn-row wm-reveal" data-delay="360">
+                            <a href="Speak-With-Us.html" class="wm-btn wm-btn--solid"><span>Request a Custom
+                                    Quote</span></a>
+                            <a href="#materials" class="wm-btn wm-btn--outline"><span>Explore Wiro Menu
+                                    Collection</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Cinematic CSS-built Wiro menu, slightly open -->
+                    <div class="wm-hero__stage wm-reveal" data-delay="200" aria-hidden="true">
+                        <div class="wm-book-scene" id="wmBookScene">
+                            <div class="wm-book">
+                                <span class="wm-sheet wm-sheet--3"></span>
+                                <span class="wm-sheet wm-sheet--2"></span>
+                                <span class="wm-sheet wm-sheet--1"></span>
+                                <div class="wm-book__cover">
+                                    <span class="wm-book__frame"></span>
+                                    <span class="wm-book__emblem">FINE FOLD MENUS</span>
+                                    <span class="wm-book__tagline">EST. CRAFT &nbsp;&middot;&nbsp; DELHI</span>
+                                </div>
+                                <div class="wm-book__spine">
+                                    <span class="wm-ring"></span><span class="wm-ring"></span><span
+                                        class="wm-ring"></span><span class="wm-ring"></span><span
+                                        class="wm-ring"></span><span class="wm-ring"></span><span
+                                        class="wm-ring"></span><span class="wm-ring"></span><span
+                                        class="wm-ring"></span>
+                                    <span class="wm-spine-shine"></span>
+                                </div>
+                                <div class="wm-book__page">
+                                    <span class="wm-page-head"></span>
+                                    <span class="wm-line wm-line--w60"></span>
+                                    <span class="wm-line"></span>
+                                    <span class="wm-line wm-line--w85"></span>
+                                    <span class="wm-gap"></span>
+                                    <span class="wm-line wm-line--w70"></span>
+                                    <span class="wm-line"></span>
+                                    <span class="wm-line wm-line--w40"></span>
+                                    <span class="wm-gap"></span>
+                                    <span class="wm-line wm-line--w75"></span>
+                                    <span class="wm-line wm-line--w55"></span>
+                                    <span class="wm-page-price"></span>
+                                </div>
+                            </div>
+                            <div class="wm-book-shadow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wm-hero__scroll" aria-hidden="true">
+                    <span>Scroll to Explore</span>
+                    <i></i>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 ABOUT — Open-book editorial composition
+                 ============================================================ -->
+            <section class="wm-section" id="about">
+                <div class="wm-container">
+                    <div class="wm-openbook wm-reveal">
+                        <div class="wm-openbook__page wm-openbook__page--left">
+                            <figure class="wm-openbook__visual">
+                                <img src="images/hero-dining.jpg"
+                                    alt="Premium custom Wiro menu cover for restaurants and hospitality brands"
+                                    loading="lazy" width="900" height="1100">
+                            </figure>
+                            <span class="wm-punch-holes" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                        </div>
+                        <div class="wm-openbook__binding" aria-hidden="true">
+                            <span class="wm-ob-ring"></span><span class="wm-ob-ring"></span><span
+                                class="wm-ob-ring"></span><span class="wm-ob-ring"></span><span
+                                class="wm-ob-ring"></span><span class="wm-ob-ring"></span><span
+                                class="wm-ob-ring"></span><span class="wm-ob-ring"></span><span
+                                class="wm-ob-ring"></span><span class="wm-ob-ring"></span>
+                        </div>
+                        <div class="wm-openbook__page wm-openbook__page--right">
+                            <span class="wm-punch-holes wm-punch-holes--right" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                            <div class="wm-openbook__content">
+                                <p class="wm-eyebrow">About Premium Wiro Menus</p>
+                                <h2 class="wm-title">Flexible Menu Presentation with a Premium Finish</h2>
+                                <div class="wm-rule"></div>
+                                <div class="wm-copy">
+                                    <p>A Wiro-bound menu offers an excellent balance between functionality, durability,
+                                        and contemporary presentation. The practical binding system allows the menu to
+                                        open and close smoothly while keeping individual pages securely in place,
+                                        making it a convenient choice for restaurants and hospitality businesses where
+                                        menus are handled frequently.</p>
+                                    <p>At Fine Fold Menus, we create customized Wiro menus designed around your brand
+                                        and operational requirements. From the cover material and dimensions to the
+                                        number of pages, branding, colors, printing, and finishing details, every
+                                        element can be tailored to your requirements.</p>
+                                    <p>Whether you operate a modern café, busy restaurant, boutique hotel, bakery,
+                                        bar, or resort, our Premium Wiro Menus provide a polished and practical way to
+                                        present food, beverages, desserts, cocktails, and other offerings.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 WHY CHOOSE — Bound chapters page-flow composition
+                 ============================================================ -->
+            <section class="wm-section wm-section--surface" id="why">
+                <div class="wm-container">
+                    <div class="wm-head wm-text-center">
+                        <p class="wm-eyebrow wm-reveal">Why Choose Premium Wiro Menus?</p>
+                        <h2 class="wm-title wm-reveal" data-delay="100">Practical Design. Professional Presentation.</h2>
+                        <div class="wm-rule wm-rule--center wm-reveal" data-delay="150"></div>
+                        <p class="wm-lede wm-reveal" data-delay="200">Wiro menus are ideal for hospitality businesses
+                            that require easy handling, flexible page management, and a professional appearance
+                            without compromising on design.</p>
+                    </div>
+
+                    <div class="wm-bindflow">
+                        <!-- central Wiro binding spine -->
+                        <div class="wm-bindflow__spine" aria-hidden="true">
+                            <span class="wm-bf-ring"></span><span class="wm-bf-ring"></span><span
+                                class="wm-bf-ring"></span><span class="wm-bf-ring"></span><span
+                                class="wm-bf-ring"></span><span class="wm-bf-ring"></span><span
+                                class="wm-bf-ring"></span><span class="wm-bf-ring"></span><span
+                                class="wm-bf-ring"></span><span class="wm-bf-ring"></span><span
+                                class="wm-bf-ring"></span>
+                            <span class="wm-bf-shine"></span>
+                        </div>
+
+                        <article class="wm-bf-step wm-bf-step--left wm-reveal">
+                            <span class="wm-bf-num" aria-hidden="true">01</span>
+                            <span class="wm-bf-connector" aria-hidden="true"></span>
+                            <div class="wm-bf-card">
+                                <span class="wm-bf-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4">
+                                        <path d="M8 5h11l5 5v17H8z" />
+                                        <path d="M19 5v5h5" />
+                                        <path d="M12 20c3-2.5 6 2.5 9 0" />
+                                    </svg>
+                                </span>
+                                <h3>Easy Page Turning</h3>
+                                <p>The Wiro binding allows pages to turn smoothly and helps the menu open comfortably,
+                                    making it convenient for guests during ordering.</p>
+                            </div>
+                        </article>
+
+                        <article class="wm-bf-step wm-bf-step--right wm-reveal" data-delay="100">
+                            <span class="wm-bf-num" aria-hidden="true">02</span>
+                            <span class="wm-bf-connector" aria-hidden="true"></span>
+                            <div class="wm-bf-card">
+                                <span class="wm-bf-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4">
+                                        <path d="M6 8c0-1.6 1.4-3 3-3s3 1.4 3 3v16c0 1.6-1.4 3-3 3s-3-1.4-3-3z" />
+                                        <path d="M14 8c0-1.6 1.4-3 3-3s3 1.4 3 3v16c0 1.6-1.4 3-3 3s-3-1.4-3-3z" />
+                                        <path d="M22 8c0-1.6 1.4-3 3-3s3 1.4 3 3v16c0 1.6-1.4 3-3 3s-3-1.4-3-3z" />
+                                    </svg>
+                                </span>
+                                <h3>Flexible &amp; Practical Binding</h3>
+                                <p>The binding system provides flexibility and makes Wiro menus suitable for frequently
+                                    handled restaurant and hospitality menus.</p>
+                            </div>
+                        </article>
+
+                        <article class="wm-bf-step wm-bf-step--left wm-reveal" data-delay="200">
+                            <span class="wm-bf-num" aria-hidden="true">03</span>
+                            <span class="wm-bf-connector" aria-hidden="true"></span>
+                            <div class="wm-bf-card">
+                                <span class="wm-bf-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4">
+                                        <path d="M9 5h10l4 4v18H9z" />
+                                        <path d="M19 5v4h4" />
+                                        <path d="M13 15h8M13 19h8M13 23h5" />
+                                    </svg>
+                                </span>
+                                <h3>Easy Menu Updates</h3>
+                                <p>Depending on the selected construction, pages can be replaced or updated, making the
+                                    format practical for changing menus, seasonal offerings, and updated pricing.</p>
+                            </div>
+                        </article>
+
+                        <article class="wm-bf-step wm-bf-step--right wm-reveal" data-delay="300">
+                            <span class="wm-bf-num" aria-hidden="true">04</span>
+                            <span class="wm-bf-connector" aria-hidden="true"></span>
+                            <div class="wm-bf-card">
+                                <span class="wm-bf-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4">
+                                        <circle cx="16" cy="12" r="6" />
+                                        <path d="M11 17l-2 10 7-4 7 4-2-10" />
+                                    </svg>
+                                </span>
+                                <h3>Custom Brand Presentation</h3>
+                                <p>Customize the cover, materials, colors, printing, logo, and finishing details to
+                                    create a Wiro menu that reflects your restaurant's visual identity.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 MATERIALS — Premium editorial carousel
+                 ============================================================ -->
+            <section class="wm-section" id="materials">
+                <div class="wm-container">
+                    <div class="wm-head wm-text-center">
+                        <p class="wm-eyebrow wm-reveal">Premium Materials &amp; Cover Options</p>
+                        <h2 class="wm-title wm-reveal" data-delay="100">Choose a Finish That Represents Your Brand</h2>
+                        <div class="wm-rule wm-rule--center wm-reveal" data-delay="150"></div>
+                        <p class="wm-lede wm-reveal" data-delay="200">The cover plays an important role in the overall
+                            appearance and durability of your Wiro menu. We offer a variety of premium material and
+                            finish options to suit different hospitality concepts.</p>
+                    </div>
+
+                    <div class="wm-carousel wm-reveal" id="wmCarousel" aria-roledescription="carousel"
+                        aria-label="Premium material and cover options">
+                        <div class="wm-carousel__viewport">
+                            <div class="wm-carousel__track" id="wmCarouselTrack">
+
+                                <article class="wm-slide" role="group" aria-label="1 of 5">
+                                    <div class="wm-slide__media">
+                                        <img src="images/menus/luxury-leather-menu.jpg"
+                                            alt="Premium PU and synthetic leather Wiro menu cover" loading="lazy"
+                                            width="900" height="700">
+                                    </div>
+                                    <div class="wm-slide__panel">
+                                        <span class="wm-slide__num">01</span>
+                                        <h3>Premium PU &amp; Synthetic Leather</h3>
+                                        <p>Create an elegant, sophisticated appearance with durable synthetic leather
+                                            finishes available in multiple colors and textures.</p>
+                                    </div>
+                                </article>
+
+                                <article class="wm-slide" role="group" aria-label="2 of 5">
+                                    <div class="wm-slide__media">
+                                        <img src="images/leather-menus.jpg"
+                                            alt="Genuine leather Wiro menu cover for luxury restaurants" loading="lazy"
+                                            width="900" height="700">
+                                    </div>
+                                    <div class="wm-slide__panel">
+                                        <span class="wm-slide__num">02</span>
+                                        <h3>Genuine Leather</h3>
+                                        <p>For luxury restaurants and premium hospitality environments, genuine
+                                            leather provides a timeless appearance and distinctive tactile experience.
+                                        </p>
+                                    </div>
+                                </article>
+
+                                <article class="wm-slide" role="group" aria-label="3 of 5">
+                                    <div class="wm-slide__media">
+                                        <img src="images/menus/wooden-menu.jpg"
+                                            alt="Wood and MDF Wiro menu cover with natural finish" loading="lazy"
+                                            width="900" height="700">
+                                    </div>
+                                    <div class="wm-slide__panel">
+                                        <span class="wm-slide__num">03</span>
+                                        <h3>Wood &amp; MDF</h3>
+                                        <p>Natural and structured finishes that work particularly well with rustic
+                                            restaurants, cafés, resorts, and contemporary hospitality interiors.</p>
+                                    </div>
+                                </article>
+
+                                <article class="wm-slide" role="group" aria-label="4 of 5">
+                                    <div class="wm-slide__media">
+                                        <img src="images/menus/acrylic-menu-display.jpg"
+                                            alt="Acrylic Wiro menu cover with clean modern presentation" loading="lazy"
+                                            width="900" height="700">
+                                    </div>
+                                    <div class="wm-slide__panel">
+                                        <span class="wm-slide__num">04</span>
+                                        <h3>Acrylic</h3>
+                                        <p>A clean and modern option for restaurants and cafés looking for a
+                                            contemporary menu presentation.</p>
+                                    </div>
+                                </article>
+
+                                <article class="wm-slide" role="group" aria-label="5 of 5">
+                                    <div class="wm-slide__media">
+                                        <img src="images/craft.jpg"
+                                            alt="Fabric and specialty finish Wiro menu cover" loading="lazy"
+                                            width="900" height="700">
+                                    </div>
+                                    <div class="wm-slide__panel">
+                                        <span class="wm-slide__num">05</span>
+                                        <h3>Fabric &amp; Specialty Finishes</h3>
+                                        <p>Add character to your menu with linen, canvas, textured fabrics, and other
+                                            specialty materials selected according to your design requirements.</p>
+                                    </div>
+                                </article>
+
+                            </div>
+                        </div>
+
+                        <div class="wm-carousel__controls">
+                            <button class="wm-carousel__nav" id="wmPrev" aria-label="Previous material">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M15 5l-7 7 7 7" /></svg>
+                            </button>
+                            <div class="wm-carousel__progress" aria-hidden="true">
+                                <span class="wm-carousel__bar" id="wmCarouselBar"></span>
+                            </div>
+                            <button class="wm-carousel__nav" id="wmNext" aria-label="Next material">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M9 5l7 7-7 7" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 CUSTOMIZATION — Wiro Menu Configurator
+                 ============================================================ -->
+            <section class="wm-section wm-section--surface" id="customization">
+                <div class="wm-container">
+                    <div class="wm-head wm-text-center">
+                        <p class="wm-eyebrow wm-reveal">Complete Wiro Menu Customization</p>
+                        <h2 class="wm-title wm-reveal" data-delay="100">Every Detail Tailored to Your Brand</h2>
+                        <div class="wm-rule wm-rule--center wm-reveal" data-delay="150"></div>
+                        <p class="wm-lede wm-reveal" data-delay="200">Your Wiro menu can be customized to create a
+                            consistent and recognizable brand experience across your dining space.</p>
+                    </div>
+
+                    <div class="wm-config wm-reveal" id="wmConfig">
+                        <svg class="wm-config__lines" aria-hidden="true" preserveAspectRatio="none"
+                            viewBox="0 0 100 62">
+                            <line data-line="size" x1="50" y1="31" x2="21" y2="9" />
+                            <line data-line="cover" x1="50" y1="31" x2="20" y2="52" />
+                            <line data-line="logo" x1="50" y1="31" x2="79" y2="7" />
+                            <line data-line="binding" x1="50" y1="31" x2="81" y2="30" />
+                            <line data-line="print" x1="50" y1="31" x2="79" y2="53" />
+                        </svg>
+
+                        <!-- Central mockup -->
+                        <div class="wm-config__menu" aria-hidden="true">
+                            <div class="wm-mini-book">
+                                <div class="wm-mini-book__cover">
+                                    <span class="wm-mini-emblem" data-zone="logo"></span>
+                                </div>
+                                <div class="wm-mini-book__binding" data-zone="binding">
+                                    <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+                                </div>
+                                <div class="wm-mini-book__pages" data-zone="print">
+                                    <span class="wm-mline"></span><span class="wm-mline wm-mline--s"></span><span
+                                        class="wm-mline"></span><span class="wm-mline wm-mline--xs"></span><span
+                                        class="wm-mline wm-mline--s"></span><span class="wm-mline"></span>
+                                </div>
+                                <span class="wm-mini-outline" data-zone="size"></span>
+                                <span class="wm-mini-cover-glow" data-zone="cover"></span>
+                            </div>
+                        </div>
+
+                        <!-- Customization points -->
+                        <article class="wm-node wm-node--tl" data-zone="size" tabindex="0">
+                            <span class="wm-node__dot"></span>
+                            <h3>Custom Size &amp; Format</h3>
+                            <p>Choose the dimensions, orientation, page count, and overall format according to your
+                                menu and table setup.</p>
+                        </article>
+
+                        <article class="wm-node wm-node--bl" data-zone="cover" tabindex="0">
+                            <span class="wm-node__dot"></span>
+                            <h3>Custom Cover Design</h3>
+                            <p>Select your preferred material, color, texture, thickness, and finish to create a
+                                distinctive menu cover.</p>
+                        </article>
+
+                        <article class="wm-node wm-node--tr" data-zone="logo" tabindex="0">
+                            <span class="wm-node__dot"></span>
+                            <h3>Logo Branding</h3>
+                            <p>Add your restaurant or hospitality logo through embossing, debossing, foil stamping,
+                                UV printing, digital printing, or other suitable branding methods.</p>
+                        </article>
+
+                        <article class="wm-node wm-node--mr" data-zone="binding" tabindex="0">
+                            <span class="wm-node__dot"></span>
+                            <h3>Wiro Binding</h3>
+                            <p>Choose suitable Wiro binding colors and specifications to complement the overall design
+                                and provide a coordinated finish.</p>
+                        </article>
+
+                        <article class="wm-node wm-node--br" data-zone="print" tabindex="0">
+                            <span class="wm-node__dot"></span>
+                            <h3>Interior Printing</h3>
+                            <p>Customize your menu pages with food photography, descriptions, pricing, categories,
+                                branding elements, and other required information.</p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 APPLICATIONS — Menu-page wall
+                 ============================================================ -->
+            <section class="wm-section" id="applications">
+                <div class="wm-container">
+                    <div class="wm-head wm-text-center">
+                        <p class="wm-eyebrow wm-reveal">Wiro Menu Applications</p>
+                        <h2 class="wm-title wm-reveal" data-delay="100">One Format for Multiple Hospitality Needs</h2>
+                        <div class="wm-rule wm-rule--center wm-reveal" data-delay="150"></div>
+                        <p class="wm-lede wm-reveal" data-delay="200">Premium Wiro menus can be designed for a wide
+                            range of food and beverage presentations.</p>
+                    </div>
+
+                    <ul class="wm-wall wm-reveal" id="wmWall">
+                        <li class="wm-wall__card"><span class="wm-wall__head"></span><span
+                                class="wm-wall__line"></span><span class="wm-wall__line wm-wall__line--s"></span>
+                            <h3>Restaurant Food Menus</h3>
+                        </li>
+                        <li class="wm-wall__card"><span class="wm-wall__head"></span><span
+                                class="wm-wall__line"></span><span class="wm-wall__line wm-wall__line--s"></span>
+                            <h3>Café Menus</h3>
+                        </li>
+                        <li class="wm-wall__card"><span class="wm-wall__head"></span><span
+                                class="wm-wall__line"></span><span class="wm-wall__line wm-wall__line--s"></span>
+                            <h3>Breakfast Menus</h3>
+                        </li>
+                        <li class="wm-wall__card"><span class="wm-wall__head"></span><span
+                                class="wm-wall__line"></span><span class="wm-wall__line wm-wall__line--s"></span>
+                            <h3>Lunch Menus</h3>
+                        </li>
+                        <li class="wm-wall__card"><span class="wm-wall__head"></span><span
+                                class="wm-wall__line"></span><span class="wm-wall__line wm-wall__line--s"></span>
+                            <h3>Dinner Menus</h3>
+                        </li>
+                        <li class="wm-wall__card"><span class="wm-wall__head"></span><span
+                                class="wm-wall__line"></span><span class="wm-wall__line wm-wall__line--s"></span>
+                            <h3>Beverage Menus</h3>
+                        </li>
+                        <li class="wm-wall__card"><span class="wm-wall__head"></span><span
+                                class="wm-wall__line"></span><span class="wm-wall__line wm-wall__line--s"></span>
+                            <h3>Cocktail Menus</h3>
+                        </li>
+                        <li class="wm-wall__card"><span class="wm-wall__head"></span><span
+                                class="wm-wall__line"></span><span class="wm-wall__line wm-wall__line--s"></span>
+                            <h3>Dessert Menus</h3>
+                        </li>
+                        <li class="wm-wall__card"><span class="wm-wall__head"></span><span
+                                class="wm-wall__line"></span><span class="wm-wall__line wm-wall__line--s"></span>
+                            <h3>Bakery Menus</h3>
+                        </li>
+                        <li class="wm-wall__card"><span class="wm-wall__head"></span><span
+                                class="wm-wall__line"></span><span class="wm-wall__line wm-wall__line--s"></span>
+                            <h3>Bar Menus</h3>
+                        </li>
+                        <li class="wm-wall__card"><span class="wm-wall__head"></span><span
+                                class="wm-wall__line"></span><span class="wm-wall__line wm-wall__line--s"></span>
+                            <h3>Wine Lists</h3>
+                        </li>
+                        <li class="wm-wall__card"><span class="wm-wall__head"></span><span
+                                class="wm-wall__line"></span><span class="wm-wall__line wm-wall__line--s"></span>
+                            <h3>Seasonal Menus</h3>
+                        </li>
+                        <li class="wm-wall__card"><span class="wm-wall__head"></span><span
+                                class="wm-wall__line"></span><span class="wm-wall__line wm-wall__line--s"></span>
+                            <h3>Kids' Menus</h3>
+                        </li>
+                        <li class="wm-wall__card"><span class="wm-wall__head"></span><span
+                                class="wm-wall__line"></span><span class="wm-wall__line wm-wall__line--s"></span>
+                            <h3>Special Event Menus</h3>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 HOSPITALITY — Premium category ribbon
+                 ============================================================ -->
+            <section class="wm-section wm-section--surface" id="hospitality">
+                <div class="wm-container">
+                    <div class="wm-head wm-text-center">
+                        <p class="wm-eyebrow wm-reveal">Perfect for Every Hospitality Business</p>
+                        <h2 class="wm-title wm-reveal" data-delay="100">Designed for Businesses That Value
+                            Functionality &amp; Style</h2>
+                        <div class="wm-rule wm-rule--center wm-reveal" data-delay="150"></div>
+                        <p class="wm-lede wm-reveal" data-delay="200">Our Premium Wiro Menus are suitable for
+                            hospitality environments where menus need to be practical, easy to handle, and visually
+                            aligned with the brand.</p>
+                    </div>
+
+                    <ol class="wm-ribbon wm-reveal">
+                        <li><span class="wm-ribbon__num">01</span><span class="wm-ribbon__name">Restaurants</span></li>
+                        <li><span class="wm-ribbon__num">02</span><span class="wm-ribbon__name">Fine Dining
+                                Restaurants</span></li>
+                        <li><span class="wm-ribbon__num">03</span><span class="wm-ribbon__name">Cafés</span></li>
+                        <li><span class="wm-ribbon__num">04</span><span class="wm-ribbon__name">Coffee Shops</span></li>
+                        <li><span class="wm-ribbon__num">05</span><span class="wm-ribbon__name">Hotels</span></li>
+                        <li><span class="wm-ribbon__num">06</span><span class="wm-ribbon__name">Resorts</span></li>
+                        <li><span class="wm-ribbon__num">07</span><span class="wm-ribbon__name">Bakeries</span></li>
+                        <li><span class="wm-ribbon__num">08</span><span class="wm-ribbon__name">Bars &amp;
+                                Lounges</span></li>
+                        <li><span class="wm-ribbon__num">09</span><span class="wm-ribbon__name">Breweries</span></li>
+                        <li><span class="wm-ribbon__num">10</span><span class="wm-ribbon__name">Rooftop
+                                Restaurants</span></li>
+                        <li><span class="wm-ribbon__num">11</span><span class="wm-ribbon__name">Food Courts</span></li>
+                        <li><span class="wm-ribbon__num">12</span><span class="wm-ribbon__name">Banquet Venues</span></li>
+                        <li><span class="wm-ribbon__num">13</span><span class="wm-ribbon__name">Clubs</span></li>
+                        <li><span class="wm-ribbon__num">14</span><span class="wm-ribbon__name">Hospitality
+                                Chains</span></li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 FEATURES & BENEFITS — Technical blueprint
+                 ============================================================ -->
+            <section class="wm-section" id="features">
+                <div class="wm-container">
+                    <div class="wm-head wm-text-center">
+                        <p class="wm-eyebrow wm-reveal">Features &amp; Benefits</p>
+                        <h2 class="wm-title wm-reveal" data-delay="100">Made for Everyday Hospitality Use</h2>
+                        <div class="wm-rule wm-rule--center wm-reveal" data-delay="150"></div>
+                        <p class="wm-lede wm-reveal" data-delay="200">Our Premium Wiro Menu Covers are designed to
+                            provide practical functionality while maintaining a refined and professional appearance.
+                        </p>
+                    </div>
+
+                    <div class="wm-blueprint wm-reveal">
+                        <ul class="wm-blueprint__col wm-blueprint__col--left">
+                            <li><span class="wm-bp-dot"></span>Flexible Wiro Binding</li>
+                            <li><span class="wm-bp-dot"></span>Smooth Page Turning</li>
+                            <li><span class="wm-bp-dot"></span>Custom Cover Designs</li>
+                            <li><span class="wm-bp-dot"></span>Premium Material Options</li>
+                            <li><span class="wm-bp-dot"></span>Custom Logo Branding</li>
+                            <li><span class="wm-bp-dot"></span>Multiple Size Options</li>
+                        </ul>
+
+                        <div class="wm-blueprint__art" aria-hidden="true">
+                            <div class="wm-bp-frame">
+                                <span class="wm-bp-measure wm-bp-measure--top"><i></i><label>A4 / A5 / Custom</label></span>
+                                <span class="wm-bp-measure wm-bp-measure--side"><i></i><label>Portrait /
+                                        Landscape</label></span>
+                                <div class="wm-bp-book">
+                                    <div class="wm-bp-half wm-bp-half--left"><span class="wm-bp-hole"></span><span
+                                            class="wm-bp-hole"></span><span class="wm-bp-hole"></span><span
+                                            class="wm-bp-hole"></span><span class="wm-bp-hole"></span></div>
+                                    <div class="wm-bp-rings">
+                                        <i></i><i></i><i></i><i></i><i></i>
+                                    </div>
+                                    <div class="wm-bp-half wm-bp-half--right"><span class="wm-bp-hole"></span><span
+                                            class="wm-bp-hole"></span><span class="wm-bp-hole"></span><span
+                                            class="wm-bp-hole"></span><span class="wm-bp-hole"></span></div>
+                                </div>
+                                <span class="wm-bp-note wm-bp-note--pitch">&oslash; Wire Pitch</span>
+                                <span class="wm-bp-note wm-bp-note--core">Board Core</span>
+                            </div>
+                        </div>
+
+                        <ul class="wm-blueprint__col wm-blueprint__col--right">
+                            <li><span class="wm-bp-dot"></span>Replaceable Page Options</li>
+                            <li><span class="wm-bp-dot"></span>Custom Interior Printing</li>
+                            <li><span class="wm-bp-dot"></span>Easy to Handle</li>
+                            <li><span class="wm-bp-dot"></span>Suitable for Frequent Use</li>
+                            <li><span class="wm-bp-dot"></span>Multiple Color &amp; Finish Options</li>
+                            <li><span class="wm-bp-dot"></span>Professional &amp; Contemporary Appearance</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 FAQ — Premium accordion
+                 ============================================================ -->
+            <section class="wm-section wm-section--surface" id="faq">
+                <div class="wm-container wm-container--narrow">
+                    <div class="wm-head wm-text-center">
+                        <p class="wm-eyebrow wm-reveal">Frequently Asked Questions</p>
+                        <h2 class="wm-title wm-reveal" data-delay="100">Everything You Need to Know</h2>
+                        <div class="wm-rule wm-rule--center wm-reveal" data-delay="150"></div>
+                    </div>
+
+                    <div class="wm-faq wm-reveal" id="wmFaq">
+                        <div class="wm-faq__item">
+                            <button class="wm-faq__q" type="button" aria-expanded="false">
+                                <span>What is a Wiro Menu?</span>
+                                <i class="wm-faq__icon" aria-hidden="true"></i>
+                            </button>
+                            <div class="wm-faq__a">
+                                <div class="wm-faq__a-inner">
+                                    <p>A Wiro Menu is a menu presentation format that uses a wire-loop binding system
+                                        to hold pages together. It provides flexible page movement and is particularly
+                                        suitable for restaurants, cafés, hotels, bakeries, and other hospitality
+                                        businesses.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wm-faq__item">
+                            <button class="wm-faq__q" type="button" aria-expanded="false">
+                                <span>Can Premium Wiro Menus be customized?</span>
+                                <i class="wm-faq__icon" aria-hidden="true"></i>
+                            </button>
+                            <div class="wm-faq__a">
+                                <div class="wm-faq__a-inner">
+                                    <p>Yes. Wiro menus can be customized in terms of cover material, size, color, page
+                                        count, printing, logo branding, Wiro binding, and finishing details.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wm-faq__item">
+                            <button class="wm-faq__q" type="button" aria-expanded="false">
+                                <span>Can pages be replaced in a Wiro Menu?</span>
+                                <i class="wm-faq__icon" aria-hidden="true"></i>
+                            </button>
+                            <div class="wm-faq__a">
+                                <div class="wm-faq__a-inner">
+                                    <p>Depending on the construction and binding configuration, pages can be designed
+                                        for replacement or updating, making Wiro menus useful for businesses with
+                                        frequently changing menus or prices.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wm-faq__item">
+                            <button class="wm-faq__q" type="button" aria-expanded="false">
+                                <span>Can I add my restaurant logo to the Wiro menu cover?</span>
+                                <i class="wm-faq__icon" aria-hidden="true"></i>
+                            </button>
+                            <div class="wm-faq__a">
+                                <div class="wm-faq__a-inner">
+                                    <p>Yes. We offer several branding options, including embossing, debossing, foil
+                                        stamping, UV printing, digital printing, and other suitable techniques based on
+                                        the selected cover material.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wm-faq__item">
+                            <button class="wm-faq__q" type="button" aria-expanded="false">
+                                <span>What materials can be used for Wiro menu covers?</span>
+                                <i class="wm-faq__icon" aria-hidden="true"></i>
+                            </button>
+                            <div class="wm-faq__a">
+                                <div class="wm-faq__a-inner">
+                                    <p>We offer a range of options including PU leather, genuine leather, wood, MDF,
+                                        acrylic, fabric, canvas, and specialty finishes, subject to the desired design
+                                        and construction.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wm-faq__item">
+                            <button class="wm-faq__q" type="button" aria-expanded="false">
+                                <span>Are Wiro menus suitable for restaurants with frequent menu changes?</span>
+                                <i class="wm-faq__icon" aria-hidden="true"></i>
+                            </button>
+                            <div class="wm-faq__a">
+                                <div class="wm-faq__a-inner">
+                                    <p>Yes. Their flexible construction makes them a practical choice for restaurants
+                                        and cafés that regularly update menu items, pricing, seasonal offerings, or
+                                        promotional pages.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wm-faq__item">
+                            <button class="wm-faq__q" type="button" aria-expanded="false">
+                                <span>Can Wiro menus be used for beverage and cocktail menus?</span>
+                                <i class="wm-faq__icon" aria-hidden="true"></i>
+                            </button>
+                            <div class="wm-faq__a">
+                                <div class="wm-faq__a-inner">
+                                    <p>Absolutely. Wiro-bound menus can be customized for food menus, beverage lists,
+                                        cocktail menus, dessert menus, wine lists, bakery menus, and other hospitality
+                                        presentations.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="wm-faq__item">
+                            <button class="wm-faq__q" type="button" aria-expanded="false">
+                                <span>Do you manufacture Wiro menus in bulk?</span>
+                                <i class="wm-faq__icon" aria-hidden="true"></i>
+                            </button>
+                            <div class="wm-faq__a">
+                                <div class="wm-faq__a-inner">
+                                    <p>Yes. We can produce customized Wiro menus for individual restaurants as well as
+                                        larger requirements for hotel groups, restaurant chains, cafés, resorts, and
+                                        hospitality businesses.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 FINAL CTA — "Close the Menu"
+                 ============================================================ -->
+            <section class="wm-final" id="cta-final">
+                <div class="wm-final__bg">
+                    <img src="images/cta-closing.jpg" alt="" aria-hidden="true" loading="lazy">
+                    <div class="wm-final__overlay"></div>
+                </div>
+                <div class="wm-final__panel wm-reveal">
+                    <p class="wm-eyebrow">Final CTA</p>
+                    <h2>Create a Wiro Menu That Works Beautifully for Your Brand</h2>
+                    <div class="wm-rule wm-rule--center"></div>
+                    <p class="wm-final__copy">Give your guests a menu that combines easy handling, flexible
+                        functionality, and premium presentation. At Fine Fold Menus, we create customized Wiro menus
+                        designed around your restaurant's identity, menu requirements, and everyday service needs.
+                        From premium covers and personalized branding to professionally finished interior pages,
+                        every detail can be tailored to create a menu that looks exceptional and performs reliably
+                        throughout service.</p>
+                    <div class="wm-btn-row wm-btn-row--center">
+                        <a href="Speak-With-Us.html" class="wm-btn wm-btn--solid"><span>Request a Free Quote</span></a>
+                        <a href="Speak-With-Us.html" class="wm-btn wm-btn--outline"><span>Customize Your Wiro
+                                Menu</span></a>
+                        <a href="Speak-With-Us.html" class="wm-btn wm-btn--outline"><span>Talk to Our Experts</span></a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!--Main Footer-->
+        <footer class="main-footer">
+            <div class="image-layer" style="background-image: url(images/background/image-4.jpg);"></div>
+            <div class="upper-section">
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <!--Footer Col-->
+                        <div class="footer-col info-col col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                <div class="content">
+                                    <div class="logo"><a href="index.html"
+                                            title="Delici - Restaurants HTML Template"><img src="images/logo-footer.png"
+                                                alt="" title="Delici - Restaurants HTML Template"></a></div>
+                                    <div class="info">
+                                        <ul>
+                                            <li> C-111, 3rd Floor, Naraina Industrial Area, Delhi - 110034
+                                            </li>
+                                            <li><a href="mailto:info@finefoldmenus.com">info@finefoldmenus.com</a></li>
+                                            <li><a href="tel:+919818095822">Booking Request : +91-98180 95822</a></li>
+                                            <li>Time : 10.00 am - 6.30pm</li>
+                                        </ul>
+                                    </div>
+                                    <div class="separator"><span></span><span></span><span></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Footer Col-->
+                        <div class="footer-col links-col col-lg-3 col-md-6 col-sm-12">
+                            <div class="inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                <ul class="links">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Who We Serve</a></li>
+                                    <li><a href="#">Our Services</a></li>
+                                    <li><a href="#">Get In Touch </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--Footer Col-->
+                        <div class="footer-col links-col last col-lg-3 col-md-6 col-sm-12">
+                            <div class="inner wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                <ul class="links">
+                                    <li><a href="https://www.facebook.com/profile.php?id=61565289525469">facebook</a>
+                                    </li>
+                                    <li><a href="https://www.instagram.com/finefoldmenus/">instagram</a></li>
+                                    <li><a href="https://x.com/finefoldmenus">Twitter</a></li>
+                                    <li><a href="https://www.youtube.com/channel/UC666SYK-yWuOSna8JVsXwAQ">Youtube</a>
+                                    </li>
+                                    <li><a
+                                            href="https://www.linkedin.com/in/fine-fold-menus-powered-by-shreeji-softech-57b615405/">LinkedIn</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="auto-container">
+                    <div class="copyright">&copy; 2026 Fine Fold Menus Powered by <a href="https://shreejisoftech.com/"
+                            target="blank">SHREEJI SOFTECH</a>. All Rights Reserved. </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!--End pagewrapper-->
+
+    <!--Popup code below -->
+
+    <div class="sticky-video-widget" id="stickyWidget">
+        <!-- Small close button to dismiss the sticky widget entirely -->
+        <button class="sticky-close-btn" id="stickyCloseBtn" aria-label="Close video">&times;</button>
+
+        <!-- Autoplaying muted looping thumbnail video -->
+        <video id="thumbnailVideo" src="https://finefoldmenus.com/video/fine-fold-menus.mp4"
+            poster="YOUR-POSTER-IMAGE.jpg" autoplay muted loop playsinline></video>
+
+        <!-- Small play icon hint -->
+        <div class="sticky-play-icon"></div>
+    </div>
+
+    <div class="video-popup-overlay" id="videoPopupOverlay">
+        <div class="video-popup-box">
+            <button class="popup-close-btn" id="popupCloseBtn" aria-label="Close">&times;</button>
+            <video id="popupVideo" src="https://finefoldmenus.com/video/fine-fold-menus.mp4" controls
+                playsinline></video>
+        </div>
+    </div>
+
+    <script>
+        const stickyWidget = document.getElementById('stickyWidget');
+        const stickyCloseBtn = document.getElementById('stickyCloseBtn');
+        const thumbnailVideo = document.getElementById('thumbnailVideo');
+        const popupOverlay = document.getElementById('videoPopupOverlay');
+        const popupVideo = document.getElementById('popupVideo');
+        const popupCloseBtn = document.getElementById('popupCloseBtn');
+
+        // Autoplay the muted thumbnail (retries once metadata loads if blocked)
+        function playThumb() {
+            thumbnailVideo.muted = true;
+            thumbnailVideo.play().catch(() => {
+                thumbnailVideo.addEventListener('loadedmetadata', () => thumbnailVideo.play().catch(() => { }), { once: true });
+            });
+        }
+        playThumb();
+
+        // Thumbnail click -> open popup, sync time, play with sound
+        stickyWidget.addEventListener('click', () => {
+            popupOverlay.classList.add('active');
+            popupVideo.currentTime = thumbnailVideo.currentTime;
+            popupVideo.muted = false;
+            popupVideo.volume = 1;
+            popupVideo.play().catch(() => {
+                popupVideo.muted = true;
+                popupVideo.play();
+                popupVideo.muted = false;
+            });
+            thumbnailVideo.pause();
+        });
+
+        // Close popup -> resume thumbnail
+        function closePopup() {
+            popupOverlay.classList.remove('active');
+            popupVideo.pause();
+            playThumb();
+        }
+        popupCloseBtn.addEventListener('click', e => { e.stopPropagation(); closePopup(); });
+        popupOverlay.addEventListener('click', e => { if (e.target === popupOverlay) closePopup(); });
+
+        // Sticky close (X) -> hide widget entirely
+        stickyCloseBtn.addEventListener('click', e => {
+            e.stopPropagation();
+            stickyWidget.classList.add('hidden');
+            thumbnailVideo.pause();
+        });
+    </script>
+
+    <!--Scroll to top-->
+    <div class="scroll-to-top scroll-to-target" data-target="html"><span class="icon fa fa-angle-up"></span></div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.fancybox.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/owl.js"></script>
+    <script src="js/appear.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/custom-script.js"></script>
+    <script src="js/premium-wiro-menu.js"></script>
+
+</body>
+
+</html>
