@@ -195,6 +195,63 @@
     }
 
     /* ---------------------------------------------------------
+       4b. Applications wall — smooth 3D tilt + deal cleanup
+    --------------------------------------------------------- */
+    function initWall() {
+        var wall = document.getElementById('wmWall');
+        if (!wall) { return; }
+
+        /* release each card's entrance animation once it finishes,
+           so hover transforms are not pinned by the keyframe */
+        wall.addEventListener('animationend', function (e) {
+            if (e.target && e.target.classList &&
+                e.target.classList.contains('wm-wall__card')) {
+                e.target.classList.add('is-dealt');
+            }
+        });
+
+        if (reduceMotion || window.matchMedia('(hover: none)').matches) { return; }
+
+        var cards = Array.prototype.slice.call(wall.querySelectorAll('.wm-wall__card'));
+        var MAX_TILT = 7;
+
+        cards.forEach(function (card) {
+            var raf = null;
+            var targetX = 0, targetY = 0, curX = 0, curY = 0;
+
+            function render() {
+                curX += (targetX - curX) * 0.18;
+                curY += (targetY - curY) * 0.18;
+                card.style.setProperty('--ry', (curX * MAX_TILT).toFixed(3));
+                card.style.setProperty('--rx', (-curY * MAX_TILT).toFixed(3));
+                if (Math.abs(targetX - curX) > 0.002 || Math.abs(targetY - curY) > 0.002) {
+                    raf = window.requestAnimationFrame(render);
+                } else {
+                    raf = null;
+                }
+            }
+
+            card.addEventListener('mouseenter', function () {
+                card.classList.add('is-live');
+            });
+
+            card.addEventListener('mousemove', function (e) {
+                var rect = card.getBoundingClientRect();
+                targetX = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+                targetY = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
+                if (raf === null) { raf = window.requestAnimationFrame(render); }
+            });
+
+            card.addEventListener('mouseleave', function () {
+                card.classList.remove('is-live');
+                targetX = 0;
+                targetY = 0;
+                if (raf === null) { raf = window.requestAnimationFrame(render); }
+            });
+        });
+    }
+
+    /* ---------------------------------------------------------
        5. FAQ accordion — one open at a time
     --------------------------------------------------------- */
     function initFaq() {
@@ -241,6 +298,7 @@
         initHeroParallax();
         initCarousel();
         initConfigurator();
+        initWall();
         initFaq();
     }
 
