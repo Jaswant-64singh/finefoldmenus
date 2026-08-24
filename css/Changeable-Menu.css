@@ -314,6 +314,20 @@
     opacity: 1;
 }
 
+/* Hero "Request a Custom Quote" only — black label, easing to a soft grey
+   on hover. Scoped to #cm-hero so the final-CTA solid button is untouched.
+   The id also outranks `.changeable-menu-content a { color: inherit }`
+   (0-1-1), which otherwise beats .cm-btn--solid (0-1-0) and left this
+   label inheriting the muted grey. */
+#cm-hero .cm-btn--solid {
+    color: var(--cm-black);
+}
+
+#cm-hero .cm-btn--solid:hover,
+#cm-hero .cm-btn--solid:focus-visible {
+    color: #4A4A4A;
+}
+
 .cm-btn--outline {
     color: var(--cm-white);
     background: transparent;
