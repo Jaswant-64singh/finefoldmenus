@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Changeable Menu Covers | Custom Restaurant Menus</title>
+    <meta name="description"
+        content="Get premium changeable menu covers for restaurants, cafés and hotels with replaceable pages, custom materials, branding and flexible binding options." />
+    <meta name="keywords"
+        content="Changeable Menu, Changeable Menu Covers, Custom Changeable Menu, Changeable Restaurant Menu, Replaceable Menu Covers, Replaceable Menu Pages, Restaurant Menu Covers, Custom Restaurant Menu, Flexible Menu Covers, Menu Cover Manufacturer, Premium Menu Covers, Hospitality Menu Solutions, Custom Hospitality Products, Restaurant Branding Products" />
+    <link rel="canonical" href="https://finefoldmenus.com/services/changeable-menu">
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Premium Changeable Menus for Restaurants &amp; Hospitality" />
+    <meta property="og:description"
+        content="Flexible changeable menu covers with replaceable pages, premium materials, custom branding, and practical binding options for hospitality businesses." />
+    <meta property="og:url" content="https://finefoldmenus.com/services/changeable-menu" />
+    <meta property="og:image" content="https://finefoldmenus.com/images/hero-dining.jpg" />
+    <!-- Stylesheets -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="images/favicon.png" type="image/x-icon">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link href="css/responsive.css" rel="stylesheet">
+    <link href="css/Changeable-Menu.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <style>
+        .header-small-logo {
+            position: absolute;
+            top: 50%;
+            left: 75%;
+            display: flex;
+            align-items: center;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .header-small-logo img {
+            display: block;
+            width: 134px;
+            max-width: 100%;
+            height: auto;
+            margin-left: 270px;
+        }
+
+        @media (max-width: 767px) {
+            .header-small-logo {
+                display: none;
+            }
+        }
+
+        .sticky-video-widget {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 130px;
+            aspect-ratio: 9 / 16;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+            z-index: 9999;
+            cursor: pointer;
+            background: #000;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .sticky-video-widget:hover {
+            transform: scale(1.04);
+        }
+
+        .sticky-video-widget.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.8);
+        }
+
+        .sticky-video-widget video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .sticky-close-btn {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.55);
+            color: #fff;
+            border: none;
+            font-size: 14px;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .sticky-play-icon {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            width: 26px;
+            height: 26px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+        .sticky-play-icon::after {
+            content: "";
+            border-style: solid;
+            border-width: 6px 0 6px 10px;
+            border-color: transparent transparent transparent #111;
+            margin-left: 2px;
+        }
+
+        .video-popup-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s ease;
+        }
+
+        .video-popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .video-popup-box {
+            position: relative;
+            width: 80%;
+            max-width: 320px;
+            aspect-ratio: 9 / 16;
+            border-radius: 24px;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transform: scale(0.85);
+            opacity: 0;
+            transition: transform 0.35s ease, opacity 0.35s ease;
+        }
+
+        .video-popup-overlay.active .video-popup-box {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .video-popup-box video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .popup-close-btn {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        @media (max-width: 768px) {
+            .sticky-video-widget {
+                width: 100px;
+                bottom: 16px;
+                right: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sticky-video-widget {
+                width: 90px;
+                bottom: 12px;
+                right: 12px;
+            }
+
+            .video-popup-box {
+                width: 78%;
+                max-width: 260px;
+            }
+
+            .popup-close-btn {
+                top: -36px;
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+
+    <!-- JSON-LD Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Product",
+                "name": "Changeable Menu Covers",
+                "image": "https://finefoldmenus.com/images/hero-dining.jpg",
+                "description": "Premium changeable menu covers for restaurants, cafés and hotels with replaceable pages, custom materials, branding and flexible binding options.",
+                "brand": { "@type": "Brand", "name": "Fine Fold Menus" },
+                "manufacturer": { "@type": "Organization", "name": "Fine Fold Menus" },
+                "material": ["PU Leather", "Genuine Leather", "Wood", "MDF", "Acrylic", "Fabric", "Canvas"],
+                "additionalProperty": [
+                    { "@type": "PropertyValue", "name": "Binding System", "value": "Screw Binding" },
+                    { "@type": "PropertyValue", "name": "Binding System", "value": "Ring Binding" },
+                    { "@type": "PropertyValue", "name": "Binding System", "value": "Wiro Binding" },
+                    { "@type": "PropertyValue", "name": "Binding System", "value": "Magnetic Inserts" },
+                    { "@type": "PropertyValue", "name": "Binding System", "value": "Replaceable Insert Systems" }
+                ]
+            },
+            {
+                "@type": "Service",
+                "name": "Changeable Menu Cover Manufacturing",
+                "serviceType": "Custom Changeable Menu Cover Manufacturing with Replaceable Pages",
+                "description": "Flexible changeable menu covers with replaceable pages, premium materials, custom branding, and practical binding options for hospitality businesses.",
+                "provider": { "@type": "Organization", "name": "Fine Fold Menus" },
+                "areaServed": "Worldwide",
+                "url": "https://finefoldmenus.com/services/changeable-menu"
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "What is a Changeable Menu?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "A Changeable Menu is a menu presentation system designed with removable or replaceable pages or inserts, allowing restaurants and hospitality businesses to update menu content without replacing the complete menu cover." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Why should a restaurant use a changeable menu?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "Changeable menus are useful for businesses that frequently update prices, dishes, seasonal offerings, promotions, or beverages. They provide greater flexibility while helping maintain a consistent menu presentation." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can I replace individual menu pages?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Depending on the selected binding and insert system, individual pages or sections can be removed and replaced when required." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Which binding options are available for changeable menus?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "Depending on your requirements, we can offer suitable options such as screw binding, ring binding, Wiro binding, magnetic inserts, and other replaceable page systems." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can changeable menu covers be customized?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can customize the cover material, size, color, texture, logo, branding technique, binding system, interior pages, and finishing details." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Are changeable menus suitable for seasonal restaurants?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. They are particularly useful for restaurants that regularly introduce seasonal dishes, festive offerings, special menus, or limited-time promotions." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Can I customize different sections separately?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "Yes. Your menu can be structured into separate sections for food, beverages, cocktails, desserts, wine, specials, and other offerings, depending on the selected format." }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Do you manufacture changeable menus in bulk?",
+                        "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can manufacture customized changeable menu covers for individual restaurants as well as larger requirements for hotels, resorts, restaurant groups, and hospitality chains." }
+                    }
+                ]
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://finefoldmenus.com/" },
+                    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://finefoldmenus.com/services/" },
+                    { "@type": "ListItem", "position": 3, "name": "Changeable Menu", "item": "https://finefoldmenus.com/services/changeable-menu" }
+                ]
+            },
+            {
+                "@type": "WebPage",
+                "name": "Changeable Menu Covers | Custom Restaurant Menus",
+                "description": "Get premium changeable menu covers for restaurants, cafés and hotels with replaceable pages, custom materials, branding and flexible binding options.",
+                "url": "https://finefoldmenus.com/services/changeable-menu",
+                "primaryImageOfPage": {
+                    "@type": "ImageObject",
+                    "url": "https://finefoldmenus.com/images/hero-dining.jpg",
+                    "caption": "Premium changeable menu cover with replaceable pages for restaurants and hospitality brands"
+                }
+            }
+        ]
+    }
+    </script>
+</head>
+
+<body>
+    <div class="page-wrapper">
+
+        <!-- Preloader -->
+        <div class="loader-wrap">
+            <div class="preloader">
+                <div class="preloader-close">x</div>
+                <div id="handle-preloader" class="handle-preloader">
+                    <div class="animation-preloader">
+                        <div class="spinner"></div>
+                        <div class="txt-loading">
+                            <span data-text-preloader="F" class="letters-loading">F</span>
+                            <span data-text-preloader="I" class="letters-loading">I</span>
+                            <span data-text-preloader="N" class="letters-loading">N</span>
+                            <span data-text-preloader="E" class="letters-loading">E</span>
+                            <span data-text-preloader="F" class="letters-loading">F</span>
+                            <span data-text-preloader="O" class="letters-loading">O</span>
+                            <span data-text-preloader="L" class="letters-loading">L</span>
+                            <span data-text-preloader="D" class="letters-loading">D</span>
+                            <span data-text-preloader="M" class="letters-loading">M</span>
+                            <span data-text-preloader="E" class="letters-loading">E</span>
+                            <span data-text-preloader="N" class="letters-loading">N</span>
+                            <span data-text-preloader="U" class="letters-loading">U</span>
+                            <span data-text-preloader="S" class="letters-loading">S</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Preloader End -->
+
+        <!-- Main Header-->
+        <header class="main-header header-down">
+            <div class="header-top">
+                <div class="auto-container">
+                    <div class="inner clearfix">
+                        <div class="top-left clearfix">
+                            <ul class="top-info clearfix">
+                                <li><i class="icon far fa-map-marker-alt"></i> C-111, 3rd Floor, Naraina Industrial
+                                    Area, Delhi - 110034
+                                </li>
+                                <li class="design-services-link"><a href="design-services.html"
+                                        aria-label="Design services also available"><span>Design Services Also
+                                            Available</span></a></li>
+                            </ul>
+                        </div>
+                        <a class="header-small-logo" href="index.html" aria-label="Fine Fold Menus home">
+                            <img src="images/small-pnglogo.png" alt="Fine Fold Menus">
+                        </a>
+                        <div class="top-right clearfix">
+                            <ul class="top-info clearfix">
+                                <li><a href="tel:+919818095822"><i class="icon far fa-phone"></i> +91 98180 95822</a>
+                                </li>
+                                <!-- <li><a href="mailto:info@finefoldmenus.com"><i class="icon far fa-envelope"></i>
+                                        info@finefoldmenus.com</a></li> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header Upper -->
+            <div class="header-upper">
+                <div class="auto-container">
+                    <!-- Main Box -->
+                    <div class="main-box clearfix">
+                        <!--Logo-->
+                        <div class="logo-box">
+                            <div class="logo"><a href="index.html"><img src="images/logo.png" alt="Fine Fold Menus"></a>
+                            </div>
+                        </div>
+
+                        <div class="nav-box clearfix">
+                            <!--Nav Outer-->
+                            <div class="nav-outer clearfix">
+                                <nav class="main-menu">
+                                    <ul class="navigation clearfix">
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="about.html">About Us</a></li>
+                                        <li class="dropdown has-mega-menu"><a href="#">Industries We Serve</a>
+                                            <ul>
+                                                <li>
+                                                    <div class="mega-menu">
+                                                        <div class="menu-inner">
+                                                            <div class="auto-container">
+                                                                <div class="row clearfix">
+                                                                    <div class="menu-block col-lg-3 col-md-6 col-sm-6">
+                                                                        <div class="image"><a
+                                                                                href="Restaurant.html"><img
+                                                                                    src="images/restaurant-groups.jpg"
+                                                                                    alt="Restaurant Groups"></a></div>
+                                                                        <div class="title"><a
+                                                                                href="Restaurant.html">Restaurant</a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="menu-block col-lg-3 col-md-6 col-sm-6">
+                                                                        <div class="image"><a href="#"><img
+                                                                                    src="images/hotels-and-resorts.jpg"
+                                                                                    alt="Hotels & Resorts"></a></div>
+                                                                        <div class="title"><a href="#">Hotels &
+                                                                                Resorts</a></div>
+                                                                    </div>
+                                                                    <div class="menu-block col-lg-3 col-md-6 col-sm-6">
+                                                                        <div class="image"><a href="#"><img
+                                                                                    src="images/food-court.jpg"
+                                                                                    alt="Food Court"></a></div>
+                                                                        <div class="title"><a href="#">Food Court</a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="menu-block col-lg-3 col-md-6 col-sm-6">
+                                                                        <div class="image"><a href="#"><img
+                                                                                    src="images/bars-and-lounges.jpg"
+                                                                                    alt="Bars & Lounges"></a></div>
+                                                                        <div class="title"><a href="#">Bars &
+                                                                                Lounges</a></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+
+                                        <li class="dropdown"><a href="#">Our Services</a>
+                                            <ul>
+                                                <li><a href="Fully-Customized-Menu.html">Fully Customized Menu</a></li>
+                                                <li><a href="Luxury-Dine-in-Menu.html">Luxury Dine-in Menu</a></li>
+                                                <li><a href="MDF-Series-Menu.html">MDF Series Menu</a></li>
+                                                <li><a href="Waterproof-Menu-NTR.html"> Waterproof Menu (NTR)</a></li>
+                                                <li><a href="Acrylic-Menu.html"> Acrylic Menu</a></li>
+                                                <li><a href="Poolside-Menu.html">Pool Side Menu</a></li>
+                                                <li><a href="premium-wiro-menu.html">Premium Wiro Menu</a></li>
+                                                <li class="current"><a href="Changeable-Menu.html">Changeable Menu</a>
+                                                </li>
+                                                <li><a href="#">Bar & Drink Menu</a></li>
+                                                <li><a href="#">Food Court Menus</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li><a href="how-its-work.html">How it works</a></li>
+                                        <li class="dropdown"><a href="#"> Contact Us</a>
+                                            <ul>
+                                                <li><a href="Make-a-Payment.html">Make a Payment</a></li>
+                                                <li><a href="Speak-With-Us.html">Speak With Us</a></li>
+
+                                            </ul>
+                                        </li>
+
+                                    </ul>
+                                </nav>
+                                <!-- Main Menu End-->
+                            </div>
+                            <!--Nav Outer End-->
+
+                            <div class="links-box clearfix">
+                                <div class="link link-btn">
+                                    <a href="reservation-opentable.html" class="theme-btn btn-style-one clearfix">
+                                        <span class="btn-wrap">
+                                            <span class="text-one">Get A Quote</span>
+                                            <span class="text-two">Get A Quote</span>
+                                        </span>
+                                    </a>
+                                </div>
+                                <div class="link info-toggler">
+                                    <button class="info-btn">
+                                        <span class="hamburger">
+                                            <span class="top-bun"></span>
+                                            <span class="meat"></span>
+                                            <span class="bottom-bun"></span>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Hidden Nav Toggler -->
+                            <div class="nav-toggler">
+                                <button class="hidden-bar-opener">
+                                    <span class="hamburger">
+                                        <span class="top-bun"></span>
+                                        <span class="meat"></span>
+                                        <span class="bottom-bun"></span>
+                                    </span>
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--End Main Header -->
+
+        <!--Menu Backdrop-->
+        <div class="menu-backdrop"></div>
+
+        <!-- Hidden Navigation Bar -->
+        <section class="hidden-bar">
+            <!-- Hidden Bar Wrapper -->
+            <div class="inner-box">
+                <div class="cross-icon hidden-bar-closer"><span class="far fa-close"></span></div>
+                <div class="logo-box"><a href="index.html"><img src="images/logo-footer-m.png"
+                            alt="Find Fold Menus"></a></div>
+
+                <!-- .Side-menu ----------------------------------------------------->
+                <div class="side-menu">
+                    <ul class="navigation clearfix">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+
+                        <li class="dropdown"><a href="#">Industries We Serve</a>
+                            <ul>
+                                <li><a href="Restaurant.html">Restaurant</a></li>
+                                <li><a href="#">Hotels & Resorts</a></li>
+                                <li><a href="#">Food Court</a></li>
+                                <li><a href="#">Bars & Lounges</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown"><a href="#">Our Services</a>
+                            <ul>
+                                <li><a href="Fully-Customized-Menu.html">Fully Customized Menu</a></li>
+                                <li><a href="Luxury-Dine-in-Menu.html">Luxury Dine-in Menu</a></li>
+                                <li><a href="MDF-Series-Menu.html">MDF Series Menu</a></li>
+                                <li><a href="Waterproof-Menu-NTR.html"> Waterproof Menu (NTR)</a></li>
+                                <li><a href="Acrylic-Menu.html"> Acrylic Menu</a></li>
+                                <li><a href="Poolside-Menu.html">Pool Side Menu</a></li>
+                                <li><a href="premium-wiro-menu.html">Premium Wiro Menu</a></li>
+                                <li class="current"><a href="Changeable-Menu.html">Changeable Menu</a></li>
+                                <li><a href="#">Bar & Drink Menu</a></li>
+                                <li><a href="#">Food Court Menus</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="how-its-work.html">How it works</a></li>
+
+                        <li class="dropdown"><a href="#">Contact Us</a>
+                            <ul>
+                                <li><a href="Make-a-Payment.html">Make a Payment</a></li>
+                                <li><a href="Speak-With-Us.html">Speak With Us</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!-- /.Side-menu -------------------------------------------------->
+
+                <h2>Visit Us</h2>
+                <ul class="info">
+                    <li> C-111, 3rd Floor, Naraina Industrial Area, Delhi - 110034
+                    </li>
+                    <li>Open: 10.00 am - 6.30pm</li>
+                    <li><a href="mailto:info@finefoldmenus.com">info@finefoldmenus.com</a></li>
+                </ul>
+                <div class="separator"><span></span></div>
+                <div class="booking-info">
+                    <div class="bk-title">Get Started</div>
+                    <div class="bk-no"><a href="tel:+919818095822">+91 98180 95822</a></div>
+                </div>
+
+            </div><!-- / Hidden Bar Wrapper -->
+        </section>
+        <!-- / Hidden Bar -->
+
+        <!--Info Back Drop-->
+        <div class="info-back-drop"></div>
+
+        <!-- Hidden Bar -->
+        <section class="info-bar">
+            <div class="inner-box">
+                <div class="cross-icon"><span class="far fa-close"></span></div>
+                <div class="logo-box"><a href="index.html"><img src="images/logo-footer-m.png"
+                            alt="Find Fold Menus"></a></div>
+
+                <h2>Visit Us</h2>
+                <ul class="info">
+                    <li> C-111, 3rd Floor, Naraina Industrial Area, Delhi - 110034
+                    </li>
+                    <li>Open: 10.00 am - 6.30pm</li>
+                    <li><a href="mailto:info@finefoldmenus.com">info@finefoldmenus.com</a></li>
+                </ul>
+                <div class="separator"><span></span></div>
+                <div class="booking-info">
+                    <div class="bk-title">Get Started</div>
+                    <div class="bk-no"><a href="tel:+919818095822">+91 98180 95822</a></div>
+                </div>
+            </div>
+        </section>
+        <!--End Hidden Bar -->
+
+        <main class="changeable-menu-content">
+
+            <!-- ============================================================
+                 HERO — "The Menu That Evolves"
+                 One Premium Cover. Endless Possibilities.
+                 ============================================================ -->
+            <section class="cm-hero" id="cm-hero">
+                <div class="cm-hero__bg">
+                    <img src="images/hero-dining.jpg"
+                        alt="Premium changeable menu cover with replaceable pages for restaurants and hospitality brands"
+                        width="1920" height="1080">
+                    <div class="cm-hero__overlay"></div>
+                </div>
+                <div class="cm-hero__grain" aria-hidden="true"></div>
+
+                <div class="cm-hero__inner">
+                    <div class="cm-hero__copy">
+                        <h1 class="cm-reveal">Changeable Menu Covers Designed for Flexible Hospitality</h1>
+                        <p class="cm-hero__label cm-reveal" data-delay="120">PREMIUM CHANGEABLE MENU COLLECTION</p>
+                        <p class="cm-hero__lead cm-reveal" data-delay="220">Keep your menu presentation fresh,
+                            practical, and brand-consistent with <strong>Premium Changeable Menu Covers</strong>
+                            designed for restaurants, cafés, hotels, resorts, bars, and hospitality businesses. These
+                            flexible menu solutions allow you to update selected pages, dishes, pricing, seasonal
+                            offerings, or promotional content without replacing the complete menu cover. At
+                            <strong>Fine Fold Menus</strong>, we combine durable construction, premium materials,
+                            customized branding, and practical page-changing systems to create menu presentation
+                            solutions built around the changing needs of your business.</p>
+                        <div class="cm-btn-row cm-reveal" data-delay="320">
+                            <a href="Speak-With-Us.html" class="cm-btn cm-btn--solid"><span>Request a Custom
+                                    Quote</span></a>
+                            <a href="#formats" class="cm-btn cm-btn--outline"><span>Explore Changeable Menu
+                                    Collection</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Cinematic CSS-built cover with modular, separated inner pages -->
+                    <div class="cm-hero__stage cm-reveal" data-delay="180" aria-hidden="true">
+                        <div class="cm-stage" id="cmHeroStage">
+                            <span class="cm-stage__halo"></span>
+
+                            <svg class="cm-stage__links" viewBox="0 0 100 100" preserveAspectRatio="none"
+                                focusable="false">
+                                <line x1="4" y1="24" x2="96" y2="24" vector-effect="non-scaling-stroke" />
+                                <line x1="4" y1="50" x2="96" y2="50" vector-effect="non-scaling-stroke" />
+                                <line x1="4" y1="76" x2="96" y2="76" vector-effect="non-scaling-stroke" />
+                            </svg>
+
+                            <!-- Outer cover — stays visually fixed -->
+                            <div class="cm-cover">
+                                <span class="cm-cover__frame"></span>
+                                <span class="cm-cover__emblem">FINE FOLD<br>MENUS</span>
+                                <span class="cm-cover__hairline"></span>
+                                <span class="cm-cover__corner cm-cover__corner--tl"></span>
+                                <span class="cm-cover__corner cm-cover__corner--tr"></span>
+                                <span class="cm-cover__corner cm-cover__corner--bl"></span>
+                                <span class="cm-cover__corner cm-cover__corner--br"></span>
+                                <span class="cm-cover__posts"><i></i><i></i><i></i></span>
+                            </div>
+
+                            <!-- Modular inner pages, slightly separated -->
+                            <div class="cm-leaves">
+                                <span class="cm-leaf cm-leaf--d4"></span>
+                                <span class="cm-leaf cm-leaf--d3"></span>
+                                <span class="cm-leaf cm-leaf--d2"></span>
+                                <div class="cm-leaf cm-leaf--live is-active" data-leaf="a">
+                                    <span class="cm-leaf__head"></span>
+                                    <span class="cm-leaf__line cm-w70"></span>
+                                    <span class="cm-leaf__line cm-w90"></span>
+                                    <span class="cm-leaf__line cm-w55"></span>
+                                    <span class="cm-leaf__gap"></span>
+                                    <span class="cm-leaf__line cm-w80"></span>
+                                    <span class="cm-leaf__line cm-w60"></span>
+                                    <span class="cm-leaf__dot"></span>
+                                </div>
+                                <div class="cm-leaf cm-leaf--live" data-leaf="b">
+                                    <span class="cm-leaf__head"></span>
+                                    <span class="cm-leaf__line cm-w85"></span>
+                                    <span class="cm-leaf__line cm-w50"></span>
+                                    <span class="cm-leaf__line cm-w75"></span>
+                                    <span class="cm-leaf__gap"></span>
+                                    <span class="cm-leaf__line cm-w65"></span>
+                                    <span class="cm-leaf__line cm-w90"></span>
+                                    <span class="cm-leaf__dot"></span>
+                                </div>
+                            </div>
+
+                            <span class="cm-stage__shadow"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cm-hero__scroll" aria-hidden="true">
+                    <span>Scroll to Explore</span>
+                    <i></i>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 ABOUT — Modular menu story
+                 ============================================================ -->
+            <section class="cm-section" id="about">
+                <div class="cm-container">
+                    <div class="cm-about">
+                        <div class="cm-about__visual cm-reveal">
+                            <figure class="cm-about__photo">
+                                <img src="images/menus/luxury-leather-menu.jpg"
+                                    alt="Premium changeable menu cover with replaceable pages for restaurants and hospitality brands"
+                                    loading="lazy" width="900" height="1100">
+                            </figure>
+
+                            <!-- Removable page layers -->
+                            <div class="cm-about__layers" aria-hidden="true">
+                                <span class="cm-plate cm-plate--1"><i></i><i></i><i></i></span>
+                                <span class="cm-plate cm-plate--2"><i></i><i></i><i></i></span>
+                                <span class="cm-plate cm-plate--3"><i></i><i></i><i></i></span>
+                            </div>
+
+                            <!-- Decorative flow indicator: cover, insert, update, reuse -->
+                            <div class="cm-flow" aria-hidden="true">
+                                <span class="cm-flow__node cm-flow__node--cover"></span>
+                                <span class="cm-flow__link"></span>
+                                <span class="cm-flow__node cm-flow__node--insert"></span>
+                                <span class="cm-flow__link"></span>
+                                <span class="cm-flow__node cm-flow__node--update"></span>
+                                <span class="cm-flow__link"></span>
+                                <span class="cm-flow__node cm-flow__node--reuse"></span>
+                            </div>
+                        </div>
+
+                        <div class="cm-about__panel cm-reveal" data-delay="140">
+                            <span class="cm-corner cm-corner--tl" aria-hidden="true"></span>
+                            <span class="cm-corner cm-corner--br" aria-hidden="true"></span>
+                            <p class="cm-eyebrow">About Changeable Menu Covers</p>
+                            <h2 class="cm-title">A Smarter Menu Solution for Changing Offerings</h2>
+                            <div class="cm-rule"></div>
+                            <div class="cm-copy">
+                                <p>Menus change. Prices are updated, seasonal dishes are introduced, new beverages are
+                                    added, and special promotions come and go. Replacing an entire menu every time your
+                                    offerings change can be inconvenient and unnecessary. <strong>Changeable Menu
+                                        Covers</strong> provide a practical solution by allowing selected menu pages or
+                                    inserts to be updated while keeping the outer cover and overall brand presentation
+                                    intact.</p>
+                                <p>At <strong>Fine Fold Menus</strong>, we create customized changeable menu solutions
+                                    designed according to your menu structure, brand identity, and operational
+                                    requirements. Depending on the selected format, pages can be designed for easy
+                                    replacement, helping your team keep menus current without compromising the premium
+                                    appearance of your restaurant.</p>
+                                <p>From classic dining menus and beverage lists to seasonal menus, dessert cards, and
+                                    promotional inserts, our changeable menu solutions offer the flexibility modern
+                                    hospitality businesses need.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 WHY CHOOSE — Four removable menu pages
+                 ============================================================ -->
+            <section class="cm-section cm-section--surface" id="why">
+                <div class="cm-container">
+                    <div class="cm-head cm-text-center">
+                        <p class="cm-eyebrow cm-reveal">Why Choose a Changeable Menu?</p>
+                        <h2 class="cm-title cm-reveal" data-delay="100">Flexibility That Works With Your Business</h2>
+                        <div class="cm-rule cm-rule--center cm-reveal" data-delay="150"></div>
+                        <p class="cm-lede cm-reveal" data-delay="200">A changeable menu is particularly valuable for
+                            restaurants and hospitality brands where offerings, pricing, and promotions are updated
+                            regularly.</p>
+                    </div>
+
+                    <ul class="cm-pages">
+                        <li class="cm-page cm-reveal" data-delay="80">
+                            <span class="cm-page__punch" aria-hidden="true"><i></i><i></i><i></i></span>
+                            <span class="cm-page__num" aria-hidden="true">01</span>
+                            <span class="cm-page__tick" aria-hidden="true"></span>
+                            <h3>Easy Menu Updates</h3>
+                            <p>Replace selected pages or inserts when dishes, prices, beverages, or other menu
+                                information changes without having to replace the complete menu cover.</p>
+                        </li>
+                        <li class="cm-page cm-reveal" data-delay="160">
+                            <span class="cm-page__punch" aria-hidden="true"><i></i><i></i><i></i></span>
+                            <span class="cm-page__num" aria-hidden="true">02</span>
+                            <span class="cm-page__tick" aria-hidden="true"></span>
+                            <h3>Cost-Effective Presentation</h3>
+                            <p>A reusable menu cover can reduce the need to manufacture a completely new menu whenever
+                                your content changes, making it a practical long-term solution.</p>
+                        </li>
+                        <li class="cm-page cm-reveal" data-delay="240">
+                            <span class="cm-page__punch" aria-hidden="true"><i></i><i></i><i></i></span>
+                            <span class="cm-page__num" aria-hidden="true">03</span>
+                            <span class="cm-page__tick" aria-hidden="true"></span>
+                            <h3>Consistent Brand Identity</h3>
+                            <p>Keep your restaurant's visual identity consistent by maintaining the same premium menu
+                                cover while updating the content inside.</p>
+                        </li>
+                        <li class="cm-page cm-reveal" data-delay="320">
+                            <span class="cm-page__punch" aria-hidden="true"><i></i><i></i><i></i></span>
+                            <span class="cm-page__num" aria-hidden="true">04</span>
+                            <span class="cm-page__tick" aria-hidden="true"></span>
+                            <h3>Ideal for Seasonal Offerings</h3>
+                            <p>Easily introduce seasonal dishes, festive menus, chef's specials, limited-time
+                                promotions, or new beverage selections while keeping your presentation organized.</p>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 FORMATS — Signature "Binding Selector"
+                 ============================================================ -->
+            <section class="cm-section" id="formats">
+                <div class="cm-container">
+                    <div class="cm-head cm-text-center">
+                        <p class="cm-eyebrow cm-reveal">Changeable Menu Formats</p>
+                        <h2 class="cm-title cm-reveal" data-delay="100">Choose the Binding System That Fits Your
+                            Requirements</h2>
+                        <div class="cm-rule cm-rule--center cm-reveal" data-delay="150"></div>
+                        <p class="cm-lede cm-reveal" data-delay="200">Different hospitality businesses have different
+                            menu structures. We can create changeable menu solutions using practical binding and insert
+                            systems according to your requirements.</p>
+                    </div>
+
+                    <div class="cm-binder cm-reveal" id="cmBinder" data-binding="screw">
+                        <!-- Selector -->
+                        <div class="cm-binder__selector" role="tablist" aria-label="Changeable menu binding formats">
+                            <button class="cm-bind-opt is-active" type="button" role="tab" id="cm-bind-tab-screw"
+                                aria-selected="true" aria-controls="cm-bind-panel-screw" data-binding="screw"
+                                tabindex="0">
+                                <span class="cm-bind-opt__icon cm-bind-opt__icon--screw" aria-hidden="true"></span>
+                                <span class="cm-bind-opt__label">Screw Binding</span>
+                            </button>
+                            <button class="cm-bind-opt" type="button" role="tab" id="cm-bind-tab-ring"
+                                aria-selected="false" aria-controls="cm-bind-panel-ring" data-binding="ring"
+                                tabindex="-1">
+                                <span class="cm-bind-opt__icon cm-bind-opt__icon--ring" aria-hidden="true"></span>
+                                <span class="cm-bind-opt__label">Ring Binding</span>
+                            </button>
+                            <button class="cm-bind-opt" type="button" role="tab" id="cm-bind-tab-wiro"
+                                aria-selected="false" aria-controls="cm-bind-panel-wiro" data-binding="wiro"
+                                tabindex="-1">
+                                <span class="cm-bind-opt__icon cm-bind-opt__icon--wiro" aria-hidden="true"></span>
+                                <span class="cm-bind-opt__label">Wiro Binding</span>
+                            </button>
+                            <button class="cm-bind-opt" type="button" role="tab" id="cm-bind-tab-magnetic"
+                                aria-selected="false" aria-controls="cm-bind-panel-magnetic" data-binding="magnetic"
+                                tabindex="-1">
+                                <span class="cm-bind-opt__icon cm-bind-opt__icon--magnetic" aria-hidden="true"></span>
+                                <span class="cm-bind-opt__label">Magnetic Inserts</span>
+                            </button>
+                            <button class="cm-bind-opt" type="button" role="tab" id="cm-bind-tab-insert"
+                                aria-selected="false" aria-controls="cm-bind-panel-insert" data-binding="insert"
+                                tabindex="-1">
+                                <span class="cm-bind-opt__icon cm-bind-opt__icon--insert" aria-hidden="true"></span>
+                                <span class="cm-bind-opt__label">Replaceable Insert Systems</span>
+                            </button>
+                        </div>
+
+                        <!-- Central menu cover that reacts to the selection -->
+                        <div class="cm-binder__stage" aria-hidden="true">
+                            <div class="cm-binder__book">
+                                <span class="cm-binder__glow"></span>
+                                <div class="cm-binder__cover">
+                                    <span class="cm-binder__frame"></span>
+                                    <span class="cm-binder__emblem">FINE FOLD MENUS</span>
+                                </div>
+                                <div class="cm-binder__pages">
+                                    <span class="cm-bpage cm-bpage--3"></span>
+                                    <span class="cm-bpage cm-bpage--2"></span>
+                                    <span class="cm-bpage cm-bpage--1">
+                                        <i class="cm-bline cm-w70"></i>
+                                        <i class="cm-bline cm-w90"></i>
+                                        <i class="cm-bline cm-w55"></i>
+                                        <i class="cm-bline cm-w80"></i>
+                                        <i class="cm-bline cm-w40"></i>
+                                    </span>
+                                </div>
+                                <div class="cm-binder__mech">
+                                    <span class="cm-mech cm-mech--screw"><i></i><i></i><i></i></span>
+                                    <span class="cm-mech cm-mech--ring"><i></i><i></i><i></i><i></i></span>
+                                    <span class="cm-mech cm-mech--wiro"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                                    <span class="cm-mech cm-mech--magnetic"><i></i><i></i></span>
+                                    <span class="cm-mech cm-mech--insert"><i></i></span>
+                                </div>
+                            </div>
+                            <span class="cm-binder__shadow"></span>
+                        </div>
+
+                        <!-- Elegant side panel -->
+                        <div class="cm-binder__panel">
+                            <span class="cm-corner cm-corner--tl" aria-hidden="true"></span>
+                            <span class="cm-corner cm-corner--br" aria-hidden="true"></span>
+                            <div class="cm-bind-panel is-active" id="cm-bind-panel-screw" role="tabpanel"
+                                aria-labelledby="cm-bind-tab-screw" tabindex="0">
+                                <span class="cm-bind-panel__index" aria-hidden="true">01 / 05</span>
+                                <h3>Screw Binding</h3>
+                                <div class="cm-rule"></div>
+                                <p>A classic and flexible option that allows pages to be removed or replaced while
+                                    maintaining a secure and professional presentation.</p>
+                            </div>
+                            <div class="cm-bind-panel" id="cm-bind-panel-ring" role="tabpanel"
+                                aria-labelledby="cm-bind-tab-ring" tabindex="0" hidden>
+                                <span class="cm-bind-panel__index" aria-hidden="true">02 / 05</span>
+                                <h3>Ring Binding</h3>
+                                <div class="cm-rule"></div>
+                                <p>A practical format for menus that require frequent page changes and organized
+                                    section management.</p>
+                            </div>
+                            <div class="cm-bind-panel" id="cm-bind-panel-wiro" role="tabpanel"
+                                aria-labelledby="cm-bind-tab-wiro" tabindex="0" hidden>
+                                <span class="cm-bind-panel__index" aria-hidden="true">03 / 05</span>
+                                <h3>Wiro Binding</h3>
+                                <div class="cm-rule"></div>
+                                <p>A flexible binding option that allows smooth page movement and can be suitable for
+                                    menus requiring regular updates.</p>
+                            </div>
+                            <div class="cm-bind-panel" id="cm-bind-panel-magnetic" role="tabpanel"
+                                aria-labelledby="cm-bind-tab-magnetic" tabindex="0" hidden>
+                                <span class="cm-bind-panel__index" aria-hidden="true">04 / 05</span>
+                                <h3>Magnetic Inserts</h3>
+                                <div class="cm-rule"></div>
+                                <p>A refined solution for premium menu presentations where quick changes and a clean
+                                    exterior appearance are important.</p>
+                            </div>
+                            <div class="cm-bind-panel" id="cm-bind-panel-insert" role="tabpanel"
+                                aria-labelledby="cm-bind-tab-insert" tabindex="0" hidden>
+                                <span class="cm-bind-panel__index" aria-hidden="true">05 / 05</span>
+                                <h3>Replaceable Insert Systems</h3>
+                                <div class="cm-rule"></div>
+                                <p>Create dedicated sections that can be updated independently, making it easier to
+                                    manage seasonal, promotional, or frequently changing content.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 COMPLETE CUSTOMIZATION — Menu Construction Studio
+                 ============================================================ -->
+            <section class="cm-section cm-section--surface" id="customization">
+                <div class="cm-container">
+                    <div class="cm-head cm-text-center">
+                        <p class="cm-eyebrow cm-reveal">Complete Customization</p>
+                        <h2 class="cm-title cm-reveal" data-delay="100">Designed Around Your Restaurant's Requirements
+                        </h2>
+                        <div class="cm-rule cm-rule--center cm-reveal" data-delay="150"></div>
+                        <p class="cm-lede cm-reveal" data-delay="200">Every changeable menu can be customized to match
+                            your brand and operational needs. From the outer cover to the internal pages, we help
+                            create a cohesive and professional presentation.</p>
+                    </div>
+
+                    <div class="cm-studio cm-reveal" id="cmStudio" data-zone="materials">
+                        <div class="cm-studio__stage">
+                            <svg class="cm-studio__lines" viewBox="0 0 100 100" preserveAspectRatio="none"
+                                aria-hidden="true" focusable="false">
+                                <line data-line="materials" x1="50" y1="50" x2="9" y2="14"
+                                    vector-effect="non-scaling-stroke" />
+                                <line data-line="sizes" x1="50" y1="50" x2="91" y2="16"
+                                    vector-effect="non-scaling-stroke" />
+                                <line data-line="logo" x1="50" y1="50" x2="8" y2="50"
+                                    vector-effect="non-scaling-stroke" />
+                                <line data-line="interior" x1="50" y1="50" x2="92" y2="52"
+                                    vector-effect="non-scaling-stroke" />
+                                <line data-line="finishing" x1="50" y1="50" x2="50" y2="93"
+                                    vector-effect="non-scaling-stroke" />
+                            </svg>
+
+                            <figure class="cm-studio__cover">
+                                <img src="images/menus/fine-dining-menu.jpg"
+                                    alt="Custom changeable menu cover with premium material, branding and finishing options"
+                                    loading="lazy" width="700" height="860">
+                                <span class="cm-studio__veil" aria-hidden="true"></span>
+                            </figure>
+
+                            <button class="cm-hotspot is-active" type="button" data-zone="materials"
+                                aria-pressed="true" style="--hx:9%; --hy:14%;">
+                                <span class="cm-hotspot__dot" aria-hidden="true"></span>
+                                <span class="cm-hotspot__text">Custom Cover Materials</span>
+                            </button>
+                            <button class="cm-hotspot" type="button" data-zone="sizes" aria-pressed="false"
+                                style="--hx:91%; --hy:16%;">
+                                <span class="cm-hotspot__dot" aria-hidden="true"></span>
+                                <span class="cm-hotspot__text">Custom Sizes &amp; Shapes</span>
+                            </button>
+                            <button class="cm-hotspot" type="button" data-zone="logo" aria-pressed="false"
+                                style="--hx:8%; --hy:50%;">
+                                <span class="cm-hotspot__dot" aria-hidden="true"></span>
+                                <span class="cm-hotspot__text">Logo &amp; Brand Customization</span>
+                            </button>
+                            <button class="cm-hotspot" type="button" data-zone="interior" aria-pressed="false"
+                                style="--hx:92%; --hy:52%;">
+                                <span class="cm-hotspot__dot" aria-hidden="true"></span>
+                                <span class="cm-hotspot__text">Interior Page Design</span>
+                            </button>
+                            <button class="cm-hotspot" type="button" data-zone="finishing" aria-pressed="false"
+                                style="--hx:50%; --hy:93%;">
+                                <span class="cm-hotspot__dot" aria-hidden="true"></span>
+                                <span class="cm-hotspot__text">Premium Finishing</span>
+                            </button>
+                        </div>
+
+                        <div class="cm-studio__panel" aria-live="polite">
+                            <span class="cm-corner cm-corner--tl" aria-hidden="true"></span>
+                            <span class="cm-corner cm-corner--br" aria-hidden="true"></span>
+                            <div class="cm-studio__card is-active" data-card="materials">
+                                <span class="cm-studio__index" aria-hidden="true">01</span>
+                                <h3>Custom Cover Materials</h3>
+                                <div class="cm-rule"></div>
+                                <p>Choose from premium PU leather, genuine leather, wood, MDF, acrylic, fabric, canvas,
+                                    and other specialty materials.</p>
+                            </div>
+                            <div class="cm-studio__card" data-card="sizes" hidden>
+                                <span class="cm-studio__index" aria-hidden="true">02</span>
+                                <h3>Custom Sizes &amp; Shapes</h3>
+                                <div class="cm-rule"></div>
+                                <p>Select the dimensions, orientation, page format, and proportions that best suit your
+                                    menu and table setup.</p>
+                            </div>
+                            <div class="cm-studio__card" data-card="logo" hidden>
+                                <span class="cm-studio__index" aria-hidden="true">03</span>
+                                <h3>Logo &amp; Brand Customization</h3>
+                                <div class="cm-rule"></div>
+                                <p>Add your restaurant logo through embossing, debossing, foil stamping, UV printing,
+                                    laser engraving, or other suitable branding techniques.</p>
+                            </div>
+                            <div class="cm-studio__card" data-card="interior" hidden>
+                                <span class="cm-studio__index" aria-hidden="true">04</span>
+                                <h3>Interior Page Design</h3>
+                                <div class="cm-rule"></div>
+                                <p>Organize your menu into sections for food, beverages, desserts, cocktails, wine,
+                                    specials, or seasonal offerings.</p>
+                            </div>
+                            <div class="cm-studio__card" data-card="finishing" hidden>
+                                <span class="cm-studio__index" aria-hidden="true">05</span>
+                                <h3>Premium Finishing</h3>
+                                <div class="cm-rule"></div>
+                                <p>Enhance the presentation with custom stitching, metal corners, magnetic closures,
+                                    protective finishes, and other decorative details.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 IDEAL APPLICATIONS — Hospitality ecosystem
+                 ============================================================ -->
+            <section class="cm-section" id="ideal">
+                <div class="cm-container">
+                    <div class="cm-head cm-text-center">
+                        <p class="cm-eyebrow cm-reveal">Ideal Applications</p>
+                        <h2 class="cm-title cm-reveal" data-delay="100">Perfect for Menus That Change With Your Business
+                        </h2>
+                        <div class="cm-rule cm-rule--center cm-reveal" data-delay="150"></div>
+                        <p class="cm-lede cm-reveal" data-delay="200">Changeable menu covers are especially useful for
+                            hospitality businesses that frequently update their offerings or pricing.</p>
+                    </div>
+
+                    <div class="cm-eco cm-reveal">
+                        <svg class="cm-eco__lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"
+                            focusable="false">
+                            <line x1="50" y1="50" x2="14" y2="9" vector-effect="non-scaling-stroke" />
+                            <line x1="50" y1="50" x2="40" y2="5" vector-effect="non-scaling-stroke" />
+                            <line x1="50" y1="50" x2="68" y2="8" vector-effect="non-scaling-stroke" />
+                            <line x1="50" y1="50" x2="88" y2="19" vector-effect="non-scaling-stroke" />
+                            <line x1="50" y1="50" x2="93" y2="40" vector-effect="non-scaling-stroke" />
+                            <line x1="50" y1="50" x2="88" y2="62" vector-effect="non-scaling-stroke" />
+                            <line x1="50" y1="50" x2="78" y2="84" vector-effect="non-scaling-stroke" />
+                            <line x1="50" y1="50" x2="56" y2="94" vector-effect="non-scaling-stroke" />
+                            <line x1="50" y1="50" x2="31" y2="93" vector-effect="non-scaling-stroke" />
+                            <line x1="50" y1="50" x2="12" y2="80" vector-effect="non-scaling-stroke" />
+                            <line x1="50" y1="50" x2="6" y2="59" vector-effect="non-scaling-stroke" />
+                            <line x1="50" y1="50" x2="7" y2="34" vector-effect="non-scaling-stroke" />
+                            <line x1="50" y1="50" x2="24" y2="23" vector-effect="non-scaling-stroke" />
+                            <line x1="50" y1="50" x2="76" y2="26" vector-effect="non-scaling-stroke" />
+                        </svg>
+
+                        <div class="cm-eco__core" aria-hidden="true">
+                            <div class="cm-mini-cover">
+                                <span class="cm-mini-cover__frame"></span>
+                                <span class="cm-mini-cover__emblem">FINE FOLD<br>MENUS</span>
+                                <span class="cm-mini-cover__posts"><i></i><i></i><i></i></span>
+                            </div>
+                            <span class="cm-eco__ring"></span>
+                            <span class="cm-eco__ring cm-eco__ring--2"></span>
+                        </div>
+
+                        <ul class="cm-eco__nodes">
+                            <li class="cm-eco__node" style="--x:14%; --y:9%;"><span>Restaurants</span></li>
+                            <li class="cm-eco__node" style="--x:40%; --y:5%;"><span>Fine Dining Restaurants</span></li>
+                            <li class="cm-eco__node" style="--x:68%; --y:8%;"><span>Cafés</span></li>
+                            <li class="cm-eco__node" style="--x:88%; --y:19%;"><span>Coffee Shops</span></li>
+                            <li class="cm-eco__node" style="--x:93%; --y:40%;"><span>Hotels</span></li>
+                            <li class="cm-eco__node" style="--x:88%; --y:62%;"><span>Resorts</span></li>
+                            <li class="cm-eco__node" style="--x:78%; --y:84%;"><span>Bars &amp; Lounges</span></li>
+                            <li class="cm-eco__node" style="--x:56%; --y:94%;"><span>Breweries</span></li>
+                            <li class="cm-eco__node" style="--x:31%; --y:93%;"><span>Bakeries</span></li>
+                            <li class="cm-eco__node" style="--x:12%; --y:80%;"><span>Rooftop Restaurants</span></li>
+                            <li class="cm-eco__node" style="--x:6%; --y:59%;"><span>Seasonal Restaurants</span></li>
+                            <li class="cm-eco__node" style="--x:7%; --y:34%;"><span>Hospitality Chains</span></li>
+                            <li class="cm-eco__node" style="--x:24%; --y:23%;"><span>Banquet Venues</span></li>
+                            <li class="cm-eco__node" style="--x:76%; --y:26%;"><span>Private Clubs</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 CHANGEABLE MENU APPLICATIONS — Stacked menu-page gallery
+                 ============================================================ -->
+            <section class="cm-section cm-section--surface" id="applications">
+                <div class="cm-container">
+                    <div class="cm-head cm-text-center">
+                        <p class="cm-eyebrow cm-reveal">Changeable Menu Applications</p>
+                        <h2 class="cm-title cm-reveal" data-delay="100">One Menu Cover, Multiple Possibilities</h2>
+                        <div class="cm-rule cm-rule--center cm-reveal" data-delay="150"></div>
+                        <p class="cm-lede cm-reveal" data-delay="200">A flexible menu system allows you to organize and
+                            update different types of content while maintaining a consistent presentation across your
+                            restaurant.</p>
+                    </div>
+
+                    <ul class="cm-stack cm-reveal" id="cmStack">
+                        <li class="cm-sheet" tabindex="0">
+                            <span class="cm-sheet__punch" aria-hidden="true"><i></i><i></i></span>
+                            <span class="cm-sheet__num" aria-hidden="true">01</span>
+                            <h3>Main Food Menus</h3>
+                            <span class="cm-sheet__lines" aria-hidden="true"><i class="cm-w80"></i><i
+                                    class="cm-w60"></i><i class="cm-w70"></i></span>
+                        </li>
+                        <li class="cm-sheet" tabindex="0">
+                            <span class="cm-sheet__punch" aria-hidden="true"><i></i><i></i></span>
+                            <span class="cm-sheet__num" aria-hidden="true">02</span>
+                            <h3>Breakfast Menus</h3>
+                            <span class="cm-sheet__lines" aria-hidden="true"><i class="cm-w70"></i><i
+                                    class="cm-w85"></i><i class="cm-w55"></i></span>
+                        </li>
+                        <li class="cm-sheet" tabindex="0">
+                            <span class="cm-sheet__punch" aria-hidden="true"><i></i><i></i></span>
+                            <span class="cm-sheet__num" aria-hidden="true">03</span>
+                            <h3>Lunch Menus</h3>
+                            <span class="cm-sheet__lines" aria-hidden="true"><i class="cm-w60"></i><i
+                                    class="cm-w80"></i><i class="cm-w65"></i></span>
+                        </li>
+                        <li class="cm-sheet" tabindex="0">
+                            <span class="cm-sheet__punch" aria-hidden="true"><i></i><i></i></span>
+                            <span class="cm-sheet__num" aria-hidden="true">04</span>
+                            <h3>Dinner Menus</h3>
+                            <span class="cm-sheet__lines" aria-hidden="true"><i class="cm-w85"></i><i
+                                    class="cm-w55"></i><i class="cm-w75"></i></span>
+                        </li>
+                        <li class="cm-sheet" tabindex="0">
+                            <span class="cm-sheet__punch" aria-hidden="true"><i></i><i></i></span>
+                            <span class="cm-sheet__num" aria-hidden="true">05</span>
+                            <h3>Beverage Menus</h3>
+                            <span class="cm-sheet__lines" aria-hidden="true"><i class="cm-w70"></i><i
+                                    class="cm-w65"></i><i class="cm-w80"></i></span>
+                        </li>
+                        <li class="cm-sheet" tabindex="0">
+                            <span class="cm-sheet__punch" aria-hidden="true"><i></i><i></i></span>
+                            <span class="cm-sheet__num" aria-hidden="true">06</span>
+                            <h3>Cocktail Menus</h3>
+                            <span class="cm-sheet__lines" aria-hidden="true"><i class="cm-w55"></i><i
+                                    class="cm-w80"></i><i class="cm-w60"></i></span>
+                        </li>
+                        <li class="cm-sheet" tabindex="0">
+                            <span class="cm-sheet__punch" aria-hidden="true"><i></i><i></i></span>
+                            <span class="cm-sheet__num" aria-hidden="true">07</span>
+                            <h3>Wine Lists</h3>
+                            <span class="cm-sheet__lines" aria-hidden="true"><i class="cm-w80"></i><i
+                                    class="cm-w70"></i><i class="cm-w50"></i></span>
+                        </li>
+                        <li class="cm-sheet" tabindex="0">
+                            <span class="cm-sheet__punch" aria-hidden="true"><i></i><i></i></span>
+                            <span class="cm-sheet__num" aria-hidden="true">08</span>
+                            <h3>Dessert Menus</h3>
+                            <span class="cm-sheet__lines" aria-hidden="true"><i class="cm-w65"></i><i
+                                    class="cm-w85"></i><i class="cm-w60"></i></span>
+                        </li>
+                        <li class="cm-sheet" tabindex="0">
+                            <span class="cm-sheet__punch" aria-hidden="true"><i></i><i></i></span>
+                            <span class="cm-sheet__num" aria-hidden="true">09</span>
+                            <h3>Seasonal Menus</h3>
+                            <span class="cm-sheet__lines" aria-hidden="true"><i class="cm-w75"></i><i
+                                    class="cm-w55"></i><i class="cm-w85"></i></span>
+                        </li>
+                        <li class="cm-sheet" tabindex="0">
+                            <span class="cm-sheet__punch" aria-hidden="true"><i></i><i></i></span>
+                            <span class="cm-sheet__num" aria-hidden="true">10</span>
+                            <h3>Chef's Specials</h3>
+                            <span class="cm-sheet__lines" aria-hidden="true"><i class="cm-w60"></i><i
+                                    class="cm-w75"></i><i class="cm-w70"></i></span>
+                        </li>
+                        <li class="cm-sheet" tabindex="0">
+                            <span class="cm-sheet__punch" aria-hidden="true"><i></i><i></i></span>
+                            <span class="cm-sheet__num" aria-hidden="true">11</span>
+                            <h3>Promotional Menus</h3>
+                            <span class="cm-sheet__lines" aria-hidden="true"><i class="cm-w85"></i><i
+                                    class="cm-w60"></i><i class="cm-w65"></i></span>
+                        </li>
+                        <li class="cm-sheet" tabindex="0">
+                            <span class="cm-sheet__punch" aria-hidden="true"><i></i><i></i></span>
+                            <span class="cm-sheet__num" aria-hidden="true">12</span>
+                            <h3>Festive Menus</h3>
+                            <span class="cm-sheet__lines" aria-hidden="true"><i class="cm-w70"></i><i
+                                    class="cm-w80"></i><i class="cm-w55"></i></span>
+                        </li>
+                        <li class="cm-sheet" tabindex="0">
+                            <span class="cm-sheet__punch" aria-hidden="true"><i></i><i></i></span>
+                            <span class="cm-sheet__num" aria-hidden="true">13</span>
+                            <h3>Kids' Menus</h3>
+                            <span class="cm-sheet__lines" aria-hidden="true"><i class="cm-w55"></i><i
+                                    class="cm-w70"></i><i class="cm-w80"></i></span>
+                        </li>
+                        <li class="cm-sheet" tabindex="0">
+                            <span class="cm-sheet__punch" aria-hidden="true"><i></i><i></i></span>
+                            <span class="cm-sheet__num" aria-hidden="true">14</span>
+                            <h3>Daily Specials</h3>
+                            <span class="cm-sheet__lines" aria-hidden="true"><i class="cm-w80"></i><i
+                                    class="cm-w65"></i><i class="cm-w60"></i></span>
+                        </li>
+                    </ul>
+                    <p class="cm-swipe-hint" aria-hidden="true">Swipe to explore</p>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 LONG-TERM FLEXIBILITY — Same cover, changing interiors
+                 ============================================================ -->
+            <section class="cm-section cm-longterm" id="flexibility">
+                <div class="cm-container">
+                    <div class="cm-longterm__grid">
+                        <div class="cm-longterm__visual cm-reveal" id="cmSwapVisual">
+                            <div class="cm-swap" data-variant="1">
+                                <!-- The outer cover never changes -->
+                                <div class="cm-swap__cover">
+                                    <span class="cm-swap__frame"></span>
+                                    <span class="cm-swap__emblem">FINE FOLD<br>MENUS</span>
+                                    <span class="cm-swap__hair"></span>
+                                    <span class="cm-swap__posts"><i></i><i></i><i></i></span>
+                                </div>
+                                <!-- Only the interior pages change -->
+                                <div class="cm-swap__inners" aria-hidden="true">
+                                    <span class="cm-inner is-active" data-variant="1">
+                                        <i class="cm-iline cm-w70"></i>
+                                        <i class="cm-iline cm-w90"></i>
+                                        <i class="cm-iline cm-w55"></i>
+                                        <i class="cm-igap"></i>
+                                        <i class="cm-iline cm-w85"></i>
+                                        <i class="cm-iline cm-w60"></i>
+                                        <i class="cm-idot"></i>
+                                    </span>
+                                    <span class="cm-inner" data-variant="2">
+                                        <i class="cm-iline cm-w85"></i>
+                                        <i class="cm-iline cm-w60"></i>
+                                        <i class="cm-igap"></i>
+                                        <i class="cm-iline cm-w75"></i>
+                                        <i class="cm-iline cm-w90"></i>
+                                        <i class="cm-iline cm-w50"></i>
+                                        <i class="cm-idot"></i>
+                                    </span>
+                                    <span class="cm-inner" data-variant="3">
+                                        <i class="cm-iline cm-w60"></i>
+                                        <i class="cm-iline cm-w80"></i>
+                                        <i class="cm-iline cm-w70"></i>
+                                        <i class="cm-igap"></i>
+                                        <i class="cm-iline cm-w55"></i>
+                                        <i class="cm-iline cm-w85"></i>
+                                        <i class="cm-idot"></i>
+                                    </span>
+                                    <span class="cm-inner" data-variant="4">
+                                        <i class="cm-iline cm-w90"></i>
+                                        <i class="cm-iline cm-w50"></i>
+                                        <i class="cm-iline cm-w80"></i>
+                                        <i class="cm-igap"></i>
+                                        <i class="cm-iline cm-w65"></i>
+                                        <i class="cm-iline cm-w75"></i>
+                                        <i class="cm-idot"></i>
+                                    </span>
+                                </div>
+                                <span class="cm-swap__shadow" aria-hidden="true"></span>
+                            </div>
+
+                            <!-- Gold timeline of ongoing updates -->
+                            <div class="cm-timeline" id="cmTimeline">
+                                <span class="cm-timeline__rail" aria-hidden="true"></span>
+                                <span class="cm-timeline__fill" aria-hidden="true"></span>
+                                <button class="cm-timeline__node is-active" type="button" data-variant="1"
+                                    aria-label="Show first interior page variant" aria-pressed="true"></button>
+                                <button class="cm-timeline__node" type="button" data-variant="2"
+                                    aria-label="Show second interior page variant" aria-pressed="false"></button>
+                                <button class="cm-timeline__node" type="button" data-variant="3"
+                                    aria-label="Show third interior page variant" aria-pressed="false"></button>
+                                <button class="cm-timeline__node" type="button" data-variant="4"
+                                    aria-label="Show fourth interior page variant" aria-pressed="false"></button>
+                            </div>
+                        </div>
+
+                        <div class="cm-longterm__copy cm-reveal" data-delay="140">
+                            <p class="cm-eyebrow">Designed for Long-Term Flexibility</p>
+                            <h2 class="cm-title">Update Your Menu Without Changing Your Brand Presentation</h2>
+                            <div class="cm-rule"></div>
+                            <div class="cm-copy">
+                                <p>A changeable menu gives your restaurant greater flexibility as your business
+                                    evolves. Instead of redesigning the entire menu cover whenever a small part of your
+                                    offering changes, you can update the relevant content while maintaining a
+                                    consistent and recognizable presentation.</p>
+                                <p>This makes changeable menu covers particularly useful for restaurants with seasonal
+                                    menus, frequently changing prices, rotating dishes, daily specials, or expanding
+                                    beverage selections. The result is a more practical menu management system without
+                                    sacrificing the premium appearance your guests expect.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 FEATURES & BENEFITS — Modular editorial composition
+                 ============================================================ -->
+            <section class="cm-section cm-section--surface" id="features">
+                <div class="cm-container">
+                    <div class="cm-head cm-text-center">
+                        <p class="cm-eyebrow cm-reveal">Features &amp; Benefits</p>
+                        <h2 class="cm-title cm-reveal" data-delay="100">Practical Functionality with Premium
+                            Presentation</h2>
+                        <div class="cm-rule cm-rule--center cm-reveal" data-delay="150"></div>
+                        <p class="cm-lede cm-reveal" data-delay="200">Our changeable menu solutions are designed to make
+                            menu management easier while maintaining a professional and sophisticated appearance.</p>
+                    </div>
+
+                    <div class="cm-board cm-reveal">
+                        <svg class="cm-board__lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"
+                            focusable="false">
+                            <line x1="50" y1="50" x2="17" y2="8" vector-effect="non-scaling-stroke" />
+                            <line x1="50" y1="50" x2="17" y2="25" vector-effect="non-scaling-stroke" />
+                            <line x1="50" y1="50" x2="17" y2="42" vector-effect="non-scaling-stroke" />
+                            <line x1="50" y1="50" x2="17" y2="59" vector-effect="non-scaling-stroke" />
+                            <line x1="50" y1="50" x2="17" y2="76" vector-effect="non-scaling-stroke" />
+                            <line x1="50" y1="50" x2="17" y2="93" vector-effect="non-scaling-stroke" />
+                            <line x1="50" y1="50" x2="83" y2="8" vector-effect="non-scaling-stroke" />
+                            <line x1="50" y1="50" x2="83" y2="25" vector-effect="non-scaling-stroke" />
+                            <line x1="50" y1="50" x2="83" y2="42" vector-effect="non-scaling-stroke" />
+                            <line x1="50" y1="50" x2="83" y2="59" vector-effect="non-scaling-stroke" />
+                            <line x1="50" y1="50" x2="83" y2="76" vector-effect="non-scaling-stroke" />
+                            <line x1="50" y1="50" x2="83" y2="93" vector-effect="non-scaling-stroke" />
+                        </svg>
+
+                        <div class="cm-board__core" aria-hidden="true">
+                            <div class="cm-mini-cover cm-mini-cover--lg">
+                                <span class="cm-mini-cover__frame"></span>
+                                <span class="cm-mini-cover__emblem">FINE FOLD<br>MENUS</span>
+                                <span class="cm-mini-cover__rule"></span>
+                                <span class="cm-mini-cover__posts"><i></i><i></i><i></i></span>
+                            </div>
+                            <span class="cm-board__leaf cm-board__leaf--1"></span>
+                            <span class="cm-board__leaf cm-board__leaf--2"></span>
+                        </div>
+
+                        <ul class="cm-board__list cm-board__list--left">
+                            <li class="cm-plate-item"><span class="cm-plate-item__mark"
+                                    aria-hidden="true"></span><strong>Replaceable Menu Pages</strong></li>
+                            <li class="cm-plate-item"><span class="cm-plate-item__mark"
+                                    aria-hidden="true"></span><strong>Flexible Binding Options</strong></li>
+                            <li class="cm-plate-item"><span class="cm-plate-item__mark"
+                                    aria-hidden="true"></span><strong>Custom Cover Designs</strong></li>
+                            <li class="cm-plate-item"><span class="cm-plate-item__mark"
+                                    aria-hidden="true"></span><strong>Premium Material Choices</strong></li>
+                            <li class="cm-plate-item"><span class="cm-plate-item__mark"
+                                    aria-hidden="true"></span><strong>Easy Content Updates</strong></li>
+                            <li class="cm-plate-item"><span class="cm-plate-item__mark"
+                                    aria-hidden="true"></span><strong>Custom Logo Branding</strong></li>
+                        </ul>
+
+                        <ul class="cm-board__list cm-board__list--right">
+                            <li class="cm-plate-item"><span class="cm-plate-item__mark"
+                                    aria-hidden="true"></span><strong>Multiple Size Options</strong></li>
+                            <li class="cm-plate-item"><span class="cm-plate-item__mark"
+                                    aria-hidden="true"></span><strong>Seasonal Menu Flexibility</strong></li>
+                            <li class="cm-plate-item"><span class="cm-plate-item__mark"
+                                    aria-hidden="true"></span><strong>Professional Interior Printing</strong></li>
+                            <li class="cm-plate-item"><span class="cm-plate-item__mark"
+                                    aria-hidden="true"></span><strong>Durable Construction</strong></li>
+                            <li class="cm-plate-item"><span class="cm-plate-item__mark"
+                                    aria-hidden="true"></span><strong>Easy Menu Management</strong></li>
+                            <li class="cm-plate-item"><span class="cm-plate-item__mark"
+                                    aria-hidden="true"></span><strong>Designed for Hospitality Use</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 FAQ — Premium accordion
+                 ============================================================ -->
+            <section class="cm-section" id="faq">
+                <div class="cm-container cm-container--narrow">
+                    <div class="cm-head cm-text-center">
+                        <div class="cm-rule cm-rule--center cm-reveal"></div>
+                        <h2 class="cm-title cm-reveal" data-delay="80">Frequently Asked Questions</h2>
+                    </div>
+
+                    <div class="cm-faq cm-reveal" id="cmFaq">
+                        <div class="cm-faq__item">
+                            <h3 class="cm-faq__h">
+                                <button class="cm-faq__q" type="button" id="cm-faq-q1" aria-expanded="false"
+                                    aria-controls="cm-faq-a1">
+                                    <span>What is a Changeable Menu?</span>
+                                    <i class="cm-faq__icon" aria-hidden="true"></i>
+                                </button>
+                            </h3>
+                            <div class="cm-faq__a" id="cm-faq-a1" role="region" aria-labelledby="cm-faq-q1">
+                                <div class="cm-faq__a-inner">
+                                    <p>A Changeable Menu is a menu presentation system designed with removable or
+                                        replaceable pages or inserts, allowing restaurants and hospitality businesses to
+                                        update menu content without replacing the complete menu cover.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cm-faq__item">
+                            <h3 class="cm-faq__h">
+                                <button class="cm-faq__q" type="button" id="cm-faq-q2" aria-expanded="false"
+                                    aria-controls="cm-faq-a2">
+                                    <span>Why should a restaurant use a changeable menu?</span>
+                                    <i class="cm-faq__icon" aria-hidden="true"></i>
+                                </button>
+                            </h3>
+                            <div class="cm-faq__a" id="cm-faq-a2" role="region" aria-labelledby="cm-faq-q2">
+                                <div class="cm-faq__a-inner">
+                                    <p>Changeable menus are useful for businesses that frequently update prices,
+                                        dishes, seasonal offerings, promotions, or beverages. They provide greater
+                                        flexibility while helping maintain a consistent menu presentation.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cm-faq__item">
+                            <h3 class="cm-faq__h">
+                                <button class="cm-faq__q" type="button" id="cm-faq-q3" aria-expanded="false"
+                                    aria-controls="cm-faq-a3">
+                                    <span>Can I replace individual menu pages?</span>
+                                    <i class="cm-faq__icon" aria-hidden="true"></i>
+                                </button>
+                            </h3>
+                            <div class="cm-faq__a" id="cm-faq-a3" role="region" aria-labelledby="cm-faq-q3">
+                                <div class="cm-faq__a-inner">
+                                    <p>Yes. Depending on the selected binding and insert system, individual pages or
+                                        sections can be removed and replaced when required.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cm-faq__item">
+                            <h3 class="cm-faq__h">
+                                <button class="cm-faq__q" type="button" id="cm-faq-q4" aria-expanded="false"
+                                    aria-controls="cm-faq-a4">
+                                    <span>Which binding options are available for changeable menus?</span>
+                                    <i class="cm-faq__icon" aria-hidden="true"></i>
+                                </button>
+                            </h3>
+                            <div class="cm-faq__a" id="cm-faq-a4" role="region" aria-labelledby="cm-faq-q4">
+                                <div class="cm-faq__a-inner">
+                                    <p>Depending on your requirements, we can offer suitable options such as
+                                        <strong>screw binding, ring binding, Wiro binding, magnetic inserts, and other
+                                            replaceable page systems</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Supplied FAQ heading verbatim: "### **Can changeable menu covers be customized?"
+                             Wording preserved exactly; the unclosed markdown bold marker is rendered as emphasis. -->
+                        <div class="cm-faq__item">
+                            <h3 class="cm-faq__h">
+                                <button class="cm-faq__q" type="button" id="cm-faq-q5" aria-expanded="false"
+                                    aria-controls="cm-faq-a5">
+                                    <span>Can changeable menu covers be customized?</span>
+                                    <i class="cm-faq__icon" aria-hidden="true"></i>
+                                </button>
+                            </h3>
+                            <div class="cm-faq__a" id="cm-faq-a5" role="region" aria-labelledby="cm-faq-q5">
+                                <div class="cm-faq__a-inner">
+                                    <p>Yes. You can customize the cover material, size, color, texture, logo, branding
+                                        technique, binding system, interior pages, and finishing details.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cm-faq__item">
+                            <h3 class="cm-faq__h">
+                                <button class="cm-faq__q" type="button" id="cm-faq-q6" aria-expanded="false"
+                                    aria-controls="cm-faq-a6">
+                                    <span>Are changeable menus suitable for seasonal restaurants?</span>
+                                    <i class="cm-faq__icon" aria-hidden="true"></i>
+                                </button>
+                            </h3>
+                            <div class="cm-faq__a" id="cm-faq-a6" role="region" aria-labelledby="cm-faq-q6">
+                                <div class="cm-faq__a-inner">
+                                    <p>Absolutely. They are particularly useful for restaurants that regularly
+                                        introduce seasonal dishes, festive offerings, special menus, or limited-time
+                                        promotions.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cm-faq__item">
+                            <h3 class="cm-faq__h">
+                                <button class="cm-faq__q" type="button" id="cm-faq-q7" aria-expanded="false"
+                                    aria-controls="cm-faq-a7">
+                                    <span>Can I customize different sections separately?</span>
+                                    <i class="cm-faq__icon" aria-hidden="true"></i>
+                                </button>
+                            </h3>
+                            <div class="cm-faq__a" id="cm-faq-a7" role="region" aria-labelledby="cm-faq-q7">
+                                <div class="cm-faq__a-inner">
+                                    <p>Yes. Your menu can be structured into separate sections for food, beverages,
+                                        cocktails, desserts, wine, specials, and other offerings, depending on the
+                                        selected format.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cm-faq__item">
+                            <h3 class="cm-faq__h">
+                                <button class="cm-faq__q" type="button" id="cm-faq-q8" aria-expanded="false"
+                                    aria-controls="cm-faq-a8">
+                                    <span>Do you manufacture changeable menus in bulk?</span>
+                                    <i class="cm-faq__icon" aria-hidden="true"></i>
+                                </button>
+                            </h3>
+                            <div class="cm-faq__a" id="cm-faq-a8" role="region" aria-labelledby="cm-faq-q8">
+                                <div class="cm-faq__a-inner">
+                                    <p>Yes. We can manufacture customized changeable menu covers for individual
+                                        restaurants as well as larger requirements for hotels, resorts, restaurant
+                                        groups, and hospitality chains.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============================================================
+                 FINAL CTA — "Refresh Without Replacing"
+                 ============================================================ -->
+            <section class="cm-final" id="cta-final">
+                <div class="cm-final__bg">
+                    <img src="images/cta-closing.jpg" alt="" aria-hidden="true" loading="lazy">
+                    <div class="cm-final__overlay"></div>
+                </div>
+
+                <div class="cm-final__inner">
+                    <div class="cm-final__visual cm-reveal" aria-hidden="true">
+                        <div class="cm-final__cover">
+                            <span class="cm-final__frame"></span>
+                            <span class="cm-final__emblem">FINE FOLD<br>MENUS</span>
+                            <span class="cm-final__hair"></span>
+                            <span class="cm-final__posts"><i></i><i></i><i></i></span>
+                        </div>
+                        <span class="cm-final__page cm-final__page--1"><i class="cm-w70"></i><i class="cm-w85"></i><i
+                                class="cm-w55"></i><i class="cm-w75"></i></span>
+                        <span class="cm-final__page cm-final__page--2"><i class="cm-w85"></i><i class="cm-w60"></i><i
+                                class="cm-w80"></i><i class="cm-w50"></i></span>
+                        <span class="cm-final__page cm-final__page--3"><i class="cm-w60"></i><i class="cm-w80"></i><i
+                                class="cm-w65"></i><i class="cm-w85"></i></span>
+                    </div>
+
+                    <div class="cm-final__panel cm-reveal" data-delay="120">
+                        <span class="cm-corner cm-corner--tl" aria-hidden="true"></span>
+                        <span class="cm-corner cm-corner--br" aria-hidden="true"></span>
+                        <p class="cm-eyebrow">Final CTA</p>
+                        <h2>Keep Your Menu Fresh Without Replacing the Entire Presentation</h2>
+                        <div class="cm-rule"></div>
+                        <p class="cm-final__copy">Give your hospitality business the flexibility to update its
+                            offerings while maintaining a consistent and premium brand presentation. <strong>Fine Fold
+                                Menus</strong> creates customized changeable menu covers that combine practical page
+                            management, premium materials, personalized branding, and durable construction. Whether you
+                            regularly update prices, introduce seasonal dishes, or rotate special offerings, our
+                            flexible menu solutions are designed to adapt as your business grows.</p>
+                        <div class="cm-btn-row">
+                            <a href="Speak-With-Us.html" class="cm-btn cm-btn--solid"><span>Request a Free
+                                    Quote</span></a>
+                            <a href="Speak-With-Us.html" class="cm-btn cm-btn--outline"><span>Customize Your Changeable
+                                    Menu</span></a>
+                            <a href="Speak-With-Us.html" class="cm-btn cm-btn--outline"><span>Talk to Our
+                                    Experts</span></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!--Main Footer-->
+        <footer class="main-footer">
+            <div class="image-layer" style="background-image: url(images/background/image-4.jpg);"></div>
+            <div class="upper-section">
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <!--Footer Col-->
+                        <div class="footer-col info-col col-lg-6 col-md-12 col-sm-12">
+                            <div class="inner wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                <div class="content">
+                                    <div class="logo"><a href="index.html"
+                                            title="Delici - Restaurants HTML Template"><img src="images/logo-footer.png"
+                                                alt="" title="Delici - Restaurants HTML Template"></a></div>
+                                    <div class="info">
+                                        <ul>
+                                            <li> C-111, 3rd Floor, Naraina Industrial Area, Delhi - 110034
+                                            </li>
+                                            <li><a href="mailto:info@finefoldmenus.com">info@finefoldmenus.com</a></li>
+                                            <li><a href="tel:+919818095822">Booking Request : +91-98180 95822</a></li>
+                                            <li>Time : 10.00 am - 6.30pm</li>
+                                        </ul>
+                                    </div>
+                                    <div class="separator"><span></span><span></span><span></span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Footer Col-->
+                        <div class="footer-col links-col col-lg-3 col-md-6 col-sm-12">
+                            <div class="inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                <ul class="links">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Who We Serve</a></li>
+                                    <li><a href="#">Our Services</a></li>
+                                    <li><a href="#">Get In Touch </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--Footer Col-->
+                        <div class="footer-col links-col last col-lg-3 col-md-6 col-sm-12">
+                            <div class="inner wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                <ul class="links">
+                                    <li><a href="https://www.facebook.com/profile.php?id=61565289525469">facebook</a>
+                                    </li>
+                                    <li><a href="https://www.instagram.com/finefoldmenus/">instagram</a></li>
+                                    <li><a href="https://x.com/finefoldmenus">Twitter</a></li>
+                                    <li><a href="https://www.youtube.com/channel/UC666SYK-yWuOSna8JVsXwAQ">Youtube</a>
+                                    </li>
+                                    <li><a
+                                            href="https://www.linkedin.com/in/fine-fold-menus-powered-by-shreeji-softech-57b615405/">LinkedIn</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="auto-container">
+                    <div class="copyright">&copy; 2026 Fine Fold Menus Powered by <a href="https://shreejisoftech.com/"
+                            target="blank">SHREEJI SOFTECH</a>. All Rights Reserved. </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!--End pagewrapper-->
+
+    <!--Popup code below -->
+
+    <div class="sticky-video-widget" id="stickyWidget">
+        <!-- Small close button to dismiss the sticky widget entirely -->
+        <button class="sticky-close-btn" id="stickyCloseBtn" aria-label="Close video">&times;</button>
+
+        <!-- Autoplaying muted looping thumbnail video -->
+        <video id="thumbnailVideo" src="https://finefoldmenus.com/video/fine-fold-menus.mp4"
+            poster="YOUR-POSTER-IMAGE.jpg" autoplay muted loop playsinline></video>
+
+        <!-- Small play icon hint -->
+        <div class="sticky-play-icon"></div>
+    </div>
+
+    <div class="video-popup-overlay" id="videoPopupOverlay">
+        <div class="video-popup-box">
+            <button class="popup-close-btn" id="popupCloseBtn" aria-label="Close">&times;</button>
+            <video id="popupVideo" src="https://finefoldmenus.com/video/fine-fold-menus.mp4" controls
+                playsinline></video>
+        </div>
+    </div>
+
+    <script>
+        const stickyWidget = document.getElementById('stickyWidget');
+        const stickyCloseBtn = document.getElementById('stickyCloseBtn');
+        const thumbnailVideo = document.getElementById('thumbnailVideo');
+        const popupOverlay = document.getElementById('videoPopupOverlay');
+        const popupVideo = document.getElementById('popupVideo');
+        const popupCloseBtn = document.getElementById('popupCloseBtn');
+
+        // Autoplay the muted thumbnail (retries once metadata loads if blocked)
+        function playThumb() {
+            thumbnailVideo.muted = true;
+            thumbnailVideo.play().catch(() => {
+                thumbnailVideo.addEventListener('loadedmetadata', () => thumbnailVideo.play().catch(() => { }), { once: true });
+            });
+        }
+        playThumb();
+
+        // Thumbnail click -> open popup, sync time, play with sound
+        stickyWidget.addEventListener('click', () => {
+            popupOverlay.classList.add('active');
+            popupVideo.currentTime = thumbnailVideo.currentTime;
+            popupVideo.muted = false;
+            popupVideo.volume = 1;
+            popupVideo.play().catch(() => {
+                popupVideo.muted = true;
+                popupVideo.play();
+                popupVideo.muted = false;
+            });
+            thumbnailVideo.pause();
+        });
+
+        // Close popup -> resume thumbnail
+        function closePopup() {
+            popupOverlay.classList.remove('active');
+            popupVideo.pause();
+            playThumb();
+        }
+        popupCloseBtn.addEventListener('click', e => { e.stopPropagation(); closePopup(); });
+        popupOverlay.addEventListener('click', e => { if (e.target === popupOverlay) closePopup(); });
+
+        // Sticky close (X) -> hide widget entirely
+        stickyCloseBtn.addEventListener('click', e => {
+            e.stopPropagation();
+            stickyWidget.classList.add('hidden');
+            thumbnailVideo.pause();
+        });
+    </script>
+
+    <!--Scroll to top-->
+    <div class="scroll-to-top scroll-to-target" data-target="html"><span class="icon fa fa-angle-up"></span></div>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.fancybox.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/owl.js"></script>
+    <script src="js/appear.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/custom-script.js"></script>
+    <script src="js/Changeable-Menu.js"></script>
+
+</body>
+
+</html>
