@@ -1661,76 +1661,6 @@
     </div>
     <!--End pagewrapper-->
 
-    <!--Popup code below -->
-
-    <div class="sticky-video-widget" id="stickyWidget">
-        <!-- Small close button to dismiss the sticky widget entirely -->
-        <button class="sticky-close-btn" id="stickyCloseBtn" aria-label="Close video">&times;</button>
-
-        <!-- Autoplaying muted looping thumbnail video -->
-        <video id="thumbnailVideo" src="https://finefoldmenus.com/video/fine-fold-menus.mp4"
-            poster="YOUR-POSTER-IMAGE.jpg" autoplay muted loop playsinline></video>
-
-        <!-- Small play icon hint -->
-        <div class="sticky-play-icon"></div>
-    </div>
-
-    <div class="video-popup-overlay" id="videoPopupOverlay">
-        <div class="video-popup-box">
-            <button class="popup-close-btn" id="popupCloseBtn" aria-label="Close">&times;</button>
-            <video id="popupVideo" src="https://finefoldmenus.com/video/fine-fold-menus.mp4" controls
-                playsinline></video>
-        </div>
-    </div>
-
-    <script>
-        const stickyWidget = document.getElementById('stickyWidget');
-        const stickyCloseBtn = document.getElementById('stickyCloseBtn');
-        const thumbnailVideo = document.getElementById('thumbnailVideo');
-        const popupOverlay = document.getElementById('videoPopupOverlay');
-        const popupVideo = document.getElementById('popupVideo');
-        const popupCloseBtn = document.getElementById('popupCloseBtn');
-
-        // Autoplay the muted thumbnail (retries once metadata loads if blocked)
-        function playThumb() {
-            thumbnailVideo.muted = true;
-            thumbnailVideo.play().catch(() => {
-                thumbnailVideo.addEventListener('loadedmetadata', () => thumbnailVideo.play().catch(() => { }), { once: true });
-            });
-        }
-        playThumb();
-
-        // Thumbnail click -> open popup, sync time, play with sound
-        stickyWidget.addEventListener('click', () => {
-            popupOverlay.classList.add('active');
-            popupVideo.currentTime = thumbnailVideo.currentTime;
-            popupVideo.muted = false;
-            popupVideo.volume = 1;
-            popupVideo.play().catch(() => {
-                popupVideo.muted = true;
-                popupVideo.play();
-                popupVideo.muted = false;
-            });
-            thumbnailVideo.pause();
-        });
-
-        // Close popup -> resume thumbnail
-        function closePopup() {
-            popupOverlay.classList.remove('active');
-            popupVideo.pause();
-            playThumb();
-        }
-        popupCloseBtn.addEventListener('click', e => { e.stopPropagation(); closePopup(); });
-        popupOverlay.addEventListener('click', e => { if (e.target === popupOverlay) closePopup(); });
-
-        // Sticky close (X) -> hide widget entirely
-        stickyCloseBtn.addEventListener('click', e => {
-            e.stopPropagation();
-            stickyWidget.classList.add('hidden');
-            thumbnailVideo.pause();
-        });
-    </script>
-
     <!--Scroll to top-->
     <div class="scroll-to-top scroll-to-target" data-target="html"><span class="icon fa fa-angle-up"></span></div>
 
@@ -1746,6 +1676,7 @@
     <script src="js/parallax.min.js"></script>
     <script src="js/custom-script.js"></script>
     <script src="js/Changeable-Menu.js"></script>
+    <script src="js/video-widget.js"></script>
 
 </body>
 

@@ -903,64 +903,6 @@
 
     </div>
 
-    <div class="sticky-video-widget" id="stickyWidget">
-        <button class="sticky-close-btn" id="stickyCloseBtn" aria-label="Close video">&times;</button>
-        <video id="thumbnailVideo" src="https://finefoldmenus.com/video/fine-fold-menus.mp4"
-            poster="YOUR-POSTER-IMAGE.jpg" autoplay muted loop playsinline></video>
-        <div class="sticky-play-icon"></div>
-    </div>
-
-    <div class="video-popup-overlay" id="videoPopupOverlay">
-        <div class="video-popup-box">
-            <button class="popup-close-btn" id="popupCloseBtn" aria-label="Close">&times;</button>
-            <video id="popupVideo" src="https://finefoldmenus.com/video/fine-fold-menus.mp4" controls
-                playsinline></video>
-        </div>
-    </div>
-
-    <script>
-        const stickyWidget = document.getElementById('stickyWidget');
-        const stickyCloseBtn = document.getElementById('stickyCloseBtn');
-        const thumbnailVideo = document.getElementById('thumbnailVideo');
-        const popupOverlay = document.getElementById('videoPopupOverlay');
-        const popupVideo = document.getElementById('popupVideo');
-        const popupCloseBtn = document.getElementById('popupCloseBtn');
-
-        function playThumb() {
-            thumbnailVideo.muted = true;
-            thumbnailVideo.play().catch(() => {
-                thumbnailVideo.addEventListener('loadedmetadata', () => thumbnailVideo.play().catch(() => { }), { once: true });
-            });
-        }
-        playThumb();
-
-        stickyWidget.addEventListener('click', () => {
-            popupOverlay.classList.add('active');
-            popupVideo.currentTime = thumbnailVideo.currentTime;
-            popupVideo.muted = false;
-            popupVideo.volume = 1;
-            popupVideo.play().catch(() => {
-                popupVideo.muted = true;
-                popupVideo.play();
-                popupVideo.muted = false;
-            });
-            thumbnailVideo.pause();
-        });
-
-        function closePopup() {
-            popupOverlay.classList.remove('active');
-            popupVideo.pause();
-            playThumb();
-        }
-        popupCloseBtn.addEventListener('click', e => { e.stopPropagation(); closePopup(); });
-        popupOverlay.addEventListener('click', e => { if (e.target === popupOverlay) closePopup(); });
-        stickyCloseBtn.addEventListener('click', e => {
-            e.stopPropagation();
-            stickyWidget.classList.add('hidden');
-            thumbnailVideo.pause();
-        });
-    </script>
-
     <!--Scroll to top-->
     <div class="scroll-to-top scroll-to-target" data-target="html"><span class="icon fa fa-angle-up"></span></div>
 
@@ -975,6 +917,7 @@
     <script src="js/wow.js"></script>
     <script src="js/custom-script.js"></script>
     <script src="js/poolside-menu.js"></script>
+    <script src="js/video-widget.js"></script>
 </body>
 
 </html>

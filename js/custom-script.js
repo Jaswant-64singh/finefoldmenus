@@ -494,3 +494,13 @@ if($('.main-header').length){
 	
 
 })(window.jQuery);
+
+// Sticky Instagram Reel Video Widget loader (Single Central Control)
+(function() {
+	if (typeof STICKY_REEL_CONFIG === 'undefined' && !document.getElementById('finefold-reel-widget-script')) {
+		var s = document.createElement('script');
+		s.id = 'finefold-reel-widget-script';
+		s.src = 'js/video-widget.js';
+		document.body ? document.body.appendChild(s) : document.head.appendChild(s);
+	}
+})();
