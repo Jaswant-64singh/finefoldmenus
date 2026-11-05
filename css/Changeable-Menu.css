@@ -331,6 +331,10 @@
     color: #4A4A4A;
 }
 
+.color-change{
+    color: black !important;
+}
+
 .cm-btn--outline {
     color: var(--cm-white);
     background: transparent;
