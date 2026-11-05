@@ -4,8 +4,10 @@
 <head>
     <meta charset="utf-8">
     <title>Premium Waterproof Menu Covers (NTR) | Fine Fold Menus</title>
-    <meta name="description" content="Waterproof Menu Covers Built for Everyday Hospitality Excellence — durable, spill resistant and fully customizable menu covers for restaurants, hotels, resorts and outdoor dining." />
-    <meta name="keywords" content="waterproof menu covers, NTR menu covers, spill resistant menu, restaurant menu covers, outdoor menu covers, custom waterproof menus, hospitality menu covers" />
+    <meta name="description"
+        content="Waterproof Menu Covers Built for Everyday Hospitality Excellence — durable, spill resistant and fully customizable menu covers for restaurants, hotels, resorts and outdoor dining." />
+    <meta name="keywords"
+        content="waterproof menu covers, NTR menu covers, spill resistant menu, restaurant menu covers, outdoor menu covers, custom waterproof menus, hospitality menu covers" />
     <meta property="og:title" content="Premium Waterproof Menu Covers (NTR) | Fine Fold Menus" />
     <meta property="og:description" content="Waterproof Menu Covers Built for Everyday Hospitality Excellence." />
     <meta property="og:type" content="website" />
@@ -33,6 +35,7 @@
             transform: translate(-50%, -50%);
             z-index: 1;
         }
+
         .header-small-logo img {
             display: block;
             width: 134px;
@@ -40,9 +43,13 @@
             height: auto;
             margin-left: 270px;
         }
+
         @media (max-width: 767px) {
-            .header-small-logo { display: none; }
+            .header-small-logo {
+                display: none;
+            }
         }
+
         .sticky-video-widget {
             position: fixed;
             bottom: 24px;
@@ -51,34 +58,63 @@
             aspect-ratio: 9 / 16;
             border-radius: 14px;
             overflow: hidden;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
             z-index: 9999;
             cursor: pointer;
             background: #000;
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
-        .sticky-video-widget:hover { transform: scale(1.04); }
-        .sticky-video-widget.hidden { opacity: 0; pointer-events: none; transform: scale(0.8); }
-        .sticky-video-widget video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .sticky-video-widget:hover {
+            transform: scale(1.04);
+        }
+
+        .sticky-video-widget.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.8);
+        }
+
+        .sticky-video-widget video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
         .sticky-close-btn {
             position: absolute;
-            top: 6px; right: 6px;
-            width: 24px; height: 24px;
+            top: 6px;
+            right: 6px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
-            background: rgba(0,0,0,0.55);
-            color: #fff; border: none;
-            font-size: 14px; line-height: 1;
-            display: flex; align-items: center; justify-content: center;
-            cursor: pointer; z-index: 2;
+            background: rgba(0, 0, 0, 0.55);
+            color: #fff;
+            border: none;
+            font-size: 14px;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
         }
+
         .sticky-play-icon {
-            position: absolute; bottom: 8px; left: 8px;
-            width: 26px; height: 26px;
-            background: rgba(255,255,255,0.85);
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            width: 26px;
+            height: 26px;
+            background: rgba(255, 255, 255, 0.85);
             border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             pointer-events: none;
         }
+
         .sticky-play-icon::after {
             content: "";
             border-style: solid;
@@ -86,40 +122,91 @@
             border-color: transparent transparent transparent #111;
             margin-left: 2px;
         }
+
         .video-popup-overlay {
-            position: fixed; inset: 0;
-            background: rgba(0,0,0,0.8);
-            display: flex; align-items: center; justify-content: center;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             z-index: 10000;
-            opacity: 0; visibility: hidden;
+            opacity: 0;
+            visibility: hidden;
             transition: opacity 0.35s ease;
         }
-        .video-popup-overlay.active { opacity: 1; visibility: visible; }
+
+        .video-popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
         .video-popup-box {
             position: relative;
-            width: 80%; max-width: 320px;
+            width: 80%;
+            max-width: 320px;
             aspect-ratio: 9 / 16;
             border-radius: 24px;
-            overflow: hidden; background: #000;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,255,255,0.08);
-            transform: scale(0.85); opacity: 0;
+            overflow: hidden;
+            background: #000;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transform: scale(0.85);
+            opacity: 0;
             transition: transform 0.35s ease, opacity 0.35s ease;
         }
-        .video-popup-overlay.active .video-popup-box { transform: scale(1); opacity: 1; }
-        .video-popup-box video { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .popup-close-btn {
-            position: absolute; top: -40px; right: 0;
-            width: 34px; height: 34px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.9);
-            border: none; font-size: 18px; cursor: pointer; z-index: 2;
+
+        .video-popup-overlay.active .video-popup-box {
+            transform: scale(1);
+            opacity: 1;
         }
-        @media (max-width: 768px) { .sticky-video-widget { width: 100px; bottom: 16px; right: 16px; } }
+
+        .video-popup-box video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .popup-close-btn {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        @media (max-width: 768px) {
+            .sticky-video-widget {
+                width: 100px;
+                bottom: 16px;
+                right: 16px;
+            }
+        }
+
         @media (max-width: 480px) {
-            .sticky-video-widget { width: 90px; bottom: 12px; right: 12px; }
-            .video-popup-box { width: 78%; max-width: 260px; }
-            .popup-close-btn { top: -36px; width: 30px; height: 30px; }
+            .sticky-video-widget {
+                width: 90px;
+                bottom: 12px;
+                right: 12px;
+            }
+
+            .video-popup-box {
+                width: 78%;
+                max-width: 260px;
+            }
+
+            .popup-close-btn {
+                top: -36px;
+                width: 30px;
+                height: 30px;
+            }
         }
     </style>
 </head>
@@ -162,8 +249,11 @@
                     <div class="inner clearfix">
                         <div class="top-left clearfix">
                             <ul class="top-info clearfix">
-                                <li><i class="icon far fa-map-marker-alt"></i> C-111, 3rd Floor, Naraina Industrial Area, Delhi - 110034</li>
-                                <li class="design-services-link"><a href="design-services.html" aria-label="Design services also available"><span>Design Services Also Available</span></a></li>
+                                <li><i class="icon far fa-map-marker-alt"></i> C-111, 3rd Floor, Naraina Industrial
+                                    Area, Delhi - 110034</li>
+                                <li class="design-services-link"><a href="design-services.html"
+                                        aria-label="Design services also available"><span>Design Services Also
+                                            Available</span></a></li>
                             </ul>
                         </div>
                         <a class="header-small-logo" href="index.html" aria-label="Fine Fold Menus home">
@@ -171,7 +261,8 @@
                         </a>
                         <div class="top-right clearfix">
                             <ul class="top-info clearfix">
-                                <li><a href="tel:+919818095822"><i class="icon far fa-phone"></i> +91 98180 95822</a></li>
+                                <li><a href="tel:+919818095822"><i class="icon far fa-phone"></i> +91 98180 95822</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -182,7 +273,8 @@
                 <div class="auto-container">
                     <div class="main-box clearfix">
                         <div class="logo-box">
-                            <div class="logo"><a href="index.html"><img src="images/logo.png" alt="Fine Fold Menus"></a></div>
+                            <div class="logo"><a href="index.html"><img src="images/logo.png" alt="Fine Fold Menus"></a>
+                            </div>
                         </div>
                         <div class="nav-box clearfix">
                             <div class="nav-outer clearfix">
@@ -198,20 +290,36 @@
                                                             <div class="auto-container">
                                                                 <div class="row clearfix">
                                                                     <div class="menu-block col-lg-3 col-md-6 col-sm-6">
-                                                                        <div class="image"><a href="Restaurant.html"><img src="images/restaurant-groups.jpg" alt="Restaurant Groups"></a></div>
-                                                                        <div class="title"><a href="Restaurant.html">Restaurant</a></div>
+                                                                        <div class="image"><a
+                                                                                href="Restaurant.html"><img
+                                                                                    src="images/restaurant-groups.jpg"
+                                                                                    alt="Restaurant Groups"></a></div>
+                                                                        <div class="title"><a
+                                                                                href="Restaurant.html">Restaurant</a>
+                                                                        </div>
                                                                     </div>
                                                                     <div class="menu-block col-lg-3 col-md-6 col-sm-6">
-                                                                        <div class="image"><a href="#"><img src="images/hotels-and-resorts.jpg" alt="Hotels & Resorts"></a></div>
-                                                                        <div class="title"><a href="#">Hotels & Resorts</a></div>
+                                                                        <div class="image"><a href="#"><img
+                                                                                    src="images/hotels-and-resorts.jpg"
+                                                                                    alt="Hotels & Resorts"></a></div>
+                                                                        <div class="title"><a href="#">Hotels &
+                                                                                Resorts</a></div>
                                                                     </div>
                                                                     <div class="menu-block col-lg-3 col-md-6 col-sm-6">
-                                                                        <div class="image"><a href="Food-Court-Menus.html"><img src="images/food-court.jpg" alt="Food Court"></a></div>
-                                                                        <div class="title"><a href="Food-Court-Menus.html">Food Court</a></div>
+                                                                        <div class="image"><a
+                                                                                href="Food-Court-Menus.html"><img
+                                                                                    src="images/food-court.jpg"
+                                                                                    alt="Food Court"></a></div>
+                                                                        <div class="title"><a
+                                                                                href="Food-Court-Menus.html">Food
+                                                                                Court</a></div>
                                                                     </div>
                                                                     <div class="menu-block col-lg-3 col-md-6 col-sm-6">
-                                                                        <div class="image"><a href="#"><img src="images/bars-and-lounges.jpg" alt="Bars & Lounges"></a></div>
-                                                                        <div class="title"><a href="#">Bars & Lounges</a></div>
+                                                                        <div class="image"><a href="#"><img
+                                                                                    src="images/bars-and-lounges.jpg"
+                                                                                    alt="Bars & Lounges"></a></div>
+                                                                        <div class="title"><a href="#">Bars &
+                                                                                Lounges</a></div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -225,8 +333,9 @@
                                                 <li><a href="Fully-Customized-Menu.html">Fully Customized Menu</a></li>
                                                 <li><a href="Luxury-Dine-in-Menu.html">Luxury Dine-in Menu</a></li>
                                                 <li><a href="MDF-Series-Menu.html">MDF Series Menu</a></li>
-                                                <li class="current"><a href="Waterproof-Menu-NTR.html">Waterproof Menu (NTR)</a></li>
-                                                <li><a href="#">Acrylic Menu</a></li>
+                                                <li class="current"><a href="Waterproof-Menu-NTR.html">Waterproof Menu
+                                                        (NTR)</a></li>
+                                                <li><a href="Acrylic-Menu.html">Acrylic Menu</a></li>
                                                 <li><a href="Poolside-Menu.html">Pool Side Menu</a></li>
                                                 <li><a href="Premium-Wiro-Menu.html">Premium Wiro Menu</a></li>
                                                 <li><a href="Changeable-Menu.html">Changeable Menu</a></li>
@@ -286,7 +395,8 @@
         <section class="hidden-bar">
             <div class="inner-box">
                 <div class="cross-icon hidden-bar-closer"><span class="far fa-close"></span></div>
-                <div class="logo-box"><a href="index.html"><img src="images/logo-footer-m.png" alt="Fine Fold Menus"></a></div>
+                <div class="logo-box"><a href="index.html"><img src="images/logo-footer-m.png"
+                            alt="Fine Fold Menus"></a></div>
                 <div class="side-menu">
                     <ul class="navigation clearfix">
                         <li><a href="index.html">Home</a></li>
@@ -344,7 +454,8 @@
         <section class="info-bar">
             <div class="inner-box">
                 <div class="cross-icon"><span class="far fa-close"></span></div>
-                <div class="logo-box"><a href="index.html"><img src="images/logo-footer-m.png" alt="Fine Fold Menus"></a></div>
+                <div class="logo-box"><a href="index.html"><img src="images/logo-footer-m.png"
+                            alt="Fine Fold Menus"></a></div>
                 <h2>Visit Us</h2>
                 <ul class="info">
                     <li>C-111, 3rd Floor, Naraina Industrial Area, Delhi - 110034</li>
@@ -363,7 +474,8 @@
         <!-- ================= HERO ================= -->
         <header class="hero" id="top">
             <div class="hero__media">
-                <img src="images/hero.jpg" alt="Luxury poolside restaurant table with a premium waterproof menu cover" />
+                <img src="images/hero.jpg"
+                    alt="Luxury poolside restaurant table with a premium waterproof menu cover" />
             </div>
             <div class="hero__overlay"></div>
             <div class="hero__spot"></div>
@@ -371,7 +483,12 @@
                 <p class="eyebrow">Premium Waterproof Menu Collection</p>
                 <div class="deco-divider"><span></span><i class="deco-diamond"></i><span></span></div>
                 <h1 class="hero__title">Waterproof Menu Covers Built for Everyday Hospitality Excellence</h1>
-                <p class="hero__desc">Designed for demanding hospitality environments, our Waterproof Menu Covers (NTR) combine exceptional durability, premium aesthetics, and effortless maintenance. Engineered to resist water, moisture, spills, stains, and everyday wear, these menu covers are the perfect choice for restaurants, cafés, hotels, poolside venues, bars, resorts, and outdoor dining spaces. With complete customization and elegant finishes, they deliver a professional presentation while ensuring long-lasting performance in every service environment.</p>
+                <p class="hero__desc">Designed for demanding hospitality environments, our Waterproof Menu Covers (NTR)
+                    combine exceptional durability, premium aesthetics, and effortless maintenance. Engineered to resist
+                    water, moisture, spills, stains, and everyday wear, these menu covers are the perfect choice for
+                    restaurants, cafés, hotels, poolside venues, bars, resorts, and outdoor dining spaces. With complete
+                    customization and elegant finishes, they deliver a professional presentation while ensuring
+                    long-lasting performance in every service environment.</p>
                 <div class="hero__cta">
                     <a href="#materials" class="btn btn--gold ripple">Explore Collection</a>
                     <a href="#final-cta" class="btn btn--ghost ripple">Request a Custom Quote</a>
@@ -389,7 +506,8 @@
             <div class="wrap about__grid">
                 <div class="about__media reveal">
                     <div class="frame-outline"></div>
-                    <img src="images/about.jpg" alt="Close-up of a waterproof menu cover with water droplets and gold border" loading="lazy" />
+                    <img src="images/about.jpg"
+                        alt="Close-up of a waterproof menu cover with water droplets and gold border" loading="lazy" />
                     <div class="badge-float">
                         <span>✔ Waterproof</span>
                         <span>✔ Spill Resistant</span>
@@ -400,10 +518,17 @@
                     <div class="card card--offset reveal">
                         <p class="eyebrow eyebrow--sm">About Waterproof Menu Covers (NTR)</p>
                         <h2 class="h2 underline-gold">Premium Protection Without Compromising Style</h2>
-                        <p>Waterproof Menu Covers (NTR) are crafted for hospitality spaces where menus are handled constantly and exposed to moisture, humidity, spills, and outdoor conditions. Built with a specialised waterproof surface, they keep your menu presentation crisp, clean, and professional service after service, without the wear, warping, and staining of conventional covers.</p>
+                        <p>Waterproof Menu Covers (NTR) are crafted for hospitality spaces where menus are handled
+                            constantly and exposed to moisture, humidity, spills, and outdoor conditions. Built with a
+                            specialised waterproof surface, they keep your menu presentation crisp, clean, and
+                            professional service after service, without the wear, warping, and staining of conventional
+                            covers.</p>
                     </div>
                     <div class="card card--offset card--second reveal">
-                        <p>Every cover is finished with premium materials and refined detailing, so protection never comes at the cost of presentation. From matte and gloss surfaces to embossed logos and metal corner protectors, each piece is tailored to reflect your brand while delivering dependable, long-lasting performance in the busiest environments.</p>
+                        <p>Every cover is finished with premium materials and refined detailing, so protection never
+                            comes at the cost of presentation. From matte and gloss surfaces to embossed logos and metal
+                            corner protectors, each piece is tailored to reflect your brand while delivering dependable,
+                            long-lasting performance in the busiest environments.</p>
                     </div>
                 </div>
             </div>
@@ -415,33 +540,47 @@
                 <header class="sec-head reveal">
                     <p class="eyebrow eyebrow--sm">Why Choose Waterproof Menu Covers?</p>
                     <h2 class="h2 underline-gold">Built to Perform in Every Hospitality Environment</h2>
-                    <p class="lede">Hospitality venues demand menus that can withstand constant handling, humidity, and daily service without losing their premium appearance. Our Waterproof Menu Covers (NTR) are engineered exactly for that, combining protective performance with a refined, high-end finish.</p>
+                    <p class="lede">Hospitality venues demand menus that can withstand constant handling, humidity, and
+                        daily service without losing their premium appearance. Our Waterproof Menu Covers (NTR) are
+                        engineered exactly for that, combining protective performance with a refined, high-end finish.
+                    </p>
                 </header>
                 <div class="why__grid">
                     <article class="feature feature--hero reveal">
                         <span class="num">01</span>
                         <div class="ico">
-                            <svg viewBox="0 0 24 24"><path d="M12 2.5c4.2 5 6.5 8.2 6.5 11.2a6.5 6.5 0 1 1-13 0c0-3 2.3-6.2 6.5-11.2Z"/><path d="M9 14.2a3 3 0 0 0 3 3"/></svg>
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2.5c4.2 5 6.5 8.2 6.5 11.2a6.5 6.5 0 1 1-13 0c0-3 2.3-6.2 6.5-11.2Z" />
+                                <path d="M9 14.2a3 3 0 0 0 3 3" />
+                            </svg>
                         </div>
                         <h3>Waterproof &amp; Spill Resistant</h3>
-                        <p>A sealed waterproof surface repels water, moisture, and spills so menus stay pristine through every service.</p>
+                        <p>A sealed waterproof surface repels water, moisture, and spills so menus stay pristine through
+                            every service.</p>
                         <i class="tex"></i>
                     </article>
                     <article class="feature reveal">
                         <span class="num">02</span>
-                        <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 19h16"/><path d="M8 19V9l6-5 3 3-5 6v6"/></svg></div>
+                        <div class="ico"><svg viewBox="0 0 24 24">
+                                <path d="M4 19h16" />
+                                <path d="M8 19V9l6-5 3 3-5 6v6" />
+                            </svg></div>
                         <h3>Easy to Clean &amp; Maintain</h3>
                         <i class="tex"></i>
                     </article>
                     <article class="feature reveal">
                         <span class="num">03</span>
-                        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3Z"/></svg></div>
+                        <div class="ico"><svg viewBox="0 0 24 24">
+                                <path d="M12 3l7 3v5c0 4.5-3 8.2-7 10-4-1.8-7-5.5-7-10V6l7-3Z" />
+                            </svg></div>
                         <h3>Durable for Daily Use</h3>
                         <i class="tex"></i>
                     </article>
                     <article class="feature reveal">
                         <span class="num">04</span>
-                        <div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l2.3 5.1L20 9l-4 4 1 6-5-2.8L7 19l1-6-4-4 5.7-.9L12 3Z"/></svg></div>
+                        <div class="ico"><svg viewBox="0 0 24 24">
+                                <path d="M12 3l2.3 5.1L20 9l-4 4 1 6-5-2.8L7 19l1-6-4-4 5.7-.9L12 3Z" />
+                            </svg></div>
                         <h3>Elegant &amp; Professional Appearance</h3>
                         <i class="tex"></i>
                     </article>
@@ -456,8 +595,13 @@
                 <header class="sec-head sec-head--center reveal">
                     <!-- <p class="eyebrow eyebrow--sm">Premium Waterproof Materials</p> -->
                     <h2 class="h2 underline-gold">Engineered for Strength, Designed for Elegance</h2>
-                    <p class="lede">Each Waterproof Menu Cover (NTR) is produced using carefully selected materials that balance protection with a luxurious tactile feel. The surfaces are chosen to resist water, stains, and scratches while retaining the depth and richness expected of a premium menu presentation.</p>
-                    <p class="lede">From textured waterproof finishes to refined synthetic and PU leathers, every option is tested for real hospitality conditions — frequent handling, cleaning, humidity, and outdoor exposure.</p>
+                    <p class="lede">Each Waterproof Menu Cover (NTR) is produced using carefully selected materials that
+                        balance protection with a luxurious tactile feel. The surfaces are chosen to resist water,
+                        stains, and scratches while retaining the depth and richness expected of a premium menu
+                        presentation.</p>
+                    <p class="lede">From textured waterproof finishes to refined synthetic and PU leathers, every option
+                        is tested for real hospitality conditions — frequent handling, cleaning, humidity, and outdoor
+                        exposure.</p>
                 </header>
                 <div class="swatches">
 
@@ -534,7 +678,8 @@
                     </figure>
 
                 </div>
-                <p class="closing reveal">Together, these materials ensure your menus remain elegant, hygienic, and durable — maintaining a premium look and feel long after everyday use.</p>
+                <p class="closing reveal">Together, these materials ensure your menus remain elegant, hygienic, and
+                    durable — maintaining a premium look and feel long after everyday use.</p>
             </div>
             <div class="curve-bottom"></div>
         </section>
@@ -546,8 +691,12 @@
                     <header class="sec-head reveal">
                         <p class="eyebrow eyebrow--sm">Complete Customization</p>
                         <h2 class="h2 underline-gold">Customized to Match Your Brand Identity</h2>
-                        <p class="lede">Every Waterproof Menu Cover (NTR) is made to order, allowing you to shape size, layout, finish, and detailing around your venue's identity. Nothing is off-the-shelf — each element is selected to complement your interiors, your service style, and your brand.</p>
-                        <p class="lede">From subtle logo embossing to foil stamping, decorative stitching, and protective hardware, our customization options let you create a menu that feels unmistakably yours.</p>
+                        <p class="lede">Every Waterproof Menu Cover (NTR) is made to order, allowing you to shape size,
+                            layout, finish, and detailing around your venue's identity. Nothing is off-the-shelf — each
+                            element is selected to complement your interiors, your service style, and your brand.</p>
+                        <p class="lede">From subtle logo embossing to foil stamping, decorative stitching, and
+                            protective hardware, our customization options let you create a menu that feels unmistakably
+                            yours.</p>
                     </header>
                     <div class="chips reveal" style="margin-top: 120px;">
                         <span class="chip">Custom Sizes &amp; Dimensions</span>
@@ -565,7 +714,8 @@
                         <span class="chip">Premium Edge Finishing</span>
                     </div>
                 </div>
-                <p class="closing reveal">With complete design flexibility, your waterproof menus become a natural extension of your brand — practical, protective, and beautifully presented.</p>
+                <p class="closing reveal">With complete design flexibility, your waterproof menus become a natural
+                    extension of your brand — practical, protective, and beautifully presented.</p>
             </div>
         </section>
 
@@ -575,7 +725,8 @@
                 <header class="sec-head sec-head--center reveal">
                     <p class="eyebrow eyebrow--sm">Ideal Applications</p>
                     <h2 class="h2 underline-gold">Perfect for High-Traffic Hospitality Spaces</h2>
-                    <p class="lede">Waterproof Menu Covers (NTR) are ideal for venues where menus face constant handling, moisture, and outdoor conditions.</p>
+                    <p class="lede">Waterproof Menu Covers (NTR) are ideal for venues where menus face constant
+                        handling, moisture, and outdoor conditions.</p>
                 </header>
                 <div class="panels">
                     <div class="panel reveal">Restaurants</div>
@@ -634,24 +785,45 @@
                 </div>
                 <div class="ntr-faq" id="faq">
                     <div class="ntr-faq-item reveal">
-                        <button class="ntr-faq-q">What are Waterproof Menu Covers (NTR)?<span class="ntr-plus"></span></button>
-                        <div class="ntr-faq-a"><p>Waterproof Menu Covers (NTR) are premium menu covers made from specialised waterproof materials that resist water, moisture, spills, and stains, keeping menus clean and presentable in demanding hospitality environments.</p></div>
+                        <button class="ntr-faq-q">What are Waterproof Menu Covers (NTR)?<span
+                                class="ntr-plus"></span></button>
+                        <div class="ntr-faq-a">
+                            <p>Waterproof Menu Covers (NTR) are premium menu covers made from specialised waterproof
+                                materials that resist water, moisture, spills, and stains, keeping menus clean and
+                                presentable in demanding hospitality environments.</p>
+                        </div>
                     </div>
                     <div class="ntr-faq-item reveal">
-                        <button class="ntr-faq-q">Are these menu covers completely waterproof?<span class="ntr-plus"></span></button>
-                        <div class="ntr-faq-a"><p>Yes. The outer surface is 100% waterproof, so water, condensation, and spills simply wipe away without soaking, warping, or damaging the cover.</p></div>
+                        <button class="ntr-faq-q">Are these menu covers completely waterproof?<span
+                                class="ntr-plus"></span></button>
+                        <div class="ntr-faq-a">
+                            <p>Yes. The outer surface is 100% waterproof, so water, condensation, and spills simply wipe
+                                away without soaking, warping, or damaging the cover.</p>
+                        </div>
                     </div>
                     <div class="ntr-faq-item reveal">
-                        <button class="ntr-faq-q">Can they be customized with our restaurant logo?<span class="ntr-plus"></span></button>
-                        <div class="ntr-faq-a"><p>Absolutely. Logos can be applied through embossing, foil stamping, UV printing, or laser engraving, along with custom sizes, colours, textures, and finishes to match your brand identity.</p></div>
+                        <button class="ntr-faq-q">Can they be customized with our restaurant logo?<span
+                                class="ntr-plus"></span></button>
+                        <div class="ntr-faq-a">
+                            <p>Absolutely. Logos can be applied through embossing, foil stamping, UV printing, or laser
+                                engraving, along with custom sizes, colours, textures, and finishes to match your brand
+                                identity.</p>
+                        </div>
                     </div>
                     <div class="ntr-faq-item reveal">
-                        <button class="ntr-faq-q">Are Waterproof Menu Covers suitable for outdoor dining?<span class="ntr-plus"></span></button>
-                        <div class="ntr-faq-a"><p>Yes. They are built for poolside venues, rooftop restaurants, beach clubs, and outdoor cafés, where menus are exposed to humidity, splashes, and frequent handling.</p></div>
+                        <button class="ntr-faq-q">Are Waterproof Menu Covers suitable for outdoor dining?<span
+                                class="ntr-plus"></span></button>
+                        <div class="ntr-faq-a">
+                            <p>Yes. They are built for poolside venues, rooftop restaurants, beach clubs, and outdoor
+                                cafés, where menus are exposed to humidity, splashes, and frequent handling.</p>
+                        </div>
                     </div>
                     <div class="ntr-faq-item reveal">
                         <button class="ntr-faq-q">Are they easy to maintain?<span class="ntr-plus"></span></button>
-                        <div class="ntr-faq-a"><p>Very. A simple wipe with a damp cloth is enough to restore the surface, making them ideal for high-traffic venues that need fast, hygienic cleaning between services.</p></div>
+                        <div class="ntr-faq-a">
+                            <p>Very. A simple wipe with a damp cloth is enough to restore the surface, making them ideal
+                                for high-traffic venues that need fast, hygienic cleaning between services.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -666,7 +838,9 @@
             <div class="final__content reveal">
                 <div class="deco-divider deco-divider--left"><span></span><i class="deco-diamond"></i></div>
                 <h2 class="h2">Protect Your Menus While Elevating Your Brand</h2>
-                <p>Combine lasting protection with refined presentation. Our team will help you design Waterproof Menu Covers (NTR) tailored to your venue — from materials and finishes to logos, layouts, and hardware — so every menu handed to a guest reflects the standard of your hospitality.</p>
+                <p>Combine lasting protection with refined presentation. Our team will help you design Waterproof Menu
+                    Covers (NTR) tailored to your venue — from materials and finishes to logos, layouts, and hardware —
+                    so every menu handed to a guest reflects the standard of your hospitality.</p>
                 <div class="final__cta">
                     <a href="#" class="btn btn--gold ripple">Request a Free Quote</a>
                     <a href="#" class="btn btn--ghost ripple">Customize Your Waterproof Menu</a>
@@ -684,7 +858,8 @@
                         <div class="footer-col info-col col-lg-6 col-md-12 col-sm-12">
                             <div class="inner wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
                                 <div class="content">
-                                    <div class="logo"><a href="index.html"><img src="images/logo-footer.png" alt="Fine Fold Menus"></a></div>
+                                    <div class="logo"><a href="index.html"><img src="images/logo-footer.png"
+                                                alt="Fine Fold Menus"></a></div>
                                     <div class="info">
                                         <ul>
                                             <li>C-111, 3rd Floor, Naraina Industrial Area, Delhi - 110034</li>
@@ -711,11 +886,15 @@
                         <div class="footer-col links-col last col-lg-3 col-md-6 col-sm-12">
                             <div class="inner wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
                                 <ul class="links">
-                                    <li><a href="https://www.facebook.com/profile.php?id=61565289525469">facebook</a></li>
+                                    <li><a href="https://www.facebook.com/profile.php?id=61565289525469">facebook</a>
+                                    </li>
                                     <li><a href="https://www.instagram.com/finefoldmenus/">instagram</a></li>
                                     <li><a href="https://x.com/finefoldmenus">Twitter</a></li>
-                                    <li><a href="https://www.youtube.com/channel/UC666SYK-yWuOSna8JVsXwAQ">Youtube</a></li>
-                                    <li><a href="https://www.linkedin.com/in/fine-fold-menus-powered-by-shreeji-softech-57b615405/">LinkedIn</a></li>
+                                    <li><a href="https://www.youtube.com/channel/UC666SYK-yWuOSna8JVsXwAQ">Youtube</a>
+                                    </li>
+                                    <li><a
+                                            href="https://www.linkedin.com/in/fine-fold-menus-powered-by-shreeji-softech-57b615405/">LinkedIn</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -724,7 +903,8 @@
             </div>
             <div class="footer-bottom">
                 <div class="auto-container">
-                    <div class="copyright">&copy; 2026 Fine Fold Menus Powered by <a href="https://shreejisoftech.com/" target="blank">SHREEJI SOFTECH</a>. All Rights Reserved.</div>
+                    <div class="copyright">&copy; 2026 Fine Fold Menus Powered by <a href="https://shreejisoftech.com/"
+                            target="blank">SHREEJI SOFTECH</a>. All Rights Reserved.</div>
                 </div>
             </div>
         </footer>
@@ -751,4 +931,5 @@
     <script src="js/video-widget.js"></script>
 
 </body>
+
 </html>

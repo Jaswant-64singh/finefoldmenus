@@ -220,10 +220,21 @@ body {
 .ff-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 18px 44px -18px rgba(216, 179, 106, 0.75);
+    
+}
+.btn-outline-gold:hover {
+    background-color: #e2c08d;  /* Background color on hover (e.g., solid gold) */
+    color: #111111;             /* Text color on hover (e.g., dark text) */
+    border-color: #e2c08d;     /* Border color on hover */
 }
 
 .ff-btn--ghost:hover {
     background: rgba(216, 179, 106, 0.1);
+    color: var(--ff-gold);
+}
+
+.ff-btn--gold:hover {
+    color: #1a1408;
 }
 
 .ff-ripple {

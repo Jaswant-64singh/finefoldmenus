@@ -268,13 +268,14 @@
 }
 .am-btn--solid {
   background: var(--am-gradient-gold);
-  color: var(--am-bg);
+  color: black;
   border: 1px solid var(--am-gold);
 }
 .am-btn--solid:hover {
-  box-shadow: var(--am-glow);
-  transform: translateY(-2px);
-  color: #ffffff;
+  box-shadow: none;
+  transform: none;
+  color: black !important;
+  text-decoration: none;
 }
 .am-btn--outline {
   background: transparent;
