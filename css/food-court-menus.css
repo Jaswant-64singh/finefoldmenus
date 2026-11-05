@@ -1,0 +1,1316 @@
+/* ==============================================================================
+   FINE FOLD MENUS — FOOD COURT MENUS PAGE STYLESHEET
+   Premium luxury hospitality aesthetic with bespoke quick-service layouts
+   ============================================================================== */
+
+.food-court-page {
+    background-color: #0c0b0b;
+    color: #f6efe6;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.food-court-page .header-small-logo {
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    transform: translate(-50%, -50%);
+}
+
+.food-court-page .header-small-logo img {
+    display: block;
+    width: 134px;
+    max-width: 100%;
+    height: auto;
+    margin-left: 270px;
+}
+
+.food-court-menu {
+    --fc-bg: #0c0b0b;
+    --fc-surface: #141312;
+    --fc-surface-card: #1c1a18;
+    --fc-surface-hover: #24211e;
+    --fc-gold: #d8b36a;
+    --fc-gold-glow: rgba(216, 179, 106, 0.28);
+    --fc-gold-dark: #b8934a;
+    --fc-cream: #f6efe6;
+    --fc-muted: #beb6ab;
+    --fc-subtle: #756e64;
+    --fc-line: rgba(216, 179, 106, 0.2);
+    --fc-line-bright: rgba(216, 179, 106, 0.45);
+    background: var(--fc-bg);
+    color: var(--fc-cream);
+    font-size: 15px;
+    line-height: 1.85;
+}
+
+.food-court-menu *,
+.food-court-menu *::before,
+.food-court-menu *::after {
+    box-sizing: border-box;
+}
+
+.food-court-menu h1,
+.food-court-menu h2,
+.food-court-menu h3,
+.food-court-menu h4 {
+    margin: 0;
+    color: var(--fc-cream);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+}
+
+.food-court-menu h1 {
+    font-size: clamp(38px, 4.4vw, 62px);
+}
+
+.food-court-menu h2 {
+    font-size: clamp(30px, 3.4vw, 46px);
+}
+
+.food-court-menu h3 {
+    font-size: 26px;
+}
+
+.food-court-menu p {
+    margin: 0;
+    color: var(--fc-muted);
+    font-size: 15px;
+    line-height: 1.85;
+}
+
+.food-court-menu ul,
+.food-court-menu ol,
+.food-court-menu figure {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.food-court-menu img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.food-court-menu a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.25s ease, border-color 0.25s ease;
+}
+
+.food-court-menu a:hover {
+    color: var(--fc-gold);
+}
+
+.food-court-menu section,
+.food-court-menu [id] {
+    scroll-margin-top: 130px;
+}
+
+.fc-container {
+    width: min(1240px, calc(100% - 64px));
+    margin-inline: auto;
+}
+
+.fc-section {
+    padding-block: 100px;
+    position: relative;
+}
+
+.fc-section--tinted {
+    background: var(--fc-surface);
+}
+
+.fc-eyebrow {
+    margin-bottom: 20px;
+    color: var(--fc-gold);
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.6;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fc-eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--fc-gold);
+    box-shadow: 0 0 10px var(--fc-gold);
+}
+
+.fc-section-heading {
+    margin-bottom: 30px;
+}
+
+.fc-centered {
+    max-width: 780px;
+    margin-inline: auto;
+    text-align: center;
+}
+
+.fc-centered .fc-eyebrow {
+    justify-content: center;
+}
+
+.fc-intro {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--fc-muted);
+    margin-bottom: 40px;
+}
+
+.fc-gold-italic {
+    color: var(--fc-gold);
+    font-style: italic;
+    font-weight: 400;
+}
+
+/* ==============================================================================
+   BUTTONS & CTA PILLS
+   ============================================================================== */
+.fc-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 34px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.fc-btn--primary {
+    background: linear-gradient(135deg, #d8b36a 0%, #c49a4d 100%);
+    color: #0c0b0b;
+    border: 1px solid var(--fc-gold);
+    box-shadow: 0 8px 24px rgba(216, 179, 106, 0.22);
+}
+
+.fc-btn--primary:hover {
+    background: linear-gradient(135deg, #e5c483 0%, #d8b36a 100%);
+    color: #000;
+    box-shadow: 0 12px 32px rgba(216, 179, 106, 0.35);
+    transform: translateY(-2px);
+}
+
+.fc-btn--secondary {
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--fc-cream);
+    border: 1px solid var(--fc-line-bright);
+    backdrop-filter: blur(8px);
+}
+
+.fc-btn--secondary:hover {
+    background: rgba(216, 179, 106, 0.1);
+    color: var(--fc-gold);
+    border-color: var(--fc-gold);
+    transform: translateY(-2px);
+}
+
+.fc-btn--tertiary {
+    background: transparent;
+    color: var(--fc-gold);
+    border-bottom: 1px solid var(--fc-gold);
+    padding: 6px 0;
+    border-radius: 0;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+}
+
+.fc-btn--tertiary:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+.fc-skip-link {
+    position: absolute;
+    top: -100px;
+    left: 20px;
+    background: var(--fc-gold);
+    color: #000;
+    padding: 10px 18px;
+    z-index: 99999;
+    font-weight: 600;
+    border-radius: 4px;
+    transition: top 0.2s ease;
+}
+
+.fc-skip-link:focus {
+    top: 20px;
+}
+
+/* ==============================================================================
+   1. HERO SECTION (Asymmetric Architecture Layout)
+   ============================================================================== */
+.fc-hero {
+    position: relative;
+    padding-top: 190px;
+    padding-bottom: 100px;
+    background: radial-gradient(circle at 80% 20%, rgba(216, 179, 106, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 10% 70%, rgba(255, 255, 255, 0.02) 0%, transparent 50%),
+                var(--fc-bg);
+    border-bottom: 1px solid var(--fc-line);
+    overflow: hidden;
+}
+
+.fc-hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.95fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.fc-hero-copy {
+    position: relative;
+    z-index: 2;
+}
+
+.fc-hero-title {
+    margin-bottom: 24px;
+}
+
+.fc-hero-desc {
+    font-size: 16px;
+    line-height: 1.85;
+    margin-bottom: 32px;
+    color: var(--fc-muted);
+}
+
+.fc-hero-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 36px;
+}
+
+.fc-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(216, 179, 106, 0.07);
+    border: 1px solid var(--fc-line);
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--fc-cream);
+    letter-spacing: 0.03em;
+}
+
+.fc-pill i {
+    color: var(--fc-gold);
+    font-size: 10px;
+}
+
+.fc-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 36px;
+}
+
+.fc-scroll-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--fc-subtle);
+    transition: color 0.25s ease;
+}
+
+.fc-scroll-indicator:hover {
+    color: var(--fc-gold);
+}
+
+.fc-scroll-indicator span.arrow {
+    display: inline-block;
+    animation: fcBounce 2s infinite ease-in-out;
+}
+
+@keyframes fcBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+}
+
+/* Hero Visual Showcase */
+.fc-hero-visual {
+    position: relative;
+}
+
+.fc-hero-frame {
+    position: relative;
+    border-radius: 18px;
+    padding: 10px;
+    background: linear-gradient(135deg, rgba(216, 179, 106, 0.3) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(216, 179, 106, 0.15) 100%);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+}
+
+.fc-hero-frame img {
+    border-radius: 12px;
+    aspect-ratio: 4 / 3.4;
+    object-fit: cover;
+    filter: brightness(0.95) contrast(1.05);
+}
+
+.fc-hero-floating-badge {
+    position: absolute;
+    top: -16px;
+    right: -16px;
+    background: rgba(20, 19, 18, 0.94);
+    border: 1px solid var(--fc-line-bright);
+    backdrop-filter: blur(12px);
+    padding: 12px 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.4);
+}
+
+.fc-hero-floating-badge .star-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(216, 179, 106, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--fc-gold);
+    font-size: 14px;
+}
+
+.fc-hero-floating-badge strong {
+    display: block;
+    font-size: 13px;
+    color: var(--fc-cream);
+    letter-spacing: 0.04em;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-weight: 600;
+}
+
+.fc-hero-floating-badge span {
+    font-size: 11px;
+    color: var(--fc-muted);
+}
+
+.fc-hero-bottom-tag {
+    position: absolute;
+    bottom: -18px;
+    left: 24px;
+    background: rgba(20, 19, 18, 0.94);
+    border: 1px solid var(--fc-line-bright);
+    backdrop-filter: blur(12px);
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 12px;
+    color: var(--fc-cream);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+.fc-hero-bottom-tag i {
+    color: var(--fc-gold);
+}
+
+/* ==============================================================================
+   2. ABOUT SECTION (Architectural Split with Highlights)
+   ============================================================================== */
+.fc-split-about {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.fc-about-media {
+    position: relative;
+}
+
+.fc-about-frame {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--fc-line);
+    background: var(--fc-surface-card);
+}
+
+.fc-about-frame img {
+    aspect-ratio: 4 / 3.8;
+    object-fit: cover;
+    filter: brightness(0.9);
+    transition: transform 0.6s ease;
+}
+
+.fc-about-frame:hover img {
+    transform: scale(1.03);
+}
+
+.fc-about-quote {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: rgba(12, 11, 11, 0.88);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--fc-line);
+    padding: 16px 20px;
+    border-radius: 10px;
+}
+
+.fc-about-quote p {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 17px;
+    font-style: italic;
+    color: var(--fc-cream);
+    line-height: 1.45;
+}
+
+.fc-about-content p {
+    margin-bottom: 20px;
+}
+
+.fc-about-content p:last-child {
+    margin-bottom: 0;
+}
+
+.fc-about-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 34px;
+    padding-top: 28px;
+    border-top: 1px solid var(--fc-line);
+}
+
+.fc-about-pill-card {
+    background: var(--fc-surface);
+    border: 1px solid var(--fc-line);
+    border-radius: 10px;
+    padding: 14px 16px;
+}
+
+.fc-about-pill-card .num {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--fc-gold);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.fc-about-pill-card h4 {
+    font-size: 14px;
+    color: var(--fc-cream);
+    margin-bottom: 4px;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+}
+
+.fc-about-pill-card p {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--fc-muted);
+}
+
+/* ==============================================================================
+   3. WHY CHOOSE (4-Pillar Modern Bento Cards)
+   ============================================================================== */
+.fc-why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.fc-why-card {
+    background: var(--fc-surface-card);
+    border: 1px solid var(--fc-line);
+    border-radius: 14px;
+    padding: 34px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.fc-why-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--fc-gold), transparent);
+    opacity: 0.3;
+    transition: opacity 0.35s ease;
+}
+
+.fc-why-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--fc-gold);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+}
+
+.fc-why-card:hover::before {
+    opacity: 1;
+}
+
+.fc-why-num {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: var(--fc-gold);
+    line-height: 1;
+    margin-bottom: 18px;
+    display: inline-block;
+}
+
+.fc-why-card h3 {
+    font-size: 21px;
+    margin-bottom: 14px;
+    color: var(--fc-cream);
+}
+
+.fc-why-card p {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--fc-muted);
+}
+
+/* ==============================================================================
+   4. FOOD COURT MENU COLLECTION (Staggered Showcase Grid)
+   ============================================================================== */
+.fc-collection-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.fc-collection-card {
+    background: var(--fc-surface-card);
+    border: 1px solid var(--fc-line);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.fc-collection-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--fc-gold);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5);
+}
+
+.fc-collection-card.fc-card--wide {
+    grid-column: span 1;
+}
+
+.fc-collection-card-media {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 10.5;
+    background: #000;
+}
+
+.fc-collection-card-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    filter: brightness(0.92);
+}
+
+.fc-collection-card:hover .fc-collection-card-media img {
+    transform: scale(1.06);
+}
+
+.fc-collection-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: rgba(12, 11, 11, 0.85);
+    border: 1px solid var(--fc-line-bright);
+    color: var(--fc-gold);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+}
+
+.fc-collection-num {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(12, 11, 11, 0.85);
+    border: 1px solid var(--fc-line);
+    color: var(--fc-cream);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+}
+
+.fc-collection-body {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.fc-collection-body h3 {
+    font-size: 23px;
+    margin-bottom: 12px;
+    color: var(--fc-cream);
+}
+
+.fc-collection-body p {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--fc-muted);
+    margin-bottom: 22px;
+    flex-grow: 1;
+}
+
+.fc-collection-footer {
+    padding-top: 16px;
+    border-top: 1px solid var(--fc-line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.fc-collection-link {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fc-gold);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.fc-collection-link i {
+    transition: transform 0.25s ease;
+}
+
+.fc-collection-card:hover .fc-collection-link i {
+    transform: translateX(4px);
+}
+
+.fc-brand-watermark {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 11px;
+    letter-spacing: 0.35em;
+    color: var(--fc-subtle);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+/* ==============================================================================
+   5. COMPLETE MENU CUSTOMIZATION (Sticky Left + Process Cards Right)
+   ============================================================================== */
+.fc-custom-layout {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.fc-custom-sticky {
+    position: sticky;
+    top: 140px;
+}
+
+.fc-custom-preview-card {
+    background: var(--fc-surface-card);
+    border: 1px solid var(--fc-line);
+    border-radius: 16px;
+    overflow: hidden;
+    margin-top: 30px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.fc-custom-preview-card img {
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
+.fc-custom-preview-card .caption {
+    padding: 20px 24px;
+    font-size: 13px;
+    color: var(--fc-muted);
+    border-top: 1px solid var(--fc-line);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.fc-custom-preview-card .caption i {
+    color: var(--fc-gold);
+}
+
+.fc-custom-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+}
+
+.fc-step-card {
+    background: var(--fc-surface-card);
+    border: 1px solid var(--fc-line);
+    border-radius: 14px;
+    padding: 28px 28px 28px 32px;
+    position: relative;
+    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+.fc-step-card:hover {
+    transform: translateX(6px);
+    border-color: var(--fc-gold);
+    background: var(--fc-surface-hover);
+}
+
+.fc-step-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 12px;
+}
+
+.fc-step-badge {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--fc-gold);
+    background: rgba(216, 179, 106, 0.1);
+    border: 1px solid var(--fc-line);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.fc-step-header h3 {
+    font-size: 21px;
+    color: var(--fc-cream);
+    margin: 0;
+}
+
+.fc-step-card p {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--fc-muted);
+}
+
+/* ==============================================================================
+   6. IDEAL APPLICATIONS (4x4 Matrix Grid)
+   ============================================================================== */
+.fc-venues-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.fc-venue-tile {
+    background: var(--fc-surface-card);
+    border: 1px solid var(--fc-line);
+    border-radius: 12px;
+    padding: 22px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: all 0.3s ease;
+}
+
+.fc-venue-tile:hover {
+    transform: translateY(-4px);
+    border-color: var(--fc-gold);
+    background: var(--fc-surface-hover);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+.fc-venue-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--fc-gold);
+    flex-shrink: 0;
+    box-shadow: 0 0 8px var(--fc-gold);
+}
+
+.fc-venue-tile span {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--fc-cream);
+    letter-spacing: 0.02em;
+}
+
+/* ==============================================================================
+   7. CUISINES & FOOD CATEGORIES MATRIX
+   ============================================================================== */
+.fc-category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.fc-category-item {
+    background: var(--fc-surface-card);
+    border: 1px solid var(--fc-line);
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.fc-category-item:hover {
+    transform: translateX(4px);
+    border-color: var(--fc-gold);
+    background: var(--fc-surface-hover);
+}
+
+.fc-category-item .left {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.fc-category-item .num {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--fc-gold);
+}
+
+.fc-category-item h4 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 20px;
+    color: var(--fc-cream);
+    margin: 0;
+}
+
+.fc-category-item .badge {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--fc-gold);
+    background: rgba(216, 179, 106, 0.08);
+    border: 1px solid var(--fc-line);
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+
+/* ==============================================================================
+   8. DESIGNED FOR EVERYDAY SERVICE (Balanced Layout)
+   ============================================================================== */
+.fc-service-split {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.fc-service-text p {
+    margin-bottom: 20px;
+}
+
+.fc-service-text p:last-child {
+    margin-bottom: 0;
+}
+
+.fc-service-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+.fc-service-box {
+    background: var(--fc-surface-card);
+    border: 1px solid var(--fc-line);
+    border-radius: 14px;
+    padding: 28px 22px;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.fc-service-box:hover {
+    transform: translateY(-4px);
+    border-color: var(--fc-gold);
+}
+
+.fc-service-box .icon-wrap {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background: rgba(216, 179, 106, 0.1);
+    border: 1px solid var(--fc-line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--fc-gold);
+    font-size: 20px;
+}
+
+.fc-service-box h4 {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: var(--fc-cream);
+}
+
+.fc-service-box p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--fc-muted);
+}
+
+/* ==============================================================================
+   9. FEATURES & BENEFITS (12-Item Luxury Grid)
+   ============================================================================== */
+.fc-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.fc-feature-item {
+    background: var(--fc-surface-card);
+    border: 1px solid var(--fc-line);
+    border-radius: 12px;
+    padding: 20px 22px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.fc-feature-item:hover {
+    transform: translateY(-3px);
+    border-color: var(--fc-gold);
+    background: var(--fc-surface-hover);
+}
+
+.fc-feature-check {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(216, 179, 106, 0.12);
+    border: 1px solid var(--fc-line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--fc-gold);
+    font-size: 13px;
+    flex-shrink: 0;
+}
+
+.fc-feature-item span.text {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--fc-cream);
+    letter-spacing: 0.02em;
+}
+
+/* ==============================================================================
+   10. FREQUENTLY ASKED QUESTIONS (Accordion Layout)
+   ============================================================================== */
+.fc-faq-layout {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.fc-faq-sidebar {
+    position: sticky;
+    top: 140px;
+}
+
+.fc-faq-card-prompt {
+    background: var(--fc-surface-card);
+    border: 1px solid var(--fc-line);
+    border-radius: 16px;
+    padding: 36px 30px;
+    margin-top: 30px;
+}
+
+.fc-faq-card-prompt h4 {
+    font-size: 24px;
+    margin-bottom: 12px;
+    color: var(--fc-cream);
+}
+
+.fc-faq-card-prompt p {
+    font-size: 14px;
+    color: var(--fc-muted);
+    margin-bottom: 24px;
+}
+
+.fc-faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.fc-faq-item {
+    background: var(--fc-surface-card);
+    border: 1px solid var(--fc-line);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+}
+
+.fc-faq-item[open] {
+    border-color: var(--fc-gold);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.fc-faq-summary {
+    padding: 22px 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 21px;
+    color: var(--fc-cream);
+    user-select: none;
+    list-style: none;
+    transition: color 0.25s ease;
+}
+
+.fc-faq-summary::-webkit-details-marker {
+    display: none;
+}
+
+.fc-faq-summary:hover {
+    color: var(--fc-gold);
+}
+
+.fc-faq-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(216, 179, 106, 0.1);
+    border: 1px solid var(--fc-line);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--fc-gold);
+    font-size: 12px;
+    flex-shrink: 0;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.fc-faq-item[open] .fc-faq-icon {
+    transform: rotate(45deg);
+    background: var(--fc-gold);
+    color: #000;
+}
+
+.fc-faq-answer {
+    padding: 0 28px 24px 28px;
+    font-size: 14.5px;
+    line-height: 1.8;
+    color: var(--fc-muted);
+    border-top: 1px solid rgba(216, 179, 106, 0.1);
+    margin-top: 6px;
+    padding-top: 16px;
+}
+
+/* ==============================================================================
+   11. GRAND FINAL CTA (Framed Luxury Banner)
+   ============================================================================== */
+.fc-cta-section {
+    padding-block: 110px;
+    background: radial-gradient(circle at center, rgba(216, 179, 106, 0.1) 0%, transparent 70%),
+                var(--fc-bg);
+    position: relative;
+}
+
+.fc-cta-banner {
+    background: linear-gradient(135deg, rgba(28, 26, 24, 0.95) 0%, rgba(20, 19, 18, 0.95) 100%);
+    border: 1px solid var(--fc-line-bright);
+    border-radius: 20px;
+    padding: 70px 60px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+.fc-cta-banner::before,
+.fc-cta-banner::after {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--fc-gold);
+}
+
+.fc-cta-banner::before {
+    top: 18px;
+    left: 18px;
+    border-right: none;
+    border-bottom: none;
+}
+
+.fc-cta-banner::after {
+    bottom: 18px;
+    right: 18px;
+    border-left: none;
+    border-top: none;
+}
+
+.fc-cta-inner {
+    max-width: 860px;
+    margin-inline: auto;
+}
+
+.fc-cta-inner h2 {
+    font-size: clamp(34px, 4vw, 52px);
+    margin-bottom: 24px;
+}
+
+.fc-cta-inner p {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--fc-muted);
+    margin-bottom: 20px;
+}
+
+.fc-cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 36px;
+}
+
+/* ==============================================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================================== */
+@media (max-width: 1100px) {
+    .fc-why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .fc-venues-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .fc-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 991px) {
+    .fc-hero-grid,
+    .fc-split-about,
+    .fc-custom-layout,
+    .fc-service-split,
+    .fc-faq-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    .fc-hero {
+        padding-top: 170px;
+        padding-bottom: 70px;
+    }
+    .fc-collection-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .fc-collection-card.fc-card--wide {
+        grid-column: span 1;
+    }
+    .fc-custom-sticky,
+    .fc-faq-sidebar {
+        position: static;
+    }
+    .fc-venues-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .food-court-page .header-small-logo {
+        display: none;
+    }
+    .fc-section {
+        padding-block: 70px;
+    }
+    .fc-container {
+        width: calc(100% - 32px);
+    }
+    .fc-hero-pills {
+        gap: 8px;
+    }
+    .fc-hero-floating-badge {
+        position: static;
+        margin-top: 16px;
+    }
+    .fc-hero-bottom-tag {
+        position: static;
+        margin-top: 12px;
+    }
+    .fc-about-highlights {
+        grid-template-columns: 1fr;
+    }
+    .fc-why-grid,
+    .fc-collection-grid,
+    .fc-category-grid,
+    .fc-service-cards,
+    .fc-features-grid,
+    .fc-venues-grid {
+        grid-template-columns: 1fr;
+    }
+    .fc-cta-banner {
+        padding: 40px 24px;
+    }
+    .fc-cta-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    .fc-cta-buttons .fc-btn {
+        width: 100%;
+    }
+    .fc-step-card {
+        padding: 22px 20px;
+    }
+}
+
