@@ -4319,7 +4319,7 @@ body.visible-sidebar {
   font-weight: 700;
   color: var(--main-color);
   font-size: var(--font-12);
-  letter-spacing: 0.40em;
+  letter-spacing: 0.2em;
   margin-bottom: var(--margin-bottom-0);
 }
 

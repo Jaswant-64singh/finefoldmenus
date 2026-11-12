@@ -219,6 +219,586 @@
             }
         }
     </style>
+    <style>
+        /* About page presentation. Kept local to this page so shared styles stay unchanged. */
+        .about-section {
+            padding: 118px 0 110px;
+            background: linear-gradient(180deg, #191a1b 0%, #141515 100%);
+        }
+
+        .about-section .info-block {
+            grid-column: 1 / -1;
+            text-align: left;
+        }
+
+        .about-section .info-block .inner-box::before {
+            display: none;
+        }
+
+        .about-section .info-block .about-feature-card {
+            display: grid;
+            grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+            gap: 0 64px;
+            min-height: 0;
+            margin: 0;
+            padding: 50px 56px;
+            border: 1px solid rgba(228, 197, 144, .44);
+            background: linear-gradient(135deg, #242321 0%, #181919 72%);
+            text-align: left;
+        }
+
+        .about-feature-card .feature-card-top {
+            grid-column: 1;
+            grid-row: 1;
+            margin-bottom: 24px;
+        }
+
+        .about-feature-card h4 {
+            grid-column: 1;
+            grid-row: 2;
+            max-width: 440px;
+            margin-bottom: 19px;
+            font-size: clamp(30px, 3vw, 42px);
+            line-height: 1.12;
+            text-wrap: balance;
+        }
+
+        .about-feature-card p {
+            grid-column: 1;
+            grid-row: 3;
+            max-width: 44ch;
+            margin: 0;
+            font-size: 16px;
+            line-height: 1.75;
+        }
+
+        .about-feature-card .feature-list {
+            grid-column: 2;
+            grid-row: 1 / 4;
+            align-self: center;
+            margin: 0;
+        }
+
+        .about-feature-card .feature-list li {
+            gap: 18px;
+            padding: 18px 0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .about-feature-card .feature-list strong {
+            margin-bottom: 3px;
+            font-size: 16px;
+        }
+
+        .about-section .premium-fact-counter {
+            margin-top: 62px;
+            border: 1px solid rgba(228, 197, 144, .32);
+            border-radius: 0;
+            background: #101111;
+            box-shadow: 0 24px 55px rgba(0, 0, 0, .12);
+        }
+
+        .about-section .premium-fact-counter .row {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .about-section .premium-fact-counter .fact-block {
+            width: auto;
+            max-width: none;
+            min-height: 176px;
+            margin: 0;
+            padding: 28px 18px;
+            flex: none;
+        }
+
+        .about-section .premium-fact-counter .fact-count {
+            color: #e4c590;
+            font-size: 56px;
+        }
+
+        .about-section .fact-counter .fact-title {
+            color: #cfc8bc;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .16em;
+            line-height: 1.5;
+        }
+
+        .testimonials-two {
+            padding: 110px 0;
+            background: #111212;
+        }
+
+        .testimonials-two .image-layer {
+            opacity: .16;
+            background-attachment: scroll;
+        }
+
+        .testimonials-two .title-box h2 {
+            font-size: clamp(38px, 4vw, 54px);
+            line-height: 1.12;
+        }
+
+        .testimonials-two .testi-block .inner-box {
+            min-height: 354px;
+            padding: 45px 40px;
+            border: 1px solid rgba(228, 197, 144, .26);
+            background: #1d1e1e;
+        }
+
+        .testimonials-two .testi-block .quote-icon {
+            opacity: .28;
+        }
+
+        .testimonials-two .testi-block .text {
+            font-size: 24px;
+            line-height: 1.42;
+            text-align: left;
+        }
+
+        .image-gallery {
+            padding: 90px 0 110px;
+            border-top: 1px solid rgba(228, 197, 144, .15);
+            background: #171819;
+        }
+
+        .image-gallery .auto-container {
+            max-width: 1040px;
+        }
+
+        .image-gallery .gallery-block .image {
+            border: 1px solid rgba(228, 197, 144, .28);
+        }
+
+        @media (max-width: 991px) {
+            .about-section {
+                padding: 90px 0;
+            }
+
+            .about-section .info-block .about-feature-card {
+                gap: 0 36px;
+                padding: 38px;
+            }
+
+            .about-section .premium-fact-counter .row {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .about-section .premium-fact-counter .fact-block:nth-child(2) {
+                border-right: 0;
+            }
+
+            .about-section .premium-fact-counter .fact-block:nth-child(-n+2) {
+                border-bottom: 1px solid rgba(228, 197, 144, .28);
+            }
+
+        }
+
+        @media (max-width: 767px) {
+            body .sticky-video-widget {
+                width: 54px;
+                right: 4px;
+                bottom: 8px;
+                border-radius: 8px;
+            }
+
+            body .sticky-close-btn {
+                top: 2px;
+                right: 2px;
+                width: 18px;
+                height: 18px;
+                font-size: 11px;
+            }
+
+            .about-section {
+                padding: 78px 0;
+            }
+
+            .about-section .row .about-block {
+                text-align: left;
+            }
+
+            .about-section .info-block {
+                grid-column: 1;
+            }
+
+            .about-section .info-block .about-feature-card {
+                display: block;
+                padding: 32px 26px;
+            }
+
+            .about-feature-card .feature-list {
+                margin-top: 28px;
+            }
+
+            .about-section .premium-fact-counter {
+                margin-top: 42px;
+            }
+
+            .testimonials-two {
+                padding: 78px 0;
+            }
+
+            .testimonials-two .testi-block .inner-box {
+                min-height: 0;
+                padding: 40px 28px;
+            }
+
+            .testimonials-two .testi-block .text {
+                font-size: 22px;
+            }
+
+            .image-gallery {
+                padding: 70px 0 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-section .premium-fact-counter .fact-block {
+                min-height: 148px;
+                padding: 22px 10px;
+            }
+
+            .about-section .premium-fact-counter .fact-count {
+                font-size: 44px;
+            }
+
+            .about-section .fact-counter .fact-title {
+                font-size: 10px;
+                letter-spacing: .1em;
+            }
+
+        }
+
+        .inner-banner {
+            padding: clamp(190px, 17vw, 255px) 0 clamp(64px, 6vw, 96px);
+            background: #15110c;
+        }
+
+        .inner-banner .image-layer {
+            opacity: .65;
+        }
+
+        .inner-banner::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: radial-gradient(ellipse at center, #100c08a6, transparent 88%);
+            pointer-events: none;
+        }
+
+        .inner-banner .inner {
+            max-width: 730px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .inner-banner .pattern-image {
+            width: 76px;
+            margin: 10px auto 18px;
+        }
+
+        .inner-banner .inner h1,
+        .inner-banner .inner h1 span {
+            font-size: clamp(29px, 3.2vw, 46px);
+            line-height: 1.14;
+            letter-spacing: 0;
+            text-wrap: balance;
+            text-align: center;
+        }
+
+        .bindery-story {
+            display: grid;
+            grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr);
+            margin-bottom: 40px;
+            color: #2e251c;
+            background: #f5eee1;
+        }
+
+        .bindery-copy {
+            grid-column: 2;
+            grid-row: 1;
+            padding: clamp(28px, 4vw, 60px);
+            align-self: center;
+        }
+
+        .bindery-label,
+        .bindery-subhead {
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.5;
+            letter-spacing: .18em;
+            color: #71512c;
+            text-transform: uppercase;
+        }
+
+        .bindery-copy h2 {
+            margin: 14px 0 26px;
+            font-size: clamp(31px, 3vw, 46px);
+            line-height: 1.1;
+            color: #241c14;
+            text-align: left;
+            text-wrap: balance;
+        }
+
+        .bindery-subhead {
+            border-top: 1px solid #b8a180;
+            padding-top: 22px;
+            margin-bottom: 12px;
+        }
+
+        .bindery-copy p {
+            margin: 0;
+            font-size: clamp(16px, 1.3vw, 18px);
+            line-height: 1.72;
+            color: #40382e;
+        }
+
+        .bindery-copy p+p {
+            margin-top: 16px;
+        }
+
+        .bindery-photo {
+            grid-area: 1 / 1;
+            position: relative;
+            min-height: 360px;
+            background: #241b13;
+        }
+
+        .bindery-photo img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bindery-photo::after {
+            content: "";
+            position: absolute;
+            inset: 13px;
+            border: 1px solid #e8d3a87d;
+            pointer-events: none;
+        }
+
+        .about-section>.auto-container>.row {
+            margin: 0;
+        }
+
+        .about-section>.auto-container>.row>.info-block {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .atelier {
+            background: #101716;
+            border-block: 1px solid #bda27145;
+            padding: clamp(58px, 7vw, 100px) 0;
+        }
+
+        .atelier-grid {
+            display: grid;
+            grid-template-columns: minmax(0, .85fr) minmax(0, 1.5fr);
+            gap: clamp(24px, 4vw, 60px);
+            align-items: center;
+        }
+
+        .atelier .bindery-label {
+            color: #e1c491;
+        }
+
+        .atelier h2 {
+            margin: 14px 0 6px;
+            font-size: clamp(32px, 3.2vw, 48px);
+            line-height: 1.1;
+            color: #f6eee0;
+            text-wrap: balance;
+        }
+
+        .atelier-piece {
+            position: relative;
+            display: grid;
+            place-items: center;
+            isolation: isolate;
+        }
+
+        .atelier-piece::before {
+            content: "";
+            position: absolute;
+            inset: 10% 0 0;
+            background: radial-gradient(ellipse, #b4914f2b, transparent 68%);
+            z-index: -1;
+        }
+
+        .atelier-piece img {
+            width: auto;
+            height: clamp(200px, 24vw, 340px);
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        .atelier-cards {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .atelier-card {
+            position: relative;
+            padding: clamp(22px, 2vw, 32px);
+            border: 1px solid #a48e6c65;
+            background: linear-gradient(145deg, #27312d, #1a211f);
+        }
+
+        .atelier-icon {
+            width: 52px;
+            height: 52px;
+            display: grid;
+            place-items: center;
+            background: #151b18;
+            border: 1px solid #b99f6d88;
+            border-radius: 50%;
+        }
+
+        .atelier-icon img {
+            width: 34px;
+            height: 34px;
+            object-fit: contain;
+        }
+
+        .atelier-card h3 {
+            margin: 17px 0 10px;
+            color: #fff3db;
+            font-size: clamp(24px, 2vw, 30px);
+            line-height: 1.13;
+        }
+
+        .atelier-card p {
+            margin: 0;
+            color: #d9ded6;
+            font-size: 16px;
+            line-height: 1.65;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .atelier .arrived {
+                animation: atelier-arrive .65s cubic-bezier(.2, .65, .3, 1) both;
+                animation-delay: calc(var(--step, 0) * 65ms);
+            }
+
+            .atelier-display.arrived img {
+                animation: atelier-lift 4.5s ease-in-out;
+            }
+
+            .atelier-card,
+            .atelier-icon {
+                transition: border-color .25s, translate .25s;
+            }
+        }
+
+        @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+            .atelier-card:hover {
+                translate: 0 -4px;
+                border-color: #dbbf88;
+            }
+
+            .atelier-card:hover .atelier-icon {
+                translate: 0 -2px;
+                border-color: #dbbf88;
+            }
+        }
+
+        @keyframes atelier-arrive {
+            from {
+                opacity: .15;
+                transform: translateY(18px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes atelier-lift {
+            50% {
+                transform: translateY(-7px) rotate(1deg);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .atelier-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .atelier-display {
+                display: grid;
+                grid-template-columns: 1fr auto;
+                align-content: center;
+            }
+
+            .atelier-display .bindery-label,
+            .atelier-display h2 {
+                grid-column: 1;
+            }
+
+            .atelier-piece {
+                grid-column: 2;
+                grid-row: 1 / 3;
+            }
+
+            .atelier-piece img {
+                height: 158px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .inner-banner {
+                padding: 178px 0 62px;
+            }
+
+            .bindery-story {
+                grid-template-columns: 1fr;
+            }
+
+            .bindery-copy {
+                grid-area: auto;
+                padding: 28px clamp(20px, 5vw, 40px);
+            }
+
+            .bindery-photo {
+                grid-area: auto;
+                min-height: 0;
+                height: clamp(240px, 57vw, 350px);
+            }
+
+            .bindery-photo img {
+                object-position: center 55%;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .atelier-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .atelier-display {
+                display: block;
+            }
+
+            .atelier-piece {
+                margin-top: 12px;
+            }
+
+            .atelier-piece img {
+                height: 190px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -342,17 +922,22 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="menu-block col-lg-3 col-md-6 col-sm-6">
-                                                                        <div class="image"><a href="Hotels-Resorts.html"><img
+                                                                        <div class="image"><a
+                                                                                href="Hotels-Resorts.html"><img
                                                                                     src="images/hotels-and-resorts.jpg"
                                                                                     alt="Hotels & Resorts"></a></div>
-                                                                        <div class="title"><a href="Hotels-Resorts.html">Hotels &
+                                                                        <div class="title"><a
+                                                                                href="Hotels-Resorts.html">Hotels &
                                                                                 Resorts</a></div>
                                                                     </div>
                                                                     <div class="menu-block col-lg-3 col-md-6 col-sm-6">
-                                                                        <div class="image"><a href="Food-Court-Menus.html"><img
+                                                                        <div class="image"><a
+                                                                                href="Food-Court-Menus.html"><img
                                                                                     src="images/food-court.jpg"
                                                                                     alt="Food Court"></a></div>
-                                                                        <div class="title"><a href="Food-Court-Menus.html">Food Court</a>
+                                                                        <div class="title"><a
+                                                                                href="Food-Court-Menus.html">Food
+                                                                                Court</a>
                                                                         </div>
                                                                     </div>
                                                                     <div class="menu-block col-lg-3 col-md-6 col-sm-6">
@@ -549,55 +1134,27 @@
             <!-- <div class="left-bg"><img src="images/sticky-img.png" alt="" title=""></div>
             <div class="right-bg"><img src="images/background/bg-11.png" alt="" title=""></div> -->
             <div class="auto-container">
-                <div class="title-box centered">
-                    <div class="subtitle"><span>who we are</span></div>
-                    <div class="pattern-image"><img src="images/icons/separator.svg" alt="" title=""></div>
-                    <h3>
-                        Crafting Premium Menu Presentation Solutions Backed by 20+ Years of Excellence
-
-                    </h3>
-                </div>
+                <article class="bindery-story">
+                    <div class="bindery-copy">
+                        <div class="bindery-label">who we are</div>
+                        <h2>Crafting Premium Menu Presentation Solutions Backed by 20+ Years of Excellence</h2>
+                        <div class="bindery-subhead">Our Commitment</div>
+                        <p>At Fine Fold Menus, we combine over 20 years of manufacturing and printing
+                            expertise with a passion for premium hospitality branding. As the specialized
+                            hospitality division of Shree Ji Softech, we create bespoke menu covers, bill
+                            presenters, menu folders, and luxury branding solutions that reflect the identity of
+                            every restaurant, hotel, cafe, and resort.</p>
+                        <p>Every product is thoughtfully designed using premium materials, precision craftsmanship,
+                            and advanced manufacturing techniques to deliver exceptional quality and lasting
+                            durability. From concept and customization to production and finishing, we are committed
+                            to helping hospitality brands create unforgettable first impressions while carrying
+                            forward the trusted legacy, innovation, and customer-focused values established by Shree
+                            Ji Softech since 2008.</p>
+                    </div>
+                    <div class="bindery-photo"><img src="images/resource/about-img.png"
+                            alt="Hand stitching a leather menu cover"></div>
+                </article>
                 <div class="row clearfix">
-                    <!--Block-->
-                    <div class="about-block content-block col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                        <div class="inner-box wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="0ms">
-                            <div class="eyebrow">Our Commitment</div>
-                            <div class="text">At Fine Fold Menus, we combine over 20 years of manufacturing and printing
-                                expertise with a passion for premium hospitality branding. As the specialized
-                                hospitality division of Shree Ji Softech, we create bespoke menu covers, bill
-                                presenters, menu folders, and luxury branding solutions that reflect the identity of
-                                every restaurant, hotel, cafe, and resort.
-
-                                Every product is thoughtfully designed using premium materials, precision craftsmanship,
-                                and advanced manufacturing techniques to deliver exceptional quality and lasting
-                                durability. From concept and customization to production and finishing, we are committed
-                                to helping hospitality brands create unforgettable first impressions while carrying
-                                forward the trusted legacy, innovation, and customer-focused values established by Shree
-                                Ji Softech since 2008.</div>
-
-
-                            <!-- <div class="signature"><img src="images/resource/signature-1.png" alt="" title=""></div> -->
-                            <!-- <div class="author">Crafted for memorable service</div> -->
-                            <!-- <div class="video-box">
-                                <div class="image"><a href="https://www.youtube.com/watch?v=ZETY_l3GVQg"
-                                        class="lightbox-image"><img src="images/resource/about-image-1.jpg" alt=""></a>
-                                    <a href="https://www.youtube.com/watch?v=ZETY_l3GVQg"
-                                        class="lightbox-image play-btn"><span class="icon fal fa-play"><i
-                                                class="ripple"></i></span></a>
-                                </div>
-                            </div> -->
-
-                        </div>
-                    </div>
-
-                    <!--Block-->
-                    <div class="about-block image-block col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                        <div class="inner-box wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="300ms">
-                            <div class="image"><img src="images/resource/about-img.png" alt=""></div>
-                        </div>
-                    </div>
-
-                    <!--Block-->
                     <div class="about-block info-block col-xl-4 col-lg-4 col-md-12 col-sm-12">
                         <div class="inner-box about-feature-card wow fadeInUp" data-wow-duration="1500ms"
                             data-wow-delay="600ms">
@@ -671,92 +1228,48 @@
 
 
 
-        <!--Fluid Section-->
-        <section class="fluid-section">
-            <div class="outer-container">
-                <div class="row clearfix">
-                    <!--Col-->
-                    <div class="image-col col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                        <div class="inner wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="0ms">
-                            <div class="image-layer" style="background-image: url(images/background/image-5.jpg);">
-                            </div>
-                            <div class="image"><img src="images/background/image-5.jpg" alt=""></div>
-                        </div>
-                    </div>
-                    <!--Col-->
-
-
-                </div>
-            </div>
-        </section>
-
-        <!--Fluid Section-->
-
-
         <!--Services Section-->
-        <section class="services-section">
-            <!-- <div class="left-bg"><img src="images/background/bg-14.png" alt="" title=""></div>
-            <div class="right-bg"><img src="images/background/bg-15.png" alt="" title=""></div> -->
-            <div class="auto-container">
-                <div class="title-box centered">
-                    <div class="subtitle"><span>OUR EXPERTISE</span></div>
-                    <div class="pattern-image"><img src="images/icons/separator.svg" alt="" title=""></div>
-                    <h2>Crafting Excellence Through Design, Innovation & Precision</h2>
+        <section class="atelier" aria-labelledby="atelier-title">
+            <div class="auto-container atelier-grid">
+                <div class="atelier-display">
+                    <div class="bindery-label">OUR EXPERTISE</div>
+                    <h2 id="atelier-title">Crafting Excellence Through Design, Innovation &amp; Precision</h2>
+                    <div class="atelier-piece"><img src="images/about-center-image.png"
+                            alt="Fine Fold Menus presentation cover"></div>
                 </div>
-                <div class="row clearfix">
-                    <div class="s-col col-lg-4 col-md-6 col-sm-12">
-                        <div class="inner wow fadeInLeft" data-wow-duration="1500ms" data-wow-delay="0ms">
-                            <div class="s-block">
-                                <div class="inner">
-                                    <div class="icon-box"><img src="images/resource/Premium-Craftsmanship.png" alt=""
-                                            title=""></div>
-                                    <h4>Premium Craftsmanship</h4>
-                                    <div class="text">Every product is meticulously handcrafted using premium materials,
-                                        refined techniques, and exceptional attention to detail, ensuring a perfect
-                                        balance of elegance, durability, and lasting quality.</div>
-                                </div>
-                            </div>
-                            <div class="s-block alternate">
-                                <div class="inner">
-                                    <div class="icon-box"><img src="images/resource/Complete-Customization.png" alt=""
-                                            title=""></div>
-                                    <h4>Complete Customization</h4>
-                                    <div class="text">From materials, textures, and colors to logo embossing, foiling,
-                                        stitching, and finishing, every detail is customized to create menu presentation
-                                        solutions that truly represent your brand.</div>
-                                </div>
-                            </div>
+                <div class="atelier-cards">
+                    <article class="atelier-card" style="--step:0">
+                        <div class="atelier-icon"><img src="images/resource/Premium-Craftsmanship.png" alt="" title="">
                         </div>
-                    </div>
-                    <div class="s-col last col-lg-4 col-md-6 col-sm-12">
-                        <div class="inner wow fadeInRight" data-wow-duration="1500ms" data-wow-delay="0ms">
-                            <div class="s-block alternate">
-                                <div class="inner">
-                                    <div class="icon-box"><img src="images/resource/Precision-Manufacturing.png" alt=""
-                                            title=""></div>
-                                    <h4>Precision Manufacturing</h4>
-                                    <div class="text">Our advanced manufacturing process and rigorous quality control
-                                        ensure every menu cover and hospitality product meets the highest standards of
-                                        craftsmanship, consistency, and performance.</div>
-                                </div>
-                            </div>
-                            <div class="s-block">
-                                <div class="inner">
-                                    <div class="icon-box"><img src="images/resource/Trusted-Hospitality-Partner.png"
-                                            alt="" title=""></div>
-                                    <h4>Trusted Hospitality Partner</h4>
-                                    <div class="text">We proudly collaborate with restaurants, hotels, cafÃ©s, resorts,
-                                        bars, and luxury hospitality brands, delivering premium solutions that enhance
-                                        brand identity and create memorable first impressions.</div>
-                                </div>
-                            </div>
+                        <h3>Premium Craftsmanship</h3>
+                        <p>Every product is meticulously handcrafted using premium materials,
+                            refined techniques, and exceptional attention to detail, ensuring a perfect
+                            balance of elegance, durability, and lasting quality.</p>
+                    </article>
+                    <article class="atelier-card" style="--step:1">
+                        <div class="atelier-icon"><img src="images/resource/Complete-Customization.png" alt="" title="">
                         </div>
-                    </div>
-                    <div class="image-col col-lg-4 col-md-12 col-sm-12">
-                        <div class="inner wow fadeInUp" data-wow-duration="1500ms" data-wow-delay="0ms">
-                            <div class="image-box"><img src="images/about-center-image.png" alt="" title=""></div>
-                        </div>
-                    </div>
+                        <h3>Complete Customization</h3>
+                        <p>From materials, textures, and colors to logo embossing, foiling,
+                            stitching, and finishing, every detail is customized to create menu presentation
+                            solutions that truly represent your brand.</p>
+                    </article>
+                    <article class="atelier-card" style="--step:2">
+                        <div class="atelier-icon"><img src="images/resource/Precision-Manufacturing.png" alt=""
+                                title=""></div>
+                        <h3>Precision Manufacturing</h3>
+                        <p>Our advanced manufacturing process and rigorous quality control
+                            ensure every menu cover and hospitality product meets the highest standards of
+                            craftsmanship, consistency, and performance.</p>
+                    </article>
+                    <article class="atelier-card" style="--step:3">
+                        <div class="atelier-icon"><img src="images/resource/Trusted-Hospitality-Partner.png" alt=""
+                                title=""></div>
+                        <h3>Trusted Hospitality Partner</h3>
+                        <p>We proudly collaborate with restaurants, hotels, cafÃ©s, resorts,
+                            bars, and luxury hospitality brands, delivering premium solutions that enhance
+                            brand identity and create memorable first impressions.</p>
+                    </article>
                 </div>
             </div>
         </section>
@@ -1020,6 +1533,17 @@
     <script src="js/wow.js"></script>
     <script src="js/custom-script.js"></script>
     <script src="js/video-widget.js"></script>
+    <script>
+        if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            const reveal = new IntersectionObserver(entries => {
+                for (const entry of entries) if (entry.isIntersecting) {
+                    entry.target.classList.add("arrived");
+                    reveal.unobserve(entry.target);
+                }
+            }, { threshold: 0.12 });
+            document.querySelectorAll(".atelier-display, .atelier-card").forEach(el => reveal.observe(el));
+        }
+    </script>
 </body>
 
 </html>
