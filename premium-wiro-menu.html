@@ -27,7 +27,9 @@
     <link href="css/premium-wiro-menu.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
     <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
     <style>
         .header-small-logo {
@@ -39,6 +41,7 @@
             transform: translate(-50%, -50%);
             z-index: 1;
         }
+
         .header-small-logo img {
             display: block;
             width: 134px;
@@ -46,9 +49,13 @@
             height: auto;
             margin-left: 270px;
         }
+
         @media (max-width: 767px) {
-            .header-small-logo { display: none; }
+            .header-small-logo {
+                display: none;
+            }
         }
+
         .sticky-video-widget {
             position: fixed;
             bottom: 24px;
@@ -63,9 +70,24 @@
             background: #000;
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
-        .sticky-video-widget:hover { transform: scale(1.04); }
-        .sticky-video-widget.hidden { opacity: 0; pointer-events: none; transform: scale(0.8); }
-        .sticky-video-widget video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .sticky-video-widget:hover {
+            transform: scale(1.04);
+        }
+
+        .sticky-video-widget.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.8);
+        }
+
+        .sticky-video-widget video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
         .sticky-close-btn {
             position: absolute;
             top: 6px;
@@ -84,6 +106,7 @@
             cursor: pointer;
             z-index: 2;
         }
+
         .sticky-play-icon {
             position: absolute;
             bottom: 8px;
@@ -97,6 +120,7 @@
             justify-content: center;
             pointer-events: none;
         }
+
         .sticky-play-icon::after {
             content: "";
             border-style: solid;
@@ -104,6 +128,7 @@
             border-color: transparent transparent transparent #111;
             margin-left: 2px;
         }
+
         .video-popup-overlay {
             position: fixed;
             inset: 0;
@@ -116,7 +141,12 @@
             visibility: hidden;
             transition: opacity 0.35s ease;
         }
-        .video-popup-overlay.active { opacity: 1; visibility: visible; }
+
+        .video-popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
         .video-popup-box {
             position: relative;
             width: 80%;
@@ -131,8 +161,19 @@
             opacity: 0;
             transition: transform 0.35s ease, opacity 0.35s ease;
         }
-        .video-popup-overlay.active .video-popup-box { transform: scale(1); opacity: 1; }
-        .video-popup-box video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .video-popup-overlay.active .video-popup-box {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .video-popup-box video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
         .popup-close-btn {
             position: absolute;
             top: -40px;
@@ -146,13 +187,32 @@
             cursor: pointer;
             z-index: 2;
         }
+
         @media (max-width: 768px) {
-            .sticky-video-widget { width: 100px; bottom: 16px; right: 16px; }
+            .sticky-video-widget {
+                width: 100px;
+                bottom: 16px;
+                right: 16px;
+            }
         }
+
         @media (max-width: 480px) {
-            .sticky-video-widget { width: 90px; bottom: 12px; right: 12px; }
-            .video-popup-box { width: 78%; max-width: 260px; }
-            .popup-close-btn { top: -36px; width: 30px; height: 30px; }
+            .sticky-video-widget {
+                width: 90px;
+                bottom: 12px;
+                right: 12px;
+            }
+
+            .video-popup-box {
+                width: 78%;
+                max-width: 260px;
+            }
+
+            .popup-close-btn {
+                top: -36px;
+                width: 30px;
+                height: 30px;
+            }
         }
     </style>
 
@@ -336,17 +396,22 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="menu-block col-lg-3 col-md-6 col-sm-6">
-                                                                        <div class="image"><a href="Hotels-Resorts.html"><img
+                                                                        <div class="image"><a
+                                                                                href="Hotels-Resorts.html"><img
                                                                                     src="images/hotels-and-resorts.jpg"
                                                                                     alt="Hotels & Resorts"></a></div>
-                                                                        <div class="title"><a href="Hotels-Resorts.html">Hotels &
+                                                                        <div class="title"><a
+                                                                                href="Hotels-Resorts.html">Hotels &
                                                                                 Resorts</a></div>
                                                                     </div>
                                                                     <div class="menu-block col-lg-3 col-md-6 col-sm-6">
-                                                                        <div class="image"><a href="Food-Court-Menus.html"><img
+                                                                        <div class="image"><a
+                                                                                href="Food-Court-Menus.html"><img
                                                                                     src="images/food-court.jpg"
                                                                                     alt="Food Court"></a></div>
-                                                                        <div class="title"><a href="Food-Court-Menus.html">Food Court</a>
+                                                                        <div class="title"><a
+                                                                                href="Food-Court-Menus.html">Food
+                                                                                Court</a>
                                                                         </div>
                                                                     </div>
                                                                     <div class="menu-block col-lg-3 col-md-6 col-sm-6">
@@ -372,7 +437,8 @@
                                                 <li><a href="Waterproof-Menu-NTR.html"> Waterproof Menu (NTR)</a></li>
                                                 <li><a href="Acrylic-Menu.html"> Acrylic Menu</a></li>
                                                 <li><a href="Poolside-Menu.html">Pool Side Menu</a></li>
-                                                <li class="current"><a href="premium-wiro-menu.html">Premium Wiro Menu</a></li>
+                                                <li class="current"><a href="premium-wiro-menu.html">Premium Wiro
+                                                        Menu</a></li>
                                                 <li><a href="Changeable-Menu.html">Changeable Menu</a></li>
                                                 <li><a href="Bar-Drink-Menu.html">Bar & Drink Menu</a></li>
                                                 <li><a href="Food-Court-Menus.html">Food Court Menus</a></li>
@@ -622,7 +688,8 @@
                                     alt="Premium custom Wiro menu cover for restaurants and hospitality brands"
                                     loading="lazy" width="900" height="1100">
                             </figure>
-                            <span class="wm-punch-holes" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                            <span class="wm-punch-holes"
+                                aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
                         </div>
                         <div class="wm-openbook__binding" aria-hidden="true">
                             <span class="wm-ob-ring"></span><span class="wm-ob-ring"></span><span
@@ -632,7 +699,8 @@
                                 class="wm-ob-ring"></span><span class="wm-ob-ring"></span>
                         </div>
                         <div class="wm-openbook__page wm-openbook__page--right">
-                            <span class="wm-punch-holes wm-punch-holes--right" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+                            <span class="wm-punch-holes wm-punch-holes--right"
+                                aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
                             <div class="wm-openbook__content">
                                 <p class="wm-eyebrow">About Premium Wiro Menus</p>
                                 <h2 class="wm-title">Flexible Menu Presentation with a Premium Finish</h2>
@@ -664,7 +732,8 @@
                 <div class="wm-container">
                     <div class="wm-head wm-text-center">
                         <p class="wm-eyebrow wm-reveal">Why Choose Premium Wiro Menus?</p>
-                        <h2 class="wm-title wm-reveal" data-delay="100">Practical Design. Professional Presentation.</h2>
+                        <h2 class="wm-title wm-reveal" data-delay="100">Practical Design. Professional Presentation.
+                        </h2>
                         <div class="wm-rule wm-rule--center wm-reveal" data-delay="150"></div>
                         <p class="wm-lede wm-reveal" data-delay="200">Wiro menus are ideal for hospitality businesses
                             that require easy handling, flexible page management, and a professional appearance
@@ -831,9 +900,8 @@
 
                                 <article class="wm-slide" role="group" aria-label="5 of 5">
                                     <div class="wm-slide__media">
-                                        <img src="images/craft.jpg"
-                                            alt="Fabric and specialty finish Wiro menu cover" loading="lazy"
-                                            width="900" height="700">
+                                        <img src="images/craft.jpg" alt="Fabric and specialty finish Wiro menu cover"
+                                            loading="lazy" width="900" height="700">
                                     </div>
                                     <div class="wm-slide__panel">
                                         <span class="wm-slide__num">05</span>
@@ -849,14 +917,16 @@
                         <div class="wm-carousel__controls">
                             <button class="wm-carousel__nav" id="wmPrev" aria-label="Previous material">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path d="M15 5l-7 7 7 7" /></svg>
+                                    <path d="M15 5l-7 7 7 7" />
+                                </svg>
                             </button>
                             <div class="wm-carousel__progress" aria-hidden="true">
                                 <span class="wm-carousel__bar" id="wmCarouselBar"></span>
                             </div>
                             <button class="wm-carousel__nav" id="wmNext" aria-label="Next material">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                    <path d="M9 5l7 7-7 7" /></svg>
+                                    <path d="M9 5l7 7-7 7" />
+                                </svg>
                             </button>
                         </div>
                     </div>
@@ -1090,7 +1160,8 @@
                         <li><span class="wm-ribbon__num">10</span><span class="wm-ribbon__name">Rooftop
                                 Restaurants</span></li>
                         <li><span class="wm-ribbon__num">11</span><span class="wm-ribbon__name">Food Courts</span></li>
-                        <li><span class="wm-ribbon__num">12</span><span class="wm-ribbon__name">Banquet Venues</span></li>
+                        <li><span class="wm-ribbon__num">12</span><span class="wm-ribbon__name">Banquet Venues</span>
+                        </li>
                         <li><span class="wm-ribbon__num">13</span><span class="wm-ribbon__name">Clubs</span></li>
                         <li><span class="wm-ribbon__num">14</span><span class="wm-ribbon__name">Hospitality
                                 Chains</span></li>
@@ -1124,7 +1195,8 @@
 
                         <div class="wm-blueprint__art" aria-hidden="true">
                             <div class="wm-bp-frame">
-                                <span class="wm-bp-measure wm-bp-measure--top"><i></i><label>A4 / A5 / Custom</label></span>
+                                <span class="wm-bp-measure wm-bp-measure--top"><i></i><label>A4 / A5 /
+                                        Custom</label></span>
                                 <span class="wm-bp-measure wm-bp-measure--side"><i></i><label>Portrait /
                                         Landscape</label></span>
                                 <div class="wm-bp-book">
@@ -1343,7 +1415,7 @@
                                 <ul class="links">
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="about.html">About Us</a></li>
-                                    <li><a href="Restaurant.html">Who We Serve</a></li>
+                                    <li><a href="Restaurant.html">Industries We Serve</a></li>
                                     <li><a href="Fully-Customized-Menu.html">Our Services</a></li>
                                     <li><a href="Speak-With-Us.html">Get In Touch</a></li>
                                 </ul>
