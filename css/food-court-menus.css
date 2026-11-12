@@ -82,8 +82,12 @@
     margin: 0;
     color: var(--fc-muted);
     font-size: 15px;
+    margin: 15px 0px 15px;
     line-height: 1.85;
+    
 }
+
+
 
 .food-court-menu ul,
 .food-court-menu ol,

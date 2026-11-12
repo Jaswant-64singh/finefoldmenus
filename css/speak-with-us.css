@@ -1000,9 +1000,9 @@ form {
   border-radius: 999px;
   border: 0;
   padding: 1rem 2rem;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.32em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
   color: #131211;
   background: var(--gradient-gold);
@@ -1041,8 +1041,8 @@ form {
 
 .form-note {
   text-align: center;
-  font-size: 0.68rem;
-  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  letter-spacing: 0.10em;
   color: var(--muted-foreground);
 }
 
