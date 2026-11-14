@@ -473,8 +473,28 @@
         }
 
         .inner-banner {
+            position: relative;
+            overflow: hidden;
             padding: clamp(190px, 17vw, 255px) 0 clamp(64px, 6vw, 96px);
             background: #15110c;
+        }
+
+        .inner-banner .video-layer {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .inner-banner .video-layer video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: .65;
+            display: block;
         }
 
         .inner-banner .image-layer {
@@ -1121,7 +1141,11 @@
         </section>
         <!--End Banner Section -->
         <section class="inner-banner">
-            <div class="image-layer" style="background-image: url(images/background/about-us.png);"></div>
+            <div class="video-layer">
+                <video autoplay muted loop playsinline preload="auto">
+                    <source src="video/about_video.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="auto-container">
                 <div class="inner">
                     <div class="subtitle"><span>our story</span></div>
