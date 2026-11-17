@@ -224,6 +224,39 @@
                 height: 30px;
             }
         }
+
+        /* Video banner background for inner-banner */
+        .inner-banner {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .inner-banner .video-layer {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .inner-banner .video-layer video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0.55;
+            display: block;
+        }
+
+        .inner-banner::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: radial-gradient(ellipse at center, rgba(16, 12, 8, 0.65), rgba(16, 12, 8, 0.85) 90%);
+            pointer-events: none;
+        }
     </style>
 </head>
 
@@ -365,10 +398,12 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="menu-block col-lg-3 col-md-6 col-sm-6">
-                                                                        <div class="image"><a href="Bar-Drink-Menu.html"><img
+                                                                        <div class="image"><a
+                                                                                href="Bar-Drink-Menu.html"><img
                                                                                     src="images/bars-and-lounges.jpg"
                                                                                     alt="Bars & Lounges"></a></div>
-                                                                        <div class="title"><a href="Bar-Drink-Menu.html">Bars &
+                                                                        <div class="title"><a
+                                                                                href="Bar-Drink-Menu.html">Bars &
                                                                                 Lounges</a></div>
                                                                     </div>
                                                                 </div>
@@ -541,147 +576,12 @@
                 </div>
             </div>
         </section>
-        <!--End Hidden Bar -->
-
-        <!-- Banner Section -->
-        <!-- <section class="banner-section">
-        
-        <div class="banner-container">
-            <div class="banner-slider">
-                <div class="swiper-wrapper">
-                   
-                    <div class="swiper-slide slide-item">
-                        <div class="image-layer" style="background-image: url(images/main-slider/slider-1-1.jpg);"></div>
-                        <div class="auto-container">
-                          <div class="content-box">
-                                <div class="content">
-                                    <div class="clearfix">
-                                        <div class="inner">
-                                            <div class="subtitle"><span>India's Menu Design & Print House</span></div>
-                                            <div class="pattern-image"><img src="images/icons/separator.svg" alt="" title=""></div>
-                                            <h1><span>Menus that make the <span class="h-color">first impression</span> the lasting one.</span></h1>
-                                            <div class="text">Fine Fold Menus designs and manufactures premium menu cards, leather folders, wooden menus and tabletop displays for restaurants, hotels and hospitality brands  built with materials that hold up, and craftsmanship that shows.</div>
-                                            <div class="links-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-                                                <div class="link">
-                                                    <a href="#" class="theme-btn btn-style-two clearfix">
-                                                        <span class="btn-wrap">
-                                                            <span class="text-one">Request a Custom Quote</span>
-                                                            <span class="text-two">Request a Custom Quote</span>
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  
-                    <div class="swiper-slide slide-item">
-                        <div class="image-layer" style="background-image: url(images/main-slider/slider-2-2.jpg);"></div>
-                        <div class="auto-container">
-                          <div class="content-box">
-                                <div class="content">
-                                    <div class="clearfix">
-                                        <div class="inner">
-                                            <div class="subtitle"><span>amazing & delicious</span></div>
-                                            <div class="pattern-image"><img src="images/icons/separator.svg" alt="" title=""></div>
-                                            <h1><span>Where every flavor <br>tells a story</span></h1>
-                                            <div class="text">Come with family & feel the joy of mouthwatering food</div>
-                                            <div class="links-box clearfix">
-                                                <div class="link">
-                                                    <a href="#" class="theme-btn btn-style-two clearfix">
-                                                        <span class="btn-wrap">
-                                                            <span class="text-one">view our menu</span>
-                                                            <span class="text-two">view our menu</span>
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                   
-                    <div class="swiper-slide slide-item">
-                        <div class="image-layer" style="background-image: url(images/main-slider/slider-3-3.jpg);"></div>
-                        <div class="auto-container">
-                          <div class="content-box">
-                                <div class="content">
-                                    <div class="clearfix">
-                                        <div class="inner">
-                                            <div class="subtitle"><span>Tradational & Hygine</span></div>
-                                            <div class="pattern-image"><img src="images/icons/separator.svg" alt="" title=""></div>
-                                            <h1><span>For the love of <br>delicious food</span></h1>
-                                            <div class="text">Come with family & feel the joy of mouthwatering food</div>
-                                            <div class="links-box clearfix">
-                                                <div class="link">
-                                                    <a href="#" class="theme-btn btn-style-two clearfix">
-                                                        <span class="btn-wrap">
-                                                            <span class="text-one">view our menu</span>
-                                                            <span class="text-two">view our menu</span>
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="swiper-slide slide-item">
-                        <div class="image-layer" style="background-image: url(images/main-slider/slider-4-4.jpg);"></div>
-                        <div class="auto-container">
-                          <div class="content-box">
-                                <div class="content">
-                                    <div class="clearfix">
-                                        <div class="inner">
-                                            <div class="subtitle"><span>Tradational & Hygine</span></div>
-                                            <div class="pattern-image"><img src="images/icons/separator.svg" alt="" title=""></div>
-                                            <h1><span>For the love of <br>delicious food</span></h1>
-                                            <div class="text">Come with family & feel the joy of mouthwatering food</div>
-                                            <div class="links-box clearfix">
-                                                <div class="link">
-                                                    <a href="#" class="theme-btn btn-style-two clearfix">
-                                                        <span class="btn-wrap">
-                                                            <span class="text-one">view our menu</span>
-                                                            <span class="text-two">view our menu</span>
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-button-prev"><span class="fal fa-angle-left"></span></div>
-                <div class="swiper-button-next"><span class="fal fa-angle-right"></span></div>
-            </div>
-        </div>
-
-        <div class="book-btn"><a href="reservation-opentable.html" class="theme-btn"><span class="icon"><img src="images/resource/book-icon-1.png" alt="" title=""></span><span class="txt">book a table</span></a></div>
-    </section> -->
-
-
-
-
-        <!-- Inner Banner Section -->
-
-
         <section class="inner-banner">
-            <div class="image-layer" style="background-image: url(images/background/about-us.png);"></div>
+            <div class="video-layer">
+                <video autoplay muted loop playsinline preload="auto">
+                    <source src="video/restaurant-hero-video.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="auto-container">
                 <div class="inner">
                     <div class="subtitle"><span>PREMIUM RESTAURANT MENU COVERS</span></div>
