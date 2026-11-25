@@ -250,6 +250,40 @@
             min-height: 100vh;
             overflow: hidden;
         }
+
+        @media (max-width: 767px) {
+            .main-header,
+            .main-header .header-top,
+            .main-header .header-upper {
+                background: #000 !important;
+            }
+
+            .banner-section {
+                padding-top: 132px;
+                background: #000;
+            }
+
+            .banner-section .banner-video-container {
+                height: auto;
+                min-height: 0;
+                aspect-ratio: 17 / 10;
+            }
+
+            .banner-section .video-layer {
+                display: grid;
+                place-items: center;
+                background: #120e09;
+            }
+
+            .banner-section .video-layer video {
+                object-fit: cover;
+                object-position: center;
+            }
+
+            .banner-section > .book-btn {
+                display: none;
+            }
+        }
     </style>
     <script defer src="js/menu-concierge.js"></script>
 </head>
