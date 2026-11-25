@@ -223,6 +223,33 @@
                 height: 30px;
             }
         }
+
+        /* Banner Video Layer */
+        .banner-section .video-layer {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .banner-section .video-layer video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .banner-section .banner-video-container {
+            position: relative;
+            width: 100%;
+            height: 880px;
+            min-height: 100vh;
+            overflow: hidden;
+        }
     </style>
     <script defer src="js/menu-concierge.js"></script>
 </head>
@@ -682,48 +709,12 @@
         <section class="banner-section">
 
             <div class="banner-container">
-                <div class="banner-slider">
-                    <div class="swiper-wrapper">
-                        <!--Slide Item-->
-                        <div class="swiper-slide slide-item">
-                            <div class="image-layer" style="background-image: url(images/main-slider/slider-1.jpg);">
-                            </div>
-                            <div class="auto-container">
-                                <div class="content-box">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide slide-item">
-                            <div class="image-layer" style="background-image: url(images/main-slider/slider-2.jpg);">
-                            </div>
-                            <div class="auto-container">
-                                <div class="content-box">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide slide-item">
-                            <div class="image-layer" style="background-image: url(images/main-slider/slider-3.jpg);">
-                            </div>
-                            <div class="auto-container">
-                                <div class="content-box">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide slide-item">
-                            <div class="image-layer" style="background-image: url(images/main-slider/slider-4.jpg);">
-                            </div>
-                            <div class="auto-container">
-                                <div class="content-box">
-
-                                </div>
-                            </div>
-                        </div>
+                <div class="banner-video-container">
+                    <div class="video-layer">
+                        <video autoplay muted loop playsinline preload="auto">
+                            <source src="video/Hero-fine-foldmenu.mp4" type="video/mp4">
+                        </video>
                     </div>
-                    <div class="swiper-button-prev"><span class="fal fa-angle-left"></span></div>
-                    <div class="swiper-button-next"><span class="fal fa-angle-right"></span></div>
                 </div>
             </div>
 
