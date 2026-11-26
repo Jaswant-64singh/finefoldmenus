@@ -15,8 +15,8 @@
   --pm-glow: 0 24px 60px -24px rgba(216, 179, 106, 0.45);
   --pm-glow-soft: 0 0 40px rgba(216,179,106,0.15);
   --pm-transition: 420ms cubic-bezier(0.22, 1, 0.36, 1);
-  --pm-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
-  --pm-sans: "Inter", "Poppins", system-ui, sans-serif;
+  --pm-serif: var(--font-family-Forum);
+  --pm-sans: var(--font-family-DMsans);
   --pm-radius: 22px;
   --pm-radius-sm: 14px;
 }

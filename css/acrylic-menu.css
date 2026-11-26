@@ -13,8 +13,8 @@
   --am-gradient-gold: linear-gradient(120deg, #c39c56, #f0dcae, #cfa964);
   --am-glow: 0 24px 60px -24px rgba(216, 179, 106, 0.45);
   --am-transition: 420ms cubic-bezier(0.22, 1, 0.36, 1);
-  --am-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
-  --am-sans: "Inter", "Poppins", system-ui, sans-serif;
+  --am-serif: var(--font-family-Forum);
+  --am-sans: var(--font-family-DMsans);
   --am-radius: 22px;
 }
 

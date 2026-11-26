@@ -17,8 +17,8 @@
   --wm-gradient-gold: linear-gradient(120deg, #c39c56, #f0dcae, #cfa964);
   --wm-glow: 0 24px 60px -24px rgba(216, 179, 106, 0.45);
   --wm-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --wm-serif: "Cormorant Garamond", "Playfair Display", Georgia, serif;
-  --wm-sans: "Inter", "Poppins", system-ui, sans-serif;
+  --wm-serif: var(--font-family-Forum);
+  --wm-sans: var(--font-family-DMsans);
 }
 
 .wiro-menu-content,

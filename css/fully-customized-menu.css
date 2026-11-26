@@ -12,8 +12,8 @@
   --gradient-gold: linear-gradient(120deg, #c39c56, #f0dcae, #cfa964);
   --shadow-glow: 0 24px 60px -24px rgba(216, 179, 106, 0.45);
   --transition-lux: 420ms cubic-bezier(0.22, 1, 0.36, 1);
-  --serif: "Forum", Georgia, serif;
-  --sans: "DM Sans", system-ui, sans-serif;
+  --serif: var(--font-family-Forum);
+  --sans: var(--font-family-DMsans);
   --radius: 22px;
 }
 
@@ -347,7 +347,7 @@
 
 .fully-customized-content .hero h1 {
   margin-top: 10px;
-  font-size: clamp(2.6rem, 6vw, 4.4rem);
+  font-size: clamp(2.6rem, 6vw, 3.4rem);
   line-height: 1.14;
   letter-spacing: -0.01em;
 }

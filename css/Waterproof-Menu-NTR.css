@@ -12,8 +12,8 @@
     --gold-line: rgba(216, 179, 106, .22);
     --ink: #F3EFE9;
     --muted: rgba(243, 239, 233, .66);
-    --serif: "Forum", cursive;
-    --sans: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+    --serif: var(--font-family-Forum);
+    --sans: var(--font-family-DMsans);
     --r: 22px;
     --ease: cubic-bezier(.22, .61, .36, 1);
 
@@ -705,7 +705,7 @@ body {
     flex-direction: column;
     gap: 4px;
     color: #e4cea5;
-    font-family: Forum;
+    font-family: var(--font-family-Forum);
     font-size: 19px;
 }
 

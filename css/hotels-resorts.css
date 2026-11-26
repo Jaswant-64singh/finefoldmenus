@@ -2,7 +2,7 @@
 .hotel-resort-page {
     background: #0c0b0b;
     color: #f6efe6;
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: var(--font-family-DMsans);
     -webkit-font-smoothing: antialiased;
 }
 
@@ -49,7 +49,7 @@
 .hotel-resort-menu h2,
 .hotel-resort-menu h3 {
     color: var(--hr-cream);
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family: var(--font-family-Forum);
     font-weight: 500;
     line-height: 1.1;
     margin: 0;
@@ -302,7 +302,7 @@
 
 .hr-hero-stamp strong {
     color: var(--hr-cream);
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family: var(--font-family-Forum);
     font-size: 21px;
     font-weight: 500;
 }
@@ -366,7 +366,7 @@
 .hr-number {
     display: block;
     color: var(--hr-gold);
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family: var(--font-family-Forum);
     font-size: 38px;
     line-height: 1;
     margin-bottom: 30px;
@@ -493,7 +493,7 @@
 
 .hr-custom-item>span {
     color: var(--hr-gold);
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family: var(--font-family-Forum);
     font-size: 29px;
 }
 
@@ -537,7 +537,7 @@
 
 .hr-menu-app span {
     color: var(--hr-gold);
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family: var(--font-family-Forum);
     font-size: 24px;
 }
 

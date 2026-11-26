@@ -13,8 +13,8 @@
     --ff-cream: #f3ece1;
     --ff-muted: rgba(243, 236, 225, 0.62);
     --ff-radius: 22px;
-    --ff-serif: "Forum", Georgia, serif;
-    --ff-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+    --ff-serif: var(--font-family-Forum);
+    --ff-sans: var(--font-family-DMsans);
     --ff-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 

@@ -8,7 +8,7 @@
     --bm-line: rgba(216, 179, 106, .25);
     background: var(--bm-bg);
     color: var(--bm-cream);
-    font-family: "Inter", Arial, sans-serif;
+    font-family: var(--font-family-DMsans);
     font-size: 15px;
     line-height: 1.85;
 }
@@ -24,7 +24,7 @@
 .bar-drink-menu h3 {
     margin: 0;
     color: var(--bm-cream);
-    font-family: "Cormorant Garamond", Georgia, serif;
+    font-family: var(--font-family-Forum);
     font-weight: 500;
     letter-spacing: -.02em;
     line-height: 1.12;

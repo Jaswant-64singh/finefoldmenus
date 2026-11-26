@@ -30,8 +30,8 @@
     --cm-slow: 600ms;
 
     /* ---- Type ---- */
-    --cm-serif: "Cormorant Garamond", "Playfair Display", "DM Serif Display", Georgia, serif;
-    --cm-sans: "Inter", "Poppins", -apple-system, "Segoe UI", sans-serif;
+    --cm-serif: var(--font-family-Forum);
+    --cm-sans: var(--font-family-DMsans);
 
     /* ---- Metrics ---- */
     --cm-radius: 22px;

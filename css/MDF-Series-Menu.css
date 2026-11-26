@@ -13,8 +13,8 @@
     --mdf-gold-faint: rgba(216, 179, 106, .14);
     --mdf-text: #EDE7DD;
     --mdf-muted: #A9A199;
-    --mdf-serif: "Cormorant Garamond", Georgia, serif;
-    --mdf-sans: "Jost", system-ui, sans-serif;
+    --mdf-serif: var(--font-family-Forum);
+    --mdf-sans: var(--font-family-DMsans);
     --mdf-r: 22px;
     --mdf-pad: clamp(44px, 5.5vw, 84px);
 }
